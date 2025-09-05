@@ -114,7 +114,72 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
       MMXCMRamData(0x804A2128, bit_position=0),
       MMXCMRamData(0x804A2128, bit_position=1)
     ]
+  )
+}
+
+USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
+  # This is the list of Useful items, like armors and keys.
+  "Treasure Radar": MMXCMItemData(
+    type="Major Item",
+    code=16,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=1)]
   ),
+  "Lagrano Key": MMXCMItemData(
+    type="Major Item",
+    code=17,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=2)]
+  ),
+  "Tianna Key": MMXCMItemData(
+    type="Major Item",
+    code=18,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(Ox804A2187, bit_position=3)]
+  ),
+  "Gimialla Key": MMXCMItemData(
+    type="Major Item",
+    code=19,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=4)]
+  ),
+  "Melda Key": MMXCMItemData(
+    type="Major Item",
+    code=20,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=5)]
+  ),
+  "Central Key": MMXCMItemData(
+    type="Major Item",
+    code=21,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=6)]
+  ),
+  "Ultimate Armor": MMXCMItemData(
+    type="Major Item",
+    code=22,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2180, bit_position=6)]
+  ),
+  "Absolute Armor": MMXCMItemData(
+    type="Major Item",
+    code=23,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2180), bit_position=7)]
+  ),
+}
+
+#Add any other tables here, Filler, Trap, etc.
+COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
+FILLER_TABLE: dict[str, MMXCMItemData] = {}
+
+#This is where all of the item tables are listed into one Dictionary.
+ALL_ITEMS_TABLE = {
+  **PROGRESSION_ITEM_TABLE,
+  **USEFUL_ITEM_TABLE,
+  **COLLECTIBLE_TABLE,
+  **FILLER_TABLE,
+}
   
       
     
