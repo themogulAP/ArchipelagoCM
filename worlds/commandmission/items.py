@@ -14,7 +14,7 @@ class MMXCMItemData(NamedTuple):
   update_ram_addr: Optional[list[MMXCMRamData]] = None 
 
 # This is the list for every single item we are currently randomzing in AP.
-ITEM_TABLE: dict[str, MMXCMItemData] = {
+PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
   # Follow this example for every additional item. 
   "Aile ID": MMXCMItemData(
     type="Key Item",
