@@ -135,7 +135,7 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Major Item",
     code=18,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(Ox804A2187, bit_position=3)]
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=3)]
   ),
   "Gimialla Key": MMXCMItemData(
     type="Major Item",
@@ -165,7 +165,7 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Major Item",
     code=23,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2180), bit_position=7)]
+    update_ram_addr=[MMXCMRamData(0x804A2180, bit_position=7)]
   ),
 }
 
