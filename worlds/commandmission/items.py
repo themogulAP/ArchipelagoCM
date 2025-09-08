@@ -168,11 +168,223 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2180, bit_position=7)]
   ),
+  "Build LE": MMXCMItemData(
+    type="Consumable",
+    code=24,
+    classification=IC.useful,
+    item_id=15,
+    update_ram_addr=None
+  ),
+  "Build Power": MMXCMItemData(
+    type="Consumable",
+    code=25,
+    classification=IC.useful,
+    item_id=16,
+    update_ram_addr=None
+  ),
+  "Build Armor": MMXCMItemData(
+    type="Consumable",
+    code=26,
+    classification=IC.useful,
+    item_id=17,
+    update_ram_addr=None
+  ),
+  "Build Shield": MMXCMItemData(
+    type="Consumable",
+    code=27,
+    classification=IC.useful,
+    item_id=18,
+    update_ram_addr=None
+  ),
+  "Build Speed": MMXCMItemData(
+    type="Consumable",
+    code=28,
+    classification=IC.useful,
+    item_id=19,
+    update_ram_addr=None
+  ),
+  "Build WE": MMXCMItemData(
+    type="Consumable",
+    code=29,
+    classification=IC.useful,
+    item_id=28,
+    update_ram_addr=None
+  ),
+  "Build Hyper": MMXCMItemData(
+    type="Consumable",
+    code=30,
+    classification=IC.useful,
+    item_id=30,
+    update_ram_addr=None
 }
 
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
-FILLER_TABLE: dict[str, MMXCMItemData] = {}
+
+#Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
+FILLER_TABLE: dict[str, MMXCMItemData] = {
+  "Vaccine Program": MMXCMItemData(
+    type="Consumable",
+    code=31,
+    classification=IC.filler,
+    item_id=1,
+    update_ram_addr=None
+  ),
+  "Anti-Lock": MMXCMItemData(
+    type="Consumable",
+    code=32,
+    classification=IC.filler,
+    item_id=2,
+    update_ram_addr=None
+  ),
+  "Warm-up": MMXCMItemData(
+    type="Consumable",
+    code=33,
+    classification=IC.filler,
+    item_id=3,
+    update_ram_addr=None
+  ),
+  "Cooler": MMXCMItemData(
+    type="Consumable",
+    code=34,
+    classification=IC.filler,
+    item_id=4,
+    update_ram_addr=None
+  ),
+  "Clear Vision": MMXCMItemData(
+    type="Consumable",
+    code=35,
+    classification=IC.filler,
+    item_id=5,
+    update_ram_addr=None
+  ),
+  "Cure One": MMXCMItemData(
+    type="Consumable",
+    code=36,
+    classification=IC.filler,
+    item_id=6,
+    update_ram_addr=None
+  ),
+  "Cure All": MMXCMItemData(
+    type="Consumable",
+    code=37,
+    classification=IC.filler,
+    item_id=7,
+    update_ram_addr=None
+  ),
+  "Reboot": MMXCMItemData(
+    type="Consumable",
+    code=38,
+    classification=IC.filler,
+    item_id=8,
+    update_ram_addr=None
+  ),
+  "Backup": MMXCMItemData(
+    type="Consumable",
+    code=39,
+    classification=IC.filler,
+    item_id=9,
+    update_ram_addr=None
+  ),
+  "Boost Power": MMXCMItemData(
+    type="Consumable",
+    code=40,
+    classification=IC.filler,
+    item_id=10,
+    update_ram_addr=None
+  ),
+  "Boost Armor": MMXCMItemData(
+    type="Consumable",
+    code=41,
+    classification=IC.filler,
+    item_id=11,
+    update_ram_addr=None
+  ),
+  "Boost Shield": MMXCMItemData(
+    type="Consumable",
+    code=42,
+    classification=IC.filler,
+    item_id=12,
+    update_ram_addr=None
+  ),
+  "Boost Speed": MMXCMItemData(
+    type="Consumable",
+    code=43,
+    classification=IC.filler,
+    item_id=13,
+    update_ram_addr=None
+  ),
+  "Unlock Limiter": MMXCMItemData(
+    type="Consumable",
+    code=44,
+    classification=IC.filler,
+    item_id=14,
+    update_ram_addr=None
+  ),
+  "Mega Fire": MMXCMItemData(
+    type="Consumable",
+    code=45,
+    classification=IC.filler,
+    item_id=20,
+    update_ram_addr=None
+  ),
+  "Ultra Fire": MMXCMItemData(
+    type="Consumable",
+    code=46,
+    classification=IC.filler,
+    item_id=21,
+    update_ram_addr=None
+  ),
+  "Mega Blizzard": MMXCMItemData(
+    type="Consumable",
+    code=47,
+    classification=IC.filler,
+    item_id=22,
+    update_ram_addr=None
+  ),
+  "Ultra Blizzard": MMXCMItemData(
+    type="Consumable",
+    code=48,
+    classification=IC.filler,
+    item_id=23,
+    update_ram_addr=None
+  ),
+  "Mega Thunder": MMXCMItemData(
+    type="Consumable",
+    code=49,
+    classification=IC.filler,
+    item_id=24,
+    update_ram_addr=None
+  ),
+  "Ultra Thunder": MMXCMItemData(
+    type="Consumable",
+    code=50,
+    classification=IC.filler,
+    item_id=25,
+    update_ram_addr=None
+  ),
+  "Liquid Suffocation": MMXCMItemData(
+    type="Consumable",
+    code=51,
+    classification=IC.filler,
+    item_id=26,
+    update_ram_addr=None
+  ),
+  "Chaff": MMXCMItemData(
+    type="Consumable",
+    code=52,
+    classification=IC.filler,
+    item_id=27,
+    update_ram_addr=None
+  ),
+  "Gain Hyper": MMXCMItemData(
+    type="Consumable",
+    code=53,
+    classification=IC.filler,
+    item_id=31,
+    update_ram_addr=None
+  
+}
 
 #This is where all of the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
