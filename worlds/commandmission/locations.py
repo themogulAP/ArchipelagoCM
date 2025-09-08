@@ -849,6 +849,13 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A215D, bit_position=2)
   ),
 }
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in TIANNA_CAMP_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        TIANNA_CAMP_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Tianna Camp Access Code", 1)
+        )
+
 GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
 ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
 GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {}
