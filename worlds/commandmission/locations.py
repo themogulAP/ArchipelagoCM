@@ -824,14 +824,14 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Tianna Camp",
     ram_addr=MMXCMRamData(0x804A215E, bit_position=6)
   ),
-  "Security Panel Area MD 13": MMXCMLocationData(
-    name="Security Panel Area 13",
+  "Security Panel Area MD 14": MMXCMLocationData(
+    name="Security Panel Area 14",
     code=125,
     parent_region="Tianna Camp",
     ram_addr=MMXCMRamData(0x804A215E, bit_position=7)
   ),
-  "Security Panel Area MD 14": MMXCMLocationData(
-    name="Security Panel Area 14",
+  "Security Panel Area MD 15": MMXCMLocationData(
+    name="Security Panel Area 15",
     code=126,
     parent_region="Tianna Camp",
     ram_addr=MMXCMRamData(0x804A215F, bit_position=2)
