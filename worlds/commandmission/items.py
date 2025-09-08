@@ -218,8 +218,6 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     update_ram_addr=None
 }
 
-#Add any other tables here, Filler, Trap, etc.
-WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
 SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 
@@ -389,16 +387,373 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
 }
 
 #Add any other tables here, Filler, Trap, etc.
+WEAPONS_TABLE: dict[str, MMXCMItemData] = {
+  # X's Non-progressive weapons:
+  "Brave Buster": MMXCMItemData(
+    type="Weapon",
+    code=54,
+    classification=IC.useful,
+    item_id=48,
+    update_ram_addr=None
+  ),
+  "Turbo Buster": MMXCMItemData(
+    type="Weapon",
+    code=55,
+    classification=IC.useful,
+    item_id=49,
+    update_ram_addr=None
+  ),
+  # Zero's Non-Progressive Weapons:
+  "Red Lotus Saber": MMXCMItemData(
+    type="Weapon",
+    code=56,
+    classification=IC.useful,
+    item_id=67,
+    update_ram_addr=None
+  ),
+  # Spider's Non-Progressive Weapons:
+  "Joker": MMXCMItemData(
+    type="Weapon",
+    code=57,
+    classification=IC.useful,
+    item_id=91,
+    update_ram_addr=None
+  ),
+  # Massimo's Non-Progressive Weapons:
+  "Interceptor": MMXCMItemData(
+    type="Weapon",
+    code=58,
+    classification=IC.useful,
+    item_id=110,
+    update_ram_addr=None
+  ),
+  "Jet Guillotine": MMXCMItemData(
+    type="Weapon",
+    code=59,
+    classification=IC.useful,
+    item_id=111,
+    update_ram_addr=None
+  ),
+  "Beast Lancer": MMXCMItemData(
+    type="Weapon",
+    code=60,
+    classification=IC.useful,
+    item_id=112,
+    update_ram_addr=None
+  ),
+  # Marino's Non-Progressive Weapons:
+  "Vengeful Needles": MMXCMItemData(
+    type="Weapon",
+    code=61,
+    classification=IC.useful,
+    item_id=145,
+    update_ram_addr=None
+  ),
+  # Cinnamon's Non-Progressive Weapons:
+  "Injector": MMXCMItemData(
+    type="Weapon",
+    code=62,
+    classification=IC.useful,
+    item_id=151,
+    update_ram_addr=None
+  ),
+  "Drill Arm": MMXCMItemData(
+    type="Weapon",
+    code=63,
+    classification=IC.useful,
+    item_id=152,
+    update_ram_addr=None
+  ),
+  "Melting Arm": MMXCMItemData(
+    type="Weapon",
+    code=64,
+    classification=IC.useful,
+    item_id=153,
+    update_ram_addr=None
+  ),
+  "Head Hammer": MMXCMItemData(
+    type="Weapon",
+    code=65,
+    classification=IC.useful,
+    item_id=155,
+    update_ram_addr=None
+  ),
+  "O Effecter": MMXCMItemData(
+    type="Weapon",
+    code=66,
+    classification=IC.useful,
+    item_id=159,
+    update_ram_addr=None
+  ),
+  "Kitty Gloves": MMXCMItemData(
+    type="Weapon",
+    code=67,
+    classification=IC.useful,
+    item_id=160,
+    update_ram_addr=None
+  ),
+  # Axl's Non-Progressive Weapons:
+  "Insect Killer": MMXCMItemData(
+    type="Weapon",
+    code=68,
+    classification=IC.useful,
+    item_id=177,
+    update_ram_addr=None
+  ),
+  "Noise Cancellor": MMXCMItemData(
+    type="Weapon",
+    code=69,
+    classification=IC.useful,
+    item_id=179,
+    update_ram_addr=None
+  ),
+  "Beast Killer": MMXCMItemData(
+    type="Weapon",
+    code=70,
+    classification=IC.useful,
+    item_id=181,
+    update_ram_addr=None
+  ),
+  "Preon Killer": MMXCMItemData(
+    type="Weapon",
+    code=71,
+    classification=IC.useful,
+    item_id=183,
+    update_ram_addr=None
+  ),
+  "Manhunter": MMXCMItemData(
+    type="Weapon",
+    code=72,
+    classification=IC.useful,
+    item_id=185,
+    update_ram_addr=None
+  ),
+  "Mettaur Crash": MMXCMItemData(
+    type="Weapon",
+    code=73,
+    classification=IC.useful,
+    item_id=186,
+    update_ram_addr=None
+  ),
+  "Ancient Gun": MMXCMItemData(
+    type="Weapon",
+    code=74,
+    classification=IC.useful,
+    item_id=188,
+    update_ram_addr=None
+
+}
+
+#This is the list for every Progressive Weapon separated by Character.
+PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
+  # -----Progressive Weapons for X -----
+  "X-Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=75,
+      classification=IC.useful,
+      item_id=25,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=76,
+      classification=IC.useful,
+      item_id=33,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=77,
+      classification=IC.useful,
+      item_id=47,
+      update_ram_addr=None
+    ),
+  ],
+
+  "Guard Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=78,
+      classification=IC.useful,
+      item_id=26,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=79,
+      classification=IC.useful,
+      item_id=31,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=80,
+      classification=IC.useful,
+      item_id=41,
+      update_ram_addr=None
+    )
+  ],
+  
+  "Fire Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=81,
+      classification=IC.useful,
+      item_id=27,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=82,
+      classification=IC.useful,
+      item_id=35,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=83,
+      classification=IC.useful,
+      item_id=44,
+      update_ram_addr=None
+    )
+  ],
+
+  "Thunder Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=84,
+      classification=IC.useful,
+      item_id=28,
+      update_ram_addr=None
+    ), 
+    MMXCMItemData(
+      type="Weapon",
+      code=85,
+      classification=IC.useful,
+      item_id=37,
+      update_ram_addr=None
+    ), 
+    MMXCMItemData(
+      type="Weapon",
+      code=86,
+      classification=IC.useful,
+      item_id=46,
+      update_ram_addr=None
+    )
+  ],
+
+  "Scope Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=87,
+      classification=IC.useful,
+      item_id=29,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=88,
+      classification=IC.useful,
+      item_id=38,
+      update_ram_addr=None
+    )
+  ],
+
+  "Ice Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=89,
+      classification=IC.useful,
+      item_id=30,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=90,
+      classification=IC.useful,
+      item_id=36,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=91,
+      classification=IC.useful,
+      item_id=45,
+      update_ram_addr=None
+    )
+  ],
+
+  "Gatling Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=92,
+      classification=IC.useful,
+      item_id=32,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=93,
+      classification=IC.useful,
+      item_id=40,
+      update_ram_addr=None
+    )
+  ],
+
+  "Aero Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=94,
+      classification=IC.useful,
+      item_id=34,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=95,
+      classification=IC.useful,
+      item_id=42,
+      update_ram_addr=None
+    )
+  ],
+
+  "Limit Buster Progression": [
+    MMXCMItemData(
+      type="Weapon",
+      code=96,
+      classification=IC.useful,
+      item_id=39,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      type="Weapon",
+      code=97,
+      classification=IC.useful,
+      item_id=43,
+      update_ram_addr=None
+    )
+  ],
+  
+  # -----Progressive Weapons For Zero Start Here-----
+}   
+
+SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
+FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
+#Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 
 #This is where all of the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
+  **FILLER_TABLE,
   **WEAPONS_TABLE,
+  **{item.name: item for item_list in PROGRESSIVE_WEAPONS_TABLE.values() for item in item_list},
   **SUB_WEAPONS_TABLE,
   **FORCE_METAL_TABLE,
-  **FILLER_TABLE,
+  **COLLECTIBLE_TABLE
+
 }
   
       
