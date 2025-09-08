@@ -219,7 +219,9 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
 }
 
 #Add any other tables here, Filler, Trap, etc.
-COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
+WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
+SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
+FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 
 #Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
 FILLER_TABLE: dict[str, MMXCMItemData] = {
@@ -386,11 +388,16 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
   
 }
 
+#Add any other tables here, Filler, Trap, etc.
+COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
+
 #This is where all of the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
-  **COLLECTIBLE_TABLE,
+  **WEAPONS_TABLE,
+  **SUB_WEAPONS_TABLE,
+  **FORCE_METAL_TABLE,
   **FILLER_TABLE,
 }
   
