@@ -856,7 +856,225 @@ for key, data in TIANNA_CAMP_LOCATIONS.items():
             access_rule=lambda state: state.has("Tianna Camp Access Code", 1)
         )
 
-GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
+GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "East Deck High Speed Lift Area MD 1": MMXCMLocationData(
+    name="East Deck High Speed Lift Area 1",
+    code=129,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A215C, bit_position=4)
+  ),
+  "East Deck High Speed Lift Area MD 2": MMXCMLocationData(
+    name="East Deck High Speed Lift Area 2",
+    code=130,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A215C, bit_position=5)
+  ),
+  "East Deck High Speed Lift Area MD 3": MMXCMLocationData(
+    name="East Deck High Speed Lift Area 3",
+    code=131,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A215C, bit_position=6)
+  ),
+  "East Deck High Speed Lift Area MD 4": MMXCMLocationData(
+    name="East Deck High Speed Lift Area 4",
+    code=132,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A215C, bit_position=7)
+  ),
+  "East Deck High Speed Lift Area MD 5": MMXCMLocationData(
+    name="East Deck High Speed Lift Area 5",
+    code=133,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A215D, bit_position=6)
+  ),
+  "East Deck Main Route MD 1": MMXCMLocationData(
+    name="East Deck Main Route 1",
+    code=134,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=0)
+  ),
+  "East Deck Main Route MD 2": MMXCMLocationData(
+    name="East Deck Main Route 2",
+    code=135,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=1)
+  ),
+  "East Deck Main Route MD 3": MMXCMLocationData(
+    name="East Deck Main Route 3",
+    code=136,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=2)
+  ),
+  "East Deck Main Route MD 4": MMXCMLocationData(
+    name="East Deck Main Route 4",
+    code=137,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=3)
+  ),
+  "East Deck Residential Division 101 MD 1": MMXCMLocationData(
+    name="East Deck Residential Division 101-1",
+    code=138,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=4)
+  ),
+  "East Deck Residential Division 101 MD 2": MMXCMLocationData(
+    name="East Deck Residential Division 101-2",
+    code=139,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=5)
+  ),
+  "East Deck Residential Division 101 MD 3": MMXCMLocationData(
+    name="East Deck Residential Division 101-3",
+    code=140,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=6)
+  ),
+  "East Deck Residential Division 101 MD 4": MMXCMLocationData(
+    name="East Deck Residential Division 101-4",
+    code=141,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=7)
+  ),
+  "East Deck Residential Division 101 MD 5": MMXCMLocationData(
+    name="East Deck Residential Division 101-5",
+    code=142,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=0)
+  ),
+  "East Deck Residential Division 102 MD 1": MMXCMLocationData(
+    name="East Deck Residential Division 102-1",
+    code=143,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=1)
+  ),
+  "East Deck Residential Division 102 MD 2": MMXCMLocationData(
+    name="East Deck Residential Division 102-2",
+    code=144,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=2)
+  ),
+  "East Deck Residential Division 102 MD 3": MMXCMLocationData(
+    name="East Deck Residential Division 102-3",
+    code=145,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=3)
+  ),
+  "East Deck Residential Division 102 MD 4": MMXCMLocationData(
+    name="East Deck Residential Division 102-4",
+    code=146,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=4)
+  ),
+  "Observation Deck Area MD 1": MMXCMLocationData(
+    name="Observation Deck Area 1",
+    code=147,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2162, bit_position=0)
+  ),
+  "Observation Deck Area MD 2": MMXCMLocationData(
+    name="Observation Deck Area 2",
+    code=148,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2162, bit_position=1)
+  ),
+  "Observation Deck Area MD 3": MMXCMLocationData(
+    name="Observation Deck Area 3",
+    code=149,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=6)
+  ),
+  "Observation Deck Area MD 4": MMXCMLocationData(
+    name="Observation Deck Area 4",
+    code=150,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2163, bit_position=7)
+  ),
+  "Laboratory Approach MD 1": MMXCMLocationData(
+    name="Laboratory Approach 1",
+    code=151,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2162, bit_position=4)
+  ),
+  "Laboratory Approach MD 2": MMXCMLocationData(
+    name="Laboratory Approach 2",
+    code=152,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2162, bit_position=5)
+  ),
+  "Laboratory Approach MD 3": MMXCMLocationData(
+    name="Laboratory Approach 3",
+    code=153,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2162, bit_position=6)
+  ),
+  "Counter-Biohazard Sample Storage MD 1": MMXCMLocationData(
+    name="Counter-Biohazard Sample Storage 1",
+    code=154,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2161, bit_position=0)
+  ),
+  "Counter-Biohazard Sample Storage MD 2": MMXCMLocationData(
+    name="Counter-Biohazard Sample Storage 2",
+    code=155,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2161, bit_position=1)
+  ),
+  "Counter-Biohazard Sample Storage MD 3": MMXCMLocationData(
+    name="Counter-Biohazard Sample Storage 3",
+    code=156,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2161, bit_position=2)
+  ),
+  "Counter-Biohazard Sample Storage MD 4": MMXCMLocationData(
+    name="Counter-Biohazard Sample Storage 4",
+    code=157,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2161, bit_position=3)
+  ),
+  "Counter-Biohazard Sample Storage MD 5": MMXCMLocationData(
+    name="Counter-Biohazard Sample Storage 5",
+    code=158,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2161, bit_position=4)
+  ),
+  "West Deck Main Route MD 1": MMXCMLocationData(
+    name="West Deck Main Route 1",
+    code=159,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=0)
+  ),
+  "West Deck Main Route MD 2": MMXCMLocationData(
+    name="West Deck Main Route 2",
+    code=160,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=1)
+  ),
+  "West Deck Main Route MD 3": MMXCMLocationData(
+    name="West Deck Main Route 3",
+    code=161,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2160, bit_position=2)
+  ),
+  "Great Tree Stump Hall Approach MD 1": MMXCMLocationData(
+    name="Great Tree Stump Hall Approach 1",
+    code=162,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=5)
+  ),
+  "Great Tree Stump Hall Approach MD 2": MMXCMLocationData(
+    name="Great Tree Stump Hall Approach 2",
+    code=163,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A2167, bit_position=6)
+  ),  
+}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in GAUDILE_LABORATORY_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        GAUDILE_LABORATORY_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1)
+        )
+      
 ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
 GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {}
 VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {}
