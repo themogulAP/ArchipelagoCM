@@ -573,7 +573,282 @@ for key, data in CENTRAL_TOWER_LOCATIONS.items():
             access_rule=lambda state: state.has("Central Tower Access Code", 1)
         )
    
-TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {}
+TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Security Reploid Patrol Area MD 1": MMXCMLocationData(
+    name="Security Reploid Patrol Area 1",
+    code=84,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=0)
+  ),
+  "Security Reploid Patrol Area MD 2": MMXCMLocationData(
+    name="Security Reploid Patrol Area 2",
+    code=85,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=3)
+  ),
+  "Security Reploid Patrol Area MD 3": MMXCMLocationData(
+    name="Security Reploid Patrol Area 3",
+    code=86,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=4)
+  ),
+  "Security Reploid Patrol Area MD 4": MMXCMLocationData(
+    name="Security Reploid Patrol Area 4",
+    code=87,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=1)
+  ),
+  "Security Reploid Patrol Area MD 5": MMXCMLocationData(
+    name="Security Reploid Patrol Area 5",
+    code=88,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=2)
+  ),
+  "Prisoner Admission Division MD 1": MMXCMLocationData(
+    name="Prisoner Admission Division 1",
+    code=89,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=5)
+  ),
+  "Prisoner Admission Division MD 2": MMXCMLocationData(
+    name="Prisoner Admission Division 2",
+    code=90,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=6)
+  ),
+  "Prisoner Admission Division MD 3": MMXCMLocationData(
+    name="Prisoner Admission Division 3",
+    code=91,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215B, bit_position=7)
+  ),
+  "Prisoner Admission Division MD 4": MMXCMLocationData(
+    name="Prisoner Admission Division 4",
+    code=92,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=0)
+  ),
+  "Main Gate Depth 4 Undersea Prison MD 1": MMXCMLocationData(
+    name="Main Gate Depth 4 Undersea Prison 1",
+    code=93,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=1)
+  ),
+  "East Prison MD 1": MMXCMLocationData(
+    name="East Prison 1",
+    code=94,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=2)
+  ),
+  "East Prison MD 2": MMXCMLocationData(
+    name="East Prison 2",
+    code=95,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=3)
+  ),
+  "West Prison MD 1": MMXCMLocationData(
+    name="West Prison 1",
+    code=96,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=5)
+  ),
+  "West Prison MD 2": MMXCMLocationData(
+    name="West Prison 2",
+    code=97,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215A, bit_position=6)
+  ),
+  "Maze Area 1 Behind Key MD 1": MMXCMLocationData(
+    name="Maze Area 1 Behind Key 1",
+    code=98,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=1),
+    access_rule=lambda state: state.has("Tianna Key", 1)
+  ),
+  "Maze Area 1 MD 2": MMXCMLocationData(
+    name="Maze Area 1-2",
+    code=99,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=2)
+  ),
+  "Maze Area 1 MD 3": MMXCMLocationData(
+    name="Maze Area 1-3",
+    code=100,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=3)
+  ),
+  "Maze Area 1 MD 4": MMXCMLocationData(
+    name="Maze Area 1-4",
+    code=101,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=4)
+  ),
+  "Maze Area 1 MD 5": MMXCMLocationData(
+    name="Maze Area 1-5",
+    code=102,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=5)
+  ),
+  "Maze Area 1 Rafflesian MD 1": MMXCMLocationData(
+    name="Maze Area 1 Rafflesian 1",
+    code=103,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=6),
+    access_rule=lambda state: state.has("Tianna Key", 1)
+  ),
+  "Maze Area 1 Rafflesian MD 2": MMXCMLocationData(
+    name="Maze Area 1 Rafflesian 2",
+    code=104,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=7),
+    access_rule=lambda state: state.has("Tianna Key", 1)
+  ),
+  "Maze Area 1 Rafflesian MD 3": MMXCMLocationData(
+    name="Maze Area 1 Rafflesian 3",
+    code=105,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=0),
+    access_rule=lambda state: state.has("Tianna Key", 1)
+  ),
+  "Maze Area 2 MD 1": MMXCMLocationData(
+    name="Maze Area 2-1",
+    code=106,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=2)    
+  ),
+  "Maze Area 2 MD 2": MMXCMLocationData(
+    name="Maze Area 2-2",
+    code=107,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=3)   
+  ),
+  "Maze Area 2 MD 3": MMXCMLocationData(
+    name="Maze Area 2-3",
+    code=108,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=4) 
+  ),
+  "Maze Area 2 MD 4": MMXCMLocationData(
+    name="Maze Area 2-4",
+    code=109,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=5) 
+  ),
+  "Maze Area 2 MD 5": MMXCMLocationData(
+    name="Maze Area 2-5",
+    code=110,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=6) 
+  ),
+  "Dark Room MD 1": MMXCMLocationData(
+    name="Dark Room 1",
+    code=111,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=7) 
+  ),
+  "Security Panel Area MD 1": MMXCMLocationData(
+    name="Security Panel Area 1",
+    code=112,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=3) 
+  ),
+  "Security Panel Area MD 2": MMXCMLocationData(
+    name="Security Panel Area 2",
+    code=113,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=4) 
+  ),
+  "Security Panel Area MD 3": MMXCMLocationData(
+    name="Security Panel Area 3",
+    code=114,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=5) 
+  ),
+  "Security Panel Area MD 4": MMXCMLocationData(
+    name="Security Panel Area 4",
+    code=115,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=6)
+  ),
+  "Security Panel Area MD 5": MMXCMLocationData(
+    name="Security Panel Area 5",
+    code=116,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=7), 
+  ),
+  "Security Panel Area MD 6": MMXCMLocationData(
+    name="Security Panel Area 6",
+    code=117,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=1) 
+  ),
+  "Security Panel Area MD 7": MMXCMLocationData(
+    name="Security Panel Area 7",
+    code=118,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=0)
+  ),
+  "Security Panel Area MD 8": MMXCMLocationData(
+    name="Security Panel Area 8",
+    code=119,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=1) 
+  ),
+  "Security Panel Area MD 9": MMXCMLocationData(
+    name="Security Panel Area 9",
+    code=120,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=2) 
+  ),
+  "Security Panel Area MD 10": MMXCMLocationData(
+    name="Security Panel Area 10",
+    code=121,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=3) 
+  ),
+  "Security Panel Area MD 11": MMXCMLocationData(
+    name="Security Panel Area 11",
+    code=122,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=4) 
+  ),
+  "Security Panel Area MD 12": MMXCMLocationData(
+    name="Security Panel Area 12",
+    code=123,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=5) 
+  ),
+  "Security Panel Area MD 13": MMXCMLocationData(
+    name="Security Panel Area 13",
+    code=124,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=6)
+  ),
+  "Security Panel Area MD 13": MMXCMLocationData(
+    name="Security Panel Area 13",
+    code=125,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215E, bit_position=7)
+  ),
+  "Security Panel Area MD 14": MMXCMLocationData(
+    name="Security Panel Area 14",
+    code=126,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215F, bit_position=2)
+  ),
+  "Aqua Coliseum Entrance MD 1": MMXCMLocationData(
+    name="Aqua Coliseum Entrance 1",
+    code=127,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215D, bit_position=1)
+  ),
+  "Aqua Coliseum Entrance MD 2": MMXCMLocationData(
+    name="Aqua Coliseum Entrance 2",
+    code=128,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A215D, bit_position=2)
+  ),
+}
 GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
 ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {}
 GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {}
