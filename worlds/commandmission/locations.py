@@ -1389,7 +1389,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Southwest Division 1",
     code=214,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042185, bit_position=7)
+    ram_addr=MMXCMRamData(0x804216F, bit_position=7)
 }
 
 
