@@ -1323,75 +1323,270 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Level 1 Shaft Entrance 1",
     code=203,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042169, bit_position=7)
+    ram_addr=MMXCMRamData(0x804A2169, bit_position=7)
   ),
   "Level 1 Shaft Entrance MD 2": MMXCMLocationData(
     name="Level 1 Shaft Entrance 2",
     code=204,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=0)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=0)
   ),
   "Level 1 Shaft Entrance MD 3": MMXCMLocationData(
     name="Level 1 Shaft Entrance 3",
     code=205,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=1)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=1)
   ),
   "Level 2 Main Tunnel MD 1": MMXCMLocationData(
     name="Level 2 Main Tunnel 1",
     code=206,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=3)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=3)
   ),
   "Level 2 Main Tunnel MD 2": MMXCMLocationData(
     name="Level 2 Main Tunnel 2",
     code=207,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=4)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=4)
   ),
   "Level 2 Main Tunnel MD 3": MMXCMLocationData(
     name="Level 2 Main Tunnel 3",
     code=208,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=5)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=5)
   ),
   "Level 2 Main Tunnel MD 4": MMXCMLocationData(
     name="Level 2 Main Tunnel 4",
     code=209,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=6)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=6)
   ),
   "Level 2 Main Tunnel MD 5": MMXCMLocationData(
     name="Level 2 Main Tunnel 5",
     code=210,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x8042168, bit_position=7)
+    ram_addr=MMXCMRamData(0x804A2168, bit_position=7)
   ),
   "L2 Northwest Division MD 1": MMXCMLocationData(
     name="L2 Northwest Division 1",
     code=211,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804216F, bit_position=0)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=0)
   ),
   "L2 Northwest Division MD 2": MMXCMLocationData(
     name="L2 Northwest Division 2",
     code=212,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804216F, bit_position=1)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=1)
   ),
   "L2 Northwest Division MD 3": MMXCMLocationData(
     name="L2 Northwest Division 3",
     code=213,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804216F, bit_position=2)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=2)
   ),
   "L2 Southwest Division MD 1": MMXCMLocationData(
     name="L2 Southwest Division 1",
     code=214,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804216F, bit_position=7)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=7)
+  ),
+  # Note that this is using the flag for Booster Parts, not the Booster Parts themselves.
+  "L2 Southwest Division Booster Parts": MMXCMLocationData(
+    name="L2 Southwest Division Booster Parts 1",
+    code=215,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A210E, bit_position=4)
+  ),
+  "L2 Southeast Division MD 1": MMXCMLocationData(
+    name="L2 Southeast Division 1",
+    code=216,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=1)
+  ),
+  "L2 Southeast Division MD 2": MMXCMLocationData(
+    name="L2 Southeast Division 2",
+    code=217,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=2)
+  ),
+  "L2 Northeast Division MD 1": MMXCMLocationData(
+    name="L2 Northeast Division 1",
+    code=218,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=3)
+  ),
+  "L2 Northeast Division MD 2": MMXCMLocationData(
+    name="L2 Northeast Division 2",
+    code=219,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=4)
+  ),
+  "L2 Northeast Division MD 3": MMXCMLocationData(
+    name="L2 Northeast Division 3",
+    code=220,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=5),
+    access_rule=lambda state: state.has("Mega Mantor", 1)
+  ),
+  "Level 3 Main Tunnel MD 1": MMXCMLocationData(
+    name="Level 3 Main Tunnel 1",
+    code=221,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=3)
+  ),
+  "Level 3 Main Tunnel MD 2": MMXCMLocationData(
+    name="Level 3 Main Tunnel 2",
+    code=222,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=4)
+  ),
+  "Level 3 Main Tunnel MD 3": MMXCMLocationData(
+    name="Level 3 Main Tunnel 3",
+    code=223,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=5)
+  ),
+  "Level 3 Main Tunnel Blue Miner Trade Complete": MMXCMLocationData(
+    name="Level 3 Main Tunnel Blue Miner 1",
+    code=224,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A2113, bit_position=4),
+    access_rule=lambda state: state.has("Blue Pickaxe", 1)
+  ),
+  "L3 Northwest Division MD 1": MMXCMLocationData(
+    name="L3 Northwest Division 1",
+    code=225,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=0)
+  ),
+  "L3 Northwest Division MD 2": MMXCMLocationData(
+    name="L3 Northwest Division 2",
+    code=226,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=1)
+  ),
+  "L3 Northwest Division MD 3": MMXCMLocationData(
+    name="L3 Northwest Division 3",
+    code=227,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=2)
+  ),
+  "L3 Northwest Division Red Miner Trade Complete": MMXCMLocationData(
+    name="L3 Northwest Division Red Miner 1",
+    code=228,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A210D, bit_position=5),
+    access_rule=lambda state: state.has("Red Pickaxe", 1)
+  ),
+  "L3 Northwest Division Yellow Miner Trade Complete": MMXCMLocationData(
+    name="L3 Northwest Division Yellow Miner 1",
+    code=229,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A210C, bit_position=2),
+    access_rule=lambda state: state.has("Yellow Pickaxe", 1)
+  ),
+  "L3 Northeast Division MD 1": MMXCMLocationData(
+    name="L3 Northeast Division 1",
+    code=230,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=3)
+  ),
+  "L3 Northeast Division Green Miner Trade Complete": MMXCMLocationData(
+    name="L3 Northeast Division Green Miner 1",
+    code=231,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A210C, bit_position=7),
+    access_rule=lambda state: state.has("Green Pickaxe", 1)    
+  ),
+  "L3 Southwest Division MD 1": MMXCMLocationData(
+    name="L3 Southwest Division 1",
+    code=232,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=5),
+    access_rule=lambda state: state.has("Gimialla Key", 1) and state.has("Heavy Motor", 1)   
+  ),
+  "L3 Southwest Division MD 2": MMXCMLocationData(
+    name="L3 Southwest Division 2",
+    code=233,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=6),
+    access_rule=lambda state: state.has("Gimialla Key", 1)  
+  ),
+  "L3 Southwest Division MD 3": MMXCMLocationData(
+    name="L3 Southwest Division 3",
+    code=234,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=7),
+    access_rule=lambda state: state.has("Gimialla Key", 1)  
+  ),
+  "Level 4 Main Tunnel MD 1": MMXCMLocationData(
+    name="Level 4 Main Tunnel 1",
+    code=235,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=0)
+  ),
+  "Level 4 Main Tunnel MD 2": MMXCMLocationData(
+    name="Level 4 Main Tunnel 2",
+    code=236,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=1)
+  ),
+  "Level 4 Main Tunnel MD 3": MMXCMLocationData(
+    name="Level 4 Main Tunnel 3",
+    code=237,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=2)
+  ),
+  "Level 4 Main Tunnel MD 4": MMXCMLocationData(
+    name="Level 4 Main Tunnel 4",
+    code=238,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=3)
+  ),
+  "Level 4 Main Tunnel MD 5": MMXCMLocationData(
+    name="Level 4 Main Tunnel 5",
+    code=239,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=4)
+  ),
+  "Level 4 Main Tunnel MD 6": MMXCMLocationData(
+    name="Level 4 Main Tunnel 6",
+    code=240,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=5)
+  ),
+  "Level 4 Main Tunnel MD 7": MMXCMLocationData(
+    name="Level 4 Main Tunnel 7",
+    code=241,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=6)
+  ),
+  "Level 4 Durability Lab MD 1": MMXCMLocationData(
+    name="Level 4 Durability Lab 1",
+    code=242,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=7)
+  ),
+  "Level 4 Durability Lab MD 2": MMXCMLocationData(
+    name="Level 4 Durability Lab 2",
+    code=243,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A2173, bit_position=0)
+  ),
+  "Level 4 Durability Lab MD 3": MMXCMLocationData(
+    name="Level 4 Durability Lab 3",
+    code=244,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A2173, bit_position=1)
+  ),     
 }
-
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in GIMIALLA_MINE_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        GIMIALLA_MINE_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Gimialla Mine Access Code", 1)
+        )
 
 VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {}
 MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {}
