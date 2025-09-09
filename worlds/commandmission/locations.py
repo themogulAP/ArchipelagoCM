@@ -1311,8 +1311,86 @@ ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A2169, bit_position=5)
   ),
 }
-
-GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in ULFAT_FACTORY_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        ULFAT_FACTORY_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Ulfat Factory Access Code", 1)
+        )
+      
+GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Level 1 Shaft Entrance MD 1": MMXCMLocationData(
+    name="Level 1 Shaft Entrance 1",
+    code=203,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042169, bit_position=7)
+  ),
+  "Level 1 Shaft Entrance MD 2": MMXCMLocationData(
+    name="Level 1 Shaft Entrance 2",
+    code=204,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=0)
+  ),
+  "Level 1 Shaft Entrance MD 3": MMXCMLocationData(
+    name="Level 1 Shaft Entrance 3",
+    code=205,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=1)
+  ),
+  "Level 2 Main Tunnel MD 1": MMXCMLocationData(
+    name="Level 2 Main Tunnel 1",
+    code=206,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=3)
+  ),
+  "Level 2 Main Tunnel MD 2": MMXCMLocationData(
+    name="Level 2 Main Tunnel 2",
+    code=207,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=4)
+  ),
+  "Level 2 Main Tunnel MD 3": MMXCMLocationData(
+    name="Level 2 Main Tunnel 3",
+    code=208,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=5)
+  ),
+  "Level 2 Main Tunnel MD 4": MMXCMLocationData(
+    name="Level 2 Main Tunnel 4",
+    code=209,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=6)
+  ),
+  "Level 2 Main Tunnel MD 5": MMXCMLocationData(
+    name="Level 2 Main Tunnel 5",
+    code=210,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042168, bit_position=7)
+  ),
+  "L2 Northwest Division MD 1": MMXCMLocationData(
+    name="L2 Northwest Division 1",
+    code=211,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804216F, bit_position=0)
+  ),
+  "L2 Northwest Division MD 2": MMXCMLocationData(
+    name="L2 Northwest Division 2",
+    code=212,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804216F, bit_position=1)
+  ),
+  "L2 Northwest Division MD 3": MMXCMLocationData(
+    name="L2 Northwest Division 3",
+    code=213,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804216F, bit_position=2)
+  ),
+  "L2 Southwest Division MD 1": MMXCMLocationData(
+    name="L2 Southwest Division 1",
+    code=214,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x8042185, bit_position=7)
+}
 
 
 VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {}
