@@ -1389,7 +1389,8 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Southwest Division 1",
     code=214,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216F, bit_position=7)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=7),
+    access_rule=lambda state: state.has("Booster Parts", 1)
   ),
   # Note that this is using the flag for Booster Parts, not the Booster Parts themselves.
   "L2 Southwest Division Booster Parts": MMXCMLocationData(
@@ -1408,13 +1409,15 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Southeast Division 2",
     code=217,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216E, bit_position=2)
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=2),
+    access_rule=lambda state: state.has("Booster Parts", 1)
   ),
   "L2 Northeast Division MD 1": MMXCMLocationData(
     name="L2 Northeast Division 1",
     code=218,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216F, bit_position=3)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=3),
+    access_rule=lambda state: state.has("Booster Parts", 1)
   ),
   "L2 Northeast Division MD 2": MMXCMLocationData(
     name="L2 Northeast Division 2",
