@@ -2250,7 +2250,105 @@ for key, data in GRAVE_RUINS_BASE_LOCATIONS.items():
             access_rule=lambda state: state.has("Grave Ruins Base Access Code", 1)
         )
 
-FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {}
+FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Teleport Terminal MD 1": MMXCMLocationData(
+    name="Teleport Terminal 1",
+    code=348,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2181, bit_position=0)
+  ),
+  "Teleport Terminal MD 2": MMXCMLocationData(
+    name="Teleport Terminal 2",
+    code=349,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2181, bit_position=1)
+  ),
+  "Teleport Terminal MD 3": MMXCMLocationData(
+    name="Teleport Terminal 3",
+    code=350,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=6)
+  ),
+  "Teleport Terminal MD 4": MMXCMLocationData(
+    name="Teleport Terminal 4",
+    code=351,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=7)
+  ),
+  "Final Gate Chapter 10 MD 1": MMXCMLocationData(
+    name="Final Gate Chapter 10-1",
+    code=352,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=4)
+  ),
+  "Final Gate Chapter 10 MD 2": MMXCMLocationData(
+    name="Final Gate Chapter 10-2",
+    code=353,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=5)
+  ),
+  "Final Gate Chapter 10 MD 3": MMXCMLocationData(
+    name="Final Gate Chapter 10-3",
+    code=354,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=6)
+  ),
+  "Final Gate Chapter 10 MD 4": MMXCMLocationData(
+    name="Final Gate Chapter 10-4",
+    code=355,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=7)
+  ),
+  "Final Gate Chapter 10 MD 5": MMXCMLocationData(
+    name="Final Gate Chapter 10-5",
+    code=356,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=0)
+  ),
+  "Final Gate Chapter 10 MD 6": MMXCMLocationData(
+    name="Final Gate Chapter 10-6",
+    code=357,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=1)
+  ),
+  "Final Gate Chapter 10 MD 7": MMXCMLocationData(
+    name="Final Gate Chapter 10-7",
+    code=358,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=2)
+  ),
+  "Final Gate Chapter 10 MD 8": MMXCMLocationData(
+    name="Final Gate Chapter 10-8",
+    code=359,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=3)
+  ),
+  "Super-Strato Terminal MD 1": MMXCMLocationData(
+    name="Super Strato Terminal 1",
+    code=361,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2181, bit_position=2)
+  ),
+  "Blue Earth Tunnel MD 1": MMXCMLocationData(
+    name="Blue Earth Tunnel 1",
+    code=362,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=4)
+  ),
+  "Blue Earth Tunnel MD 2": MMXCMLocationData(
+    name="Blue Earth Tunnel 2",
+    code=363,
+    parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x804A2182, bit_position=5)
+  ),
+}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in FAR_EAST_HQ_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        FAR_EAST_HQ_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Far East HQ Access Code", 1)
+        )
+
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
