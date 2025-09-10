@@ -2349,7 +2349,149 @@ for key, data in FAR_EAST_HQ_LOCATIONS.items():
             access_rule=lambda state: state.has("Far East HQ Access Code", 1)
         )
 
-MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {}
+MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Deerball": MMXCMLocationData(
+    name="Deerball",
+    code=363,
+    parent_region="Lagrano Ruins",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=5),
+    access_rule=lambda state: state.has("Lagrano Ruins Access Code", 1) and state.has("Lagrano Key", 1)
+  ),                                                                                  
+  "Radar Killer": MMXCMLocationData(
+    name="Radar Killer",
+    code=364,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=3),
+    access_rule=lambda state: state.has("Tianna Camp Access Code", 1) and state.has("Tianna Key", 1)
+  ),
+  "Blowfish": MMXCMLocationData(
+    name="Blowfish",
+    code=365,
+    parent_region="Tianna Camp",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=1),
+    access_rule=lambda state: state.has("Tianna Camp Access Code", 1) and state.has("Mini Battery", 3) and state.has("Silver Horn Defeated", 1)
+  ),
+  "Big Monkey": MMXCMLocationData(
+    name="Big Monkey",
+    code=366,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=0),
+    access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1)
+  ),
+  "Preon": MMXCMLocationData(
+    name="Preon",
+    code=367,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=0),
+    access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1)
+  ),
+  "Dober Man": MMXCMLocationData(
+    name="Dober Man",
+    code=368,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=1),
+    access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1) and state.has("Dr. Psyche Defeated", 1), and state.has("Bone Key", 1)
+  ),
+  "Mettaur": MMXCMLocationData(
+    name="Mettaur",
+    code=369,
+    parent_region="Gaudile Laboratory",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=2),
+    access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1)
+  ),
+  "Einhammer": MMXCMLocationData(
+    name="Einhammer",
+    code=370,
+    parent_region="Ulfat Factory",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=1),
+    access_rule=lambda state: state.has("Ulfat Factory Access Code", 1) and state.has("Ball & Chain Hammer", 1)
+  ),
+  "Killer Mantis": MMXCMLocationData(
+    name="Killer Mantis",
+    code=371,
+    parent_region="Ulfat Factory",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=2),
+    access_rule=lambda state: state.has("Ulfat Factory Access Code", 1)
+  ),
+  "Rush Loader": MMXCMLocationData(
+    name="Rush Loader",
+    code=372,
+    parent_region="Ulfat Factory",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=2),
+    access_rule=lambda state: state.has("Ulfat Factory Access Code", 1)
+  ),
+  "Mega Mantor": MMXCMLocationData(
+    name="Mega Mantor",
+    code=373,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=4),
+    access_rule=lambda state: state.has("Gimialla Mine Access Code", 1) and state.has("Mini Battery", 3)
+  ),
+  "Degraver": MMXCMLocationData(
+    name="Degraver",
+    code=374,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=3),
+    access_rule=lambda state: state.has("Gimialla Mine Access Code", 1)
+  ),
+  "Bat Bone": MMXCMLocationData(
+    name="Bat Bone",
+    code=375,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=0),
+    access_rule=lambda state: state.has("Gimialla Mine Access Code", 1)
+  ),
+  "Gold Blader": MMXCMLocationData(
+    name="Gold Blader",
+    code=376,
+    parent_region="Gimialla Mine",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=5),
+    access_rule=lambda state: state.has("Gimialla Mine Access Code", 1) and state.has("Heavy Motor", 1)
+  ),
+  "Liquid Glob": MMXCMLocationData(
+    name="Liquid Glob",
+    code=377,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=5),
+    access_rule=lambda state: state.has("Vanallia Desert Access Code", 1) and state.has("Cyber Liquid", 1)
+  ),
+  "Mega Tortoise": MMXCMLocationData(
+    name="Mega Tortoise",
+    code=378,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A212D, bit_position=4),
+    access_rule=lambda state: state.has("Vanallia Desert Access Code", 1) and state.has("Mini Battery", 3)
+  ),
+  "Pararoid": MMXCMLocationData(
+    name="Pararoid",
+    code=379,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=3),
+    access_rule=lambda state: state.has("Vanallia Desert Access Code", 1) and state.has("Mini Motor", 1)
+  ),
+  "Meltdown": MMXCMLocationData(
+    name="Meltdown", 
+    code=380,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A212E, bit_position=6),
+    access_rule=lambda state: state.has("Melda Ore Plant Access Code", 1) and state.has("Melda Key", 1)
+  ),
+  "Rabbid": MMXCMLocationData(
+    name="Rabbid",
+    code=381,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=4),
+    access_rule=lambda state: state.has("Melda Ore Plant Access Code", 1)
+  ),
+  "Bladey": MMXCMLocationData(
+    name="Bladey",
+    code=382,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A212C, bit_position=6),
+    access_rule=lambda state: state.has("Grave Ruins Base Access Code", 1)
+  ),
+}
+
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
 
