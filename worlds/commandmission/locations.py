@@ -1909,31 +1909,31 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A217B, bit_position=3)
   ),
   "Area E-B03 MD 1": MMXCMLocationData(
-    name="Area E-B02-1",
+    name="Area E-B03-1",
     code=294,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=1)
   ),
   "Area E-B03 MD 2": MMXCMLocationData(
-    name="Area E-B02-2",
+    name="Area E-B03-2",
     code=295,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=2)
   ),
   "Area E-B03 MD 3": MMXCMLocationData(
-    name="Area E-B02-3",
+    name="Area E-B03-3",
     code=296,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=3)
   ),
   "Area E-B04 MD 1": MMXCMLocationData(
-    name="Area E-B02-1",
+    name="Area E-B04-1",
     code=297,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=0)
   ),
   "Area E-B04 MD 2": MMXCMLocationData(
-    name="Area E-B02-2",
+    name="Area E-B04-2",
     code=298,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=1)
@@ -1972,34 +1972,34 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Area W-B03 1",
     code=304,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A217A, bit_position=5)
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=5)
   ),
   "Area W-B03 MD 2": MMXCMLocationData(
     name="Area W-B03 2",
     code=305,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A217A, bit_position=6)
+    ram_addr=MMXCMRamData(0x804A21BA, bit_position=6)
   ),
   "Area W-B03 MD 3": MMXCMLocationData(
     name="Area W-B03 3",
     code=306,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A217A, bit_position=7)
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=7)
   ),
   "Area W-B02 MD 1": MMXCMLocationData(
-    name="Area W-B03 1",
+    name="Area W-B02 1",
     code=307,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=5)
   ),
   "Area W-B02 MD 2": MMXCMLocationData(
-    name="Area W-B03 2",
+    name="Area W-B02 2",
     code=308,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=6)
   ),
   "Area W-B02 MD 3": MMXCMLocationData(
-    name="Area W-B03 3",
+    name="Area W-B02 3",
     code=309,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=7)
@@ -2020,7 +2020,7 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Missile Maintenance Room 1",
     code=312,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A2178, bit_position=0)
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=0),
     access_rule=lambda state: state.has("Melda Key", 1) 
   ),
 }
