@@ -1412,7 +1412,312 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
   ],
 }   
 
-SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {}
+SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
+  #All Sub-Weapons in the Game, Excluding Hyper Mode ones.
+  "Micro Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=170,
+    classification=IC.useful,
+    item_id=1,
+    update_ram_addr=None 
+  ),
+  "Tomahawk": MMXCMItemData(
+    type="Sub-Weapon",
+    code=171,
+    classification=IC.useful,
+    item_id=2,
+    update_ram_addr=None
+  ),
+  "Twin Missiles": MMXCMItemData(
+    type="Sub-Weapon",
+    code=172,
+    classification=IC.useful,
+    item_id=3,
+    update_ram_addr=None
+  ),
+  "Twin Tomahawks": MMXCMItemData(
+    type="Sub-Weapon",
+    code=173,
+    classification=IC.useful,
+    item_id=4,
+    update_ram_addr=None
+  ),
+  "Force Missiles": MMXCMItemData(
+    type="Sub-Weapon",
+    code=174,
+    classification=IC.useful,
+    item_id=5,
+    update_ram_addr=None
+  ),
+  "Force Tomahawks": MMXCMItemData(
+    type="Sub-Weapon",
+    code=175,
+    classification=IC.useful,
+    item_id=6,
+    update_ram_addr=None
+  ),
+  "Hunter Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=176,
+    classification=IC.useful,
+    item_id=7,
+    update_ram_addr=None
+  ),
+  "Photon Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=177,
+    classification=IC.useful,
+    item_id=8,
+    update_ram_addr=None
+  ),
+  "Justice Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=178,
+    classification=IC.useful,
+    item_id=9,
+    update_ram_addr=None
+  ),
+  "Fire Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=179,
+    classification=IC.useful,
+    item_id=10,
+    update_ram_addr=None
+  ),
+  "Twin Fire": MMXCMItemData(
+    type="Sub-Weapon",
+    code=180,
+    classification=IC.useful,
+    item_id=11,
+    update_ram_addr=None
+  ),
+  "Ice Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=181,
+    classification=IC.useful,
+    item_id=12,
+    update_ram_addr=None
+  ),
+  "Twin Ice": MMXCMItemData(
+    type="Sub-Weapon",
+    code=182,
+    classification=IC.useful,
+    item_id=13,
+    update_ram_addr=None
+  ),
+  "Thunder Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=183,
+    classification=IC.useful,
+    item_id=14,
+    update_ram_addr=None
+  ),
+  "Twin Thunder": MMXCMItemData(
+    type="Sub-Weapon",
+    code=184,
+    classification=IC.useful,
+    item_id=15,
+    update_ram_addr=None
+  ),
+  "Tractor Net": MMXCMItemData(
+    type="Sub-Weapon",
+    code=185,
+    classification=IC.useful,
+    item_id=16,
+    update_ram_addr=None
+  ),
+  "Smoke Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=186,
+    classification=IC.useful,
+    item_id=17,
+    update_ram_addr=None
+  ),
+  "Virus Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=187,
+    classification=IC.useful,
+    item_id=18,
+    update_ram_addr=None
+  ),
+  "Cracker": MMXCMItemData(
+    type="Sub-Weapon",
+    code=188,
+    classification=IC.useful,
+    item_id=19,
+    update_ram_addr=None
+  ),
+  "Cryogenic": MMXCMItemData(
+    type="Sub-Weapon",
+    code=189,
+    classification=IC.useful,
+    item_id=20,
+    update_ram_addr=None
+  ),
+  "Get Zenny +": MMXCMItemData(
+    type="Sub-Weapon",
+    code=190,
+    classification=IC.useful,
+    item_id=21,
+    update_ram_addr=None
+  ),
+  "Get EXP +": MMXCMItemData(
+    type="Sub-Weapon",
+    code=191,
+    classification=IC.useful,
+    item_id=22,
+    update_ram_addr=None
+  ),
+  "Get FME +": MMXCMItemData(
+    type="Sub-Weapon",
+    code=192,
+    classification=IC.useful,
+    item_id=23,
+    update_ram_addr=None
+  ),
+  "Rust Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=193,
+    classification=IC.useful,
+    item_id=24,
+    update_ram_addr=None
+  ),
+  "Drill Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=194,
+    classification=IC.useful,
+    item_id=25,
+    update_ram_addr=None
+  ),
+  "Melt Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=195,
+    classification=IC.useful,
+    item_id=26,
+    update_ram_addr=None
+  ),
+  "Slime Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=196,
+    classification=IC.useful,
+    item_id=27,
+    update_ram_addr=None
+  ),
+  "Oil Can": MMXCMItemData(
+    type="Sub-Weapon",
+    code=197,
+    classification=IC.useful,
+    item_id=28,
+    update_ram_addr=None
+  ),
+  "Item Capture": MMXCMItemData(
+    type="Sub-Weapon",
+    code=198,
+    classification=IC.useful,
+    item_id=29,
+    update_ram_addr=None
+  ),
+  "Energy Capture": MMXCMItemData(
+    type="Sub-Weapon",
+    code=199,
+    classification=IC.useful,
+    item_id=30,
+    update_ram_addr=None
+  ),
+  "Power Capture": MMXCMItemData(
+    type="Sub-Weapon",
+    code=200,
+    classification=IC.useful,
+    item_id=31,
+    update_ram_addr=None
+  ),
+  "Hawkeye": MMXCMItemData(
+    type="Sub-Weapon",
+    code=201,
+    classification=IC.useful,
+    item_id=32,
+    update_ram_addr=None
+  ),
+  "Turbo Clock": MMXCMItemData(
+    type="Sub-Weapon",
+    code=202,
+    classification=IC.useful,
+    item_id=33,
+    update_ram_addr=None
+  ),
+  "Heat Haze": MMXCMItemData(
+    type="Sub-Weapon",
+    code=203,
+    classification=IC.useful,
+    item_id=34,
+    update_ram_addr=None
+  ),
+  "Generator": MMXCMItemData(
+    type="Sub-Weapon",
+    code=204,
+    classification=IC.useful,
+    item_id=35,
+    update_ram_addr=None
+  ),
+  "Energy Field": MMXCMItemData(
+    type="Sub-Weapon",
+    code=205,
+    classification=IC.useful,
+    item_id=36,
+    update_ram_addr=None
+  ),
+  "Bait": MMXCMItemData(
+    type="Sub-Weapon",
+    code=206,
+    classification=IC.useful,
+    item_id=37,
+    update_ram_addr=None
+  ),
+  "Stamina Missile": MMXCMItemData(
+    type="Sub-Weapon",
+    code=207,
+    classification=IC.useful,
+    item_id=38,
+    update_ram_addr=None
+  ),
+  "Vitality Missiles": MMXCMItemData(
+    type="Sub-Weapon",
+    code=208,
+    classification=IC.useful,
+    item_id=39,
+    update_ram_addr=None
+  ),
+  "Combat Absorber": MMXCMItemData(
+    type="Sub-Weapon",
+    code=209,
+    classification=IC.useful,
+    item_id=40,
+    update_ram_addr=None
+  ),
+  "Shot Absorber": MMXCMItemData(
+    type="Sub-Weapon",
+    code=210,
+    classification=IC.useful,
+    item_id=41,
+    update_ram_addr=None
+  ),
+  "Super Absorber": MMXCMItemData(
+    type="Sub-Weapon",
+    code=211,
+    classification=IC.useful,
+    item_id=42,
+    update_ram_addr=None
+  ),
+  "Vengeful Counter": MMXCMItemData(
+    type="Sub-Weapon",
+    code=212,
+    classification=IC.useful,
+    item_id=43,
+    update_ram_addr=None
+  )    
+}
+
+
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
 
