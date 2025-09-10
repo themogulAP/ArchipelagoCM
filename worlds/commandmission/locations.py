@@ -1838,7 +1838,199 @@ for key, data in VANALLIA_DESERT_LOCATIONS.items():
             access_rule=lambda state: state.has("Vanallia Desert Access Code", 1)
         )
 
-MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {}
+MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Ore Plant External Tank MD 1": MMXCMLocationData(
+    name="Ore Plant External Tank 1",
+    code=283,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=2)
+  ),
+  "Ore Plant External Tank MD 2": MMXCMLocationData(
+    name="Ore Plant External Tank 2",
+    code=284,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=3)
+  ),
+  "Ore Plant External Tank MD 3": MMXCMLocationData(
+    name="Ore Plant External Tank 3",
+    code=285,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=4)
+  ),
+  "Ore Plant External Tank MD 4": MMXCMLocationData(
+    name="Ore Plant External Tank 4",
+    code=286,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=5)
+  ),
+  "B1 Entrance Hall MD 1": MMXCMLocationData(
+    name="B1 Entrance Hall 1",
+    code=287,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=1)
+  ),
+  "B1 Entrance Hall MD 2": MMXCMLocationData(
+    name="B1 Entrance Hall 2",
+    code=288,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=0),
+    access_rule=lambda state: state.has("Melda Key", 1)
+  ),
+  "B1 Entrance Hall MD 3": MMXCMLocationData(
+    name="B1 Entrance Hall 3",
+    code=289,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=6),
+    access_rule=lambda state: state.has("Melda Key", 1)   
+  ),
+  "B1 Entrance Hall MD 4": MMXCMLocationData(
+    name="B1 Entrance Hall 4",
+    code=290,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=7),
+    access_rule=lambda state: state.has("Melda Key", 1)    
+  ),
+  "Area E-B02 MD 1": MMXCMLocationData(
+    name="Area E-B02-1",
+    code=291,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=1)
+  ),
+  "Area E-B02 MD 2": MMXCMLocationData(
+    name="Area E-B02-2",
+    code=292,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=2)
+  ),
+  "Area E-B02 MD 3": MMXCMLocationData(
+    name="Area E-B02-3",
+    code=293,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=3)
+  ),
+  "Area E-B03 MD 1": MMXCMLocationData(
+    name="Area E-B02-1",
+    code=294,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=1)
+  ),
+  "Area E-B03 MD 2": MMXCMLocationData(
+    name="Area E-B02-2",
+    code=295,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=2)
+  ),
+  "Area E-B03 MD 3": MMXCMLocationData(
+    name="Area E-B02-3",
+    code=296,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=3)
+  ),
+  "Area E-B04 MD 1": MMXCMLocationData(
+    name="Area E-B02-1",
+    code=297,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=0)
+  ),
+  "Area E-B04 MD 2": MMXCMLocationData(
+    name="Area E-B02-2",
+    code=298,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=1)
+  ),
+  "Missile Silo Base Lower Section MD 1": MMXCMLocationData(
+    name="Missile Silo Base Lower Section 1",
+    code=299,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=3)
+  ),
+  "Missile Silo Base Lower Section MD 2": MMXCMLocationData(
+    name="Missile Silo Base Lower Section 2",
+    code=300,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=4)
+  ),
+  "Missile Silo Base Lower Section MD 3": MMXCMLocationData(
+    name="Missile Silo Base Lower Section 3",
+    code=301,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=5)
+  ),
+  "Missile Silo Base Lower Section MD 4": MMXCMLocationData(
+    name="Missile Silo Base Lower Section 4",
+    code=302,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=6)
+  ),
+  "B5 - East-West Block Access Tunnel MD 1": MMXCMLocationData(
+    name="B5 - East-West Block Access Tunnel 1",
+    code=303,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=2)
+  ),
+  "Area W-B03 MD 1": MMXCMLocationData(
+    name="Area W-B03 1",
+    code=304,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=5)
+  ),
+  "Area W-B03 MD 2": MMXCMLocationData(
+    name="Area W-B03 2",
+    code=305,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=6)
+  ),
+  "Area W-B03 MD 3": MMXCMLocationData(
+    name="Area W-B03 3",
+    code=306,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=7)
+  ),
+  "Area W-B02 MD 1": MMXCMLocationData(
+    name="Area W-B03 1",
+    code=307,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=5)
+  ),
+  "Area W-B02 MD 2": MMXCMLocationData(
+    name="Area W-B03 2",
+    code=308,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=6)
+  ),
+  "Area W-B02 MD 3": MMXCMLocationData(
+    name="Area W-B03 3",
+    code=309,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=7)
+  ),
+  "Missile Warhead Adjustment Room MD 1": MMXCMLocationData(
+    name="Missile Warhead Adjustment Room 1",
+    code=310,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2179, bit_position=7)
+  ),
+  "Area W-B01 MD 1": MMXCMLocationData(
+    name="Area W-B01-1",
+    code=311,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=3)
+  ),
+  "Missile Maintenance Room MD 1": MMXCMLocationData(
+    name="Missile Maintenance Room 1",
+    code=312,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=0)
+    access_rule=lambda state: state.has("Melda Key", 1) 
+  ),
+}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in MELDA_ORE_PLANT_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        MELDA_ORE_PLANT_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Melda Ore Plant Access Code", 1)
+        )
+
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {}
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {}
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {}
