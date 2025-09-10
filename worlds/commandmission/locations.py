@@ -2325,19 +2325,19 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
   ),
   "Super-Strato Terminal MD 1": MMXCMLocationData(
     name="Super Strato Terminal 1",
-    code=361,
+    code=360,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=2)
   ),
   "Blue Earth Tunnel MD 1": MMXCMLocationData(
     name="Blue Earth Tunnel 1",
-    code=362,
+    code=361,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=4)
   ),
   "Blue Earth Tunnel MD 2": MMXCMLocationData(
     name="Blue Earth Tunnel 2",
-    code=363,
+    code=362,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=5)
   ),
