@@ -1601,7 +1601,243 @@ for key, data in GIMIALLA_MINE_LOCATIONS.items():
             access_rule=lambda state: state.has("Gimialla Mine Access Code", 1)
         )
 
-VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {}
+VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Quicksand Item 1": MMXCMLocationData(
+    name="Quicksand Item 1-1",
+    code=245,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2148, bit_position=0)
+  ),
+  "Quicksand Item 2": MMXCMLocationData(
+    name="Quicksand Item 1-2",
+    code=246,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2148, bit_position=1)
+  ),
+  "Quicksand Item 3": MMXCMLocationData(
+    name="Quicksand Item 1-3",
+    code=247,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2148, bit_position=2)
+  ),
+  "Quicksand Item 4": MMXCMLocationData(
+    name="Quicksand Item 1-4",
+    code=248,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2149, bit_position=5)
+  ),
+  "Quicksand Item 5": MMXCMLocationData(
+    name="Quicksand Item 1-5",
+    code=249,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2149, bit_position=6)
+  ),
+  "Quicksand Item 6": MMXCMLocationData(
+    name="Quicksand Item 1-6",
+    code=250,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2149, bit_position=7)
+  ),
+  "Quicksand South Side MD 1": MMXCMLocationData(
+    name="Quicksand South Side 1",
+    code=251,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2172, bit_position=4)
+  ),
+  "Quicksand South Side MD 2": MMXCMLocationData(
+    name="Quicksand South Side 2",
+    code=252,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2172, bit_position=5)
+  ),
+  "Quicksand South Side MD 3": MMXCMLocationData(
+    name="Quicksand South Side 3",
+    code=253,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2172, bit_position=6)
+  ),
+  "Quicksand South Side MD 4": MMXCMLocationData(
+    name="Quicksand South Side 4",
+    code=254,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2172, bit_position=7)
+  ),
+  "Quicksand South Side MD 5": MMXCMLocationData(
+    name="Quicksand South Side 5",
+    code=255,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2171, bit_position=0)
+  ),
+  "Quicksand South Side MD 6": MMXCMLocationData(
+    name="Quicksand South Side 6",
+    code=256,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2171, bit_position=1)
+  ),
+  "Quicksand South Side MD 7": MMXCMLocationData(
+    name="Quicksand South Side 7",
+    code=257,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2171, bit_position=2)
+  ),
+  "Quicksand North Side MD 1": MMXCMLocationData(
+    name="Quicksand North Side 1",
+    code=258,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2171, bit_position=6)
+  ),
+  "Quicksand North Side MD 2": MMXCMLocationData(
+    name="Quicksand North Side 2",
+    code=259,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2171, bit_position=7)
+  ),
+  "Quicksand North Side MD 3": MMXCMLocationData(
+    name="Quicksand North Side 3",
+    code=260,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=0)
+  ),
+  "Quicksand North Side MD 4": MMXCMLocationData(
+    name="Quicksand North Side 4",
+    code=261,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=1)
+  ),
+  "Quicksand North Side MD 5": MMXCMLocationData(
+    name="Quicksand North Side 5",
+    code=262,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=2)
+  ),
+  "Quicksand North Side MD 6": MMXCMLocationData(
+    name="Quicksand North Side 6",
+    code=263,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=3)
+  ),
+  "Quicksand North Side Ball & Chain Hammer": MMXCMLocationData(
+    name="Quicksand North Side Ball & Chain Hammer 1",
+    code=264,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2186, bit_position=2)
+  ),
+  "Quicksand Central Passageway MD 1": MMXCMLocationData(
+    name="Quicksand Central Passageway 1",
+    code=265,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=6)
+  ),
+  "Quicksand Central Passageway MD 2": MMXCMLocationData(
+    name="Quicksand Central Passageway 2",
+    code=266,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2170, bit_position=7)
+  ),
+  "Signal Jammer Laser Energy Control Room SW MD 1": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room SW 1",
+    code=267,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=5)
+  ),
+  "Signal Jammer Laser Energy Control Room NW MD 1": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room NW 1",
+    code=268,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=1)
+  ),
+  "Signal Jammer Laser Energy Control Room NW MD 2": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room NW 2",
+    code=269,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=2)
+  ),
+  "Signal Jammer Laser Energy Control Room NE MD 1": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room NE 1",
+    code=270,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=3)
+  ),
+  "Signal Jammer Laser Energy Control Room NE MD 2": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room NE 2",
+    code=271,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=4)
+  ),
+  "Signal Jammer Laser Energy Control Room SE MD 1": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Control Room SE 1",
+    code=272,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2177, bit_position=0)
+  ),
+  "Signal Jammer Laser Energy Generator MD 1": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 1",
+    code=273,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=0)
+  ),
+  "Signal Jammer Laser Energy Generator MD 2": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 2",
+    code=274,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=1)
+  ),
+  "Signal Jammer Laser Energy Generator MD 3": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 3",
+    code=275,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=0)
+  ),
+  "Signal Jammer Laser Energy Generator MD 4": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 4",
+    code=276,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=1)
+  ),
+  "Signal Jammer Laser Energy Generator MD 5": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 5",
+    code=277,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=2)
+  ),
+  "Signal Jammer Laser Energy Generator MD 6": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 6",
+    code=278,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=3)
+  ),
+  "Signal Jammer Laser Energy Generator MD 7": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 7",
+    code=279,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=4)
+  ),
+  "Signal Jammer Laser Energy Generator MD 8": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 8",
+    code=280,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=5)
+  ),
+  "Signal Jammer Laser Energy Generator MD 9": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 9",
+    code=281,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=6)
+  ),
+  "Signal Jammer Laser Energy Generator MD 10": MMXCMLocationData(
+    name="Signal Jammer Laser Energy Generator 10",
+    code=282,
+    parent_region="Vanallia Desert",
+    ram_addr=MMXCMRamData(0x804A2176, bit_position=7)
+  ),        
+}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in VANALLIA_DESERT_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        VANALLIA_DESERT_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Vanallia Desert Access Code", 1)
+        )
+
 MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {}
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {}
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {}
