@@ -1719,6 +1719,7 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
 
 
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
+PROGRESSIVE_FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
 
 #Add any other tables here, Filler, Trap, etc.
