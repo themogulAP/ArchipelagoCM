@@ -2031,7 +2031,225 @@ for key, data in MELDA_ORE_PLANT_LOCATIONS.items():
             access_rule=lambda state: state.has("Melda Ore Plant Access Code", 1)
         )
 
-GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {}
+GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Level E Security Zone MD 1": MMXCMLocationData(
+    name="Level E Security Zone 1",
+    code=313,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=2)
+  ),
+  "Level E Security Zone MD 2": MMXCMLocationData(
+    name="Level E Security Zone 2",
+    code=314,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=3)
+  ),
+  "Level D Security Zone MD 1": MMXCMLocationData(
+    name="Level D Security Zone 1",
+    code=315,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=5)
+  ),
+  "Level C Security Zone MD 1": MMXCMLocationData(
+    name="Level C Security Zone 1",
+    code=316,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=7)
+  ),
+  "Level C Security Zone MD 2": MMXCMLocationData(
+    name="Level C Security Zone 2",
+    code=317,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217F, bit_position=0)
+  ),
+  "Level C Security Zone MD 3": MMXCMLocationData(
+    name="Level C Security Zone 3",
+    code=318,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217F, bit_position=1)
+  ),
+  "Level C Security Zone MD 4": MMXCMLocationData(
+    name="Level C Security Zone 4",
+    code=319,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217F, bit_position=2)
+  ),
+  "Level C Security Zone MD 5": MMXCMLocationData(
+    name="Level C Security Zone 5",
+    code=320,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217F, bit_position=3)
+  ),
+  "Level B Security Zone MD 1": MMXCMLocationData(
+    name="Level B Security Zone 1",
+    code=321,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217F, bit_position=7)
+  ),
+  "Level B Security Zone MD 2": MMXCMLocationData(
+    name="Level B Security Zone 2",
+    code=322,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=0)
+  ),
+  "Battle Field MD 1": MMXCMLocationData(
+    name="Battle Field 1",
+    code=323,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=0)
+  ),
+  "Battle Field MD 2": MMXCMLocationData(
+    name="Battle Field 2",
+    code=324,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=1)
+  ),
+  "Battle Field MD 3": MMXCMLocationData(
+    name="Battle Field 3",
+    code=325,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=2)
+  ),
+  "Battle Field MD 4": MMXCMLocationData(
+    name="Battle Field 4",
+    code=326,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A2183, bit_position=3)
+  ),
+  "Battle Field MD 5": MMXCMLocationData(
+    name="Battle Field 5",
+    code=327,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=5)
+  ),
+  "Battle Field MD 6": MMXCMLocationData(
+    name="Battle Field 6",
+    code=328,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=6)
+  ),
+  "Battle Field MD 7": MMXCMLocationData(
+    name="Battle Field 7",
+    code=329,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=7)
+  ),
+  "Revolver Shaft Area MD 1": MMXCMLocationData(
+    name="Revolver Shaft Area 1",
+    code=330,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=2)
+  ),
+  "Revolver Shaft Area MD 2": MMXCMLocationData(
+    name="Revolver Shaft Area 2",
+    code=331,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=3)
+  ),
+  "Revolver Room #4 MD 1": MMXCMLocationData(
+    name="Revolver Room #4 1",
+    code=332,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=5)
+  ),
+  "Revolver Room #6 MD 1": MMXCMLocationData(
+    name="Revolver Room #6 1",
+    code=333,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=6)
+  ),
+  "Revolver Room #7 MD 1": MMXCMLocationData(
+    name="Revolver Room #7 1",
+    code=334,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=7)
+  ),
+  "Revolver Shaft Area Right Side MD 1": MMXCMLocationData(
+    name="Revolver Shaft Area Right Side 1",
+    code=335,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217E, bit_position=4)
+  ),
+  "Level S Top Security Zone MD 1": MMXCMLocationData(
+    name="Level S Top Security Zone 1",
+    code=336,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=1)
+  ),
+  "Level S Top Security Zone MD 2": MMXCMLocationData(
+    name="Level S Top Security Zone 2",
+    code=337,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=2)
+  ),
+  "Level S Top Security Zone MD 3": MMXCMLocationData(
+    name="Level S Top Security Zone 3",
+    code=338,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=3)
+  ),
+  "Level S Top Security Zone MD 4": MMXCMLocationData(
+    name="Level S Top Security Zone 4",
+    code=339,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=4)
+  ),
+  "Level S Top Security Zone MD 5": MMXCMLocationData(
+    name="Level S Top Security Zone 5",
+    code=340,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=0)
+  ),
+  "Level S Top Security Zone MD 6": MMXCMLocationData(
+    name="Level S Top Security Zone 6",
+    code=341,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=1)
+  ),
+  "Level S Top Security Zone MD 7": MMXCMLocationData(
+    name="Level S Top Security Zone 7",
+    code=342,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=5)
+  ),
+  "Level S Top Security Zone MD 8": MMXCMLocationData(
+    name="Level S Top Security Zone 8",
+    code=343,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=6)
+  ),
+  "Level S Top Security Zone MD 9": MMXCMLocationData(
+    name="Level S Top Security Zone 9",
+    code=344,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217D, bit_position=7)
+  ),
+  "Final Gate MD 1": MMXCMLocationData(
+    name="Final Gate 1",
+    code=345,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=2)
+  ),
+  "Final Gate MD 2": MMXCMLocationData(
+    name="Final Gate 2",
+    code=346,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=3)
+  ),
+  "Final Gate MD 3": MMXCMLocationData(
+    name="Final Gate 3",
+    code=347,
+    parent_region="Grave Ruins Base",
+    ram_addr=MMXCMRamData(0x804A217C, bit_position=4)
+  ),
+}
+# Apply the blanket access rule to all locations that don't have an explicit rule.
+for key, data in GRAVE_RUINS_BASE_LOCATIONS.items():
+    if data.access_rule is DEFAULT_RULE:
+        GRAVE_RUINS_BASE_LOCATIONS[key] = data._replace(
+            access_rule=lambda state: state.has("Grave Ruins Base Access Code", 1)
+        )
+
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {}
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
