@@ -62,7 +62,78 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         "East Area Stairs 4F to 5F MD 1": lambda state: state.has("Lagrano Key", player),
         "East Area Stairs 4F to 5F MD 2": lambda state: state.has("Lagrano Key", player),
         "East Area Stairs 4F to 5F MD 3": lambda state: state.has("Lagrano Key", player),
-        #C ontinue adding Central Tower here-------
+        
+         # Continue adding Central Tower here-------
+        "Special Sealed Area 1st Room MD 1": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 2": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 3": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 4": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 5": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 6": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 7": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 8": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 9": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 1st Room MD 10": lambda state: state.has("Central Key", player),
+        
+        "Special Sealed Area 2nd Room Room MD 1": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 2": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 3": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 4": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 5": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 6": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 7": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 8": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 9": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 2nd Room Room MD 10": lambda state: state.has("Central Key", player),
+        
+        "Special Sealed Area 3rd Room Room MD 1": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 2": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 3": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 4": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 5": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 6": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 7": lambda state: state.has("Central Key", player),
+        "Special Sealed Area 3rd Room Room MD 8": lambda state: state.has("Central Key", player),
+        
+        "Special Sealed Area By Ninetales MD 1": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 2": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 3": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 4": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 5": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 6": lambda state: state.has("Central Key", player),
+        "Special Sealed Area By Ninetales MD 7": lambda state: state.has("Central Key", player),
+        
+        # Continue adding Tianna here-------
+        "Maze Area 1 Behind Key MD 1": lambda state: state.has("Tianna Key", player),
+        "Maze Area 1 Rafflesian MD 1": lambda state: state.has("Tianna Key", player),
+        "Maze Area 1 Rafflesian MD 2": lambda state: state.has("Tianna Key", player),
+        "Maze Area 1 Rafflesian MD 3": lambda state: state.has("Tianna Key", player),
+
+        # Continue adding Gimialla Mine here------
+        "L2 Southwest Division MD 1": lambda state: state.has("Booster Parts", player),
+        "L2 Southeast Division MD 2": lambda state: state.has("Booster Parts", player),
+        "L2 Northeast Division MD 1": lambda state: state.has("Booster Parts", player),
+        "L2 Northeast Division MD 3": lambda state: state.has("Mega Mantor", player),
+        "L3 Main Tunnel Blue Miner Trade Complete": lambda state: state.has("Blue Pickaxe", player),
+        "L3 Northwest Division Red Miner Trade Complete": lambda state: state.has("Red Pickaxe", player),
+        "L3 Northwest Division Yellow Miner Trade Complete": lambda state: state.has("Yellow Pickaxe", player), 
+        "L3 Northeast Division Green Miner Trade Complete": lambda state: state.has("Green Pickaxe", player),
+        "L3 Southwest Division MD 1": lambda state: state.has("Gimialla Key", player), and state.has("Heavy Motor", player),
+        "L3 Southwest Division MD 2": lambda state: state.has("Gimialla Key", player),
+        "L3 Southwest Division MD 3": lambda state: state.has("Gimialla Key", player),
+        "Level 4 Main Tunnel MD 1": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 2": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 3": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 4": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 5": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 6": lambda state: state.has("Electric Components", player),
+        "Level 4 Main Tunnel MD 7": lambda state: state.has("Electric Components", player),
+        "Level 4 Durability Lab MD 1": lambda state: state.has("Electric Components", player),
+        "Level 4 Durability Lab MD 2": lambda state: state.has("Electric Components", player),
+        "Level 4 Durability Lab MD 3": lambda state: state.has("Electric Components", player),
+
+        # Continue adding Vanallia Desert Here---------
+
     })
         
     return rules
