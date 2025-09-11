@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from BaseClasses import CollectionState
 
 from .Locations import MMXCMLocationData
