@@ -2361,6 +2361,7 @@ FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
 }
 
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
+TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
 
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
@@ -2374,6 +2375,8 @@ ALL_ITEMS_TABLE = {
   **{item.name: item for item_list in PROGRESSIVE_WEAPONS_TABLE.values() for item in item_list},
   **SUB_WEAPONS_TABLE,
   **FORCE_METAL_TABLE,
+  **MECHANILOID_ITEMS_TABLE,
+  **TRADE_ITEMS_TABLE,
   **COLLECTIBLE_TABLE
 
 }
