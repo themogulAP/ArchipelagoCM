@@ -4,7 +4,7 @@ from BaseClasses import CollectionState
 
 #Importing all of our location data from locations.py to be added here,
 #Then uses AP architecture to import add_rule.
-from .Locations import MMXCMLocationData
+from .Locations import LOCATION_TABLE, MMXCMLocationData
 from worlds.generic.Rules import add_rule
 
 #Prevents the rules py from importing the entire world!
@@ -19,4 +19,7 @@ def set_rules(world: "MMXCMWorld"):
         
 #This is the logic behind the rules we will set for each location. 
 def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
+    player = world.player
+    
     return {
+        #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code.
