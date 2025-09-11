@@ -1718,7 +1718,205 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
 }
 
 
-FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
+FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
+  "Massimo Plus": MMXCMItemData(
+    type="Force Metal",
+    code=213,
+    classification=IC.useful,
+    item_id=34,
+    update_ram_addr=None
+  ),
+  "Assassin Mind": MMXCMItemData(
+    type="Force Metal",
+    code=214,
+    classification=IC.useful,
+    item_id=35,
+    update_ram_addr=None
+  ),
+  "Eagle Eye": MMXCMItemData(
+    type="Force Metal",
+    code=215,
+    classification=IC.useful,
+    item_id=36,
+    update_ram_addr=None
+  ),
+  "Fat Slicer": MMXCMItemData(
+    type="Force Metal",
+    code=216,
+    classification=IC.useful,
+    item_id=37,
+    update_ram_addr=None
+  ),
+  "Light As A Feather": MMXCMItemData(
+    type="Force Metal",
+    code=217,
+    classification=IC.useful,
+    item_id=38,
+    update_ram_addr=None
+  ),
+  "SFM Fragment A": MMXCMItemData(
+    type="Force Metal",
+    code=218,
+    classification=IC.useful,
+    item_id=39,
+    update_ram_addr=None
+  ),
+  "SFM Fragment B": MMXCMItemData(
+    type="Force Metal",
+    code=219,
+    classification=IC.useful,
+    item_id=40,
+    update_ram_addr=None
+  ),
+  "Auto Sub Tank": MMXCMItemData(
+    type="Force Metal",
+    code=220,
+    classification=IC.useful,
+    item_id=69,
+    update_ram_addr=None
+  ),
+  "Auto Recover": MMXCMItemData(
+    type="Force Metal",
+    code=221,
+    classification=IC.useful,
+    item_id=70,
+    update_ram_addr=None
+  ),
+  "Auto Barrier": MMXCMItemData(
+    type="Force Metal",
+    code=222,
+    classification=IC.useful,
+    item_id=71,
+    update_ram_addr=None
+  ),
+  "Bluff": MMXCMItemData(
+    type="Force Metal",
+    code=223,
+    classification=IC.useful,
+    item_id=72,
+    update_ram_addr=None
+  ),
+  "ZERO Shift": MMXCMItemData(
+    type="Force Metal",
+    code=224,
+    classification=IC.useful,
+    item_id=73,
+    update_ram_addr=None
+  ),
+  "X Heart": MMXCMItemData(
+    type="Force Metal",
+    code=225,
+    classification=IC.useful,
+    item_id=74,
+    update_ram_addr=None
+  ),
+  "Decoy": MMXCMItemData(
+    type="Force Metal",
+    code=226,
+    classification=IC.useful,
+    item_id=75,
+    update_ram_addr=None
+  ),
+  "Parry Impact": MMXCMItemData(
+    type="Force Metal",
+    code=227,
+    classification=IC.useful,
+    item_id=76,
+    update_ram_addr=None
+  ),
+  "End To All": MMXCMItemData(
+    type="Force Metal",
+    code=228,
+    classification=IC.useful,
+    item_id=77,
+    update_ram_addr=None
+  ),
+  "FS Canceller": MMXCMItemData(
+    type="Force Metal",
+    code=229,
+    classification=IC.useful,
+    item_id=78,
+    update_ram_addr=None
+  ),
+  "Analyzer": MMXCMItemData(
+    type="Force Metal",
+    code=230,
+    classification=IC.useful,
+    item_id=79,
+    update_ram_addr=None
+  ),
+  "Learning Aid": MMXCMItemData(
+    type="Force Metal",
+    code=231,
+    classification=IC.useful,
+    item_id=80,
+    update_ram_addr=None
+  ),
+  "Caution": MMXCMItemData(
+    type="Force Metal",
+    code=232,
+    classification=IC.useful,
+    item_id=81,
+    update_ram_addr=None
+  ),
+  "Attractor": MMXCMItemData(
+    type="Force Metal",
+    code=233,
+    classification=IC.useful,
+    item_id=82,
+    update_ram_addr=None
+  ),
+  "Initiative": MMXCMItemData(
+    type="Force Metal",
+    code=234,
+    classification=IC.useful,
+    item_id=83,
+    update_ram_addr=None
+  ),
+  "Self-repair": MMXCMItemData(
+    type="Force Metal",
+    code=235,
+    classification=IC.useful,
+    item_id=87,
+    update_ram_addr=None
+  ),
+  "Exodus": MMXCMItemData(
+    type="Force Metal",
+    code=236,
+    classification=IC.useful,
+    item_id=88,
+    update_ram_addr=None
+  ),
+  "Cutting Edge": MMXCMItemData(
+    type="Force Metal",
+    code=237,
+    classification=IC.useful,
+    item_id=89,
+    update_ram_addr=None
+  ),
+  "Lucky Girl": MMXCMItemData(
+    type="Force Metal",
+    code=238,
+    classification=IC.useful,
+    item_id=90,
+    update_ram_addr=None
+  ),
+  "Good Luck": MMXCMItemData(
+    type="Force Metal",
+    code=239,
+    classification=IC.useful,
+    item_id=91,
+    update_ram_addr=None
+  ),
+  "Monopoly": MMXCMItemData(
+    type="Force Metal",
+    code=240,
+    classification=IC.useful,
+    item_id=92,
+    update_ram_addr=None
+  )
+}
+
 PROGRESSIVE_FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
 
