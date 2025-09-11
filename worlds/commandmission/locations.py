@@ -320,70 +320,70 @@ CENTRAL_TOWER_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A2157, bit_position=2)
   ),
-  "Special Sealed Area First Room MD 1": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 1": MMXCMLocationData(
     name="Special Sealed Area 1-4 1",
     code=49,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A2148, bit_position=4),
     access_rule=lambda state: state.has("Central Key", 1)
   ),
-  "Special Sealed Area First Room MD 2": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 2": MMXCMLocationData(
     name="Special Sealed Area 1-4 2",
     code=50,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A2148, bit_position=5),
     access_rule=lambda state: state.has("Central Key", 1)
   ),
-  "Special Sealed Area First Room MD 3": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 3": MMXCMLocationData(
     name="Special Sealed Area 1-4 3",
     code=51,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A2148, bit_position=6),
     access_rule=lambda state: state.has("Central Key", 1)
   ),
-  "Special Sealed Area First Room MD 4": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 4": MMXCMLocationData(
     name="Special Sealed Area 1-4 4",
     code=52,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A2148, bit_position=7),
     access_rule=lambda state: state.has("Central Key", 1)   
   ),
-  "Special Sealed Area First Room MD 5": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 5": MMXCMLocationData(
     name="Special Sealed Area 1-4 5",
     code=53,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A214F, bit_position=0),
     access_rule=lambda state: state.has("Central Key", 1)     
   ),
-  "Special Sealed Area First Room MD 6": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 6": MMXCMLocationData(
     name="Special Sealed Area 1-4 6",
     code=54,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A214F, bit_position=1),
     access_rule=lambda state: state.has("Central Key", 1)     
   ),
-  "Special Sealed Area First Room MD 7": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 7": MMXCMLocationData(
     name="Special Sealed Area 1-4 7",
     code=55,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A214F, bit_position=2),
     access_rule=lambda state: state.has("Central Key", 1) 
   ),
-  "Special Sealed Area First Room MD 8": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 8": MMXCMLocationData(
     name="Special Sealed Area 1-4 8",
     code=56,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A214F, bit_position=3),
     access_rule=lambda state: state.has("Central Key", 1)  
   ),
-  "Special Sealed Area First Room MD 9": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 9": MMXCMLocationData(
     name="Special Sealed Area 1-4 9",
     code=57,
     parent_region="Central Tower",
     ram_addr=MMXCMRamData(0x804A214F, bit_position=4),
     access_rule=lambda state: state.has("Central Key", 1)     
   ),
-  "Special Sealed Area 1-4 MD 10": MMXCMLocationData(
+  "Special Sealed Area 1st Room MD 10": MMXCMLocationData(
     name="Special Sealed Area 1-4 10",
     code=58,
     parent_region="Central Tower",
