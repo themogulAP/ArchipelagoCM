@@ -2364,54 +2364,84 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   "Mini Battery A": MMXCMItemData(
     type="Mechaniloid Item", 
     code=304,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=0)]
   ),
   "Mini Battery B": MMXCMItemData(
     type="Mechaniloid Item", 
     code=305,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=6)]
   ),
   "Mini Battery C": MMXCMItemData(
     type="Mechaniloid Item", 
     code=306,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=7)]
   ),
   "Mini Motor": MMXCMItemData(
     type="Mechaniloid Item", 
     code=307,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=1)]
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=1)]
   ),
   "Ball & Chain Hammer": MMXCMItemData(
     type="Mechaniloid Item", 
     code=308,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=2)]
   ),
   "Cyber Liquid": MMXCMItemData(
     type="Mechaniloid Item", 
     code=309,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=3)]
   ),
   "Bone Key": MMXCMItemData(
     type="Mechaniloid Item", 
     code=310,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=4)]
   ),
   "Heavy Motor": MMXCMItemData(
     type="Mechaniloid Item", 
     code=311,
-    classification=IC.progression,
+    classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=5)]
   )
 }
 
-TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
+TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
+  "Red Pickaxe": MMXCMItemData(
+    type="Trade Item",
+    code=312,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=1)]
+  ),
+  "Yellow Pickaxe": MMXCMItemData(
+    type="Trade Item",
+    code=313,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=2)]
+  ),
+  "Blue Pickaxe": MMXCMItemData(
+    type="Trade Item",
+    code=314,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=3)]
+  ),
+  "Green Pickaxe": MMXCMItemData(
+    type="Trade Item",
+    code=315,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=4)]
+  ),
+  "White Pickaxe": MMXCMItemData(
+    type="Trade Item",
+    code=316,
+    classification=IC.useful,
+    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=5)]
+}
 
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
