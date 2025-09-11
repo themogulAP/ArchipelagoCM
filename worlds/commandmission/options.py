@@ -15,3 +15,13 @@ class MMXCMOptions(OptionDict):
     range_start=0,
     range_end=9,
   )
+
+  #This is the Option choice for the player's desired encounter rate.
+  encounter_rate: Choice = Choice("Encounter Rate",
+    {
+      "vanilla": 0,
+      "lower": 1,
+      "higher": 2,
+    },
+    default="vanilla"
+  )
