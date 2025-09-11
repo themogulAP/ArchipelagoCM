@@ -118,7 +118,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         "L3 Northwest Division Red Miner Trade Complete": lambda state: state.has("Red Pickaxe", player),
         "L3 Northwest Division Yellow Miner Trade Complete": lambda state: state.has("Yellow Pickaxe", player), 
         "L3 Northeast Division Green Miner Trade Complete": lambda state: state.has("Green Pickaxe", player),
-        "L3 Southwest Division MD 1": lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player),
+        "L3 Southwest Division MD 1": lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) or state.has("Gold Blader", player),
         "L3 Southwest Division MD 2": lambda state: state.has("Gimialla Key", player),
         "L3 Southwest Division MD 3": lambda state: state.has("Gimialla Key", player),
         "Level 4 Main Tunnel MD 1": lambda state: state.has("Electric Components", player),
