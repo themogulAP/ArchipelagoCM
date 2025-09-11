@@ -55,4 +55,8 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
          elif location_data["parent_region"] == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
+rules.update({
+    "Far East HQ Access Code": lambda state: state.has_group("Rebellion Medals", player, 9)
+})
+
     return rules
