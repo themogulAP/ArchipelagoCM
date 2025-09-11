@@ -132,7 +132,33 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         "Level 4 Durability Lab MD 2": lambda state: state.has("Electric Components", player),
         "Level 4 Durability Lab MD 3": lambda state: state.has("Electric Components", player),
 
-        # Continue adding Vanallia Desert Here---------
+          # Continue adding Melda Ore Planet Here---------
+        "B1 Entrance Hall MD 2": lambda state: state.has("Melda Key", player),
+        "B1 Entrance Hall MD 3": lambda state: state.has("Melda Key", player),
+        "B1 Entrance Hall MD 4": lambda state: state.has("Melda Key", player),
+        "Missile Maintenance Room MD 1": lambda state: state.has("Melda Key", player),
+
+        # Mehaniloid Locations---------
+        "Deerball": lambda state: state.has("Lagrano Key", player) and state.has("Lagrano Ruins Access Code", player),
+        "Radar Killer": lambda state: state.has("Tianna Key", player) and state.has("Tianna Camp Access Code", player),
+        "Blowfish": lambda state: state.has("Mini Battery", player, 3) and state.has("Tianna Camp Access Code", player),
+        "Big Monkey": lambda state: state.has("Gaudile Laboratory Access Code", player),
+        "Preon": lambda state: state.has("Gaudile Laboratory Access Code", player),
+        "Dober Man": lambda state: state.has("Gaudile Laboratory Access Code", player) and state.has("Bone Key", player),
+        "Mettaur": lambda state: state.has("Gaudile Laboratory Access Code", player),
+        "Einhammer": lambda state: state.has("Ulfat Factory Access Code", player) and state.has("Ball & Chain Hammer", player),
+        "Killer Mantis": lambda state: state.has("Ulfat Factory Access Code", player),
+        "Rush Loader": lambda state: state.has("Ulfat Factory Access Code", player),
+        "Mega Mantor": lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Mini Battery", player, 3),
+        "Degraver": lambda state: state.has("Gimialla Mine Access Code", player),
+        "Bat Bone": lambda state: state.has("Gimialla Mine Access Code", player),
+        "Gold Blader": lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Heavy Motor", player) and state.has("Gimialla Key", player),
+        "Liquid Glob": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Cyber Liquid", player),
+        "Mega Tortoise": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Battery", player, 3),
+        "Pararoid": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Motor", player),
+        "Meltdown": lambda state: state.has("Melda Ore Plant Access Code", player) and state.has("Melda Key", player),
+        "Rabbid": lambda state: state.has("Melda Ore Plant Access Code", player),
+        "Bladey": lambda state: state.has("Grave Ruins Base Access Code", player),
 
     })
         
