@@ -1,7 +1,7 @@
 from typing import NamedTuple, Dict, Optional, Set
 
 from BaseClasses import Item
-from BaseClasses import ItemClassification as IC 
+from BaseClasses import ItemClassification as IC, ItemGroup
 
 # This will import from the Helpers.py in the same folder. 
 from .Helpers import MMXCMRamData
@@ -16,7 +16,7 @@ class MMXCMItemData(NamedTuple):
   update_ram_addr: Optional[list[MMXCMRamData]] = None 
 
 # This is the list for every single item we are currently randomzing in AP.
-PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
+PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {  
   # Follow this example for every additional item. 
   "Aile ID": MMXCMItemData(
     type="Key Item",
@@ -116,8 +116,77 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
       MMXCMRamData(0x804A2128, bit_position=0),
       MMXCMRamData(0x804A2128, bit_position=1)
     ]
+  ),
+   #This is adding our Rebellion Medal items to the AP , but NOT Randomly. 
+  "Rebellion Medal Lagrano Ruins": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Central Tower": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Tianna Camp": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Gaudile Laboratory": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Ulfat Factory": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Gimialla Mine": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Vanallia Desert": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Melda Ore Plant": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None
+  ),
+  "Rebellion Medal Grave Ruins Base": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    update_ram_addr=None   
   )
 }
+
+#This is where the Rebellion Medals will be definited into an item group. 
+ITEM_GROUPS = {
+  "Rebellion Medals": ItemGroup("Rebellion Medals", {
+    "Rebellion Medal Lagrano Ruins",
+    "Rebellion Medal Central Tower",
+    "Rebellion Medal Tianna Camp",
+    "Rebellion Medal Gaudile Laboratory",
+    "Rebellion Medal Ulfat Factory",
+    "Rebellion Medal Gimialla Mine",
+    "Rebellion Medal Vanallia Desert",
+    "Rebellion Medal Melda Ore Plant",
+    "Rebellion Medal Grave Ruins Base", 
+  }, 9)
 
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
   # This is the list of Useful items, like armors and keys.
