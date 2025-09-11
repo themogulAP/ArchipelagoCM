@@ -11,3 +11,5 @@ def set_rules(world: "MMXCMWorld"):
     for location, rule in get_rules_dict(world).items():
         add_rule(location, rule)
         
+def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
+    return {
