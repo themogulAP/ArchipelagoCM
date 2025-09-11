@@ -10,7 +10,7 @@ from .Helpers import MMXCMRamData
 class MMXCMItemData(NamedTuple):
   name: Optional[str] = None
   type: str
-  code: Optional[int]
+  code: Optional[int] = None
   classification: IC
   item_id: Optional[int] = None #This is the item's unique ID
   update_ram_addr: Optional[list[MMXCMRamData]] = None 
