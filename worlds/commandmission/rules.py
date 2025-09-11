@@ -58,9 +58,11 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     world.multi_world.item_rules["Far East HQ Access Code"] = lambda state: state.has_group("Rebellion Medals", player, 9)
 
     rules.update({
+        # Extra rules for Lagrano Ruins ------------
         "East Area Stairs 4F to 5F MD 1": lambda state: state.has("Lagrano Key", player),
         "East Area Stairs 4F to 5F MD 2": lambda state: state.has("Lagrano Key", player),
         "East Area Stairs 4F to 5F MD 3": lambda state: state.has("Lagrano Key", player),
+        #C ontinue adding Central Tower here-------
     })
         
     return rules
