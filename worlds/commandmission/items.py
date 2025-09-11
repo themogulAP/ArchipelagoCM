@@ -1717,7 +1717,6 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
   )    
 }
 
-
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
   "Massimo Plus": MMXCMItemData(
     type="Force Metal",
@@ -1914,10 +1913,457 @@ FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.useful,
     item_id=92,
     update_ram_addr=None
-  )
+  ),
+  "LE +100": MMXCMItemData(
+    type="Force Metal",
+    code=241,
+    classification=IC.useful,
+    item_id=1,
+    update_ram_addr=None
+  ),
+  "LE +300": MMXCMItemData(
+    type="Force Metal",
+    code=242,
+    classification=IC.useful,
+    item_id=2,
+    update_ram_addr=None
+  ),
+  "LE +500": MMXCMItemData(
+    type="Force Metal",
+    code=243,
+    classification=IC.useful,
+    item_id=3,
+    update_ram_addr=None
+  ),
+  "LE +1000": MMXCMItemData(
+    type="Force Metal",
+    code=244,
+    classification=IC.useful,
+    item_id=4,
+    update_ram_addr=None
+  ),
+  "WE +5": MMXCMItemData(
+    type="Force Metal",
+    code=245,
+    classification=IC.useful,
+    item_id=5,
+    update_ram_addr=None
+  ),
+  "WE +10": MMXCMItemData(
+    type="Force Metal",
+    code=246,
+    classification=IC.useful,
+    item_id=6,
+    update_ram_addr=None
+  ),
+  "Gain WE +5": MMXCMItemData(
+    type="Force Metal",
+    code=247,
+    classification=IC.useful,
+    item_id=7,
+    update_ram_addr=None
+  ),
+  "Gain WE +10": MMXCMItemData(
+    type="Force Metal",
+    code=248,
+    classification=IC.useful,
+    item_id=8,
+    update_ram_addr=None
+  ),
+  "Gain WE +25": MMXCMItemData(
+    type="Force Metal",
+    code=249,
+    classification=IC.useful,
+    item_id=9,
+    update_ram_addr=None
+  ),
+  "Power +1": MMXCMItemData(
+    type="Force Metal",
+    code=250,
+    classification=IC.useful,
+    item_id=10,
+    update_ram_addr=None
+  ),
+  "Power +3": MMXCMItemData(
+    type="Force Metal",
+    code=251,
+    classification=IC.useful,
+    item_id=11,
+    update_ram_addr=None
+  ),
+  "Power +5": MMXCMItemData(
+    type="Force Metal",
+    code=252,
+    classification=IC.useful,
+    item_id=12,
+    update_ram_addr=None
+  ),
+  "Power +10": MMXCMItemData(
+    type="Force Metal",
+    code=253,
+    classification=IC.useful,
+    item_id=13,
+    update_ram_addr=None
+  ),
+  "Armor +1": MMXCMItemData(
+    type="Force Metal",
+    code=254,
+    classification=IC.useful,
+    item_id=14,
+    update_ram_addr=None
+  ),
+  "Armor +3": MMXCMItemData(
+    type="Force Metal",
+    code=255,
+    classification=IC.useful,
+    item_id=15,
+    update_ram_addr=None
+  ),
+  "Armor +5": MMXCMItemData(
+    type="Force Metal",
+    code=256,
+    classification=IC.useful,
+    item_id=16,
+    update_ram_addr=None
+  ),
+  "Armor +10": MMXCMItemData(
+    type="Force Metal",
+    code=257,
+    classification=IC.useful,
+    item_id=17,
+    update_ram_addr=None
+  ),
+  "Shield +1": MMXCMItemData(
+    type="Force Metal",
+    code=258,
+    classification=IC.useful,
+    item_id=18,
+    update_ram_addr=None
+  ),
+  "Shield +3": MMXCMItemData(
+    type="Force Metal",
+    code=259,
+    classification=IC.useful,
+    item_id=19,
+    update_ram_addr=None
+  ),
+  "Shield +5": MMXCMItemData(
+    type="Force Metal",
+    code=259,
+    classification=IC.useful,
+    item_id=20,
+    update_ram_addr=None
+  ),
+  "Shield +10": MMXCMItemData(
+    type="Force Metal",
+    code=260,
+    classification=IC.useful,
+    item_id=21,
+    update_ram_addr=None
+  ),
+  "Speed +1": MMXCMItemData(
+    type="Force Metal",
+    code=261,
+    classification=IC.useful,
+    item_id=22,
+    update_ram_addr=None
+  ),
+  "Speed +3": MMXCMItemData(
+    type="Force Metal",
+    code=262,
+    classification=IC.useful,
+    item_id=23,
+    update_ram_addr=None
+  ),
+  "Speed +5": MMXCMItemData(
+    type="Force Metal",
+    code=263,
+    classification=IC.useful,
+    item_id=24,
+    update_ram_addr=None
+  ),
+  "Speed +10": MMXCMItemData(
+    type="Force Metal",
+    code=264,
+    classification=IC.useful,
+    item_id=25,
+    update_ram_addr=None
+  ),
+  "Protect +1": MMXCMItemData(
+    type="Force Metal",
+    code=265,
+    classification=IC.useful,
+    item_id=26,
+    update_ram_addr=None
+  ),
+  "Protect +3": MMXCMItemData(
+    type="Force Metal",
+    code=266,
+    classification=IC.useful,
+    item_id=27,
+    update_ram_addr=None
+  ),
+  "Protect +5": MMXCMItemData(
+    type="Force Metal",
+    code=267,
+    classification=IC.useful,
+    item_id=28,
+    update_ram_addr=None
+  ),
+  "Protect +10": MMXCMItemData(
+    type="Force Metal",
+    code=268,
+    classification=IC.useful,
+    item_id=29,
+    update_ram_addr=None
+  ),
+  "Full Specs +1": MMXCMItemData(
+    type="Force Metal",
+    code=269,
+    classification=IC.useful,
+    item_id=30,
+    update_ram_addr=None
+  ),
+  "Full Specs +3": MMXCMItemData(
+    type="Force Metal",
+    code=270,
+    classification=IC.useful,
+    item_id=31,
+    update_ram_addr=None
+  ),
+  "Full Specs +5": MMXCMItemData(
+    type="Force Metal",
+    code=271,
+    classification=IC.useful,
+    item_id=32,
+    update_ram_addr=None
+  ),
+  "Full Specs +10": MMXCMItemData(
+    type="Force Metal",
+    code=272,
+    classification=IC.useful,
+    item_id=33,
+    update_ram_addr=None
+  ),
+  "Fire Guard": MMXCMItemData(
+    type="Force Metal",
+    code=273,
+    classification=IC.useful,
+    item_id=41,
+    update_ram_addr=None
+  ),
+  "Fire Resist": MMXCMItemData(
+    type="Force Metal",
+    code=274,
+    classification=IC.useful,
+    item_id=42,
+    update_ram_addr=None
+  ),
+  "Reverse Fire": MMXCMItemData(
+    type="Force Metal",
+    code=275,
+    classification=IC.useful,
+    item_id=43,
+    update_ram_addr=None
+  ),
+  "Water Guard": MMXCMItemData(
+    type="Force Metal",
+    code=276,
+    classification=IC.useful,
+    item_id=44,
+    update_ram_addr=None
+  ),
+  "Water Resist": MMXCMItemData(
+    type="Force Metal",
+    code=277,
+    classification=IC.useful,
+    item_id=45,
+    update_ram_addr=None
+  ),
+  "Reverse Water": MMXCMItemData(
+    type="Force Metal",
+    code=278,
+    classification=IC.useful,
+    item_id=46,
+    update_ram_addr=None
+  ),
+  "Thunder Guard": MMXCMItemData(
+    type="Force Metal",
+    code=279,
+    classification=IC.useful,
+    item_id=47,
+    update_ram_addr=None
+  ),
+  "Thunder Resist": MMXCMItemData(
+    type="Force Metal",
+    code=280,
+    classification=IC.useful,
+    item_id=48,
+    update_ram_addr=None
+  ),
+  "Reverse Thunder": MMXCMItemData(
+    type="Force Metal",
+    code=281,
+    classification=IC.useful,
+    item_id=49,
+    update_ram_addr=None
+  ),
+  "Virus Protection": MMXCMItemData(
+    type="Force Metal",
+    code=282,
+    classification=IC.useful,
+    item_id=50,
+    update_ram_addr=None
+  ),
+  "Virus Block": MMXCMItemData(
+    type="Force Metal",
+    code=283,
+    classification=IC.useful,
+    item_id=51,
+    update_ram_addr=None
+  ),
+  "Bind Protection": MMXCMItemData(
+    type="Force Metal",
+    code=284,
+    classification=IC.useful,
+    item_id=52,
+    update_ram_addr=None
+  ),
+  "Bind Block": MMXCMItemData(
+    type="Force Metal",
+    code=285,
+    classification=IC.useful,
+    item_id=53,
+    update_ram_addr=None
+  ),
+  "Freeze Protection": MMXCMItemData(
+    type="Force Metal",
+    code=286,
+    classification=IC.useful,
+    item_id=54,
+    update_ram_addr=None
+  ),
+  "Freeze Block": MMXCMItemData(
+    type="Force Metal",
+    code=287,
+    classification=IC.useful,
+    item_id=55,
+    update_ram_addr=None
+  ),
+  "Berserk Protection": MMXCMItemData(
+    type="Force Metal",
+    code=288,
+    classification=IC.useful,
+    item_id=56,
+    update_ram_addr=None
+  ),
+  "Berserk Block": MMXCMItemData(
+    type="Force Metal",
+    code=289,
+    classification=IC.useful,
+    item_id=57,
+    update_ram_addr=None
+  ),
+  "Blind Protection": MMXCMItemData(
+    type="Force Metal",
+    code=290,
+    classification=IC.useful,
+    item_id=58,
+    update_ram_addr=None
+  ),
+  "Blind Block": MMXCMItemData(
+    type="Force Metal",
+    code=291,
+    classification=IC.useful,
+    item_id=59,
+    update_ram_addr=None
+  ),
+  "DOA Protection": MMXCMItemData(
+    type="Force Metal",
+    code=292,
+    classification=IC.useful,
+    item_id=60,
+    update_ram_addr=None
+  ),
+  "DOA Block": MMXCMItemData(
+    type="Force Metal",
+    code=293,
+    classification=IC.useful,
+    item_id=61,
+    update_ram_addr=None
+  ),
+  "Firewall": MMXCMItemData(
+    type="Force Metal",
+    code=294,
+    classification=IC.useful,
+    item_id=62,
+    update_ram_addr=None
+  ),
+  "Block All": MMXCMItemData(
+    type="Force Metal",
+    code=295,
+    classification=IC.useful,
+    item_id=63,
+    update_ram_addr=None
+  ),
+  "Resist": MMXCMItemData(
+    type="Force Metal",
+    code=296,
+    classification=IC.useful,
+    item_id=64,
+    update_ram_addr=None
+  ),
+  "Super Resist": MMXCMItemData(
+    type="Force Metal",
+    code=297,
+    classification=IC.useful,
+    item_id=65,
+    update_ram_addr=None
+  ),
+  "Infinite Resist": MMXCMItemData(
+    type="Force Metal",
+    code=298,
+    classification=IC.useful,
+    item_id=66,
+    update_ram_addr=None
+  ),
+  "Minus Metal 10": MMXCMItemData(
+    type="Force Metal",
+    code=299,
+    classification=IC.useful,
+    item_id=67,
+    update_ram_addr=None
+  ),
+  "Minus Metal 20": MMXCMItemData(
+    type="Force Metal",
+    code=300,
+    classification=IC.useful,
+    item_id=68,
+    update_ram_addr=None
+  ),
+  "Neutralizer -10": MMXCMItemData(
+    type="Force Metal",
+    code=301,
+    classification=IC.useful,
+    item_id=84,
+    update_ram_addr=None
+  ),
+  "Neutralizer -20": MMXCMItemData(
+    type="Force Metal",
+    code=302,
+    classification=IC.useful,
+    item_id=85,
+    update_ram_addr=None
+  ),
+  "Neutralizer -30": MMXCMItemData(
+    type="Force Metal",
+    code=303,
+    classification=IC.useful,
+    item_id=86,
+    update_ram_addr=None
+  ) 
 }
 
-PROGRESSIVE_FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {}
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {}
 
 #Add any other tables here, Filler, Trap, etc.
