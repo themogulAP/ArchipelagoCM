@@ -25,3 +25,10 @@ class MMXCMOptions(OptionDict):
     },
     default="vanilla"
   )
+
+  # The player can choose which locations to remove from their AP.
+  excluded_locations: PerPlayerOption[OptionDict] = PerPlayerOption(OptionDict, "Exclude Locations",
+    options={},
+    default={}
+  )
+  
