@@ -38,7 +38,45 @@ class MMXCMWorld(World):
 
 # This will build the entire map for our randomized AP! 
   def create_regions(self):
-    pass
+    # This will serve as a Master Dictionary for our loops, describing the codes needed for the same area.
+    region_data = {
+      "Lagrano Ruins": "Lagrano Ruins Access Code",
+      "Tianna Camp": "Tianna Camp Access Code",
+      "Gaudile Laboratory": "Gaudile Laboratory Access Code",
+      "Ulfat Factory": "Ulfat Factory Access Code",
+      "Gimialla Mine": "Gimialla Mine Access Code",
+      "Vanallia Desert": "Vanallia Desert Access Code",
+      "Melda Ore Plant": "Melda Ore Plant Access Code",
+      "Grave Ruins Base": "Grave Ruins Base Access Code",
+      "Far East HQ": "Far East HQ Access Code"
+    }
+    
+    # Create the virtual "starting area" for the game.
+    menu_region = Region("Menu", self.player, self.multiworld)
+    self.multiworld.regions.append(menu_region)
+
+    #Create our Central Tower main hub and full verision (when code is received)! 
+    central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
+    central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
+    self.multiworld.regions.append(central_tower_hub_region)
+    self.multiworld.regions.append(central_tower_full_region)
+
+    #Connect the Regions here.
+    menu_region.connect(central_tower_hub_region)
+    central_tower_hub_region.connect(
+      central_tower_full_region,
+      rule=lambda state: state.has("Central Tower Access Code", self.player)
+    )
+
+    # Create all the other regions and connect them to the Central Tower hub!
+    for region_name, access_code in region_data.items():
+      new_region = Region(region_name, self.player, self.multiworld)
+      self.multiworld.regions.append(new_region)
+
+      central_tower_hub_region.connect(
+        new_region,
+        rule=lambda state, code=access_code: state.has(code, self.player)
+      )
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
