@@ -91,7 +91,11 @@ class MMXCMWorld(World):
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
-    pass
+      item_pool = []
+      for item_name, item_data in ALL_ITEMS_TABLE.items():
+          item_pool.append(self.create_item(item_name))
+
+      self.multiworld.itempool.extend(item_pool)
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
