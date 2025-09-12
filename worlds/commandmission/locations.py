@@ -610,8 +610,7 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Maze Area 1 Behind Key 1",
     code=98,
     parent_region="Tianna Camp",
-    ram_addr=MMXCMRamData(0x804A2159, bit_position=1),
-    access_rule=lambda state: state.has("Tianna Key", 1)
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=1)
   ),
   "Maze Area 1 MD 2": MMXCMLocationData(
     name="Maze Area 1-2",
@@ -641,22 +640,19 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Maze Area 1 Rafflesian 1",
     code=103,
     parent_region="Tianna Camp",
-    ram_addr=MMXCMRamData(0x804A2159, bit_position=6),
-    access_rule=lambda state: state.has("Tianna Key", 1)
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=6)
   ),
   "Maze Area 1 Rafflesian MD 2": MMXCMLocationData(
     name="Maze Area 1 Rafflesian 2",
     code=104,
     parent_region="Tianna Camp",
-    ram_addr=MMXCMRamData(0x804A2159, bit_position=7),
-    access_rule=lambda state: state.has("Tianna Key", 1)
+    ram_addr=MMXCMRamData(0x804A2159, bit_position=7)
   ),
   "Maze Area 1 Rafflesian MD 3": MMXCMLocationData(
     name="Maze Area 1 Rafflesian 3",
     code=105,
     parent_region="Tianna Camp",
-    ram_addr=MMXCMRamData(0x804A2158, bit_position=0),
-    access_rule=lambda state: state.has("Tianna Key", 1)
+    ram_addr=MMXCMRamData(0x804A2158, bit_position=0)
   ),
   "Maze Area 2 MD 1": MMXCMLocationData(
     name="Maze Area 2-1",
@@ -797,12 +793,6 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A215D, bit_position=2)
   ),
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in TIANNA_CAMP_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        TIANNA_CAMP_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Tianna Camp Access Code", 1)
-        )
 
 GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {
   "East Deck High Speed Lift Area MD 1": MMXCMLocationData(
@@ -1016,12 +1006,6 @@ GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A2167, bit_position=6)
   ),  
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in GAUDILE_LABORATORY_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        GAUDILE_LABORATORY_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Gaudile Laboratory Access Code", 1)
-        )
       
 ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Smelting Furnace 1 MD 1": MMXCMLocationData(
@@ -1259,12 +1243,6 @@ ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A2169, bit_position=5)
   ),
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in ULFAT_FACTORY_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        ULFAT_FACTORY_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Ulfat Factory Access Code", 1)
-        )
       
 GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Level 1 Shaft Entrance MD 1": MMXCMLocationData(
@@ -1337,8 +1315,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Southwest Division 1",
     code=214,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216F, bit_position=7),
-    access_rule=lambda state: state.has("Booster Parts", 1)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=7)
   ),
   # Note that this is using the flag for Booster Parts, not the Booster Parts themselves.
   "L2 Southwest Division Booster Parts": MMXCMLocationData(
@@ -1357,15 +1334,13 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Southeast Division 2",
     code=217,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216E, bit_position=2),
-    access_rule=lambda state: state.has("Booster Parts", 1)
+    ram_addr=MMXCMRamData(0x804A216E, bit_position=2)
   ),
   "L2 Northeast Division MD 1": MMXCMLocationData(
     name="L2 Northeast Division 1",
     code=218,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216F, bit_position=3),
-    access_rule=lambda state: state.has("Booster Parts", 1)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=3)
   ),
   "L2 Northeast Division MD 2": MMXCMLocationData(
     name="L2 Northeast Division 2",
@@ -1377,8 +1352,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L2 Northeast Division 3",
     code=220,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216F, bit_position=5),
-    access_rule=lambda state: state.has("Mega Mantor", 1)
+    ram_addr=MMXCMRamData(0x804A216F, bit_position=5)
   ),
   "Level 3 Main Tunnel MD 1": MMXCMLocationData(
     name="Level 3 Main Tunnel 1",
@@ -1402,8 +1376,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Level 3 Main Tunnel Blue Miner 1",
     code=224,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A2113, bit_position=4),
-    access_rule=lambda state: state.has("Blue Pickaxe", 1)
+    ram_addr=MMXCMRamData(0x804A2113, bit_position=4)
   ),
   "L3 Northwest Division MD 1": MMXCMLocationData(
     name="L3 Northwest Division 1",
@@ -1427,15 +1400,13 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L3 Northwest Division Red Miner 1",
     code=228,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A210D, bit_position=5),
-    access_rule=lambda state: state.has("Red Pickaxe", 1)
+    ram_addr=MMXCMRamData(0x804A210D, bit_position=5)
   ),
   "L3 Northwest Division Yellow Miner Trade Complete": MMXCMLocationData(
     name="L3 Northwest Division Yellow Miner 1",
     code=229,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A210C, bit_position=2),
-    access_rule=lambda state: state.has("Yellow Pickaxe", 1)
+    ram_addr=MMXCMRamData(0x804A210C, bit_position=2)
   ),
   "L3 Northeast Division MD 1": MMXCMLocationData(
     name="L3 Northeast Division 1",
@@ -1447,107 +1418,87 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="L3 Northeast Division Green Miner 1",
     code=231,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A210C, bit_position=7),
-    access_rule=lambda state: state.has("Green Pickaxe", 1)    
+    ram_addr=MMXCMRamData(0x804A210C, bit_position=7) 
   ),
   "L3 Southwest Division MD 1": MMXCMLocationData(
     name="L3 Southwest Division 1",
     code=232,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216D, bit_position=5),
-    access_rule=lambda state: state.has("Gimialla Key", 1) and state.has("Heavy Motor", 1)   
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=5) 
   ),
   "L3 Southwest Division MD 2": MMXCMLocationData(
     name="L3 Southwest Division 2",
     code=233,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216D, bit_position=6),
-    access_rule=lambda state: state.has("Gimialla Key", 1)  
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=6)
   ),
   "L3 Southwest Division MD 3": MMXCMLocationData(
     name="L3 Southwest Division 3",
     code=234,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216D, bit_position=7),
-    access_rule=lambda state: state.has("Gimialla Key", 1)  
+    ram_addr=MMXCMRamData(0x804A216D, bit_position=7)
   ),
   "Level 4 Main Tunnel MD 1": MMXCMLocationData(
     name="Level 4 Main Tunnel 1",
     code=235,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=0),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=0)
   ),
   "Level 4 Main Tunnel MD 2": MMXCMLocationData(
     name="Level 4 Main Tunnel 2",
     code=236,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=1),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=1)
   ),
   "Level 4 Main Tunnel MD 3": MMXCMLocationData(
     name="Level 4 Main Tunnel 3",
     code=237,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=2),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=2)
   ),
   "Level 4 Main Tunnel MD 4": MMXCMLocationData(
     name="Level 4 Main Tunnel 4",
     code=238,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=3),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=3)
   ),
   "Level 4 Main Tunnel MD 5": MMXCMLocationData(
     name="Level 4 Main Tunnel 5",
     code=239,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=4),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=4)
   ),
   "Level 4 Main Tunnel MD 6": MMXCMLocationData(
     name="Level 4 Main Tunnel 6",
     code=240,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=5),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=5)
   ),
   "Level 4 Main Tunnel MD 7": MMXCMLocationData(
     name="Level 4 Main Tunnel 7",
     code=241,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=6),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=6)
   ),
   "Level 4 Durability Lab MD 1": MMXCMLocationData(
     name="Level 4 Durability Lab 1",
     code=242,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A216C, bit_position=7),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A216C, bit_position=7)
   ),
   "Level 4 Durability Lab MD 2": MMXCMLocationData(
     name="Level 4 Durability Lab 2",
     code=243,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A2173, bit_position=0),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A2173, bit_position=0)
   ),
   "Level 4 Durability Lab MD 3": MMXCMLocationData(
     name="Level 4 Durability Lab 3",
     code=244,
     parent_region="Gimialla Mine",
-    ram_addr=MMXCMRamData(0x804A2173, bit_position=1),
-    access_rule=lambda state: state.has("Electric Components", 1)
+    ram_addr=MMXCMRamData(0x804A2173, bit_position=1)
   ),     
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in GIMIALLA_MINE_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        GIMIALLA_MINE_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Gimialla Mine Access Code", 1)
-        )
 
 VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Quicksand Item 1": MMXCMLocationData(
