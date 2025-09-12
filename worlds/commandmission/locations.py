@@ -161,145 +161,145 @@ CENTRAL_TOWER_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Shaft 999F MD 1": MMXCMLocationData(
     name="Shaft 999F 1",
     code=22,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2150, bit_position=6)
   ),
   "Shaft 999F MD 2": MMXCMLocationData(
     name="Shaft 999F 2",
     code=23,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2150, bit_position=4)
   ),
   "Shaft 999F MD 3": MMXCMLocationData(
     name="Shaft 999F 3",
     code=24,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2150, bit_position=5)
   ),
   "Access Tunnel E-1 East MD 1": MMXCMLocationData(
     name="Access Tunnel E-1 East 1",
     code=25,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2154, bit_position=4)
   ),
   "Access Tunnel E-1 East MD 2": MMXCMLocationData(
     name="Access Tunnel E-1 East 2",
     code=26,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2154, bit_position=5)
   ),
   "Access Tunnel E-1 North MD 1": MMXCMLocationData(
     name="Access Tunnel E-1 North 1",
     code=27,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2154, bit_position=2)
   ),
   "Access Tunnel E-1 North MD 2": MMXCMLocationData(
     name="Access Tunnel E-1 North 2",
     code=28,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2154, bit_position=3)
   ),
   "Access Tunnel E-1 North MD 3": MMXCMLocationData(
     name="Access Tunnel E-1 North 3",
     code=29,
-    parent_region="Central Tower",
+    parent_region="Central Tower Hub",
     ram_addr=MMXCMRamData(0x804A2154, bit_position=6)
   ),
   "Tower Base Access Tunnel MD 1": MMXCMLocationData(
     name="Tower Base Access Tunnel 1",
     code=30,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2157, bit_position=6)
   ),
   "Tower Base Access Tunnel MD 2": MMXCMLocationData(
     name="Tower Base Access Tunnel 2",
     code=31,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2157, bit_position=5)
   ),
   "Tower Base Access Tunnel MD 3": MMXCMLocationData(
     name="Tower Base Access Tunnel 3",
     code=32,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2157, bit_position=3)
   ),
   "Tower Base Access Tunnel MD 4": MMXCMLocationData(
     name="Tower Base Access Tunnel 4",
     code=33,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2157, bit_position=4)
   ),
   "Equipment Maintenance B MD 1": MMXCMLocationData(
     name="Equipment Maintenance B 1",
     code=34,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=0)
   ),
   "Equipment Maintenance B MD 2": MMXCMLocationData(
     name="Equipment Maintenance B 2",
     code=35, 
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=1)
   ),
   "Equipment Maintenance A MD 1": MMXCMLocationData(
     name="Equipment Maintenance A 1",
     code=36,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=2)
   ),
   "Base Security Station MD 1": MMXCMLocationData(
     name="Base Security Station 1",
     code=37,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=3)
   ),
   "Base Security Station MD 2": MMXCMLocationData(
     name="Base Security Station 2",
     code=38,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=4)
   ),
   "Data Backup Room, Hall A MD 1": MMXCMLocationData(
     name="Data Backup Room, Hall A 1",
     code=39,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=6)
   ),
   "Data Backup Room, Hall A MD 2": MMXCMLocationData(
     name="Data Backup Room, Hall A 2",
     code=40,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2156, bit_position=7)
   ),
   "Data Backup Room, Hall B MD 1": MMXCMLocationData(
     name="Data Backup Room, Hall B 1",
     code=41,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2155, bit_position=1)
   ),
   "Command Center Staff Room MD 1": MMXCMLocationData(
     name="Command Center Staff Room 1",
     code=42,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2155, bit_position=2)
   ),
   "Base Entrance MD 1": MMXCMLocationData(
     name="Base Entrance 1",
     code=43,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2155, bit_position=3)
   ),
   "Large Heliport Access Tunnel MD 1": MMXCMLocationData(
     name="Large Heliport Access Tunnel 1",
     code=44,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2155, bit_position=6)
   ),
   "Large Heliport Access Tunnel MD 2": MMXCMLocationData(
     name="Large Heliport Access Tunnel 2",
     code=45,
-    parent_region="Central Tower",
+    parent_region="Central Tower Full",
     ram_addr=MMXCMRamData(0x804A2155, bit_position=7)
   ),
   "Air City South Square MD 1": MMXCMLocationData(
