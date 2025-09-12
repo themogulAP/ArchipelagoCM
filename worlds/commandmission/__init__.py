@@ -78,6 +78,17 @@ class MMXCMWorld(World):
         rule=lambda state, code=access_code: state.has(code, self.player)
       )
 
+    # Add Every location from our locations py to their regions! 
+    for location_name, location_data in LOCATION_TABLE.items():
+      region=self.multiworld.get_region(location_data.parent_region, self.player)
+      location = Location(
+        self.player,
+        location_name,
+        location_data.ap_id,
+        region,
+      )
+      region.locations.append(location)
+
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
     pass
