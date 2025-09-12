@@ -1730,12 +1730,6 @@ VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A2176, bit_position=7)
   ),        
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in VANALLIA_DESERT_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        VANALLIA_DESERT_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Vanallia Desert Access Code", 1)
-        )
 
 MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Ore Plant External Tank MD 1": MMXCMLocationData(
@@ -1772,22 +1766,19 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="B1 Entrance Hall 2",
     code=288,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A2174, bit_position=0),
-    access_rule=lambda state: state.has("Melda Key", 1)
+    ram_addr=MMXCMRamData(0x804A2174, bit_position=0)
   ),
   "B1 Entrance Hall MD 3": MMXCMLocationData(
     name="B1 Entrance Hall 3",
     code=289,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A2175, bit_position=6),
-    access_rule=lambda state: state.has("Melda Key", 1)   
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=6)
   ),
   "B1 Entrance Hall MD 4": MMXCMLocationData(
     name="B1 Entrance Hall 4",
     code=290,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A2175, bit_position=7),
-    access_rule=lambda state: state.has("Melda Key", 1)    
+    ram_addr=MMXCMRamData(0x804A2175, bit_position=7)
   ),
   "Area E-B02 MD 1": MMXCMLocationData(
     name="Area E-B02-1",
@@ -1919,16 +1910,9 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Missile Maintenance Room 1",
     code=312,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A2178, bit_position=0),
-    access_rule=lambda state: state.has("Melda Key", 1) 
+    ram_addr=MMXCMRamData(0x804A2178, bit_position=0)
   ),
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in MELDA_ORE_PLANT_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        MELDA_ORE_PLANT_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Melda Ore Plant Access Code", 1)
-        )
 
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Level E Security Zone MD 1": MMXCMLocationData(
@@ -2142,12 +2126,6 @@ GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A217C, bit_position=4)
   ),
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in GRAVE_RUINS_BASE_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        GRAVE_RUINS_BASE_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Grave Ruins Base Access Code", 1)
-        )
 
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Teleport Terminal MD 1": MMXCMLocationData(
@@ -2241,12 +2219,6 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A2182, bit_position=5)
   ),
 }
-# Apply the blanket access rule to all locations that don't have an explicit rule.
-for key, data in FAR_EAST_HQ_LOCATIONS.items():
-    if data.access_rule is DEFAULT_RULE:
-        FAR_EAST_HQ_LOCATIONS[key] = data._replace(
-            access_rule=lambda state: state.has("Far East HQ Access Code", 1)
-        )
 
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Deerball": MMXCMLocationData(
