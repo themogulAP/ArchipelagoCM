@@ -2,9 +2,6 @@ from typing import NamedTuple, Dict, Optional, Callable
 from .Items import MMXCMItemData
 from .Helpers import MMXCMRamData
 
-#This will define a constant for easy comparison. 
-DEFAULT_RULE: Callable[[int], bool] = lambda state: True
-
 # This will list the exact blueprint for making our locations! 
 class MMXCMLocationData(NamedTuple):
   name:str
