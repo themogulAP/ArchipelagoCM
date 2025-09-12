@@ -8,7 +8,6 @@ class MMXCMLocationData(NamedTuple):
   code:Optional[int]
   parent_region: str
   ram_addr: Optional[MMXCMRamData] = None
-  access_rule: Callable[[int], bool] = DEFAULT_RULE
 
 # This begins the list for every single randomized item in AP.
 LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
