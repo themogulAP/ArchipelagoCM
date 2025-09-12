@@ -104,6 +104,11 @@ class MMXCMWorld(World):
 # This will bridge the game between the server that generates the seed and the client! 
   # Example: this will tell the patcher to fix the encounter rate! 
   def fill_slot_data(self):
-      return {}
+      slot_data = {
+          "rebellion_medal_count": self.options.rebellion_medal_count.value,
+          "total_locations": len(LOCATION_TABLE),
+          "encounter_rate": self.options.encounter_rate.value
+      }
+      return slot_data
     
     
