@@ -49,10 +49,6 @@ class MMXCMWorld(World):
       "Grave Ruins Base": "Grave Ruins Base Access Code",
       "Far East HQ": "Far East HQ Access Code"
     }
-    
-    # Create the virtual "starting area" for the game.
-    menu_region = Region("Menu", self.player, self.multiworld)
-    self.multiworld.regions.append(menu_region)
 
     #Create our Central Tower main hub and full verision (when code is received)! 
     central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
