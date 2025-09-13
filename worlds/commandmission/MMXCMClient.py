@@ -111,6 +111,9 @@ async def game_watcher(ctx: MMXCMContext):
         ctx.gui_enabled=False
         return
 
+    # This initializes the set locations checked.
+    checked_locations_in_game = set()
+    
     while not ctx.finished_game:
         # Check for new locations.
         # Replace these with the flags in locations py.
