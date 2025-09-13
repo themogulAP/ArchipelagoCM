@@ -15,17 +15,6 @@ from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
 from MMXCMContext import MMXCMContext
 
-class MMXCMCommandProcessor(ClientCommandProcessor):
-    def __init__(self, ctx: MMXCMContext):
-        super().__init__(ctx)
-
-    def MMXCM_cmd(self, *args):
-        """
-        These are the commands for our MMXCM Client.
-        Serving as a place holder until we need custom commands!
-        """
-        print("Mega Man X: Command Mission Client.")
-
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory. 
 # RAM addresses and the slot counts for each inventory type.
 # The slot is 4 away from the previous one, and the data itself is a 4 Byte.
@@ -52,4 +41,13 @@ INVENTORY_INFO = {
     }
 }
 
-    
+class MMXCMCommandProcessor(ClientCommandProcessor):
+    def __init__(self, ctx: MMXCMContext):
+        super().__init__(ctx)
+
+    def MMXCM_cmd(self, *args):
+        """
+        These are the commands for our MMXCM Client.
+        Serving as a place holder until we need custom commands!
+        """
+        print("Mega Man X: Command Mission Client.")  
