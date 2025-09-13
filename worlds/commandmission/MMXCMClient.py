@@ -23,7 +23,7 @@ INVENTORY_INFO = {
         "base_address": 0x804A32A9,
         "slot_count": 32,
         "slot_size": 4,
-    }.
+    },
     "Weapons": {
         "base_address": 0x804A34B9,
         "slot_count": 120,
