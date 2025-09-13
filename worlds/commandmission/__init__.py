@@ -29,8 +29,6 @@ class MMXCMWorld(World):
   #It will then map all of our items and locations to their respective Strings to IDs that we put in items and locations py. 
   def __init__(self, multiworld, player):
     super().__init__(multiworld, player)
-    self.location_name_to_id = LOCATION_TABLE.ap_ids
-    self.item_name_to_id = ALL_ITEMS_TABLE.ap_ids
 
 # This places any logic we need to before the generation process.
   def generate_early(self): 
