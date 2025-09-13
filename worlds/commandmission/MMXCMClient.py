@@ -115,7 +115,7 @@ async def game_watcher(ctx: MMXCMContext):
         # Check for new locations.
         # Replace these with the flags in locations py.
         newly_checked_locations = []
-        for location_name, location_info in location_table.items():
+        for location_name, location_info in LOCATION_TABLE.items():
             if location_name not in checked_locations_in_game:
                 #Reads the value at the locations RAM address.
                 try:
@@ -135,7 +135,7 @@ async def game_watcher(ctx: MMXCMContext):
             item_to_add = ctx.items_received[0]
 
                 # Look up the items type to see where it should be placed. 
-            item_info = item_table.get(item_to_add.item)
+            item_info = ALL_ITEMS_TABLE.get(item_to_add.item)
             if item_info and "type" in item_info:
                 item_type = item_info["type"]
                 await write_to_inventory(ctx, item_to_add, item_type)
