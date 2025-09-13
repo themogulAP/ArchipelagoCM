@@ -113,8 +113,7 @@ class MMXCMWorld(World):
       self.multiworld.completion_condition[self.player] = lambda state: \
         state.has("Defeated Great Redips", self.player)
   
-# This will bridge the game between the server that generates the seed and the client! 
-  # Example: this will tell the patcher to fix the encounter rate! 
+# This will provide the slot data information upon connecting to AP! 
   def fill_slot_data(self):
       slot_data = {
           "rebellion_medal_count": self.options.rebellion_medal_count.value,
