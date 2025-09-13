@@ -95,6 +95,7 @@ async def game_watcher(ctx: MMXCMContext):
     """
     try:
         # Connect to the Dolphin Emulator
+        dolphin.connect()
         print("Connected to Dolphin.")
     except Exception as e:
         print(f"Could not connect to Dolphin: {e}")
