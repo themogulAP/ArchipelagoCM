@@ -27,6 +27,8 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
         print("Mega Man X: Command Mission Client.")
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory. 
+# RAM addresses and the slot counts for each inventory type.
+# The slot is 4 away from the previous one, and the data itself is a 4 Byte.
 INVENTORY_INFO = {
     "Items": {
         "base_address": 0x804A32A9,
