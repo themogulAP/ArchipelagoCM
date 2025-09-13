@@ -1,5 +1,6 @@
 import asyncio
 import json
+import struct
 import time
 import traceback
 
@@ -126,22 +127,22 @@ async def game_watcher(ctx: MMXCMContext):
                 except Exception as e:
                     print(f"Error reading location '{location_name}' at address {hex(location_info['ram_addr'])}: {e}")
 
-            if newly_checked_locations:
-                print("Found new locations: {newly_checked_locations}")
-                await ctx.send_checked_locations(newly_checked_locations)
+        if newly_checked_locations:
+            print("Found new locations: {newly_checked_locations}")
+            await ctx.send_checked_locations(newly_checked_locations)
 
-            if ctx.items_received:
-                item_to_add = ctx.items_received[0]
+        if ctx.items_received:
+            item_to_add = ctx.items_received[0]
 
                 # Look up the items type to see where it should be placed. 
-                item_info = item_table.get(item_to_add.item)
-                if item_info and "type" in item_info:
-                    item_type = item_info["type"]
-                    await write_to_inventory(ctx, item_to_add, item_type)
-                else:
-                    print(f"Error: Could not find type information for item ID {item_to_add.item}.")
+            item_info = item_table.get(item_to_add.item)
+            if item_info and "type" in item_info:
+                item_type = item_info["type"]
+                await write_to_inventory(ctx, item_to_add, item_type)
+            else:
+                print(f"Error: Could not find type information for item ID {item_to_add.item}.")
 
-            await asyncio.sleep(1) # Can set this so sleep to avoid CP?U usage.
+        await asyncio.sleep(1) # Can set this so sleep to avoid CP?U usage.
 
     dolphin.disconnect()
     print("Disconnected from Dolphin.")
