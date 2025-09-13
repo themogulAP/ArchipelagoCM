@@ -9,11 +9,6 @@ class MMXCMLocationData(NamedTuple):
   parent_region: str
   ram_addr: Optional[MMXCMRamData] = None
 
-#  Sets the MMXCMLocationData for the final boss! (Great Redips)
-  "Defeated Great Redips": MMXCMLocationData(
-    parent_region="Far East HQ"
-    event_item=True
-
 # This begins the list for every single randomized item in AP.
 LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
   # Here is an example of the location and the bit position to track it.
@@ -2218,6 +2213,13 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
     code=362,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=5)
+  ),
+  #  Sets the MMXCMLocationData for the final boss! (Great Redips)
+  "Defeated Great Redips": MMXCMLocationData(
+    name="Defeated Great Redips",
+    code=None,
+    parent_region="Far East HQ",
+    event_item=True
   ),
 }
 
