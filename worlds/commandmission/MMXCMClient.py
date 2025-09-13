@@ -87,3 +87,62 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
             ctx.items_received.remove(item)
             return
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
+
+async def game_watcher(ctx: MMXCMContext):
+    """
+    This is the main loop that will handle checking locations and giving items.
+    It will run as long as the client is connected to the server.
+    """
+    try:
+        # Connect to the Dolphin Emulator
+        print("Connected to Dolphin.")
+    except Exception as e:
+        print(f"Could not connect to Dolphin: {e}")
+        ctx.gui_enabled = False
+        return
+
+    # Check for the game ID to make sure we are connected to MMX CM! 
+    game_id = dolphin.read_bytes(0x80000000, 4)
+    if game_id.decode("ascii") != "GXRP08": 
+        print("Incorrect game ID. Make sure Mega Man X: Command Mission is running.")
+        dolphin.disconnect()
+        ctx.gui_enabled=False
+        return
+
+    while not ctx.finished_game:
+        # Check for new locations.
+        # Replace these with the flags in locations py.
+        newly_checked_locations = []
+        for location_name, location_info in location_table.items():
+            if location_name not in checked_locations_in_game:
+                #Reads the value at the locations RAM address.
+                try:
+                    location_value = dolphin.read_bytes(location_info["ram_addr"], 1)[0]
+                    #Check if the location's bit position has been set in the value. 
+                    if (location_value & location_info["bit_position"]) > 0:
+                        newly_checked_locations.append(location_name)
+                        checked_locations_in_game.add(location_name)
+                except Exception as e:
+                    print(f"Error reading location '{location_name}' at address {hex(location_info['ram_addr'])}: {e}")
+
+            if newly_checked_locations:
+                print("Found new locations: {newly_checked_locations}")
+                await ctx.send_checked_locations(newly_checked_locations)
+
+            if ctx.items_received:
+                item_to_add = ctx.items_received[0]
+
+                # Look up the items type to see where it should be placed. 
+                item_info = item_table.get(item_to_add.item)
+                if item_info and "type" in item_info:
+                    item_type = item_info["type"]
+                    await write_to_inventory(ctx, item_to_add, item_type)
+                else:
+                    print(f"Error: Could not find type information for item ID {item_to_add.item}.")
+
+            await asyncio.sleep(1) # Can set this so sleep to avoid CP?U usage.
+
+    dolphin.disconnect()
+    print("Disconnected from Dolphin.")
+                    
+        
