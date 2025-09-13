@@ -77,14 +77,14 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
         if current_item_id == 0:
             print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
 
-        # Get the Item ID and convert it to bytes.
+            # Get the Item ID and convert it to bytes.
             item_id_bytes = struct.pack(">I", item.item)
             
-        # Write the item to the empty slot.
+            # Write the item to the empty slot.
             dolphin.write_bytes(slot_address, item_id_bytes)
             print (f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
 
-        # Remove the item from the queue after it has been received.
+            # Remove the item from the queue after it has been received.
             ctx.items_received.remove(item)
             return
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
