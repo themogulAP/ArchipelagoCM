@@ -46,7 +46,7 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
     def __init__(self, ctx: MMXCMContext):
         super().__init__(ctx)
 
-    def MMXCM_cmd(self, *args):
+    def _cmd_mmxcm(self, *args):
         """
         These are the commands for our MMXCM Client.
         Serving as a place holder until we need custom commands!
