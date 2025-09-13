@@ -50,4 +50,40 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
         These are the commands for our MMXCM Client.
         Serving as a place holder until we need custom commands!
         """
-        print("Mega Man X: Command Mission Client.")  
+        print("Mega Man X: Command Mission Client.")
+
+async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str):
+    """
+    This will find the first empty inventory slot and write the item's ID to it. 
+    """
+    if inv_type not in INVENTORY_INFO:
+        print(f"Error Unknown inventory type '{inv_type}' for item {item.item}.")
+        return
+
+    inv_data = INVENTORY_INFO[inv_type]
+    base_address = inv_data["base_address"]
+    slot_count = inv_data["slot_count"]
+    slot_size = inv_data["slot_size"]
+
+    for i in range(slot_count):
+        slot_address = base_address + (i * slot_size)
+
+        # Reads the current value of the slot
+        current_item_id_bytes = dolphin.read_bytes(slot_address, slot_size)
+        current_item_id = struct.unpack(">I", current_item_id_bytes)[0]
+
+        # A Value of 0 indicates an empty slot! 
+        if current_item_id == 0:
+            print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
+
+        # Get the Item ID and convert it to bytes.
+            item_id_bytes = struct.pack(">I", item.item)
+            
+        # Write the item to the empty slot.
+            dolphin.write_bytes(slot_address, item_id_bytes)
+            print (f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
+
+        # Remove the item from the queue after it has been received.
+            ctx.items_received.remove(item)
+            return
+    print(f"Error: No empty {inv_type} slots found for item {item.item}!")
