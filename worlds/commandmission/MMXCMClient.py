@@ -106,7 +106,7 @@ async def game_watcher(ctx: MMXCMContext):
 
     # Check for the game ID to make sure we are connected to MMX CM! 
     game_id = dolphin.read_bytes(0x80000000, 4)
-    if game_id.decode("ascii") not in ["GXRP08", "GXRP01": 
+    if game_id.decode("ascii") not in ["GXRP08", "GXRP01"]: 
         print("Incorrect game ID. Make sure Mega Man X: Command Mission is running.")
         dolphin.disconnect()
         ctx.gui_enabled=False
