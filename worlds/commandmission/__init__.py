@@ -1,6 +1,6 @@
 from typing import ClassVar
 from worlds.AutoWorld import World
-from .Items import ALL_ITEMS_TABLE
+from .Items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .Locations import LOCATION_TABLE
 from .Rules import set_rules
 from .Options import MMXCMOptions
@@ -94,6 +94,18 @@ class MMXCMWorld(World):
           item_pool.append(self.create_item(item_name))
 
       self.multiworld.itempool.extend(item_pool)
+
+    # This adds our filler items, and will calculate the number to add. 
+      locations_count = len(self.multiworld.get_locations())
+      items_in_pool = len(self.multiworld.itempool)
+      filler_needed = locations_count - items_in_pool
+
+#Randomly selects the filler items to add into the pool.
+      import random
+      filler_items_to_add = random.choices(FILLER_ITEMS, k=filler_needed)
+
+      for filler_item_name in filler_items_to_add:
+          self.multiworld.itempool.append(self.create_item(filler_item_name))
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
