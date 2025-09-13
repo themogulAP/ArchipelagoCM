@@ -98,7 +98,6 @@ class MMXCMWorld(World):
       filler_needed = locations_count - items_in_pool
 
 #Randomly selects the filler items to add into the pool.
-      import random
       filler_items_to_add = random.choices(FILLER_ITEMS, k=filler_needed)
 
       for filler_item_name in filler_items_to_add:
