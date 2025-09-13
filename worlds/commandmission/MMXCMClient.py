@@ -131,7 +131,7 @@ async def game_watcher(ctx: MMXCMContext):
                     print(f"Error reading location '{location_name}' at address {hex(location_info['ram_addr'])}: {e}")
 
         if newly_checked_locations:
-            print("Found new locations: {newly_checked_locations}")
+            print(f"Found new locations: {newly_checked_locations}")
             await ctx.send_checked_locations(newly_checked_locations)
 
         if ctx.items_received:
