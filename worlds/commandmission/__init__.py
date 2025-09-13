@@ -4,6 +4,7 @@ from .Items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .Locations import LOCATION_TABLE
 from .Rules import set_rules
 from .Options import MMXCMOptions
+import random
 
 #Define the MMX Command Mission Class:
 class MMXCMWorld(World):
