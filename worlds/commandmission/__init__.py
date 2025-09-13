@@ -111,6 +111,11 @@ class MMXCMWorld(World):
   def set_rules(self):
       set_rules(self)
 
+  #This is where we set out rules!
+  def set_completion_rules(self):
+      self.multiworld.completion_condition[self.player] = lambda state: \
+        state.has("Defeated Great Redips", self.player)
+  
 # This will bridge the game between the server that generates the seed and the client! 
   # Example: this will tell the patcher to fix the encounter rate! 
   def fill_slot_data(self):
