@@ -4,6 +4,7 @@ import copy
 import re
 from math import ceil
 from random import choice, randint
+import shutil 
 
 from .Item import ALL_ITEMS_TABLE, MMXCMItemData
 
