@@ -11,6 +11,14 @@ from .Locations import LOCATION_TABLE, MMXCMLocationData
 
 #This is our section that will iilustrate the direct code changes we need to make... before any randomization.
 # If adding more changes: fill in this dictionary with the address and new bytes. 
+CODE_PATCHES = [
+     {
+         # Prevent Party Members From Leaving -------------
+         #Original RAM Address: 800d7E0C
+         "address": 0x0D4E0C
+         "data": [0x60, 0x00, 0x00, 0x00] #NOP Instruction
+     }
+    
 
 def __get_item_name(item_data, slot: int):
     """
