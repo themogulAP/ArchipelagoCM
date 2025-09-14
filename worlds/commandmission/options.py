@@ -20,8 +20,9 @@ class MMXCMOptions(OptionDict):
   encounter_rate: Choice = Choice("Encounter Rate",
     {
       "vanilla": 0,
-      "lower": 1,
-      "higher": 2,
+      "off": 1,
+      "lower": 2,
+      "higher": 3,
     },
     default="vanilla"
   )
