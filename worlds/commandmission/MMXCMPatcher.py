@@ -6,7 +6,8 @@ from math import ceil
 from random import choice, randint
 import shutil 
 
-from .Item import ALL_ITEMS_TABLE, MMXCMItemData
+from .Items import ALL_ITEMS_TABLE, MMXCMItemData
+from .Locations import LOCATION_TABLE, MMXCMLocationData
 
 def __get_item_name(item_data, slot: int):
     """
@@ -16,4 +17,18 @@ def __get_item_name(item_data, slot: int):
     pass
 
 def create_patch(output_data: dict, base_path: str, destination_path: str):
-    pass
+    """
+    This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
+    """
+
+    try:
+        shutil.copyfile(base_path, destination_path)
+        print(f"Created a copy of the base ROM at: {destination_path}")
+    except FileNotFoundError:
+        print(f"Error: Base ROM not found at '{base_path}'.")
+        return
+    except Exception as e:
+        print(f"An error occured while creating the ROM copy: {e}")
+        return
+
+
