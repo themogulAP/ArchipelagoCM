@@ -37,8 +37,39 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     with open(destination_path, "r+b") as rom_file:
         for location_id, item_id in randomized_locations.items():
             try:
-                # Find the location data basec on AP ID.
+                # Find the location data based on AP ID.
                 location_name = next(name for name, data in LOCATION_TABLE.items() if data.ap_id == location_id)
                 location_data = LOCATION_TABLE[location_name]
+
+                #Find the item based on its AP ID. 
+                item_data = next(data for name, data in ALL_ITEMS_TABLE.items() if data.ap_id == item_id)
+
+                # Get the RAM Address and Bit position we will write to. 
+                ram_address = location_data.ram_addr.address
+                bit_position = location_data.ram_addr.bit_position
+
+                rom_file.seek(ram_address)
+
+                #Read the Current byte.
+                current_byte = rom_file.read(1)[0]
+
+                #Determine the new byte value.
+                new_byte = current_byte | (1 << bit_position)
+
+                #Seek the address before writing
+                rom_file.seek(ram_address)
+
+                #Write the new byte value.
+                rom_file.write(bytes([new_byte]))
+
+                print(f"Patched '{location_name}' with item '{item_data.name}'.")
+            except (StopIteration, KeyError) as e:
+                print(f"Error finding location or item data for IDs: {location_id}, {item_id}. Error: {e}")
+            except Exception as e:
+                print(f"An unexpected error occured during patching: {e}")
+
+    print("Patching Complete.")
+    
+                
 
 
