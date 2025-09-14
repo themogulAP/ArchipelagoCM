@@ -53,7 +53,7 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     # Step 2: Apply our internal code patches as described earlier. 
     with open(destination_path, "r+b") as rom_file: 
         print("Applying Internal Code Patches...")
-        for patch in CODE_PATCHES"
+        for patch in CODE_PATCHES:
             try:
                  address = patch["address"]
                  data_to_write = bytes(patch["data"])
