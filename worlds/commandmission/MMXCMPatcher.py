@@ -13,11 +13,18 @@ from .Locations import LOCATION_TABLE, MMXCMLocationData
 # If adding more changes: fill in this dictionary with the address and new bytes. 
 CODE_PATCHES = [
      {
-         # Prevent Party Members From Leaving -------------
+         # Prevent Party Members From Leaving ------------- Party Member Slot Strings
          #Original RAM Address: 800d7E0C
-         "address": 0x0D4E0C
+         "address": 0x0D4E0C,
          "data": [0x60, 0x00, 0x00, 0x00] #NOP Instruction
+     },
+     {
+         # Prevent Party Members From Leaving ----------- # Of Party Members
+         # Original Ram: 800d7e2c
+         "address": 0x0D4E2C,
+         "data": [0x38, 0x06, 0x00, 0x00] # Sets the character substraction to 0. 
      }
+]
     
 
 def __get_item_name(item_data, slot: int):
@@ -43,9 +50,30 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
         print(f"An error occured while creating the ROM copy: {e}")
         return
 
-    # Step 2: Apply randomization data from server.
+    # Step 2: Apply our internal code patches as described earlier. 
+    with open(destination_path, "r+b") as rom_file: 
+        print("Applying Internal Code Patches...")
+        for patch in CODE_PATCHES"
+            try:
+                 address = patch["address"]
+                 data_to_write = bytes(patch["data"])
+
+               #Seeks the specific DOL Offset.
+                 rom_file.seek(address)
+
+               # Write the new bytes, overwriting old PowerPc command.
+                 rom_file.write(data_to_write)
+
+                 print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
+            except KeyError as e:
+                 print(f"Skipping malformed patch data: missing key {e}")
+            except Exception as e:
+                 print(f"An error occured while applying a code patch: {e}")
+        print("Internal code patching complete.")         
+         
+    # Step 3: Apply randomization data from server.
     # The Locations key in output_data maps location IDs to Item IDs.
-    with open(destination_path, "r+b") as rom_file:
+        randomized_locations = output_data.get("locations", {})
         for location_id, item_id in randomized_locations.items():
             try:
                 # Find the location data based on AP ID.
@@ -81,6 +109,6 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
 
     print("Patching Complete.")
     
-                
+            
 
 
