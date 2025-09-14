@@ -9,6 +9,9 @@ import shutil
 from .Items import ALL_ITEMS_TABLE, MMXCMItemData
 from .Locations import LOCATION_TABLE, MMXCMLocationData
 
+#This is our section that will iilustrate the direct code changes we need to make... before any randomization.
+# If adding more changes: fill in this dictionary with the address and new bytes. 
+
 def __get_item_name(item_data, slot: int):
     """
     This will give us the correct in game name for each item based on item_data
