@@ -21,6 +21,7 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
     """
 
+    # Step 1: Find and copy the Base Rom, as to not be destructive.
     try:
         shutil.copyfile(base_path, destination_path)
         print(f"Created a copy of the base ROM at: {destination_path}")
@@ -30,5 +31,14 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     except Exception as e:
         print(f"An error occured while creating the ROM copy: {e}")
         return
+
+    # Step 2: Apply randomization data from server.
+    # The Locations key in output_data maps location IDs to Item IDs.
+    with open(destination_path, "r+b") as rom_file:
+        for location_id, item_id in randomized_locations.items():
+            try:
+                # Find the location data basec on AP ID.
+                location_name = next(name for name, data in LOCATION_TABLE.items() if data.ap_id == location_id)
+                location_data = LOCATION_TABLE[location_name]
 
 
