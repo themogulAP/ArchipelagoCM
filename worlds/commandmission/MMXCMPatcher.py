@@ -23,6 +23,36 @@ CODE_PATCHES = [
          # Original Ram: 800d7e2c
          "address": 0x0D4E2C,
          "data": [0x38, 0x06, 0x00, 0x00] # Sets the character substraction to 0. 
+     },
+     {
+         # Loading into Arcade: Scenario Flag
+         # RAM Address: 800Dbab4
+         "address": 0x0AAB4,
+         "data": [0x38, 0x60, 0x00, 0x0A]
+     },
+     {
+         # Loading into Arcade: Stage #
+         # RAM: 80011d04
+         "address": 0x0ED04,
+         "data": [0x3C, 0x60, 0x00, 0x02]
+     },
+     {
+         # Loading into arcade: Area # and Spawn Letter
+         # RAM: 80011d08
+         "address": 0x0ED08,
+         "data": [0x38, 0x03, 0x05, 0x4C]
+     },
+     {
+         # Set Flag Arakure, and Chpt 10 Cutscene, and Boss3
+         # RAM: 8000d8f8
+         "address": 0x0A8F8,
+         "data": [0x38, 0x60, 0x00, 0x03]
+     },
+     {
+         # Store flag Arakure, Chpt 10 Cutscene, and Boss3
+         # RAM: 8000d8fc
+         "address": 0x0A8FC,
+         "data": [0x90, 0x64, 0x00, 0x45]
      }
 ]
     
