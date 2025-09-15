@@ -200,6 +200,7 @@ CODE_PATCHES = [
     }
 ]
 
+# This will serve as our List for All changes we want to make to the teleports. 
 STAGE_TELEPORT_DATA = [
     { # THESE ARE ALL PLACE HOLDER
         "item_name": "Lagrano Ruins Access Code",
