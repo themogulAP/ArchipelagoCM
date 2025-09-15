@@ -100,7 +100,7 @@ CODE_PATCHES = [
         # Prevent beating the Game --- Change comparison
         # RAM Address: 8001047c
         "address": 0x0D47C,
-        "data": [0x2c, 0x04, 0x00, 0x4D]
+        "data": [0x2c, 0x04, 0x00, 0x3D]
     },
      {
         # Change the equation to add zero to scenario flag
