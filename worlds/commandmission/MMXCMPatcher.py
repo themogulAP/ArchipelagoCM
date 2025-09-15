@@ -53,6 +53,48 @@ CODE_PATCHES = [
          # RAM: 8000d8fc
          "address": 0x0A8FC,
          "data": [0x90, 0x64, 0x00, 0x45]
+     },
+     {
+         # Sets register back to zero
+         # RAM: 8000D900
+         "address": 0x0A900,
+         "data": [0x38, 0x60, 0x00, 0x00]
+     },
+     {
+         # Sets cutscenes Intruders and Spider Fight
+         # RAM: 8000d908
+         "address": 0x0A908,
+         "data": [0x38, 0x60, 0x00, 0xC0]
+     },
+      {
+         # Stores cutscene for Intruders + Spider Fight
+         # RAM: 8000d90c
+         "address": 0x0A90C,
+         "data": [0x90, 0x64, 0x00, 0x5A]
+     },
+     {
+         # Sets the Arcade Door to Open
+         # RAM: 8000d910
+         "address": 0x0A910,
+         "data": [0x38, 0x60, 0x00, 0x01]
+     },
+     {
+         # Stores the Arcade Door Open flag
+         # RAM: 8000d914
+         "address": 0x0A914,
+         "data": [0x90, 0x64, 0x00, 0x06]
+     },
+     {
+         # sets every other flag back to zero
+         # RAM: 8000d918
+         "address": 0x0A918,
+         "data": [0x38, 0x60, 0x00, 0x00]
+     },
+     {
+         # Stores every other flag to zero
+         # RAM: 8000d91c
+         "address": 0x0A91C,
+         "data": [0x90, 0x64, 0x00, 0x64]
      }
 ]
     
