@@ -138,6 +138,66 @@ CODE_PATCHES = [
          "address": 0x07ffd4,
          "data": [0x38, 0x04, 0x05, 0x4F]
      },
+     {
+        # Changes Gaudile Laboratory back to Central Tower
+        # RAM: 80082ff4
+        "address": 0x07fff4,
+        "data": [0x3c, 0x80, 0x00, 0x02]
+     },
+     {
+        # Changes Gaudile Laboratory back to Shopping Arcade
+        # RAM: 80082ffc
+        "address": 0x07fffc,
+        "data": [0x38, 0x04, 0x05, 0x4F]
+     },
+     {
+         # Changes Ulfat Factory to Central Tower teleport
+         # RAM Address: 8008301c
+         "address": 0x08001c,
+         "data": [0x3c, 0x80, 0x00, 0x02]
+     },
+     {
+         # Changes Ulfat Factory AREA to Shopping Arcade
+         # RAM: 80083204
+         "address": 0x080024,
+         "data": [0x38, 0x04, 0x05, 0x4F]
+     },
+     {
+         # Changes Gimialla Mine to Central Tower stage
+         # RAM Address: 80083044
+         "address": 0x080044,
+         "data": [0x3c, 0x80, 0x00, 0x02]
+     },
+     {
+         # Changes Gimialla Mine AREA to Shopping Arcade
+         # RAM: 8008304c
+         "address": 0x08004c,
+         "data": [0x38, 0x04, 0x05, 0x4F]
+     }
+     {
+        # Changes Melda Ore Plant to Central Tower Stage
+        # RAM: 80083094
+        "address": 0x080094,
+        "data": [0x3c, 0x80, 0x00, 0x02]
+    },
+    {
+        # Changes Melda Ore Plant AREA to Shopping Arcade
+        # RAM: 8008309c
+        "address": 0x08009c,
+        "data": [0x38, 0x04, 0x05, 0x4F]
+    },
+    {
+        # Changes Grave Ruins Base to Central Tower Stage
+        # RAM: 800830bc
+        "address": 0x0800BC,
+        "data": [0x3c, 0x80, 0x00, 0x02]
+    },
+    {
+        # Changes Grave Ruins Base AREA to Shopping Arcade
+        # RAM: 800830c4
+        "address": 0x0800c4,
+        "data": [0x38, 0x04, 0x05, 0x4F]
+    }
 ]
     
 
