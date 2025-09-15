@@ -199,7 +199,24 @@ CODE_PATCHES = [
         "data": [0x38, 0x04, 0x05, 0x4F]
     }
 ]
-    
+
+STAGE_TELEPORT_DATA = [
+    { # THESE ARE ALL PLACE HOLDER
+        "item_name": "Lagrano Ruins Access Code",
+        "stage_address": 0x07FFA4,
+        "stage_data": [0x3c, 0x80, 0x00, 0x01],
+        "area_address": 0x07FFAC,
+        "area_data": [0x38, 0x04, 0x05, 0x48]
+    },
+    { # THESE ARE ALL PLACE HOLDER
+        "item_name": "Central Tower Access Code",
+        "stage_address": 0x07FF9C, # Placeholder address for Central Tower stage
+        "stage_data": [0x3c, 0x80, 0x00, 0x02], # Data for Central Tower Stage
+        "area_address": 0x07FFA4, # Placeholder address for Central Tower area
+        "area_data": [0x38, 0x04, 0x05, 0x4F] # Data for Central Tower Area
+    }
+    # Add more stages here as you find their data
+]
 
 def __get_item_name(item_data, slot: int):
     """
