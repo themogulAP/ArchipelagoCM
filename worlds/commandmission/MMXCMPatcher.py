@@ -107,7 +107,13 @@ CODE_PATCHES = [
         # RAM: 800104c4
         "address": 0x0D4C4,
         "data": [0x38, 0x03, 0x00, 0x00]
-     },
+     }
+     {
+        # Set Every Previous Chapter Flag to Unclear
+        # RAM: 800104e8
+        "address": 0x0D4E8,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
 ]
     
 
