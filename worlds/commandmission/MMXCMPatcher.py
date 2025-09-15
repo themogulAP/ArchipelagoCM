@@ -114,6 +114,30 @@ CODE_PATCHES = [
         "address": 0x0D4E8,
         "data": [0x60, 0x00, 0x00, 0x00]
     },
+    {
+         # Change Lagrano Ruins to teleport back to Central Tower STAGE w/o Access Code
+         # RAM Address Label: 80082fac
+         "address": 0x07ffa4,
+         "data": [0x3c, 0x80, 0x00, 0x02]
+     },
+     {
+         # Change Lagrano Ruins AREA back to Shopping Arcade w/o Access Code
+         # RAM: 80082fac
+         "address": 0x07ffac,
+         "data": [0x38, 0x04, 0x05, 0x4F]
+     },
+     {
+         # Change Tianna Camp Stage to Central Tower w/o Access Code
+         # RAM Address: 80082fcc
+         "address": 0x07ffcc,
+         "data": [0x3c, 0x80, 0x00, 0x02]
+     },
+     {
+         # Change Tianna Camp AREA to Central Tower...
+         # RAM: 80082fd4
+         "address": 0x07ffd4,
+         "data": [0x38, 0x04, 0x05, 0x4F]
+     },
 ]
     
 
