@@ -13,7 +13,6 @@ class MMXCMItemData(NamedTuple):
   code: Optional[int] = None
   classification: IC
   item_id: Optional[int] = None #This is the item's unique ID
-  is_fixed: Optional[bool] = None
   update_ram_addr: Optional[list[MMXCMRamData]] = None 
 
 # This is the list for every single item we are currently randomzing in AP.
