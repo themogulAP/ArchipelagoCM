@@ -2383,10 +2383,6 @@ BOSS_DEFEATED_LOCATIONS: dict[str, MMXCMLocationData] = {
         "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D8, bit_position=0), # Placeholder RAM Address - REPLACE LATER
         "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Grave Ruins Base)"]["item_id"]
     },
-    "Great Redips Defeated" {
-        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D8, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Grave Ruins Base)"]["item_id"]
-    },  
 }
 
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
