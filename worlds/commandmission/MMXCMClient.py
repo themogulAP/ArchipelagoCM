@@ -221,6 +221,8 @@ async def _async_main():
     # Run the client!
     ctx.run_gui = gui_enabled
 
+    await dolphin_connect_loop(ctx)
+    
     await server_loop(ctx, game_watcher, "Game")
 
 if __name__ == "__main__":
