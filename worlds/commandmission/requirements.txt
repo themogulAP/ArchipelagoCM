@@ -1,7 +1,7 @@
 Everything and All the Logic With the Command Mission AP.
 
 The game currently boots into Scenario 10, straight into the Arcade which is where the player will start. 
-The Spider Cutscene, Aile's Door, Intruders Cutscene, Live Boss3, and Chapter 10 Door (Helipad cutscene 10010) are cleared, until their respective access codes are acquired randomly. 
+The Spider Cutscene, Ailes Door, Intruders Cutscene, Live Boss3, and Chapter 10 Door (Helipad cutscene 10010) are cleared, until their respective access codes are acquired randomly. 
 
 ***********Items py:*************
 
