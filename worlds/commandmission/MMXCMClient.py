@@ -161,3 +161,24 @@ async def game_watcher(ctx: MMXCMContext):
 
     dolphin.disconnect()
     print("Disconnected from Dolphin.")
+
+async def _async_main():
+    """
+    This is the main function that will be called by the `CommonClient`
+    to start our client.
+    """
+    parser = get_base_parser(ctx_defaults={"game": "Mega Man X: Command Mission"})
+    args = parser.parse_args()
+
+    # Create our context and initialize the command processor.
+    ctx = MMXCMContext(args.connect, args.password)
+    ctx.command_processor = MMXCMCommandProcessor(ctx)
+
+    # Run the client!
+    ctx.run_gui = gui_enabled
+
+    await server_loop(ctx, game_watcher, "Game")
+
+if __name__ == "__main__":
+    # This ensures that the script will run the main function when executed.
+    asyncio.run(_async_main())
