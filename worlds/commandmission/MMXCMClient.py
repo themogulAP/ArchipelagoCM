@@ -146,6 +146,24 @@ async def game_watcher(ctx: MMXCMContext):
             print(f"Found new locations: {newly_checked_locations}")
             await ctx.send_checked_locations(newly_checked_locations)
 
+        if not ctx.finished_game:
+            try:
+                # Get the RAM data for the Great Redips event. This is our "beating the game". 
+                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].get("ram_addr")
+
+                if redips_ram_data:
+                    # Read the value at the event's memory address.
+                    boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
+
+                    # Check if the bit for defeating Redips is set.
+                    if (boss_defeated_value & (1 << redips_ram_data.bit_position)) > 0:
+                        print("Final boss defeated! Signaling game completion to the server.")
+                        await ctx.send_goal()
+                        ctx.finished_game = True  # This ends the while loop on the next pass.
+            except Exception as e:
+                # This will catch errors if the game state is not readable or the address is invalid.
+                print(f"Error checking for game completion: {e}")
+        
         # Check for new items.
         while ctx.items_received:
             item_to_add = ctx.items_received.pop(0)
