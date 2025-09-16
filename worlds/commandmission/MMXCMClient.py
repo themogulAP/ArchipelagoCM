@@ -18,6 +18,43 @@ from worlds.commandmission.items import ALL_ITEMS_TABLE
 from MMXCMContext import MMXCMContext
 from . import helpers
 
+# Starts the full loop and debug messages for connecting to Dolphin.
+async def dolphin_connect_loop(ctx: CommonContext):
+    """
+    Connects to the Dolphin emulator and waits for the correct game to be running.
+    """
+    while True:
+        try:
+            if not dolphin.is_hooked():
+                dolphin.hook()
+
+            if dolphin.get_status() == dolphin.Dolphin.DolphinStatus.no_emu or \
+               dolphin.get_status() == dolphin.Dolphin.DolphinStatus.not_running:
+                if dolphin.is_hooked():
+                    dolphin.un_hook()
+                print("Dolphin not running. Waiting for emulator...")
+                await asyncio.sleep(5)
+                continue
+
+            game_id = dolphin.read_bytes(0x80000000, 4)
+            if game_id.decode("ascii") not in ["GXRP08", "GXRP01"]:
+                print("Incorrect game ID. Make sure Mega Man X: Command Mission is running.")
+                if dolphin.is_hooked():
+                    dolphin.un_hook()
+                await asyncio.sleep(5)
+                continue
+            
+            print("Connected to Dolphin with the correct game running.")
+            break
+
+        except Exception as e:
+            if dolphin.is_hooked():
+                dolphin.un_hook()
+            print(f"Could not connect to Dolphin: {e}")
+            print("Retrying in 5 seconds...")
+            await asyncio.sleep(5)
+            continue
+
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
 # The slot is 4 away from the previous one, and the data itself is a 4 Byte.
