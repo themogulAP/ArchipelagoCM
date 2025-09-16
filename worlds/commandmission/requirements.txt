@@ -77,3 +77,23 @@ First, we set that the representitive stages NEED to have their access codes... 
 Second, we then apply Key Rules... i.e. Central Tower Tails Clan checks need Central key , etc. 
 --This is also applied for Electric Componenents and the like in Gimialla Mine 
 
+
+
+
+
+*******INIT PY***************
+This creates our class for MMXCMWorld.
+
+We describe the name that will appear on the client. 
+We create our item and map dictionaries. 
+We then create all of our regions and their connections.
+Note that Central Tower HUB is the player starting area, and connects to EACH and EVERY other area... including Central Tower Full. 
+We created a LOOP in order to tie the hub region to the other 9 stages.
+
+We then added every location from our locations py to their respective PARENT REGIONS. 
+
+Following this, we set the entire Item pool for our randomizer. 
+
+Lastly, we provide the end game rule of "Defeated Great Redips". *NOTE THIS STILL NEEDS TO BE MADE A LOCATION.
+Plus, we then fill our slot data with the options that the player chooses : rebellion medals, total locations, and encounter rate. 
+
