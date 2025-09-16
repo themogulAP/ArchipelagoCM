@@ -137,22 +137,6 @@ async def game_watcher(ctx: MMXCMContext):
     This is the main loop that will handle checking locations and giving items.
     It will run as long as the client is connected to the server.
     """
-    try:
-        # Connect to the Dolphin Emulator
-        dolphin.connect()
-        print("Connected to Dolphin.")
-    except Exception as e:
-        print(f"Could not connect to Dolphin: {e}")
-        ctx.gui_enabled = False
-        return
-
-    # Check for the game ID to make sure we are connected to MMX CM!
-    game_id = dolphin.read_bytes(0x80000000, 4)
-    if game_id.decode("ascii") not in ["GXRP08", "GXRP01"]:
-        print("Incorrect game ID. Make sure Mega Man X: Command Mission is running.")
-        dolphin.disconnect()
-        ctx.gui_enabled=False
-        return
 
     # This initializes the set locations checked.
     checked_locations_in_game = set()
