@@ -22,22 +22,22 @@ from . import helpers
 # RAM addresses and the slot counts for each inventory type.
 # The slot is 4 away from the previous one, and the data itself is a 4 Byte.
 INVENTORY_INFO = {
-    "Items": {
+    "Consumable": {
         "base_address": 0x804A32A9,
         "slot_count": 32,
         "slot_size": 4,
     },
-    "Weapons": {
+    "Weapon": {
         "base_address": 0x804A34B9,
         "slot_count": 120,
         "slot_size": 4,
     },
-    "Sub-Weapons": {
+    "Sub-Weapon": {
         "base_address": 0x804A3699,
         "slot_count": 64,
         "slot_size": 4,
     },
-    "Force Metals": {
+    "Force Metal": {
         "base_address": 0x804A3329,
         "slot_count": 96,
         "slot_size": 4,
