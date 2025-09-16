@@ -118,7 +118,20 @@ This will also create EVERY randomized location as depicted in the seed.
 
 
 *****CLIENT PY**********
-This is the TOTAL bridge between the AP server and our MMXCM Client.
+...This is the TOTAL bridge between the AP server and our MMXCM Client.
 
 First, we set the Inventory Info group, as our inventory will be DYNAMICALLY managed. 
 We have these set to Consumable, Weapon, Sub-Weapon, and Force Metal, and Mechaniloid Item. 
+
+We then serve a placeholder MMXCMCommandProcessor where we will eventually make custom commands.
+
+...async def write_to_inventory will find our FIRST available inventory slot and write the Item ID to it as indicated in the Items py. 
+Note that these are separated in game by their respecitve screens, I.e. Consumable is item, weapon is weapon etc etc. 
+
+...async def Game Watcher is the MAIN LOOP that will handle checking all locations and giving items, and will run for as long as the EU is connected to the AP server. 
+
+First, it will try to connect to dolphin (which is DME based on our imports).
+It will try to read the EU or US version (although us is NOT compatable.)
+
+
+
