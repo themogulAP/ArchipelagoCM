@@ -20,6 +20,6 @@ I.e. The access codes (except CT) set the new teleport location from Central Tow
 ... Weapons, Sub-Weapons, Force Metal, Mechaniloids are currently randomized. 
 
 
-2) Rebellion Medals are static items given to the player after beating the bosses. 
+"2) Rebellion Medals are static items given to the player after beating the bosses. "
 We want to use these to branch the game back to the Arcade after the opening Cutscenes for each chapter. 
 
