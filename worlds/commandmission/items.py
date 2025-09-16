@@ -172,15 +172,15 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
 #This is where the Rebellion Medals will be definited into an item group. 
 ITEM_GROUPS = {
   "Rebellion Medals": ItemGroup("Rebellion Medals", {
-    "Rebellion Medal Lagrano Ruins",
-    "Rebellion Medal Central Tower",
-    "Rebellion Medal Tianna Camp",
-    "Rebellion Medal Gaudile Laboratory",
-    "Rebellion Medal Ulfat Factory",
-    "Rebellion Medal Gimialla Mine",
-    "Rebellion Medal Vanallia Desert",
-    "Rebellion Medal Melda Ore Plant",
-    "Rebellion Medal Grave Ruins Base", 
+    "Rebellion Medal (Lagrano Ruins)",
+    "Rebellion Medal (Central Tower)",
+    "Rebellion Medal (Tianna Camp)",
+    "Rebellion Medal (Gaudile Laboratory)",
+    "Rebellion Medal (Ulfat Factory)",
+    "Rebellion Medal (Gimialla Mine)",
+    "Rebellion Medal (Vanallia Desert)",
+    "Rebellion Medal (Melda Ore Plant)",
+    "Rebellion Medal (Grave Ruins Base)", 
   }, )
 
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
