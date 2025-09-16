@@ -53,64 +53,62 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item", 
     code=6,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=0)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=0)]
   ),
   "Central Tower Access Code": MMXCMItemData(
     type="Key Item",
     code=7,
     classification=IC.progression,
     # Note: There are 3 changes here for the cutscenes, and Aile's Room.
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=1)
-    ]
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=1)]
   ),
   "Tianna Camp Access Code": MMXCMItemData(
     type="Key Item",
     code=8,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=2)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=2)]
   ),
   "Gaudile Laboratory Access Code": MMXCMItemData(
     type="Key Item",
     code=9,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=3)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=3)]
   ),
   "Ulfat Factory Access Code": MMXCMItemData(
     type="Key Item",
     code=10,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=4)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=4)]
   ),
   "Gimialla Mine Access Code": MMXCMItemData(
     type="Key Item",
     code=11,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=5)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=5)]
   ),
   "Vanallia Desert Access Code": MMXCMItemData(
     type="Key Item",
     code=12,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=6)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=6)]
   ),
   "Melda Ore Plant Access Code": MMXCMItemData(
     type="Key Item",
     code=13,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2108, bit_position=7)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2108, bit_position=7)]
   ),
   "Grave Ruins Base Access Code": MMXCMItemData(
     type="Key Item",
     code=14,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2109, bit_position=0)
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2109, bit_position=0)]
   ),
   "Far East HQ Access Code": MMXCMItemData(
     type="Key Item",
     code=15,
     classification=IC.progression,
-    update_ram_addr=MMXCMRamData(ram_addr=0x804A2109, bit_position=1)
-    ]
+    update_ram_addr=[MMXCMRamData(ram_addr=0x804A2109, bit_position=1)]
   ),
    #This is adding our Rebellion Medal items to the AP , but NOT Randomly. 
   "Rebellion Medal (Lagrano Ruins)": MMXCMItemData(
