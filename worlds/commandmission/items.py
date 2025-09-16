@@ -115,62 +115,53 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item",
     code=None,
     classification=IC.progression,
-    is_fixed=True,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=2)]
   ),
   "Rebellion Medal (Central Tower)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=3)]
   ),
   "Rebellion Medal (Tianna Camp)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=4)]
   ),
   "Rebellion Medal (Gaudile Laboratory)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=5)]
   ),
   "Rebellion Medal (Ulfat Factory)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=6)]
   ),
   "Rebellion Medal (Gimialla Mine)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=7)]
   ),
   "Rebellion Medal (Vanallia Desert)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=0)]
   ),
   "Rebellion Medal (Melda Ore Plant)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=1)]
   ),
   "Rebellion Medal (Grave Ruins Base)": MMXCMItemData(
     type="Key Item",
     code=None,
-    is_fixed=True,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=2)]
   )
