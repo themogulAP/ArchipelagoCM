@@ -214,68 +214,46 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     """
     This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
     """
-
-    # Step 1: Apply our internal code patches as described earlier. 
-    with open(destination_path, "r+b") as rom_file: 
-        print("Applying Internal Code Patches...")
-        for patch in CODE_PATCHES:
-            try:
-                 address = patch["address"]
-                 data_to_write = bytes(patch["data"])
-
-               #Seeks the specific DOL Offset.
-                 rom_file.seek(address)
-
-               # Write the new bytes, overwriting old PowerPc command.
-                 rom_file.write(data_to_write)
-
-               # We want to have GClib just do this to target the DOL! 
-                 
-                 print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
-            except KeyError as e:
-                 print(f"Skipping malformed patch data: missing key {e}")
-            except Exception as e:
-                 print(f"An error occured while applying a code patch: {e}")
-        print("Internal code patching complete.")         
-         
-    # Step 3: Apply randomization data from server.
-    # The Locations key in output_data maps location IDs to Item IDs.
-        randomized_locations = output_data.get("locations", {})
-        for location_id, item_id in randomized_locations.items():
-            try:
-                # Find the location data based on AP ID.
-                location_name = next(name for name, data in LOCATION_TABLE.items() if data.ap_id == location_id)
-                location_data = LOCATION_TABLE[location_name]
-
-                #Find the item based on its AP ID. 
-                item_data = next(data for name, data in ALL_ITEMS_TABLE.items() if data.ap_id == item_id)
-
-                # Get the RAM Address and Bit position we will write to. 
-                ram_address = location_data.ram_addr.address
-                bit_position = location_data.ram_addr.bit_position
-
-                rom_file.seek(ram_address)
-
-                #Read the Current byte.
-                current_byte = rom_file.read(1)[0]
-
-                #Determine the new byte value.
-                new_byte = current_byte | (1 << bit_position)
-
-                #Seek the address before writing
-                rom_file.seek(ram_address)
-
-                #Write the new byte value.
-                rom_file.write(bytes([new_byte]))
-
-                print(f"Patched '{location_name}' with item '{item_data.name}'.")
-            except (StopIteration, KeyError) as e:
-                print(f"Error finding location or item data for IDs: {location_id}, {item_id}. Error: {e}")
-            except Exception as e:
-                print(f"An unexpected error occured during patching: {e}")
-
-    print("Patching Complete.")
     
+   self.gcm = GCM(self.clean_iso_path) #We will path this to the Vanilla ROM! 
+   self.gcm.read_entire_disc()
+   self.dol = DOL()
+    
+   print("Applying Internal Code Patches...")
+   for patch in CODE_PATCHES:
+       try:
+            address = patch["address"]
+            data_to_write = bytes(patch["data"])
+
+          #Seeks the specific DOL Offset.
+            self.dol.data.seek(address)
+
+          # Write the new bytes, overwriting old PowerPc command.
+            self.dol.data.write(data_to_write)
+
+          # We want to have GClib just do this to target the DOL! 
+            
+            print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
+       except KeyError as e:
+            print(f"Skipping malformed patch data: missing key {e}")
+       except Exception as e:
+            print(f"An error occured while applying a code patch: {e}")
+   print("Internal code patching complete.")   
+
+     # Save all changes to the DOL itself.
+    dol.save_changes()
+    gcm.changed_files["sys/main.dol"] = dol.data
+
+     # Generator function to combine all necessary files into an ISO file.
+        # Returned information is ignored.
+        for _, _ in self.export_files_from_memory():
+            continue
+
+    # If Export to disc is true, Exports the entire file/directory contents of the ISO to specified folder
+    # Otherwise, creates a direct ISO file.
+    def export_files_from_memory(self):
+        yield from self.gcm.export_disc_to_iso_with_changed_files(self.randomized_output_file_path)
+              
             
 
 
