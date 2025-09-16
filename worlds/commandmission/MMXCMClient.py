@@ -61,6 +61,7 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem):
     """
 
     item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item.item])
+    inv_type = item_info["type"]
     
     if inv_type not in INVENTORY_INFO:
         print(f"Error Unknown inventory type '{inv_type}' for item {item.item}.")
@@ -141,13 +142,18 @@ async def game_watcher(ctx: MMXCMContext):
             if location_name not in checked_locations_in_game:
                 #Reads the value at the locations RAM address.
                 try:
-                    location_value = dolphin.read_bytes(location_info["ram_addr"], 1)[0]
-                    #Check if the location's bit position has been set in the value. 
-                    if (location_value & location_info["bit_position"]) > 0:
-                        newly_checked_locations.append(location_name)
-                        checked_locations_in_game.add(location_name)
+                    # Access the RAM address and bit position from the MMXCMRamData object
+                    ram_data = location_info.get("ram_addr")
+                    if ram_data:
+                        # Read the value at the locations RAM address.
+                        location_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
+                        # Check if the location's bit position has been set in the value.
+                        if (location_value & (1 << ram_data.bit_position)) > 0:
+                            newly_checked_locations.append(location_info.get("location_id"))
+                            checked_locations_in_game.add(location_name)
+                            print(f"Found new location: {location_name}")
                 except Exception as e:
-                    print(f"Error reading location '{location_name}' at address {hex(location_info['ram_addr'])}: {e}")
+                    logger.error(f"Error reading location '{location_name}': {e}")
 
         if newly_checked_locations:
             print(f"Found new locations: {newly_checked_locations}")
@@ -159,7 +165,14 @@ async def game_watcher(ctx: MMXCMContext):
     
             # This handles FIXED progression items (Rebellion Medals)
             if item_data.get("is_fixed"):
-            # ... logic to write to RAM
+                for ram_data in item_data.get("update_ram_addr"):
+                    try:
+                        current_ram_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
+                        new_ram_value = current_ram_value | (1 << ram_data.bit_position)
+                        dolphin.write_bytes(ram_data.ram_addr, struct.pack(">B", new_ram_value))
+                        logger.info(f"Wrote fixed item {ctx.item_id_to_name[item.item]} to RAM address {hex(ram_data.ram_addr)}.")
+                except Exception as e:
+                        logger.error(f"Failed to write to RAM for {ctx.item_id_to_name[item.item]}: {e}")
     
             # This handles ALL randomized items.
             elif item_data.get("type"):
