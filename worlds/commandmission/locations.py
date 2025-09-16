@@ -2346,6 +2346,45 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
   ),
 }
 
+BOSS_DEFEATED_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Epsilon Cutscenes": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D0, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Lagrano Ruins)"]["item_id"]
+    },
+    "Wild Jango Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D1, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Central Tower)"]["item_id"]
+    },
+    "Silver Horn Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D2, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Tianna Camp)"]["item_id"]
+    },
+    "Dr. Psyche Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D3, bit_position=0), # Placeholder RAM Address - REPLACE LGCAL
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Gaudile Laboratory)"]["item_id"]
+    },
+    "Mach Jentra Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D4, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Ulfat Factory)"]["item_id"]
+    },
+    "Incentas Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D5, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Gimialla Mine)"]["item_id"]
+    },
+    "Botos Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D6, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Vanallia Desert)"]["item_id"]
+    },
+    "Ferham Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D7, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Melda Ore Plant)"]["item_id"]
+    },
+    "Epsilon Defeated": {
+        "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D8, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal (Grave Ruins Base)"]["item_id"]
+    },
+}
+
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
 
@@ -2362,6 +2401,7 @@ LOCATION_TABLE: dict[str, MMXCMLocationData] = {
   **GRAVE_RUINS_BASE_LOCATIONS,
   **FAR_EAST_HQ_LOCATIONS,
   **MECHANILOIDS_LOCATIONS,
+  **BOSS_DEFEATED_LOCATIONS,
   **BOSS_DROPS_LOCATIONS,
   **SKY_ROOM_LOCATIONS,
 }
