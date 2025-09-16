@@ -149,7 +149,12 @@ async def game_watcher(ctx: MMXCMContext):
         # Check for new items.
         while ctx.items_received:
             item_to_add = ctx.items_received.pop(0)
-            item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item_to_add.item])
+
+            item_name = ctx.item_id_to_name[item_to_add.item]
+            player_name = ctx.slot_to_player_name[item_to_add.player]
+            print(f"Received item: {item_name} from {player_name}.")
+            
+            item_info = ALL_ITEMS_TABLE.get(item_name)
 
             if item_info and "type" in item_info:
                 item_type = item_info["type"]
