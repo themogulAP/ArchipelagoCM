@@ -61,7 +61,6 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
     """
 
     item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item.item])
-    inv_type = item_info["type"]
     
     if inv_type not in INVENTORY_INFO:
         print(f"Error Unknown inventory type '{inv_type}' for item {item.item}.")
