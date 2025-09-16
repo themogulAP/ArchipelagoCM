@@ -29,3 +29,7 @@ I.e. The access codes (except CT) set the new teleport location from Central Tow
 We want to use these to branch the game back to the Arcade after the opening Cutscenes for each chapter. 
 These will also block the 100010 from playing. (Players will need Far East HQ Access Code AND 9 Rebellion Medals. 
 
+
+
+********LOCATIONS PY*******************
+This sets every check in the game. 
