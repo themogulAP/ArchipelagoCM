@@ -6,6 +6,9 @@ from math import ceil
 from random import choice, randint
 import shutil 
 
+from gclib.gcm import GCM
+from gclib.dol import DOL
+
 from .Items import ALL_ITEMS_TABLE, MMXCMItemData
 from .Locations import LOCATION_TABLE, MMXCMLocationData
 
