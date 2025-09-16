@@ -2220,6 +2220,7 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Defeated Great Redips",
     code=None,
     parent_region="Far East HQ",
+    ram_addr=MMXCMRamData(0x00000000, bit_position=0),   # PLACEHOLDER
     event_item=True
   ),
 }
