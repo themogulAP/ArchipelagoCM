@@ -3,6 +3,9 @@ Everything and All the Logic With the Command Mission AP.
 The game currently boots into Scenario 10, straight into the Arcade which is where the player will start. 
 The Spider Cutscene, Ailes Door, Intruders Cutscene, Live Boss3, and Chapter 10 Door (Helipad cutscene 10010) are cleared, until their respective access codes are acquired randomly. 
 
+The game is currently (and correctly) unbeatable from a chapter 10 standpoint because of:
+the Dol changes to the CPMWI function being set way higher to 10, and the adding to the scenario flag is now + 0. 
+
 ***********Items py:*************
 
 ---Items to be randomized-
