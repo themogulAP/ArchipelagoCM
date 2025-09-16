@@ -97,3 +97,28 @@ Following this, we set the entire Item pool for our randomizer.
 Lastly, we provide the end game rule of "Defeated Great Redips". *NOTE THIS STILL NEEDS TO BE MADE A LOCATION.
 Plus, we then fill our slot data with the options that the player chooses : rebellion medals, total locations, and encounter rate. 
 
+
+
+
+**************PATCHER PY**************
+This will first patch EVERY bit of code that we made for our TEST DOL 
+--Load into Scenario 10, Arcade
+--Block the cutscenes
+--Open the arcade door, 
+--change the teleport loops, 
+--prevent party members from leaving. 
+etc. 
+
+We currently have a placeholder for get item name define. 
+
+We then provide the logic for making the AP patch, with error code messages. 
+This will also create EVERY randomized location as depicted in the seed. 
+
+
+
+
+*****CLIENT PY**********
+This is the TOTAL bridge between the AP server and our MMXCM Client.
+
+First, we set the Inventory Info group, as our inventory will be DYNAMICALLY managed. 
+We have these set to Consumable, Weapon, Sub-Weapon, and Force Metal, and Mechaniloid Item. 
