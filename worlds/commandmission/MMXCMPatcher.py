@@ -226,6 +226,7 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
                # Write the new bytes, overwriting old PowerPc command.
                  rom_file.write(data_to_write)
 
+               # We want to have GClib just do this to target the DOL! 
                  print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
             except KeyError as e:
                  print(f"Skipping malformed patch data: missing key {e}")
