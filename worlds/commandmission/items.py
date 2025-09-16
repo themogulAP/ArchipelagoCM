@@ -118,55 +118,55 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     ]
   ),
    #This is adding our Rebellion Medal items to the AP , but NOT Randomly. 
-  "Rebellion Medal Lagrano Ruins": MMXCMItemData(
+  "Rebellion Medal (Lagrano Ruins)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Central Tower": MMXCMItemData(
+  "Rebellion Medal (Central Tower)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Tianna Camp": MMXCMItemData(
+  "Rebellion Medal (Tianna Camp)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Gaudile Laboratory": MMXCMItemData(
+  "Rebellion Medal (Gaudile Laboratory)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Ulfat Factory": MMXCMItemData(
+  "Rebellion Medal (Ulfat Factory)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Gimialla Mine": MMXCMItemData(
+  "Rebellion Medal (Gimialla Mine)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Vanallia Desert": MMXCMItemData(
+  "Rebellion Medal (Vanallia Desert)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Melda Ore Plant": MMXCMItemData(
+  "Rebellion Medal (Melda Ore Plant)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=None
   ),
-  "Rebellion Medal Grave Ruins Base": MMXCMItemData(
+  "Rebellion Medal (Grave Ruins Base)": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
