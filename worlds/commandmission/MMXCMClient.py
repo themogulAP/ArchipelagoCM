@@ -131,6 +131,9 @@ async def game_watcher(ctx: MMXCMContext):
 
     # This initializes the set locations checked.
     checked_locations_in_game = set()
+
+    # This will track the medals we have reported.
+    reported_medals = set()
     
     while not ctx.finished_game:
         # Check for new locations.
