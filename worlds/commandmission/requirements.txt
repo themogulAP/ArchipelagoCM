@@ -7,6 +7,11 @@ The game is currently (and correctly) unbeatable from a chapter 10 standpoint be
 the Dol changes to the CPMWI function being set way higher to 10, and the adding to the scenario flag is now + 0. 
 
 ***********Items py:*************
+type = what type of item it is (i.e. weapons vs key item)
+code = the number that Archipelago will read, in order of the items... 
+classification = The item is either progression, useful, or filler. 
+item_id = This is how we will use our Dynamic inventory. The Item_id is what # the different items set into their respective inventory slots (weapons vs items vs force metal , etc).
+update_ram_addr = If the item flips a flag in RAM to acquire (mostly the key items), this is where it will be listed in items py. 
 
 ---Items to be randomized-
 
