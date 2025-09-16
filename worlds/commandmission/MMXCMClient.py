@@ -16,6 +16,7 @@ from NetUtils import NetworkItem, ClientStatus
 from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
 from MMXCMContext import MMXCMContext
+from . import helpers
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
@@ -58,8 +59,15 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
     """
     This will find the first empty inventory slot and write the item's ID to it.
     """
+    # Look up the item's data using its name, not its Archipelago ID
+    item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item.item])
+
+    if not item_info:
+        print(f"Error: Could not find item information for item ID {item.item}.")
+        return
+
     if inv_type not in INVENTORY_INFO:
-        print(f"Error Unknown inventory type '{inv_type}' for item {item.item}.")
+        print(f"Error Unknown inventory type '{inv_type}' for item {ctx.item_id_to_name[item.item]}.")
         return
 
     inv_data = INVENTORY_INFO[inv_type]
@@ -78,17 +86,25 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
         if current_item_id == 0:
             print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
 
-            # Get the Item ID and convert it to bytes.
-            item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item.item])
+            # Get the in-game Item ID and convert it to bytes.
             item_id_bytes = struct.pack(">I", item_info["item_id"])
 
             # Write the item to the empty slot.
             dolphin.write_bytes(slot_address, item_id_bytes)
             print (f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
 
-            # Remove the item from the queue after it has been received.
-            ctx.items_received.remove(item)
-            return
+            # THIS CHECKS FOR THE RAM UPDATE for our Certain Items.
+            if item_info.get("update_ram_addr"):
+                for ram_data in item_info.get("update_ram_addr"):
+                    try:
+                        current_ram_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
+                        new_ram_value = current_ram_value | (1 << ram_data.bit_position)
+                        dolphin.write_bytes(ram_data.ram_addr, struct.pack(">B", new_ram_value))
+                        logger.info(f"Wrote RAM flag for item {ctx.item_id_to_name[item.item]} at {hex(ram_data.ram_addr)}.")
+                    except Exception as e:
+                        logger.error(f"Failed to write to RAM for {ctx.item_id_to_name[item.item]}: {e}")
+
+            return # Exit after writing the item to the inventory slot.
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
 
 async def game_watcher(ctx: MMXCMContext):
@@ -143,8 +159,8 @@ async def game_watcher(ctx: MMXCMContext):
             await ctx.send_checked_locations(newly_checked_locations)
 
         # Check for new items.
-        if ctx.items_received:
-            item_to_add = ctx.items_received[0]
+        while ctx.items_received:
+            item_to_add = ctx.items_received.pop(0)
             item_info = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item_to_add.item])
 
             if item_info and "type" in item_info:
