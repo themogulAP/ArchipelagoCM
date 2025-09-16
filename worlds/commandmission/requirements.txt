@@ -15,8 +15,7 @@ The Spider Cutscene, Ailes Door, Intruders Cutscene, Live Boss3, and Chapter 10 
 These need to be given randomly, and will alter flags / RAM for the Teleporter in Arcade.
 I.e. The access codes (except CT) set the new teleport location from Central Tower (the original in the Patched ROM), to the first area of of each stage.
 
-...Central Tower needs to switch the Spider, Intruders cutscene back to 0. RAM: 0x8000D8FC
-*Note that this will also set a random one in Chapter 10. (Boss3)
+...Central Tower needs to switch the Spider, Intruders cutscene and Ailes Door back to uncleared. 
 
 ...Chapter 10 Access Code needs to alter the Jango Cutscene 10010 to send to Far East HQ.
 
