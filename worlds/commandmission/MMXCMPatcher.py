@@ -212,18 +212,7 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
     """
 
-    # Step 1: Find and copy the Base Rom, as to not be destructive.
-    try:
-        shutil.copyfile(base_path, destination_path)
-        print(f"Created a copy of the base ROM at: {destination_path}")
-    except FileNotFoundError:
-        print(f"Error: Base ROM not found at '{base_path}'.")
-        return
-    except Exception as e:
-        print(f"An error occured while creating the ROM copy: {e}")
-        return
-
-    # Step 2: Apply our internal code patches as described earlier. 
+    # Step 1: Apply our internal code patches as described earlier. 
     with open(destination_path, "r+b") as rom_file: 
         print("Applying Internal Code Patches...")
         for patch in CODE_PATCHES:
