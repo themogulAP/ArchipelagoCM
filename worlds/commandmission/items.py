@@ -169,7 +169,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
-#This is where the Rebellion Medals will be definited into an item group. 
+#This is where the Rebellion Medals will be definited into an item group, to be used in other files.  
 ITEM_GROUPS = {
   "Rebellion Medals": ItemGroup("Rebellion Medals", {
     "Rebellion Medal (Lagrano Ruins)",
