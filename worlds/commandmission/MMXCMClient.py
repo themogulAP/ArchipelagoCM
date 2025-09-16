@@ -92,18 +92,6 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
             # Write the item to the empty slot.
             dolphin.write_bytes(slot_address, item_id_bytes)
             print (f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
-
-            # THIS CHECKS FOR THE RAM UPDATE for our Certain Items.
-            if item_info.get("update_ram_addr"):
-                for ram_data in item_info.get("update_ram_addr"):
-                    try:
-                        current_ram_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
-                        new_ram_value = current_ram_value | (1 << ram_data.bit_position)
-                        dolphin.write_bytes(ram_data.ram_addr, struct.pack(">B", new_ram_value))
-                        logger.info(f"Wrote RAM flag for item {ctx.item_id_to_name[item.item]} at {hex(ram_data.ram_addr)}.")
-                    except Exception as e:
-                        logger.error(f"Failed to write to RAM for {ctx.item_id_to_name[item.item]}: {e}")
-
             return # Exit after writing the item to the inventory slot.
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
 
