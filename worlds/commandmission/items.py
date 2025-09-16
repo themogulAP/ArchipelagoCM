@@ -60,10 +60,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     code=7,
     classification=IC.progression,
     # Note: There are 3 changes here for the cutscenes, and Aile's Room.
-    update_ram_addr=[
-      MMXCMRamData(0x804A20BD, bit_position=6),
-      MMXCMRamData(0x804A20BD, bit_position=7),
-      MMXCMRamData(0x804A20C1, bit_position=0)
+    update_ram_addr=None
     ]
   ),
   "Tianna Camp Access Code": MMXCMItemData(
@@ -112,9 +109,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item",
     code=15,
     classification=IC.progression,
-    update_ram_addr=[
-      MMXCMRamData(0x804A2128, bit_position=0),
-      MMXCMRamData(0x804A2128, bit_position=1)
+    update_ram_addr=None
     ]
   ),
    #This is adding our Rebellion Medal items to the AP , but NOT Randomly. 
