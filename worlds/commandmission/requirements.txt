@@ -4,7 +4,7 @@ Everything and All the Logic With the Command Mission AP.
 
 ---Items to be randomized-
 
-1) ...Progression Key Items (Aile ID, etc)
+"1) ...Progression Key Items (Aile ID, etc)"
 --These have a type of "Key Item".
 
 ...Access Codes are also progression. 
