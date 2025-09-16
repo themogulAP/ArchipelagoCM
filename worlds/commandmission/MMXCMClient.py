@@ -44,6 +44,22 @@ INVENTORY_INFO = {
     }
 }
 
+# New function to write a single bit to RAM for the logic behind Rebellion Medals and Access Codes.
+def write_bit_to_ram(address: int, bit_position: int):
+    try:
+        current_ram_value_bytes = dolphin.read_bytes(address, 1)
+        current_ram_value = struct.unpack(">B", current_ram_value_bytes)[0]
+
+        #This calculates the new value with the specific bit!
+        new_ram_value = current_ram_value | (1 << bit_position)
+
+        #Write the new value back to the RAM
+        dolphin.write_bytes(address, struct.pack(">B", new_ram_value))
+
+        logger.info(f"Wrote bit {bit_position} to RAM address {hex(address)}.")
+    except Exception as e:
+        logger.error(f"Failed to write to RAM address {hex(address)}: {e}")
+
 class MMXCMCommandProcessor(ClientCommandProcessor):
     def __init__(self, ctx: MMXCMContext):
         super().__init__(ctx)
