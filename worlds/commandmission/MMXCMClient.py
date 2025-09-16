@@ -55,7 +55,7 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
         """
         print("Mega Man X: Command Mission Client.")
 
-async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str):
+async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem):
     """
     This will find the first empty inventory slot and write the item's ID to it. 
     """
@@ -153,16 +153,17 @@ async def game_watcher(ctx: MMXCMContext):
             print(f"Found new locations: {newly_checked_locations}")
             await ctx.send_checked_locations(newly_checked_locations)
 
-        if ctx.items_received:
-            item_to_add = ctx.items_received[0]
-
-                # Look up the items type to see where it should be placed. 
-            item_info = ALL_ITEMS_TABLE.get(item_to_add.item)
-            if item_info and "type" in item_info:
-                item_type = item_info["type"]
-                await write_to_inventory(ctx, item_to_add, item_type)
-            else:
-                print(f"Error: Could not find type information for item ID {item_to_add.item}.")
+        while ctx.items_received:
+            item = ctx.items_received.pop(0)
+            item_data = ALL_ITEMS_TABLE.get(ctx.item_id_to_name[item.item])
+    
+            # This handles FIXED progression items (Rebellion Medals)
+            if item_data.get("is_fixed"):
+            # ... logic to write to RAM
+    
+            # This handles ALL randomized items.
+            elif item_data.get("type"):
+                 await write_to_inventory(ctx, item)
 
         await asyncio.sleep(1) # Can set this so sleep to avoid CP?U usage.
 
