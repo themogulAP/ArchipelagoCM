@@ -65,8 +65,15 @@ LOCATION_TABLE: dict[str, MMXCMLocationData] = {
   **SKY_ROOM_LOCATIONS,
 }
 
+Note that the Boss Defeated Locations Table is included but currently holds PLACEHOLDER RAM and ITEM IDS. 
+
 
 
 ********RULES PY*************
+This file sets our full logic rules for hte AP and acquiring items. 
 
+First, we set that the representitive stages NEED to have their access codes... I.e. Lagrano Ruins needs Lagrano Ruins Access Code. 
+
+Second, we then apply Key Rules... i.e. Central Tower Tails Clan checks need Central key , etc. 
+--This is also applied for Electric Componenents and the like in Gimialla Mine 
 
