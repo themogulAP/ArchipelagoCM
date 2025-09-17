@@ -3,9 +3,6 @@ from typing import NamedTuple, Dict, Optional, Set, Any
 from BaseClasses import Item
 from BaseClasses import ItemClassification as IC
 
-# This will import from the Helpers.py in the same folder. 
-from .helpers import MMXCMRamData
-
 # This will start our 'blueprint' for Mega Man X Command Mission items! 
 class MMXCMItemData(NamedTuple):
   name: Optional[str] = None
@@ -14,6 +11,13 @@ class MMXCMItemData(NamedTuple):
   classification: IC
   item_id: Optional[int] = None #This is the item's unique ID
   update_ram_addr: Optional[list[MMXCMRamData]] = None 
+
+class MMXCMRamData(NamedTuple):
+    ram_addr: Optional[int] = None
+    bit_position: Optional[int] = None
+    ram_byte_size: Optional[int] = None
+    pointer_offset: Optional[int] = None
+    item_count: Optional[int] = None
 
 # This is the list for every single item we are currently randomzing in AP.
 PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {  
