@@ -1,4 +1,6 @@
 from typing import ClassVar
+
+from BaseClasses import Region
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE
 from .locations import LOCATION_TABLE
