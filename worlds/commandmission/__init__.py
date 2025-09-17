@@ -29,8 +29,8 @@ class MMXCMWorld(World):
 
 #This is the very first piece of code that runs when a new MMX CM World will be created! 
   #It will then map all of our items and locations to their respective Strings to IDs that we put in items and locations py. 
-  def __init__(self, **args, kwargs):
-    super(MMXCMWorld, self).__init__(**args, kwargs)
+  def __init__(self, **args, **kwargs):
+    super(MMXCMWorld, self).__init__(**args, **kwargs)
 
 # This places any logic we need to before the generation process.
   def generate_early(self): 
