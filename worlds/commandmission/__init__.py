@@ -11,7 +11,7 @@ import random
 #Define the MMX Command Mission Class:
 class MMXCMWorld(World):
   """
-  Mega Man X: Command Mission is a turn-based RPG set in the Mega Man X universe. 
+  Mega Man X: Command Mission is a turn-based RPG set in the Mega Man X universe.
   """
 
 # Describe the name of the game that will appear on AP Client. 
