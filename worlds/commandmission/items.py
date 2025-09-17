@@ -281,9 +281,10 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     item_id=30,
     update_ram_addr=None
   ),
+}
 
 #Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
-CONSUMABLE_TABLE: dict[str, MMXCMItemData] = {
+FILLER_TABLE: dict[str, MMXCMItemData] = {
   "Vaccine Program": MMXCMItemData(
     type="Consumable",
     code=31,
@@ -2514,7 +2515,7 @@ COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
-  **CONSUMABLE_TABLE,
+  **FILLER_TABLE,
   **WEAPONS_TABLE,
   **{item.name: item for item_list in PROGRESSIVE_WEAPONS_TABLE.values() for item in item_list},
   **SUB_WEAPONS_TABLE,
