@@ -2501,6 +2501,7 @@ TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
     code=316,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=5)]
+  )
 }
 
 #Add any other tables here, Filler, Trap, etc.
