@@ -1,9 +1,9 @@
 from typing import ClassVar
 from worlds.AutoWorld import World
-from .Items import ALL_ITEMS_TABLE, FILLER_TABLE
-from .Locations import LOCATION_TABLE
-from .Rules import set_rules
-from .Options import MMXCMOptions
+from .items import ALL_ITEMS_TABLE, FILLER_TABLE
+from .locations import LOCATION_TABLE
+from .rules import set_rules
+from .options import MMXCMOptions
 import random
 
 #Define the MMX Command Mission Class:
