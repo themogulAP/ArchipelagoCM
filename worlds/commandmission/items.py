@@ -1236,6 +1236,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       classification=IC.useful,
       item_id=136,
       update_ram_addr=None
+    )
   ],
 
   "Beam Chakram Progression": [
