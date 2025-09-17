@@ -1,10 +1,10 @@
-from typing import NamedTuple, Dict, Optional, Set
+from typing import NamedTuple, Dict, Optional, Set, Any
 
 from BaseClasses import Item
 from BaseClasses import ItemClassification as IC, ItemGroup
 
 # This will import from the Helpers.py in the same folder. 
-from .Helpers import MMXCMRamData
+from .helpers import MMXCMRamData
 
 # This will start our 'blueprint' for Mega Man X Command Mission items! 
 class MMXCMItemData(NamedTuple):
@@ -178,13 +178,13 @@ ITEM_GROUPS = {
     "Rebellion Medal (Gimialla Mine)",
     "Rebellion Medal (Vanallia Desert)",
     "Rebellion Medal (Melda Ore Plant)",
-    "Rebellion Medal (Grave Ruins Base)" 
+    "Rebellion Medal (Grave Ruins Base)"
   }, )
 }
 
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
-  # This is the list of Useful items, like armors and keys.
-  "Treasure Radar": MMXCMItemData(
+# This is the list of Useful items, like armors and keys.
+    "Treasure Radar": MMXCMItemData(
     type="Major Item",
     code=16,
     classification=IC.useful,
@@ -281,7 +281,7 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     item_id=30,
     update_ram_addr=None
   ),
-  
+
 #Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
 FILLER_TABLE: dict[str, MMXCMItemData] = {
   "Vaccine Program": MMXCMItemData(
@@ -444,6 +444,8 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=31,
     update_ram_addr=None
+  ),
+}
 
 #Add any other tables here, Filler, Trap, etc.
 WEAPONS_TABLE: dict[str, MMXCMItemData] = {
@@ -1238,8 +1240,8 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       classification=IC.useful,
       item_id=136,
       update_ram_addr=None
-    )
-  ],
+    ),
+],
 
   "Beam Chakram Progression": [
     MMXCMItemData(
@@ -1468,7 +1470,6 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-}   
 
 SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
   #All Sub-Weapons in the Game, Excluding Hyper Mode ones.
