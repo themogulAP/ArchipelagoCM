@@ -1,7 +1,7 @@
 from typing import NamedTuple, Dict, Optional, Set, Any
 
 from BaseClasses import Item
-from BaseClasses import ItemClassification as IC, ItemGroup
+from BaseClasses import ItemClassification as IC
 
 # This will import from the Helpers.py in the same folder. 
 from .helpers import MMXCMRamData
