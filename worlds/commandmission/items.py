@@ -184,7 +184,7 @@ ITEM_GROUPS = {
 
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
 # This is the list of Useful items, like armors and keys.
-    "Treasure Radar": MMXCMItemData(
+ "Treasure Radar": MMXCMItemData(
     type="Major Item",
     code=16,
     classification=IC.useful,
@@ -281,10 +281,9 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     item_id=30,
     update_ram_addr=None
   ),
-}
 
 #Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
-FILLER_TABLE: dict[str, MMXCMItemData] = {
+FILLER_TABLE: dict[str, MMXCMItemData],
   "Vaccine Program": MMXCMItemData(
     type="Consumable",
     code=31,
@@ -1472,6 +1471,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
+}
 
 SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
   #All Sub-Weapons in the Game, Excluding Hyper Mode ones.
