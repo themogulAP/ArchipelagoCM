@@ -612,6 +612,7 @@ WEAPONS_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.useful,
     item_id=188,
     update_ram_addr=None
+  ),
 
 #This is the list for every Progressive Weapon separated by Character.
 PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
