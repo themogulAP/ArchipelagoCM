@@ -1,6 +1,6 @@
 from typing import ClassVar
 
-from BaseClasses import Region
+from BaseClasses import Region, Location
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE
 from .locations import LOCATION_TABLE
