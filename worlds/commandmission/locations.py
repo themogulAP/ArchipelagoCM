@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict, Optional, Callable
-from .Items import MMXCMItemData
-from .Helpers import MMXCMRamData
+from .items import MMXCMItemData
+from .helpers import MMXCMRamData
 
 # This will list the exact blueprint for making our locations! 
 class MMXCMLocationData(NamedTuple):
@@ -8,7 +8,6 @@ class MMXCMLocationData(NamedTuple):
   code:Optional[int]
   parent_region: str
   ram_addr: Optional[MMXCMRamData] = None
-  event_item: bool = False
 
 # This begins the list for every single randomized item in AP.
 LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
@@ -2220,7 +2219,6 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Defeated Great Redips",
     code=None,
     parent_region="Far East HQ",
-    ram_addr=MMXCMRamData(0x00000000, bit_position=0),   # PLACEHOLDER
     event_item=True
   ),
 }
