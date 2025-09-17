@@ -442,8 +442,6 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=31,
     update_ram_addr=None
-  
-}
 
 #Add any other tables here, Filler, Trap, etc.
 WEAPONS_TABLE: dict[str, MMXCMItemData] = {
