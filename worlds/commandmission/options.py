@@ -25,5 +25,6 @@ class MMXCMOptions(OptionDict):
     option_vanilla = 1
     option_lower = 2
     option_higher = 3
+    default = 1
 
 
