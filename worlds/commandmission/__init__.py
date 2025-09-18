@@ -100,7 +100,7 @@ class MMXCMWorld(World):
       filler_needed = locations_count - items_in_pool
 
 #Randomly selects the filler items to add into the pool.
-      filler_items_to_add = random.choices(FILLER_TABLE, k=filler_needed)
+      filler_items_to_add = random.choices(list(FILLER_TABLE.keys()), k=filler_needed)
 
       for filler_item_name in filler_items_to_add:
           self.multiworld.itempool.append(self.create_item(filler_item_name))
