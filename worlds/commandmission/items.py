@@ -1,7 +1,7 @@
 from typing import NamedTuple, Optional
 
 from BaseClasses import ItemClassification as IC
-from helpers import MMXCMRamData
+from .helpers import MMXCMRamData
 
 # This will start our 'blueprint' for Mega Man X Command Mission items!
 class MMXCMItemData(NamedTuple):
