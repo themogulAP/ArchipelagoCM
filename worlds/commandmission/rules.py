@@ -4,7 +4,7 @@ from BaseClasses import CollectionState
 
 #Importing all of our location data from locations.py to be added here,
 #Then uses AP architecture to import add_rule.
-from .Locations import LOCATION_TABLE, MMXCMLocationData
+from .locations import LOCATION_TABLE, MMXCMLocationData
 from worlds.generic.Rules import add_rule
 
 #Prevents the rules py from importing the entire world!
