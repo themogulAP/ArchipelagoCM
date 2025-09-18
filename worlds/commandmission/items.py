@@ -1,15 +1,7 @@
 from typing import NamedTuple, Optional
 
 from BaseClasses import ItemClassification as IC
-from worlds.hk.Extractor import items
-
-
-class MMXCMRamData(NamedTuple):
-    ram_addr: Optional[int] = None
-    bit_position: Optional[int] = None
-    ram_byte_size: Optional[int] = None
-    pointer_offset: Optional[int] = None
-    item_count: Optional[int] = None
+from helpers import MMXCMRamData
 
 # This will start our 'blueprint' for Mega Man X Command Mission items!
 class MMXCMItemData(NamedTuple):
