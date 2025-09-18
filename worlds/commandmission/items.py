@@ -1,16 +1,8 @@
-from typing import NamedTuple, Dict, Optional, Set, Any
+from typing import NamedTuple, Optional
 
-from BaseClasses import Item
 from BaseClasses import ItemClassification as IC
+from worlds.hk.Extractor import items
 
-# This will start our 'blueprint' for Mega Man X Command Mission items! 
-class MMXCMItemData(NamedTuple):
-  name: Optional[str] = None
-  type: str
-  code: Optional[int] = None
-  classification: IC
-  item_id: Optional[int] = None #This is the item's unique ID
-  update_ram_addr: Optional[list[MMXCMRamData]] = None 
 
 class MMXCMRamData(NamedTuple):
     ram_addr: Optional[int] = None
@@ -19,9 +11,18 @@ class MMXCMRamData(NamedTuple):
     pointer_offset: Optional[int] = None
     item_count: Optional[int] = None
 
+# This will start our 'blueprint' for Mega Man X Command Mission items!
+class MMXCMItemData(NamedTuple):
+  type: str
+  classification: IC
+  name: Optional[str] = None
+  code: Optional[int] = None
+  item_id: Optional[int] = None #This is the item's unique ID
+  update_ram_addr: Optional[list[MMXCMRamData]] = None
+
 # This is the list for every single item we are currently randomzing in AP.
-PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {  
-  # Follow this example for every additional item. 
+PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
+  # Follow this example for every additional item.
   "Aile ID": MMXCMItemData(
     type="Key Item",
     code=1,
@@ -30,7 +31,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     update_ram_addr=[MMXCMRamData(0x804A2180, bit_position=3)]
   ),
   "Security Card": MMXCMItemData(
-    type="Key Item", 
+    type="Key Item",
     code=2,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2180, bit_position=4)]
@@ -47,14 +48,14 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=0)]
   ),
-  "Booster Parts": MMXCMItemData( 
+  "Booster Parts": MMXCMItemData(
     type="Key Item",
     code=5,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=7)]
   ),
   "Lagrano Ruins Access Code": MMXCMItemData(
-    type="Key Item", 
+    type="Key Item",
     code=6,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=0)]
@@ -114,7 +115,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=1)]
   ),
-   #This is adding our Rebellion Medal items to the AP , but NOT Randomly. 
+   #This is adding our Rebellion Medal items to the AP , but NOT Randomly.
   "Rebellion Medal (Lagrano Ruins)": MMXCMItemData(
     type="Key Item",
     code=None,
@@ -172,7 +173,11 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
 }
 
 #This is where the Rebellion Medals will be definited into an item group, to be used in other files.  
-ITEM_GROUPS = {
+class ItemGroup():
+    def __init__(self, items):
+        self.items = items
+
+ITEM_GROUP = {
   "Rebellion Medals": ItemGroup({
     "Rebellion Medal (Lagrano Ruins)",
     "Rebellion Medal (Central Tower)",
@@ -679,7 +684,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   "Fire Buster Progression": [
     MMXCMItemData(
       name="Fire Buster",
@@ -715,7 +720,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       classification=IC.useful,
       item_id=28,
       update_ram_addr=None
-    ), 
+    ),
     MMXCMItemData(
       name="Thunder Buster MKII",
       type="Weapon",
@@ -723,7 +728,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       classification=IC.useful,
       item_id=37,
       update_ram_addr=None
-    ), 
+    ),
     MMXCMItemData(
       name="Thunder Buster MKIII",
       type="Weapon",
@@ -836,7 +841,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   # -----Progressive Weapons For Zero Start Here-----
   "Z Saber Progression": [
     MMXCMItemData(
@@ -872,7 +877,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   "Flame Saber Progression": [
     MMXCMItemData(
       name="Flame Saber",
@@ -909,7 +914,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   "Thunder Saber Progression": [
     MMXCMItemData(
       name="Thunder Saber",
@@ -928,7 +933,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   "Z Ichimonji Progression": [
     MMXCMItemData(
       name="Z Ichimonji",
@@ -1126,7 +1131,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
 # -----Progressive Weapons For Massimo Start Here-----
   "Massive Lance Progression": [
     MMXCMItemData(
@@ -1200,7 +1205,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
-  
+
   "Shock Lance Progression": [
     MMXCMItemData(
       name="Shock Lance",
@@ -1263,7 +1268,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       code=146,
       classification=IC.useful,
       item_id=134,
-      update_ram_addr=None 
+      update_ram_addr=None
     )
   ],
 
@@ -1484,7 +1489,7 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
     code=170,
     classification=IC.useful,
     item_id=1,
-    update_ram_addr=None 
+    update_ram_addr=None
   ),
   "Tomahawk": MMXCMItemData(
     type="Sub-Weapon",
@@ -1779,7 +1784,7 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.useful,
     item_id=43,
     update_ram_addr=None
-  )    
+  )
 }
 
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
@@ -2426,54 +2431,54 @@ FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.useful,
     item_id=86,
     update_ram_addr=None
-  ) 
+  )
 }
 
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   "Mini Battery A": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=304,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=0)]
   ),
   "Mini Battery B": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=305,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=6)]
   ),
   "Mini Battery C": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=306,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=7)]
   ),
   "Mini Motor": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=307,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=1)]
   ),
   "Ball & Chain Hammer": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=308,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=2)]
   ),
   "Cyber Liquid": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=309,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=3)]
   ),
   "Bone Key": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=310,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=4)]
   ),
   "Heavy Motor": MMXCMItemData(
-    type="Mechaniloid Item", 
+    type="Mechaniloid Item",
     code=311,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=5)]
@@ -2516,7 +2521,7 @@ TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 
-#This is where all of the item tables are listed into one Dictionary.
+#This is where all the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
@@ -2530,7 +2535,7 @@ ALL_ITEMS_TABLE = {
   **COLLECTIBLE_TABLE
 
 }
-  
-      
-    
-  
+
+
+
+
