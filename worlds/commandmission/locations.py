@@ -1,8 +1,9 @@
 from typing import NamedTuple, Dict, Optional, Callable
-from .items import MMXCMItemData
+from worlds.commandmission.items import MMXCMItemData
+from . import items
 from .helpers import MMXCMRamData
 
-# This will list the exact blueprint for making our locations! 
+# This will list the exact blueprint for making our locations!
 class MMXCMLocationData(NamedTuple):
   name:str
   code:Optional[int]
