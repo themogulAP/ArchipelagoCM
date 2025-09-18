@@ -282,9 +282,10 @@ USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
     item_id=30,
     update_ram_addr=None
   ),
+}
 
 #Note for these: they will be DYNAMICALLY Stored in inventory via Patcher.py
-FILLER_TABLE: dict[str, MMXCMItemData],
+FILLER_TABLE: dict[str, MMXCMItemData] = {
   "Vaccine Program": MMXCMItemData(
     type="Consumable",
     code=31,
