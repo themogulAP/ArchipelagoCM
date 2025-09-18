@@ -105,6 +105,11 @@ class MMXCMWorld(World):
       for filler_item_name in filler_items_to_add:
           self.multiworld.itempool.append(self.create_item(filler_item_name))
 
+      # It is the helper that the create_items method calls.
+  def create_item(self, name: str) -> Item:
+    item_data = ALL_ITEMS_TABLE[name]
+    return Item(name, item_data.classification, item_data.code, self.player)
+
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
       set_rules(self)
