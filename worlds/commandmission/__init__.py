@@ -29,7 +29,7 @@ class MMXCMWorld(World):
   location_name_to_id: ClassVar[dict[str, int]] = {name: data.name for name, data in LOCATION_TABLE.items()}
 
 #This is the very first piece of code that runs when a new MMX CM World will be created! 
-  #It will then map all of our items and locations to their respective Strings to IDs that we put in items and locations py. 
+  #It will then map all of our items and  to their respective Strings to IDs that we put in items and  py. 
   def __init__(self, *args, **kwargs):
     super(MMXCMWorld, self).__init__(*args, **kwargs)
 
@@ -75,13 +75,13 @@ class MMXCMWorld(World):
         rule=lambda state, code=access_code: state.has(code, self.player)
       )
 
-    # Add Every location from our locations py to their regions! 
+    # Add Every location from our  py to their regions! 
     for location_name, location_data in LOCATION_TABLE.items():
       region=self.multiworld.get_region(location_data.parent_region, self.player)
       location = Location(
         self.player,
         location_name,
-        location_data.ap_id,
+        location_data.code,
         region,
       )
       region.locations.append(location)
