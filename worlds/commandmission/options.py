@@ -11,7 +11,7 @@ class MMXCMOptions(OptionDict):
 
   # Setting the # of Rebellion Medals the player needs to access Chapter 10.
   class rebellion_medal_count(Range):
-    default_name = "Rebellion Medal Count"
+    display_name = "Rebellion Medal Count"
     internal_name = "rebellion_medal_count"
     default=9,
     range_start=0,
@@ -19,7 +19,7 @@ class MMXCMOptions(OptionDict):
 
   #This is the Option choice for the player's desired encounter rate.
   class encounter_rate(Choice):
-    default_name = "Encounter Rate"
+    display_name = "Encounter Rate"
     internal_name = "encounter_rate"
     option_off = 0
     option_vanilla = 1
