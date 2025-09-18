@@ -1,6 +1,6 @@
 # This file is where every setting is defined that the player can choose, thus defining logic.
 from dataclasses import dataclass
-from Options import Toggle, PerPlayerOption, Range, Choice, DeathLink, OptionDict, NamedRange, DefaultOn 
+from Options import Toggle, Range, Choice, DeathLink, OptionDict, NamedRange
 
 @dataclass
 class MMXCMOptions(OptionDict):
@@ -10,66 +10,20 @@ class MMXCMOptions(OptionDict):
   """
 
   # Setting the # of Rebellion Medals the player needs to access Chapter 10.
-  rebellion_medal_count: PerPlayerOption[Range] = PerPlayerOption(Range, "Rebellion Medal Count",
+  class rebellion_medal_count(Range):
+    default_name = "Rebellion Medal Count"
+    internal_name = "rebellion_medal_count"
     default=9,
     range_start=0,
     range_end=9,
-  )
 
   #This is the Option choice for the player's desired encounter rate.
-  encounter_rate: Choice = Choice("Encounter Rate",
-    {
-      "vanilla": 0,
-      "off": 1,
-      "lower": 2,
-      "higher": 3,
-    },
-    default="vanilla"
-  )
+  class encounter_rate(Choice):
+    default_name = "Encounter Rate"
+    internal_name = "encounter_rate"
+    option_off = 0
+    option_vanilla = 1
+    option_lower = 2
+    option_higher = 3
 
-  # The player can choose which locations to remove from their AP.
-  excluded_locations: PerPlayerOption[OptionDict] = PerPlayerOption(OptionDict, "Exclude Locations",
-    options={
-      "Special Sealed Area 1st Room MD 1": Toggle,
-      "Special Sealed Area 1st Room MD 2": Toggle,
-      "Special Sealed Area 1st Room MD 3": Toggle,
-      "Special Sealed Area 1st Room MD 4": Toggle,
-      "Special Sealed Area 1st Room MD 5": Toggle,
-      "Special Sealed Area 1st Room MD 6": Toggle,
-      "Special Sealed Area 1st Room MD 7": Toggle,
-      "Special Sealed Area 1st Room MD 8": Toggle,
-      "Special Sealed Area 1st Room MD 9": Toggle,
-      "Special Sealed Area 1st Room MD 10": Toggle,
-      "Special Sealed Area 2nd Room MD 1": Toggle,
-      "Special Sealed Area 2nd Room MD 2": Toggle,
-      "Special Sealed Area 2nd Room MD 3": Toggle,
-      "Special Sealed Area 2nd Room MD 4": Toggle,
-      "Special Sealed Area 2nd Room MD 5": Toggle,
-      "Special Sealed Area 2nd Room MD 6": Toggle,
-      "Special Sealed Area 2nd Room MD 7": Toggle,
-      "Special Sealed Area 2nd Room MD 8": Toggle,
-      "Special Sealed Area 2nd Room MD 9": Toggle,
-      "Special Sealed Area 2nd Room MD 10": Toggle,
-      "Special Sealed Area 3rd Room MD 1": Toggle,
-      "Special Sealed Area 3rd Room MD 2": Toggle,
-      "Special Sealed Area 3rd Room MD 3": Toggle,
-      "Special Sealed Area 3rd Room MD 4": Toggle,
-      "Special Sealed Area 3rd Room MD 5": Toggle,
-      "Special Sealed Area 3rd Room MD 6": Toggle,
-      "Special Sealed Area 3rd Room MD 7": Toggle,
-      "Special Sealed Area 3rd Room MD 8": Toggle,
-      "Special Sealed Area By Ninetales MD 1": Toggle,
-      "Special Sealed Area By Ninetales MD 2": Toggle,
-      "Special Sealed Area By Ninetales MD 3": Toggle,
-      "Special Sealed Area By Ninetales MD 4": Toggle,
-      "Special Sealed Area By Ninetales MD 5": Toggle,
-      "Special Sealed Area By Ninetales MD 6": Toggle,
-      "Special Sealed Area By Ninetales MD 7": Toggle,
-      "Maze Area 1 Rafflesian MD 1": Toggle,
-      "Maze Area 1 Rafflesian MD 2": Toggle,
-      "Maze Area 1 Rafflesian MD 3": Toggle,
-      "Missile Maintenance Room MD 1": Toggle,
-    },
-    default={}
-  )
-  
+
