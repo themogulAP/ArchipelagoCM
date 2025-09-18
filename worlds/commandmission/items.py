@@ -180,7 +180,7 @@ ITEM_GROUP = {
     "Rebellion Medal (Vanallia Desert)",
     "Rebellion Medal (Melda Ore Plant)",
     "Rebellion Medal (Grave Ruins Base)"
-  }, )
+  })
 }
 
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
