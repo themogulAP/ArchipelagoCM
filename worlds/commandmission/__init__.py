@@ -18,7 +18,7 @@ class MMXCMWorld(World):
 # Link options from the options py to here, and then set player options.
 # Topology is for randomize maps, not needed for current implementation of static maps. 
 # Data Version is the current version. 
-  game: ClassVar[str] = "Mega Man X: Command Mission"
+  game: ClassVar[str] = "Mega Man X Command Mission"
   option_dataclass: ClassVar[MMXCMOptions]
   options: MMXCMOptions
   topology_present: ClassVar[bool] = False
