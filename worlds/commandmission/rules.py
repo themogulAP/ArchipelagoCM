@@ -24,34 +24,34 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
    
     for location_name, location_data in LOCATION_TABLE.items():
          #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
-        if location_data["parent_region"] == "Lagrano Ruins":
+        if location_data.parent_region == "Lagrano Ruins":
              rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
 
-        elif location_data["parent_region"] == "Central Tower Full":
+        elif location_data.parent_region == "Central Tower Full":
                rules[location_name] = lambda state: state.has("Central Tower Access Code", player)
              
-        elif location_data["parent_region"] == "Tianna Camp":
+        elif location_data.parent_region == "Tianna Camp":
                rules[location_name] = lambda state: state.has("Tianna Camp Access Code", player)
 
-        elif location_data["parent_region"] == "Gaudile Laboratory":
+        elif location_data.parent_region == "Gaudile Laboratory":
                rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
 
-        elif location_data["parent_region"] == "Ulfat Factory":
+        elif location_data.parent_region == "Ulfat Factory":
                rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
 
-        elif location_data["parent_region"] == "Gimialla Mine":
+        elif location_data.parent_region == "Gimialla Mine":
                rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
 
-        elif location_data["parent_region"] == "Vanallia Desert":
+        elif location_data.parent_region == "Vanallia Desert":
                rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player)
              
-        elif location_data["parent_region"] == "Melda Ore Plant":
+        elif location_data.parent_region == "Melda Ore Plant":
                rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
 
-        elif location_data["parent_region"] == "Grave Ruins Base":
+        elif location_data.parent_region == "Grave Ruins Base":
                rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
        
-        elif location_data["parent_region"] == "Far East HQ":
+        elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
     
