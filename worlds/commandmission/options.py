@@ -13,9 +13,9 @@ class MMXCMOptions(OptionDict):
   class rebellion_medal_count(Range):
     display_name = "Rebellion Medal Count"
     internal_name = "rebellion_medal_count"
-    default=9,
-    range_start=0,
-    range_end=9,
+    default=9
+    range_start=0
+    range_end=9
 
   #This is the Option choice for the player's desired encounter rate.
   class encounter_rate(Choice):
