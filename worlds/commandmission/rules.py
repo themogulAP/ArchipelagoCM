@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 #Defining our Set Rules for our MMXCMWorld to be created in init.py
 #Set rules is what "orders" the games rules. 
 def set_rules(world: "MMXCMWorld"):
-    world.item_rules["Far East HQ Access Code"] = lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value)
+    world.multiworld.item_rules["Far East HQ Access Code"] = lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value)
     
     for location, rule in get_rules_dict(world).items():
         add_rule(location, rule)
