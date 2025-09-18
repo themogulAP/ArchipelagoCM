@@ -25,8 +25,8 @@ class MMXCMWorld(World):
   data_version: ClassVar[int] = 1
 
 #Create the dictionaries that will map every item and every location for our AP! 
-  item_name_to_id: ClassVar[dict[str, int]] = {name: data.ap_id for name, data in ALL_ITEMS_TABLE.items()}
-  location_name_to_id: ClassVar[dict[str, int]] = {name: data.ap_id for name, data in LOCATION_TABLE.items()}
+  item_name_to_id: ClassVar[dict[str, int]] = {name: data.name for name, data in ALL_ITEMS_TABLE.items()}
+  location_name_to_id: ClassVar[dict[str, int]] = {name: data.name for name, data in LOCATION_TABLE.items()}
 
 #This is the very first piece of code that runs when a new MMX CM World will be created! 
   #It will then map all of our items and locations to their respective Strings to IDs that we put in items and locations py. 
