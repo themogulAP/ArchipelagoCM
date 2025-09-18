@@ -55,7 +55,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
     
-    world.multi_world.item_rules["Far East HQ Access Code"] = lambda state: state.has_group("Rebellion Medals", player, world.options.rebellion_medal_count.value)
+    world.multi.world.item_rules["Far East HQ Access Code"] = lambda state: state.has_group("Rebellion Medals", player, world.options.rebellion_medal_count.value)
 
     rules.update({
         # Extra rules for Lagrano Ruins ------------
