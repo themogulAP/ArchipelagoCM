@@ -4,7 +4,7 @@ from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
-from .rules import set_rules
+from .rules import set_rules as custom_set_rules
 from .options import MMXCMOptions
 import random
 
@@ -112,7 +112,7 @@ class MMXCMWorld(World):
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
-      set_rules(self)
+      custom_set_rules(self)
 
   #This is where we set out rules!
   def set_completion_rules(self):
