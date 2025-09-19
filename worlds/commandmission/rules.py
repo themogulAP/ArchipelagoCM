@@ -16,11 +16,10 @@ if TYPE_CHECKING:
 def set_rules(world: "MMXCMWorld"):
     for item in world.multiworld.get_items("Far East HQ Access Code", world.player):
         add_rule(item, lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
-    
     for location, rule in get_rules_dict(world).items():
-        add_rule(world.multiworld.get_location(location, world.player), rule)
+        add_rule(world.multiworld.get_location(location, world.player), rule)
         
-#This is the logic behind the rules we will set for each location. 
+#This is the logic behind the rules we will set for each location.
 def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     player = world.player
     rules = {}
