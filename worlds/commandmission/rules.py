@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 def set_rules(world: "MMXCMWorld"):
     for item in world.multiworld.get_items("Far East HQ Access Code"):
         add_rule(item, lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
+        
     for location, rule in get_rules_dict(world).items():
         add_rule(world.multiworld.get_location(location, world.player), rule)
 
