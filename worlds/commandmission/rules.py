@@ -11,7 +11,6 @@ from worlds.generic.Rules import add_rule
 if TYPE_CHECKING:
     from . import MMXCMWorld
 
-#Defining our Set Rules for our MMXCMWorld to be created in init.py
 #Set rules is what "orders" the games rules. 
 #This will also provide us the means to lock Chapter 10 behind rebellion medals. 
 def set_rules(world: "MMXCMWorld"):
