@@ -112,7 +112,7 @@ class MMXCMWorld(World):
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
-      custom_set_rules(self)
+      set_rules(self)
 
   #This is where we set out rules!
   def set_completion_rules(self):
