@@ -4,7 +4,7 @@ from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
-from .rules import set_rules as custom_set_rules
+from .rules import set_rules
 from .options import MMXCMOptions
 import random
 
