@@ -16,8 +16,8 @@ if TYPE_CHECKING:
 #This will also provide us the means to lock Chapter 10 behind rebellion medals. 
 def set_rules(world: "MMXCMWorld"):
     add_rule(world.multiworld.get_item("Far East HQ Access Code", world.player),
-         lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
-    
+             lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
+
     for location, rule in get_rules_dict(world).items():
         add_rule(world.multiworld.get_location(location, world.player), rule)
         
