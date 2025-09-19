@@ -14,9 +14,9 @@ if TYPE_CHECKING:
 #Set rules is what "orders" the games rules. 
 #This will also provide us the means to lock Chapter 10 behind rebellion medals. 
 def set_rules(world: "MMXCMWorld"):
-    for item in world.multiworld.get_items("Far East HQ Access Code"):
-        add_rule(item, lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
-        
+    add_rule(world.multiworld.get_item_by_name("Far East HQ Access Code", world.player),
+             lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
+    
     for location, rule in get_rules_dict(world).items():
         add_rule(world.multiworld.get_location(location, world.player), rule)
 
