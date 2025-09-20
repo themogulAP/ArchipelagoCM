@@ -26,6 +26,7 @@ class MMXCMOptions(OptionDict, PerGameCommonOptions):
   MMXCMOptions is our data class that will represent the user options for 
   the Mega Man X: Command Mission world in Archipelago!
   """
+  
   **rebellion_medal_count: rebellion_medal_count**
-  **encounter_rate: encounter_rate**
+  **encounter_rate: encounter_rate**
   
