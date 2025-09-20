@@ -193,9 +193,9 @@ async def game_watcher(ctx: MMXCMContext):
             player_name = ctx.slot_to_player_name[item_to_add.player]
             print(f"Received item: {item_name} from {player_name}.")
 
-            # Dynamic LOGIC for all Access Codes to change the RAM addresses once received. 
+    # ---------------------- Dynamic LOGIC for all Access Codes to change the RAM addresses once received. ---------------------------
             #Lagrano Ruins
-            if item_name == "Lagrano Access Code":
+            if item_name == "Lagrano Ruins Access Code":
                 print("Lagrano Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
@@ -240,6 +240,96 @@ async def game_watcher(ctx: MMXCMContext):
                 
                 # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
                 continue
+            
+            # Gaudile Laboratory Teleport
+            elif item_name == "Gaudile Laboratory Access Code":
+                print("Gaudile Laboratory Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x80082ff4, b'\x3c\x80\x00\x04')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x80082ffC, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Gaudile Laboratory Access Code: {e}")
+                
+                continue
+            
+            # Ulfat Factory Access Code
+            elif item_name == "Ulfat Factory Access Code":
+                print("Ulfat Factory Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x8008301c, b'\x3c\x80\x00\x05')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x80083024, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Ulfat Factory Access Code: {e}")
+                
+                continue
+            
+            # Gimialla Mine
+            elif item_name == "Gimialla Mine Access Code":
+                print("Gimialla Mine Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x80083044, b'\x3c\x80\x00\x06')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x8008304c, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Gimialla Mine Access Code: {e}")
+                
+                continue
+            
+            # Vanallia Desert
+            elif item_name == "Vanallia Desert Access Code":
+                print("Vanallia Desert Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x8008306c, b'\x3c\x80\x00\x07')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x80083074, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Vanallia Desert Access Code: {e}")
+                
+                continue
+            
+            # Melda Ore Plant ----------------
+            elif item_name == "Melda Ore Plant Access Code":
+                print("Melda Ore Plant Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x80083094, b'\x3c\x80\x00\x08')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x8008309c, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Melda Ore Plant Access Code: {e}")
+                
+                continue
+            
+            elif item_name == "Grave Ruins Base Access Code":
+                print("Grave Ruins Base Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x800830bc, b'\x3c\x80\x00\x09')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x800830c4, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Grave Ruins Base Access Code: {e}")
+                
+                continue
+    # --- ---------------------------END DYNAMIC CLIENT LOGIC ------------------------------------------------------
             
             item_info = ALL_ITEMS_TABLE.get(item_name)
 
