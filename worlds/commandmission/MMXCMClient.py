@@ -177,7 +177,7 @@ async def game_watcher(ctx: MMXCMContext):
                     boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
 
                     # Check if the bit for defeating Redips is set.
-                    if (boss_defeated_value & (1 << redips_ram_data.bit_position)) > 0:
+                    if boss_defeated_value == 9:
                         print("Final boss defeated! Signaling game completion to the server.")
                         await ctx.send_goal()
                         ctx.finished_game = True  # This ends the while loop on the next pass.
