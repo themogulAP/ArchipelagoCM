@@ -192,6 +192,39 @@ async def game_watcher(ctx: MMXCMContext):
             item_name = ctx.item_id_to_name[item_to_add.item]
             player_name = ctx.slot_to_player_name[item_to_add.player]
             print(f"Received item: {item_name} from {player_name}.")
+
+            # Dynamic LOGIC for all Access Codes to change the RAM addresses once received. 
+            #Lagrano Ruins
+            if item_name == "Lagrano Access Code":
+                print("Lagrano Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x80082fa4, b'\x3c\x80\x00\x01')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x80082fac, b'\x38\x08\x03\x46')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Lagrano Access Code: {e}")
+                
+                # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
+                continue
+
+            # Tianna Camp
+            elif item_name == "Tianna Camp Access Code":
+                print("Tianna Camp Access Code received! Patching RAM to enable the teleporter.")
+                try:
+                    # Write the first PowerPC instruction.
+                    dolphin.write_bytes(0x80082fcc, b'\x3c\x80\x00\x03')
+                    
+                    # Write the second PowerPC instruction.
+                    dolphin.write_bytes(0x80082fd4, b'\x38\x04\x01\x41')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Tianna Camp Access Code: {e}")
+                
+                # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
+                continue
             
             item_info = ALL_ITEMS_TABLE.get(item_name)
 
