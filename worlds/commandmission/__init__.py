@@ -126,20 +126,13 @@ class MMXCMWorld(World):
   
 # This will provide the slot data information upon connecting to AP! 
   def fill_slot_data(self):
-    try:
-        # Try the dot notation first, as it's the more common method.
-        slot_data = {
-            "rebellion_medal_count": self.options.rebellion_medal_count.value,
-            "total_locations": len(LOCATION_TABLE),
-            "encounter_rate": self.options.encounter_rate.value
-        }
-    except AttributeError:
-        # If that fails, try the dictionary-style access.
-        slot_data = {
-            "rebellion_medal_count": self.options["rebellion_medal_count"].value,
-            "total_locations": len(LOCATION_TABLE),
-            "encounter_rate": self.options["encounter_rate"].value
-        }
+    options_dict = self.multiworld.get_player_options(self.player)
+    
+    slot_data = {
+        "rebellion_medal_count": options_dict.get("rebellion_medal_count", {}).get("value", 0),
+        "total_locations": len(LOCATION_TABLE),
+        "encounter_rate": options_dict.get("encounter_rate", {}).get("value", 0)
+    }
     return slot_data
     
     
