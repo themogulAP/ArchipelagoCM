@@ -125,7 +125,7 @@ class MMXCMWorld(World):
         state.has("Defeated Great Redips", self.player)
   
 # This will provide the slot data information upon connecting to AP! 
-"""  def fill_slot_data(self):
+  def fill_slot_data(self):
     slot_data = {
         "rebellion_medal_count": self.options.rebellion_medal_count.value,
         "total_locations": len(LOCATION_TABLE),
@@ -133,5 +133,5 @@ class MMXCMWorld(World):
     }
     return slot_data
   
-"""  
+  
     
