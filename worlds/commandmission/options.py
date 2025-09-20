@@ -1,6 +1,6 @@
 # This file is where every setting is defined that the player can choose, thus defining logic.
 from dataclasses import dataclass
-from Options import Toggle, Range, Choice, DeathLink, OptionDict, NamedRange
+from Options import Toggle, Range, Choice, DeathLink, OptionDict, NamedRange, PerGameCommonOptions
 
   # Setting the # of Rebellion Medals the player needs to access Chapter 10.
   class rebellion_medal_count(Range):
