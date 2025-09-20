@@ -192,23 +192,14 @@ async def game_watcher(ctx: MMXCMContext):
             item_name = ctx.item_id_to_name[item_to_add.item]
             player_name = ctx.slot_to_player_name[item_to_add.player]
             print(f"Received item: {item_name} from {player_name}.")
-         
-           # --- START of the new logic to add ---
-            if "Rebellion Medal" in item_name:
-                item_info = ALL_ITEMS_TABLE.get(item_name)
-                if item_info and "update_ram_addr" in item_info:
-                    ram_data_list = item_info["update_ram_addr"]
-                    if not isinstance(ram_data_list, list):
-                        ram_data_list = [ram_data_list]
-                    for ram_data in ram_data_list:
-                        helpers.write_bit_to_ram(ram_data.ram_addr, ram_data.bit_position, dolphin)
+            
+            item_info = ALL_ITEMS_TABLE.get(item_name)
+
+            if item_info and "type" in item_info:
+                item_type = item_info["type"]
+                await write_to_inventory(ctx, item_to_add, item_type)
             else:
-                item_info = ALL_ITEMS_TABLE.get(item_name)
-                if item_info and "type" in item_info:
-                    item_type = item_info["type"]
-                    await write_to_inventory(ctx, item_to_add, item_type)
-                else:
-                    print(f"Error: Could not find type information for item ID {item_to_name[item_to_add.item]}.")
+                print(f"Error: Could not find type information for item ID {item_to_add.item}.")
         
         await asyncio.sleep(1) # Can set this so sleep to avoid CPU usage.
 
