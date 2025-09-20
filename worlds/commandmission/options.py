@@ -27,6 +27,6 @@ class MMXCMOptions(OptionDict, PerGameCommonOptions):
   the Mega Man X: Command Mission world in Archipelago!
   """
   
-  **rebellion_medal_count: rebellion_medal_count**
-  **encounter_rate: encounter_rate**
+  rebellion_medal_count: rebellion_medal_count
+  encounter_rate: encounter_rate
   
