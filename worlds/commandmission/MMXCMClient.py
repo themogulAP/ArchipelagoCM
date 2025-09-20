@@ -196,8 +196,13 @@ async def game_watcher(ctx: MMXCMContext):
             item_info = ALL_ITEMS_TABLE.get(item_name)
 
             if item_info and "type" in item_info:
-                item_type = item_info["type"]
-                await write_to_inventory(ctx, item_to_add, item_type)
+                if "update_ram_addr" in item_info:
+                    print(f"Received Rebellion Medal. Writing to RAM...")
+                    ram_data = item_info["update_ram_addr"]
+                    helpers.write_bit_to_ram(ram_data.ram_addr, ram_data.bit_position, dolphin)
+                else:
+                    item_type = item_info["type"]
+                    await write_to_inventory(ctx, item_to_add, item_type)
             else:
                 print(f"Error: Could not find type information for item ID {item_to_add.item}.")
 
