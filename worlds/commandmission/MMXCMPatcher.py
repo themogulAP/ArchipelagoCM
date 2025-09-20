@@ -217,13 +217,14 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
     """
 
-self.gcm = GCM(self.clean_iso_path)  # We will path this to the Vanilla ROM! 
-self.gcm.read_entire_disc()
-self.dol = DOL()
+    self.gcm = GCM(self.clean_iso_path)  # We will path this to the Vanilla ROM! 
+    self.gcm.read_entire_disc()
+    self.dol = DOL()
 
-self.dol = self.gcm.read_dol_from_disc()
+    self.dol = self.gcm.read_dol_from_disc()
 
-print("Applying Internal Code Patches...")
+    print("Applying Internal Code Patches...")
+
 for patch in CODE_PATCHES:
     try:
         address = patch["address"]
