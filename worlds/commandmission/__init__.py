@@ -95,6 +95,8 @@ class MMXCMWorld(World):
   def create_items(self):
       item_pool = []
       for item_name, item_data in ALL_ITEMS_TABLE.items():
+          if "Rebellion Medal" in item_name:
+                continue
           item_pool.append(self.create_item(item_name))
 
       self.multiworld.itempool.extend(item_pool)
