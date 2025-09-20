@@ -2,13 +2,6 @@
 from dataclasses import dataclass
 from Options import Toggle, Range, Choice, DeathLink, OptionDict, NamedRange
 
-@dataclass
-class MMXCMOptions(OptionDict):
-  """
-  MMXCMOptions is our data class that will represent the user options for 
-  the Mega Man X: Command Mission world in Archipelago!
-  """
-
   # Setting the # of Rebellion Medals the player needs to access Chapter 10.
   class rebellion_medal_count(Range):
     display_name = "Rebellion Medal Count"
@@ -27,4 +20,12 @@ class MMXCMOptions(OptionDict):
     option_higher = 3
     default = 1
 
-
+@dataclass
+class MMXCMOptions(OptionDict, PerGameCommonOptions):
+  """
+  MMXCMOptions is our data class that will represent the user options for 
+  the Mega Man X: Command Mission world in Archipelago!
+  """
+  **rebellion_medal_count: rebellion_medal_count**
+  **encounter_rate: encounter_rate**
+  
