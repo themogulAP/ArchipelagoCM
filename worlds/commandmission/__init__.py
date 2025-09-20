@@ -128,10 +128,8 @@ class MMXCMWorld(World):
   
 # This will provide the slot data information upon connecting to AP! 
   def fill_slot_data(self):
-    # slot_data = {
-    #     "rebellion_medal_count": self.options.rebellion_medal_count.value,
-    #     "total_locations": len(LOCATION_TABLE),
-    #     "encounter_rate": self.options.encounter_rate.value
-    # }
-    # return slot_data
-    return {} # Temporarily returning an empty dictionary
+      return {
+        "rebellion_medal_count": self.options.rebellion_medal_count.value,
+        "total_locations": len(LOCATION_TABLE),
+        "encounter_rate": self.options.encounter_rate.value
+  }
