@@ -210,6 +210,21 @@ async def game_watcher(ctx: MMXCMContext):
                 # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
                 continue
 
+           # Central Tower: Changing the Spider , Arakure, and Aile Blockers. 
+            elif item_name == "Central Tower Access Code":
+                print("Central Tower Access Code received! Changing RAM value to enable the teleporter.")
+                try:
+                    # Write a single byte with a value of 0 -  removes cutscene blockers. 
+                    dolphin.write_bytes(0x804A20BD, b'\x00')
+                    
+                    # Write a single byte with a value of 1 - removes Aile Blocker 
+                    dolphin.write_bytes(0x804A20C1, b'\x01')
+                    
+                except Exception as e:
+                    print(f"Error while writing to RAM for Central Tower Access Code: {e}")
+                
+                continue
+            
             # Tianna Camp
             elif item_name == "Tianna Camp Access Code":
                 print("Tianna Camp Access Code received! Patching RAM to enable the teleporter.")
