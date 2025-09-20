@@ -53,12 +53,17 @@ class MMXCMWorld(World):
       "Far East HQ": "Far East HQ Access Code"
     }
 
+    menu_region = Region("Menu", self.player, self.multiworld)
+    self.multiworld.regions.append(menu_region)
+    
     #Create our Central Tower main hub and full verision (when code is received)! 
     central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
     central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
     self.multiworld.regions.append(central_tower_hub_region)
     self.multiworld.regions.append(central_tower_full_region)
 
+    menu_region.connect(central_tower_hub_region)
+    
     #Connect the Regions here.
     central_tower_hub_region.connect(
       central_tower_full_region,
