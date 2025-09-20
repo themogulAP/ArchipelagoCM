@@ -1369,7 +1369,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216E, bit_position=5)
   ),
-  "Level 3 Main Tunnel Blue Miner Trade Complete": MMXCMLocationData(
+  "L3 Main Tunnel Blue Miner Trade Complete": MMXCMLocationData(
     name="Level 3 Main Tunnel Blue Miner 1",
     code=224,
     parent_region="Gimialla Mine",
