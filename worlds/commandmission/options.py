@@ -21,7 +21,7 @@ class encounter_rate(Choice):
   default = 1
 
 @dataclass
-class MMXCMOptions(OptionDict, PerGameCommonOptions):
+class MMXCMOptions(PerGameCommonOptions):
   """
   MMXCMOptions is our data class that will represent the user options for 
   the Mega Man X: Command Mission world in Archipelago!
