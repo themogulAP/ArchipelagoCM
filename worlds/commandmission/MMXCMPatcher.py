@@ -225,34 +225,34 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
 
     print("Applying Internal Code Patches...")
 
-for patch in CODE_PATCHES:
-    try:
-        address = patch["address"]
-        data_to_write = bytes(patch["data"])
-
-        # Seeks the specific DOL Offset.
-        self.dol.data.seek(address)
-
-        # Write the new bytes, overwriting old PowerPc command.
-        self.dol.data.write(data_to_write)
-
-        # We want to have GClib just do this to target the DOL! 
-
-        print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
-    except KeyError as e:
-        print(f"Skipping malformed patch data: missing key {e}")
-    except Exception as e:
-        print(f"An error occured while applying a code patch: {e}")
-print("Internal code patching complete.")
-
-# Save all changes to the DOL itself.
-dol.save_changes()
-gcm.changed_files["sys/main.dol"] = dol.data
-
-# Generator function to combine all necessary files into an ISO file.
-# Returned information is ignored.
-for _, _ in self.export_files_from_memory():
-    continue
+    for patch in CODE_PATCHES:
+        try:
+            address = patch["address"]
+            data_to_write = bytes(patch["data"])
+    
+            # Seeks the specific DOL Offset.
+            self.dol.data.seek(address)
+    
+            # Write the new bytes, overwriting old PowerPc command.
+            self.dol.data.write(data_to_write)
+    
+            # We want to have GClib just do this to target the DOL! 
+    
+            print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
+        except KeyError as e:
+            print(f"Skipping malformed patch data: missing key {e}")
+        except Exception as e:
+            print(f"An error occured while applying a code patch: {e}")
+    print("Internal code patching complete.")
+    
+    # Save all changes to the DOL itself.
+    dol.save_changes()
+    gcm.changed_files["sys/main.dol"] = dol.data
+    
+    # Generator function to combine all necessary files into an ISO file.
+    # Returned information is ignored.
+    for _, _ in self.export_files_from_memory():
+        continue
 
 
 # If Export to disc is true, Exports the entire file/directory contents of the ISO to specified folder
