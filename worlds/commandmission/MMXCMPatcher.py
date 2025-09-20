@@ -221,6 +221,8 @@ self.gcm = GCM(self.clean_iso_path)  # We will path this to the Vanilla ROM!
 self.gcm.read_entire_disc()
 self.dol = DOL()
 
+self.dol = self.gcm.read_dol_from_disc()
+
 print("Applying Internal Code Patches...")
 for patch in CODE_PATCHES:
     try:
