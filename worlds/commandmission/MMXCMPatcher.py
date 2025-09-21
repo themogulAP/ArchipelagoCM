@@ -204,58 +204,94 @@ CODE_PATCHES = [
 ]
 
 
-def __get_item_name(item_data, slot: int):
+class MMXCM_Patcher:
     """
-    This will give us the correct in game name for each item based on item_data
+    A class to handle the patching and randomization of the Mega Man X Command Mission ISO.
     """
-    # - Put the item name conversion logic here
-    pass
+    def __init__(self, clean_iso_path: str, randomized_output_file_path: str):
+        """
+        The constructor that initializes the patcher.
 
+        This method acts as the entry point for the patching process, automatically
+        calling the necessary steps to apply code changes and save the new ISO.
+        """
+        self.clean_iso_path = clean_iso_path
+        self.randomized_output_file_path = randomized_output_file_path
+        self.gcm = None
+        self.dol = None
 
-def create_patch(output_data: dict, base_path: str, destination_path: str):
-    """
-    This function will take the base ROM, apply our changes and randomization data, and save the patched ROM.
-    """
+        print("Initializing the patcher...")
+        
+        # This is where we load the clean ROM and get our main.dol file.
+        self.gcm = GCM(self.clean_iso_path)
+        self.gcm.read_entire_disc()
+        self.dol = self.gcm.read_dol_from_disc()
 
-    self.gcm = GCM(self.clean_iso_path)  # We will path this to the Vanilla ROM! 
-    self.gcm.read_entire_disc()
-    self.dol = DOL()
+        # Call the methods to perform the patching.
+        self.apply_code_patches()
+        self.save_patched_iso()
 
-    self.dol = self.gcm.read_dol_from_disc()
+    def apply_code_patches(self):
+        """
+        This function applies all the hardcoded code patches from the CODE_PATCHES list.
+        """
+        print("Applying Internal Code Patches...")
 
-    print("Applying Internal Code Patches...")
-
-    for patch in CODE_PATCHES:
-        try:
-            address = patch["address"]
-            data_to_write = bytes(patch["data"])
+        for patch in CODE_PATCHES:
+            try:
+                address = patch["address"]
+                data_to_write = bytes(patch["data"])
+        
+                # Seeks the specific DOL Offset.
+                self.dol.data.seek(address)
+        
+                # Write the new bytes, overwriting old PowerPc command.
+                self.dol.data.write(data_to_write)
+        
+                print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
+            except KeyError as e:
+                print(f"Skipping malformed patch data: missing key {e}")
+            except Exception as e:
+                print(f"An error occured while applying a code patch: {e}")
+        print("Internal code patching complete.")
     
-            # Seeks the specific DOL Offset.
-            self.dol.data.seek(address)
-    
-            # Write the new bytes, overwriting old PowerPc command.
-            self.dol.data.write(data_to_write)
-    
-            # We want to have GClib just do this to target the DOL! 
-    
-            print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
-        except KeyError as e:
-            print(f"Skipping malformed patch data: missing key {e}")
-        except Exception as e:
-            print(f"An error occured while applying a code patch: {e}")
-    print("Internal code patching complete.")
-    
-    # Save all changes to the DOL itself.
-    dol.save_changes()
-    gcm.changed_files["sys/main.dol"] = dol.data
+    def save_patched_iso(self):
+        """
+        Saves the changes back to the DOL and exports the new ISO file.
+        """
+        # Save all changes to the DOL itself.
+        self.dol.save_changes()
+        self.gcm.changed_files["sys/main.dol"] = self.dol.data
+        
+        # Generator function to combine all necessary files into an ISO file.
+        # Returned information is ignored.
+        print(f"Saving the new ISO to {self.randomized_output_file_path}...")
+        for _, _ in self.export_files_from_memory():
+            continue
+        print("New ISO has been successfully created.")
+        
+    def export_files_from_memory(self):
+        """
+        Exports the entire file/directory contents of the ISO to a new file.
+        """
+        yield from self.gcm.export_disc_to_iso_with_changed_files(self.randomized_output_file_path)
       
-     # Generator function to combine all necessary files into an ISO file. 
-     # Returned information is ignored. 
-for _, _ in self.export_files_from_memory(): 
-    continue 
+# Generator function to combine all necessary files into an ISO file. 
+# The main execution block
+if __name__ == '__main__':
+    # --- This is the part that makes the code run ---
+    print("Welcome to the Mega Man X Command Mission Patcher.")
+    print("Please provide the full file paths to continue.")
 
-
- # If Export to disc is true, Exports the entire file/directory contents of the ISO to specified folder 
- # Otherwise, creates a direct ISO file. 
-def export_files_from_memory(self): 
-    yield from self.gcm.export_disc_to_iso_with_changed_files(self.randomized_output_file_path)
+    # We ask the user for the paths instead of hard-coding them.
+    # The strip() function removes any extra spaces from the input.
+    CLEAN_ISO_PATH = input("Enter the path to your clean MMXCM ISO: ").strip()
+    RANDOMIZED_ISO_PATH = input("Enter the path for the new randomized ISO: ").strip()
+    
+    # Check if the clean ISO file exists before trying to patch it.
+    if not os.path.exists(CLEAN_ISO_PATH):
+        print(f"\nError: The file '{CLEAN_ISO_PATH}' does not exist.")
+        print("Please make sure the path is correct and try again.")
+    else:
+        # Create an instance of the class. This automatically starts the patching process.
+        patcher = MMXCM_Patcher(CLEAN_ISO_PATH, RANDOMIZED_ISO_PATH)
