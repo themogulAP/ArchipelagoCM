@@ -248,15 +248,29 @@ def create_patch(output_data: dict, base_path: str, destination_path: str):
     # Save all changes to the DOL itself.
     dol.save_changes()
     gcm.changed_files["sys/main.dol"] = dol.data
-    
-    # Generator function to combine all necessary files into an ISO file.
-    # Returned information is ignored.
-    for _, _ in self.export_files_from_memory():
-        continue
-
 
 # If Export to disc is true, Exports the entire file/directory contents of the ISO to specified folder
 # Otherwise, creates a direct ISO file.
-def export_files_from_memory(self):
-    yield from self.gcm.export_disc_to_iso_with_changed_files(self.randomized_output_file_path)
+def export_files_from_memory(gcm, randomized_output_file_path):
+    """
+    If Export to disc is true, Exports the entire file/directory contents of the ISO to specified folder
+    Otherwise, creates a direct ISO file.
+    """
+    yield from gcm.export_disc_to_iso_with_changed_files(randomized_output_file_path)
+
+# It's what makes the program actually run and prompts the user for the ROM.
+if __name__ == "__main__":
+    clean_iso_path = input("Please enter the path to your clean base ISO/GCM file: ").strip()
+    
+    if not os.path.exists(clean_iso_path):
+        print(f"Error: The file '{clean_iso_path}' does not exist. Please check the path and try again.")
+    else:
+        output_file_name = input("Enter the desired name for the output randomized ROM (e.g., randomized.iso): ").strip()
+        if not output_file_name.endswith(".iso"):
+            output_file_name += ".iso"
+            
+        output_directory = os.path.dirname(clean_iso_path)
+        output_file_path = os.path.join(output_directory, output_file_name)
+        
+        create_patch(clean_iso_path, output_file_path)
 
