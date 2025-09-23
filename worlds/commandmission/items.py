@@ -166,7 +166,7 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item",
     code=None,
     classification=IC.progression,
-    completion_item=True
+    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=3)]
   )
 }
 
