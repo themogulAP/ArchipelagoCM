@@ -68,6 +68,13 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         elif location_name == "Defeated Great Redips":
                 rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
+        # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
+    for location_name, location_data in LOCATION_TABLE.items():
+        if location_data.parent_region != "Far East HQ":
+            add_item_rule(world.multiworld.get_location(location_name, world.player),
+                            lambda i: i.name == "Far East HQ Access Code",
+                            combine="or")
+
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
         
         # Lagrano Key Locations
