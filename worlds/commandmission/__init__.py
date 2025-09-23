@@ -19,7 +19,7 @@ class MMXCMWorld(World):
 # Topology is for randomize maps, not needed for current implementation of static maps. 
 # Data Version is the current version. 
   game: ClassVar[str] = "Mega Man X Command Mission"
-  options_dataclass = ClassVar[MMXCMOptions]
+  options_dataclass = MMXCMOptions
   options: MMXCMOptions
   topology_present: ClassVar[bool] = False
   data_version: ClassVar[int] = 1
