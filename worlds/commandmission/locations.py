@@ -111,7 +111,7 @@ LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x8042152, bit_position=5)
   ), 
   "East Area Stairs 4F to 5F MD 1": MMXCMLocationData(
-    name="East Area Stairs 4F to 5F 1",
+    name="East Area Stairs 4F to 5F MD 1",
     code=17,
     parent_region="Lagrano Ruins",
     ram_addr=MMXCMRamData(0x8042151, bit_position=5)
