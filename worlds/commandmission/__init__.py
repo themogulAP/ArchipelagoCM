@@ -2,6 +2,7 @@ from typing import ClassVar
 
 from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
+from worlds.generic.rules import set_completion_rule
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules
