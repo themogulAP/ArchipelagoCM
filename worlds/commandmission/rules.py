@@ -64,6 +64,10 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
+        # Add the new rule for the end-game event
+        elif location_name == "Defeated Great Redips":
+                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
+
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
         
         # Lagrano Key Locations
