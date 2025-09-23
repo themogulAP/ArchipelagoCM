@@ -64,109 +64,97 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
-    rules.update({
-        # Extra rules for Lagrano Ruins ------------
-        "East Area Stairs 4F to 5F MD 1": lambda state: state.has("Lagrano Key", player),
-        "East Area Stairs 4F to 5F MD 2": lambda state: state.has("Lagrano Key", player),
-        "East Area Stairs 4F to 5F MD 3": lambda state: state.has("Lagrano Key", player),
+        #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
         
-         # Continue adding Central Tower here-------
-        "Special Sealed Area 1st Room MD 1": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 2": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 3": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 4": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 5": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 6": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 7": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 8": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 9": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 1st Room MD 10": lambda state: state.has("Central Key", player),
-        
-        "Special Sealed Area 2nd Room MD 1": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 2": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 3": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 4": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 5": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 6": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 7": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 8": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 9": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 2nd Room MD 10": lambda state: state.has("Central Key", player),
-        
-        "Special Sealed Area 3rd Room MD 1": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 2": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 3": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 4": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 5": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 6": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 7": lambda state: state.has("Central Key", player),
-        "Special Sealed Area 3rd Room MD 8": lambda state: state.has("Central Key", player),
-        
-        "Special Sealed Area By Ninetales MD 1": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 2": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 3": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 4": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 5": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 6": lambda state: state.has("Central Key", player),
-        "Special Sealed Area By Ninetales MD 7": lambda state: state.has("Central Key", player),
-        
-        # Continue adding Tianna here-------
-        "Maze Area 1 Behind Key MD 1": lambda state: state.has("Tianna Key", player),
-        "Maze Area 1 Rafflesian MD 1": lambda state: state.has("Tianna Key", player),
-        "Maze Area 1 Rafflesian MD 2": lambda state: state.has("Tianna Key", player),
-        "Maze Area 1 Rafflesian MD 3": lambda state: state.has("Tianna Key", player),
+        # Lagrano Key Locations
+        elif location_name in ["East Area Stairs 4F to 5F MD 1", "East Area Stairs 4F to 5F MD 2", "East Area Stairs 4F to 5F MD 3"]:
+            rules[location_name] = lambda state: state.has("Lagrano Key", player)
+            
+        # Central Key Locations
+        elif location_name in [
+            "Special Sealed Area 1st Room MD 1", "Special Sealed Area 1st Room MD 2", "Special Sealed Area 1st Room MD 3",
+            "Special Sealed Area 1st Room MD 4", "Special Sealed Area 1st Room MD 5", "Special Sealed Area 1st Room MD 6",
+            "Special Sealed Area 1st Room MD 7", "Special Sealed Area 1st Room MD 8", "Special Sealed Area 1st Room MD 9",
+            "Special Sealed Area 1st Room MD 10", "Special Sealed Area 2nd Room MD 1", "Special Sealed Area 2nd Room MD 2",
+            "Special Sealed Area 2nd Room MD 3", "Special Sealed Area 2nd Room MD 4", "Special Sealed Area 2nd Room MD 5",
+            "Special Sealed Area 2nd Room MD 6", "Special Sealed Area 2nd Room MD 7", "Special Sealed Area 2nd Room MD 8",
+            "Special Sealed Area 2nd Room MD 9", "Special Sealed Area 2nd Room MD 10", "Special Sealed Area 3rd Room MD 1",
+            "Special Sealed Area 3rd Room MD 2", "Special Sealed Area 3rd Room MD 3", "Special Sealed Area 3rd Room MD 4",
+            "Special Sealed Area 3rd Room MD 5", "Special Sealed Area 3rd Room MD 6", "Special Sealed Area 3rd Room MD 7",
+            "Special Sealed Area 3rd Room MD 8", "Special Sealed Area By Ninetales MD 1", "Special Sealed Area By Ninetales MD 2",
+            "Special Sealed Area By Ninetales MD 3", "Special Sealed Area By Ninetales MD 4", "Special Sealed Area By Ninetales MD 5",
+            "Special Sealed Area By Ninetales MD 6", "Special Sealed Area By Ninetales MD 7"
+        ]:
+            rules[location_name] = lambda state: state.has("Central Key", player)
+            
+        # Tianna Key Locations
+        elif location_name in ["Maze Area 1 Behind Key MD 1", "Maze Area 1 Rafflesian MD 1", "Maze Area 1 Rafflesian MD 2", "Maze Area 1 Rafflesian MD 3"]:
+            rules[location_name] = lambda state: state.has("Tianna Key", player)
 
-        # Continue adding Gimialla Mine here------
-        "L2 Southwest Division MD 1": lambda state: state.has("Booster Parts", player),
-        "L2 Southeast Division MD 2": lambda state: state.has("Booster Parts", player),
-        "L2 Northeast Division MD 1": lambda state: state.has("Booster Parts", player),
-        "L2 Northeast Division MD 3": lambda state: state.has("Mega Mantor", player),
-        "L3 Main Tunnel Blue Miner Trade Complete": lambda state: state.has("Blue Pickaxe", player),
-        "L3 Northwest Division Red Miner Trade Complete": lambda state: state.has("Red Pickaxe", player),
-        "L3 Northwest Division Yellow Miner Trade Complete": lambda state: state.has("Yellow Pickaxe", player), 
-        "L3 Northeast Division Green Miner Trade Complete": lambda state: state.has("Green Pickaxe", player),
-        "L3 Southwest Division MD 1": lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) or state.has("Gold Blader", player),
-        "L3 Southwest Division MD 2": lambda state: state.has("Gimialla Key", player),
-        "L3 Southwest Division MD 3": lambda state: state.has("Gimialla Key", player),
-        "Level 4 Main Tunnel MD 1": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 2": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 3": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 4": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 5": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 6": lambda state: state.has("Electric Components", player),
-        "Level 4 Main Tunnel MD 7": lambda state: state.has("Electric Components", player),
-        "Level 4 Durability Lab MD 1": lambda state: state.has("Electric Components", player),
-        "Level 4 Durability Lab MD 2": lambda state: state.has("Electric Components", player),
-        "Level 4 Durability Lab MD 3": lambda state: state.has("Electric Components", player),
+        # Gimialla Mine Keys & Items
+        elif location_name in ["L2 Southwest Division MD 1", "L2 Southeast Division MD 2", "L2 Northeast Division MD 1"]:
+            rules[location_name] = lambda state: state.has("Booster Parts", player)
+        elif location_name == "L2 Northeast Division MD 3":
+            rules[location_name] = lambda state: state.has("Mega Mantor", player)
+        elif location_name == "L3 Main Tunnel Blue Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Blue Pickaxe", player)
+        elif location_name == "L3 Northwest Division Red Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Red Pickaxe", player)
+        elif location_name == "L3 Northwest Division Yellow Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Yellow Pickaxe", player)
+        elif location_name == "L3 Northeast Division Green Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Green Pickaxe", player)
+        elif location_name in ["L3 Southwest Division MD 2", "L3 Southwest Division MD 3"]:
+            rules[location_name] = lambda state: state.has("Gimialla Key", player)
+        elif location_name == "L3 Southwest Division MD 1":
+            rules[location_name] = lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) or state.has("Gold Blader", player)
+        elif location_name in ["Level 4 Main Tunnel MD 1", "Level 4 Main Tunnel MD 2", "Level 4 Main Tunnel MD 3", "Level 4 Main Tunnel MD 4", "Level 4 Main Tunnel MD 5", "Level 4 Main Tunnel MD 6", "Level 4 Main Tunnel MD 7", "Level 4 Durability Lab MD 1", "Level 4 Durability Lab MD 2", "Level 4 Durability Lab MD 3"]:
+            rules[location_name] = lambda state: state.has("Electric Components", player)
 
-          # Continue adding Melda Ore Planet Here---------
-        "B1 Entrance Hall MD 2": lambda state: state.has("Melda Key", player),
-        "B1 Entrance Hall MD 3": lambda state: state.has("Melda Key", player),
-        "B1 Entrance Hall MD 4": lambda state: state.has("Melda Key", player),
-        "Missile Maintenance Room MD 1": lambda state: state.has("Melda Key", player),
-
-        # Mehaniloid Locations---------
-        "Deerball": lambda state: state.has("Lagrano Key", player) and state.has("Lagrano Ruins Access Code", player),
-        "Radar Killer": lambda state: state.has("Tianna Key", player) and state.has("Tianna Camp Access Code", player),
-        "Blowfish": lambda state: state.has("Mini Battery", player, 3) and state.has("Tianna Camp Access Code", player),
-        "Big Monkey": lambda state: state.has("Gaudile Laboratory Access Code", player),
-        "Preon": lambda state: state.has("Gaudile Laboratory Access Code", player),
-        "Dober Man": lambda state: state.has("Gaudile Laboratory Access Code", player) and state.has("Bone Key", player),
-        "Mettaur": lambda state: state.has("Gaudile Laboratory Access Code", player),
-        "Einhammer": lambda state: state.has("Ulfat Factory Access Code", player) and state.has("Ball & Chain Hammer", player),
-        "Killer Mantis": lambda state: state.has("Ulfat Factory Access Code", player),
-        "Rush Loader": lambda state: state.has("Ulfat Factory Access Code", player),
-        "Mega Mantor": lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Mini Battery", player, 3),
-        "Degraver": lambda state: state.has("Gimialla Mine Access Code", player),
-        "Bat Bone": lambda state: state.has("Gimialla Mine Access Code", player),
-        "Gold Blader": lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Heavy Motor", player) and state.has("Gimialla Key", player),
-        "Liquid Glob": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Cyber Liquid", player),
-        "Mega Tortoise": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Battery", player, 3),
-        "Pararoid": lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Motor", player),
-        "Meltdown": lambda state: state.has("Melda Ore Plant Access Code", player) and state.has("Melda Key", player),
-        "Rabbid": lambda state: state.has("Melda Ore Plant Access Code", player),
-        "Bladey": lambda state: state.has("Grave Ruins Base Access Code", player),
-
-    })
+        # Melda Ore Plant Key
+        elif location_name in ["B1 Entrance Hall MD 2", "B1 Entrance Hall MD 3", "B1 Entrance Hall MD 4", "Missile Maintenance Room MD 1"]:
+            rules[location_name] = lambda state: state.has("Melda Key", player)
+        
+        # Mehaniloid Location Rules
+        elif location_name == "Deerball":
+            rules[location_name] = lambda state: state.has("Lagrano Key", player) and state.has("Lagrano Ruins Access Code", player)
+        elif location_name == "Radar Killer":
+            rules[location_name] = lambda state: state.has("Tianna Key", player) and state.has("Tianna Camp Access Code", player)
+        elif location_name == "Blowfish":
+            rules[location_name] = lambda state: state.has("Mini Battery", player, 3) and state.has("Tianna Camp Access Code", player)
+        elif location_name == "Big Monkey":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Preon":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Dober Man":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player) and state.has("Bone Key", player)
+        elif location_name == "Mettaur":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Einhammer":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player) and state.has("Ball & Chain Hammer", player)
+        elif location_name == "Killer Mantis":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
+        elif location_name == "Rush Loader":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
+        elif location_name == "Mega Mantor":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Mini Battery", player, 3)
+        elif location_name == "Degraver":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
+        elif location_name == "Bat Bone":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
+        elif location_name == "Gold Blader":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Heavy Motor", player) and state.has("Gimialla Key", player)
+        elif location_name == "Liquid Glob":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Cyber Liquid", player)
+        elif location_name == "Mega Tortoise":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Battery", player, 3)
+        elif location_name == "Pararoid":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Motor", player)
+        elif location_name == "Meltdown":
+            rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player) and state.has("Melda Key", player)
+        elif location_name == "Rabbid":
+            rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
+        elif location_name == "Bladey":
+            rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
         
     return rules
