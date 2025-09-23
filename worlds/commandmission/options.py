@@ -28,9 +28,4 @@ class MMXCMOptions(PerGameCommonOptions):
     """
     rebellion_medal_count: RebellionMedalCount
     encounter_rate: EncounterRate
-
-# This is the dictionary that __init__.py will import.
-options = {
-    "rebellion_medal_count": RebellionMedalCount,
-    "encounter_rate": EncounterRate
-}
+    
