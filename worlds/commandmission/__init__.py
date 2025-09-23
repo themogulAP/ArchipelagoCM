@@ -101,7 +101,7 @@ class MMXCMWorld(World):
       self.multiworld.itempool.extend(item_pool)
 
     # This adds our filler items, and will calculate the number to add. 
-      locations_count = len(self.multiworld.get_locations())
+      locations_count = len(self.multiworld.get_unfilled_locations(self.player))
       items_in_pool = len(self.multiworld.itempool)
       filler_needed = locations_count - items_in_pool
 
