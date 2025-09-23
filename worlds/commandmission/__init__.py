@@ -130,6 +130,6 @@ class MMXCMWorld(World):
   def fill_slot_data(self):
       return {
    #    "rebellion_medal_count": self.options.rebellion_medal_count.value,
-    #   "total_locations": len(LOCATION_TABLE),
-     #  "encounter_rate": self.options.encounter_rate.value
+        "total_locations": len(LOCATION_TABLE),
+        "encounter_rate": self.options.encounter_rate.value
   }
