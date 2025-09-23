@@ -34,8 +34,12 @@ class MMXCMWorld(World):
     super(MMXCMWorld, self).__init__(*args, **kwargs)
 
 # This places any logic we need to before the generation process.
+  # This is how we are placing the Great Redips Event Item. 
   def generate_early(self): 
-    pass
+    self.multiworld.worlds[self.player].itempool.append(self.create_item("Defeated Great Redips"))
+    self.multiworld.get_location("Defeated Great Redips", self.player).place_locked_item(
+      self.multiworld.worlds[self.player].itempool[-1]
+    )
 
 # This will build the entire map for our randomized AP! 
   def create_regions(self):
