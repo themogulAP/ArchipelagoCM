@@ -6,6 +6,7 @@ from BaseClasses import CollectionState
 #Then uses AP architecture to import add_rule.
 from .locations import LOCATION_TABLE, MMXCMLocationData
 from worlds.generic.Rules import add_rule
+from Utils import add_item_rule
 
 #Prevents the rules py from importing the entire world!
 if TYPE_CHECKING:
