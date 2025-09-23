@@ -121,6 +121,11 @@ class MMXCMWorld(World):
   def set_rules(self):
       set_rules(self)
 
+    # This will tell the AP to place our "Redips Event Item" to be given to player on completion... 
+    # only when they have the Far East HQ Access Code.
+    set_completion_rule(self.multiworld.get_location("Defeated Great Redips", self.player),
+                        lambda state: state.has("Far East HQ Access Code", self.player))
+
   #This is where we set out rules!
   def set_completion_rules(self):
       self.multiworld.completion_condition[self.player] = lambda state: \
