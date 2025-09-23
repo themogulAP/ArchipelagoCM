@@ -161,6 +161,12 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=2)]
+  ),
+  "Defeated Great Redips": MMXCMItemData(
+    type="Key Item",
+    code=None,
+    classification=IC.progression,
+    completion_item=True
   )
 }
 
