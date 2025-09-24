@@ -6,7 +6,9 @@ from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
+from .MMXCMPatcher import MMXCMPatcher
 import random
+import os
 
 #Define the MMX Command Mission Class:
 class MMXCMWorld(World):
@@ -124,6 +126,25 @@ class MMXCMWorld(World):
   def set_completion_rules(self):
       self.multiworld.completion_condition[self.player] = lambda state: \
         state.has("Defeated Great Redips", self.player)
+
+  # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
+  def generate_output(self):
+        output_data = {
+            "locations": {}
+        }
+
+        for location in self.multiworld.get_locations():
+            output_data["locations"][location.name] = location.item.name
+
+        output_dir = self.multiworld.output_directory
+        output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
+        output_file_path = os.path.join(output_dir, output_file_name)
+
+        clean_iso_path = os.path.join(self.options.rom_path, "mmxcm.iso")
+        patcher = MMXCMPatcher(clean_iso_path, output_file_path)
+        
+        patcher.create_patch(output_data)
+        self.output_file = output_file_path
   
 # This will provide the slot data information upon connecting to AP! 
   def fill_slot_data(self):
