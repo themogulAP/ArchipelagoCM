@@ -6,7 +6,6 @@ from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
-from .MMXCMPatcher import MMXCMPatcher
 import random
 import os
 
