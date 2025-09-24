@@ -131,7 +131,8 @@ class MMXCMWorld(World):
         state.has("Defeated Great Redips", self.player)
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
-  def generate_output(self, output_directory: str):
+  def generate_output(self, output_directory: str, **kwargs):
+      clean_iso_path = kwargs.get("clean_iso_path")
         output_data = {
             "Seed": self.multiworld.seed,
             "Slot": self.player,
