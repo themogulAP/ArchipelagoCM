@@ -5,6 +5,7 @@ import re
 from math import ceil 
 from random import choice, randint 
 import shutil 
+import struct
 
 from gclib.gcm import GCM 
 from gclib.dol import DOL 
@@ -211,12 +212,37 @@ class MMXCMPatcher:
         self.gcm = None
         self.dol = None
 
-    def __get_item_name(self, item_data, slot: int): 
-        """ 
-        This will give us the correct in game name for each item based on item_data 
-        """ 
-        # - Put the item name conversion logic here 
-        pass 
+    def write_item_to_location(self, location_name: str, item_name: str):
+        """
+        This function to look up the correct addresses and IDs and write the new item into the ROM.
+        """
+        try:
+            # 1 - We will look up the locations address from Location table
+            if location_name not in LOCATION_TABLE:
+                print(f"Warning: Skipping unknown '{location_name}'.")
+                return
+            location_data: MMXCMLocationData = LOCATION_TABLE[location_name]
+            dol_address = location_data.dol_address
+
+            # 2 - Look up the Item's ID from ALL_ITEMS_TABLE
+            if item_name not in ALL_ITEMS_TABLE:
+                print(f"Warning: Skipping Unknown Item '{item_name}'.")
+                return
+            item_data: MMXCMItemData = ALL_ITEMS_TABLE[item_name]
+            # This access our item ID from our Data class to tell this randomizer WHICH item it is. 
+            # I.e. X Buster = 25
+            item_rom_id = item_data.item_id
+
+            # Writes the New Item ID to the DOL - - - - -
+            # This coverts the Item ID into the byte sequence.
+            item_id_bytes = struct.pack(">I", item_rom_id)
+            self.dol.data.seek(dol_address)
+            self.dol.data.write(item_id_bytes)
+
+        except Exception as e:
+            print(f"An error occured while writing data for location '{location_name}' and item '{item_name}': {e}")
+            return
+    ### NEW CODE END ###
 
 
     def create_patch(self, output_data: dict, base_path: str, destination_path: str): 
@@ -249,7 +275,13 @@ class MMXCMPatcher:
                 print(f"Skipping malformed patch data: missing key {e}") 
             except Exception as e: 
                 print(f"An error occured while applying a code patch: {e}") 
-        print("Internal code patching complete.") 
+        print("Internal code patching complete.")
+
+        #This is the loop for calling the REFACTORED item to location information above. 
+        print("Applying Randomized Item Patches...")
+        for location_name, item_name in output_data["locations"].items():
+            self.write_item_to_location(location_name, item_name)
+        print("Randomized item patching complete!")
         
         # Save all changes to the DOL itself. 
         self.dol.save_changes() 
