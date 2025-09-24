@@ -160,7 +160,7 @@ class MMXCMWorld(World):
 
     patcher = MMXCMPatcher(clean_iso_path, output_file_path)
 
-    patcher.create_patch(output_data)
+    patcher.create_patch(output_data, clean_iso_path, output_file_path)
     self.output_file = output_file_path
     
 def fill_slot_data(self):
