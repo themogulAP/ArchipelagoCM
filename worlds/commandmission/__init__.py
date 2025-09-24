@@ -128,7 +128,7 @@ class MMXCMWorld(World):
         state.has("Defeated Great Redips", self.player)
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
-  def generate_output(self):
+  def generate_output(self, output_directory: str):
         output_data = {
             "locations": {}
         }
@@ -136,7 +136,6 @@ class MMXCMWorld(World):
         for location in self.multiworld.get_locations():
             output_data["locations"][location.name] = location.item.name
 
-        output_dir = self.multiworld.output_directory
         output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
         output_file_path = os.path.join(output_dir, output_file_name)
 
