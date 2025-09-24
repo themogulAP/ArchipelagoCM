@@ -1,5 +1,7 @@
 from typing import ClassVar
 
+from dataclasses import fields
+
 from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
