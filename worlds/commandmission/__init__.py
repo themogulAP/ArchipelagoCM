@@ -132,41 +132,41 @@ class MMXCMWorld(World):
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):
-      clean_iso_path = kwargs.get("clean_iso_path")
-      output_data = {
-          "Seed": self.multiworld.seed,
-          "Slot": self.player,
-          "Name": self.player_name,
-          "Options": {},
-          "Locations": {},
-      }
+    clean_iso_path = kwargs.get("clean_iso_path")
+    output_data = {
+        "Seed": self.multiworld.seed,
+        "Slot": self.player,
+        "Name": self.player_name,
+        "Options": {},
+        "Locations": {},
+    }
 
-        #This outputs our options to the file.
-        for field in fields(self.options):
-            output_data["Options"][field.name] = getattr(self.options, field.name).value
+    # This outputs our options to the file.
+    for field in fields(self.options):
+        output_data["Options"][field.name] = getattr(self.options, field.name).value
 
-        # Output which item has been placed at each location - - - - WIP
-        for location in self.multiworld.get_locations():
-            output_data["Locations"][location.name] = location.item.name
+    # Output which item has been placed at each location.
+    for location in self.multiworld.get_locations():
+        output_data["Locations"][location.name] = location.item.name
 
-        # Creates the output path file name ending in .apmmxcm, and the path determined by player. 
-        output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
-        output_file_path = os.path.join(output_directory, output_file_name)
+    # Creates the output path file name ending in .apmmxcm, and the path determined by player.
+    output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
+    output_file_path = os.path.join(output_directory, output_file_name)
 
-        # Create the zip file contanier that will contain the necessary output files. Thanks LJM and Boots. 
-        mmxcm_container = MMXCMPlayerContainer(output_data, output_file_path, self.multiworld.player_name[self.player], self.player)
-        # Write the outputs to the newly created zip. 
-        mmxcm_container.write()
-        
-        patcher = MMXCMPatcher(clean_iso_path, output_file_path)
-        
-        patcher.create_patch(output_data)
-        self.output_file = output_file_path
-  
-# This will provide the slot data information upon connecting to AP! 
-  def fill_slot_data(self):
-      return {
+    # Create the zip file container that will hold the necessary output files.
+    mmxcm_container = MMXCMPlayerContainer(output_data, output_file_path, self.multiworld.player_name[self.player], self.player)
+    # Write the outputs to the newly created zip.
+    mmxcm_container.write()
+
+    patcher = MMXCMPatcher(clean_iso_path, output_file_path)
+
+    patcher.create_patch(output_data)
+    self.output_file = output_file_path
+    
+def fill_slot_data(self):
+    """This will provide the slot data information upon connecting to AP."""
+    return {
         "rebellion_medal_count": self.options.rebellion_medal_count.value,
         "total_locations": len(LOCATION_TABLE),
         "encounter_rate": self.options.encounter_rate.value
-  }
+    }
