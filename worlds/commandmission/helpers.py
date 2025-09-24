@@ -3,6 +3,8 @@ from worlds.Files import APPatch, APPlayerContainer
 from NetUtils import convert_to_base_types
 import Utils
 
+import json, logging, os, sys, zipfile, tempfile
+
 logger = logging.getLogger()
 RANDOMIZER_NAME = "Mega Man X Command Mission"
 
