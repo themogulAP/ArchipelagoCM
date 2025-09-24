@@ -242,8 +242,6 @@ class MMXCMPatcher:
         except Exception as e:
             print(f"An error occured while writing data for location '{location_name}' and item '{item_name}': {e}")
             return
-    ### NEW CODE END ###
-
 
     def create_patch(self, output_data: dict, base_path: str, destination_path: str): 
         """ 
