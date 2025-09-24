@@ -137,7 +137,7 @@ class MMXCMWorld(World):
             output_data["locations"][location.name] = location.item.name
 
         output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
-        output_file_path = os.path.join(output_dir, output_file_name)
+        output_file_path = os.path.join(output_directory, output_file_name)
 
         clean_iso_path = os.path.join(self.options.rom_path, "mmxcm.iso")
         patcher = MMXCMPatcher(clean_iso_path, output_file_path)
