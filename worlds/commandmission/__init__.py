@@ -9,6 +9,7 @@ from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
 from .helpers import MMXCMPlayerContainer
+from .patcher import MMXCMPatcher
 import random
 import os
 
