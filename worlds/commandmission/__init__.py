@@ -144,7 +144,7 @@ class MMXCMWorld(World):
 
         # Output which item has been placed at each location - - - - WIP
         for location in self.multiworld.get_locations():
-            output_data["locations"][location.name] = location.item.name
+            output_data["Locations"][location.name] = location.item.name
                       
         output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
         output_file_path = os.path.join(output_directory, output_file_name)
