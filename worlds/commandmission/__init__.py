@@ -9,7 +9,6 @@ from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
 
-from .MMXCMPatcher import MMXCMPatcher
 import random
 import os
 
@@ -132,29 +131,7 @@ class MMXCMWorld(World):
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):
-    clean_iso_path = kwargs.get("clean_iso_path")
-    output_data = {
-        "Seed": self.multiworld.seed,
-        "Slot": self.player,
-        "Name": self.player_name,
-        "Options": {},
-        "Locations": {},
-    }
-
-    # This outputs our options to the file.
-    for field in fields(self.options):
-        output_data["Options"][field.name] = getattr(self.options, field.name).value
-
-    # Output which item has been placed at each location.
-    for location in self.multiworld.get_locations():
-        output_data["Locations"][location.name] = location.item.name
-
-    # Creates the output path file name ending in .apmmxcm, and the path determined by player.
-    output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
-    output_file_path = os.path.join(output_directory, output_file_name)
-    
-    patcher.create_patch(output_data, clean_iso_path, output_file_path)
-    self.output_file = output_file_path
+      pass
     
 def fill_slot_data(self):
     """This will provide the slot data information upon connecting to AP."""
