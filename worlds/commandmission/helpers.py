@@ -1,4 +1,41 @@
-from typing import NamedTuple, Optional 
+from typing import NamedTuple, Optional, Any
+from worlds.Files import APPatch, APPlayerContainer
+from NetUtils import convert_to_base_types
+import Utils
+
+logger = logging.getLogger()
+RANDOMIZER_NAME = "Mega Man X Command Mission"
+
+# A class for if the iso is not correct. 
+class InvalidCleanISOError(Exception):
+    """
+    Exception raised for when user has an issue with their provided MMX Command Mission ISO.
+
+    Attributes:
+        message -- Explanation of the error
+    """
+
+    def __init__(self, message="Invalid Clean ISO provided"):
+        self.message = message
+        super().__init__(self.message)
+
+    def __str__(self):
+        return f"InvalidCleanISOError: {self.message}"
+
+# This Player Container tells AP "hey we need an output file here". 
+class MMXCMPlayerContainer(APPlayerContainer):
+    game = RANDOMIZER_NAME
+    compression_method = zipfile.ZIP_DEFLATED
+    patch_file_ending = ".apmmxcm"
+
+    def __init__(self, player_choices: dict, output_file_path: str, player_name: str, player: int,
+        server: str = ""):
+        self.output_data = player_choices
+        super().__init__(output_file_path, player, player_name, server)
+
+    def write_contents(self, opened_zipfile: zipfile.ZipFile) -> None:
+        opened_zipfile.writestr("patch.apmmxcm", json.dumps(self.output_data, indent=4, default=convert_to_base_types))
+        super().write_contents(opened_zipfile)
 
 class MMXCMRamData(NamedTuple):
     ram_addr: Optional[int] = None
