@@ -8,6 +8,7 @@ from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
+from .helpers import MMXCMPlayerContainer
 import random
 import os
 
@@ -145,11 +146,16 @@ class MMXCMWorld(World):
         # Output which item has been placed at each location - - - - WIP
         for location in self.multiworld.get_locations():
             output_data["Locations"][location.name] = location.item.name
-                      
+
+        # Creates the output path file name ending in .apmmxcm, and the path determined by player. 
         output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
         output_file_path = os.path.join(output_directory, output_file_name)
 
-        clean_iso_path = os.path.join(self.options.rom_path, "mmxcm.iso")
+        # Create the zip file contanier that will contain the necessary output files. Thanks LJM and Boots. 
+        mmxcm_container = MMXCMPlayerContainer(output_data, output_file_path, self.multiworld.player_name[self.player], self.player)
+        # Write the outputs to the newly created zip. 
+        mmxcm_container.write()
+        
         patcher = MMXCMPatcher(clean_iso_path, output_file_path)
         
         patcher.create_patch(output_data)
