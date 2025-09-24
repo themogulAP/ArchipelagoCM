@@ -140,18 +140,9 @@ class MMXCMWorld(World):
         for field in fields(self.options):
             output_data["Options"][field.name] = getattr(self.options, field.name).value
 
-        # Output which item has been placed at each location
-        locations = self.get_locations()
-        for location in locations:
-            if location.ram_addr is not None:
-                if location.item:
-                    if location.item.player == self.player:
-                        item_info = {
-                            "player": location.item.player,
-                            "name": location.item.name,
-                            "game": location.item.game,
-                            "classification": location.item.classification.name,
-                        }
+        # Output which item has been placed at each location - - - - WIP
+        for location in self.multiworld.get_locations():
+            output_data["locations"][location.name] = location.item.name
                       
         output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
         output_file_path = os.path.join(output_directory, output_file_name)
