@@ -10,8 +10,8 @@ import struct
 from gclib.gcm import GCM 
 from gclib.dol import DOL 
 
-from .Items import ALL_ITEMS_TABLE, MMXCMItemData 
-from .Locations import LOCATION_TABLE, MMXCMLocationData 
+from .items import ALL_ITEMS_TABLE, MMXCMItemData 
+from .locations import LOCATION_TABLE, MMXCMLocationData 
 
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
