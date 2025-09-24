@@ -152,8 +152,6 @@ class MMXCMWorld(World):
     # Creates the output path file name ending in .apmmxcm, and the path determined by player.
     output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
     output_file_path = os.path.join(output_directory, output_file_name)
-
-    patcher = MMXCMPatcher(clean_iso_path, output_file_path)
     
     patcher.create_patch(output_data, clean_iso_path, output_file_path)
     self.output_file = output_file_path
