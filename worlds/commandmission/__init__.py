@@ -144,7 +144,7 @@ class MMXCMWorld(World):
         # Output which item has been placed at each location
         locations = self.get_locations()
         for location in locations:
-            if location.ram_addr is not None
+            if location.ram_addr is not None:
                 if location.item:
                     if location.item.player == self.player:
                         item_info = {
