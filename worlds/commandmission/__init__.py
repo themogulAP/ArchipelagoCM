@@ -8,7 +8,7 @@ from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules
 from .options import MMXCMOptions
-from .helpers import MMXCMPlayerContainer
+
 from .MMXCMPatcher import MMXCMPatcher
 import random
 import os
@@ -153,13 +153,8 @@ class MMXCMWorld(World):
     output_file_name = f"{self.multiworld.get_out_file_name_base(self.player)}.apmmxcm"
     output_file_path = os.path.join(output_directory, output_file_name)
 
-    # Create the zip file container that will hold the necessary output files.
-    mmxcm_container = MMXCMPlayerContainer(output_data, output_file_path, self.multiworld.player_name[self.player], self.player)
-    # Write the outputs to the newly created zip.
-    mmxcm_container.write()
-
     patcher = MMXCMPatcher(clean_iso_path, output_file_path)
-
+    
     patcher.create_patch(output_data, clean_iso_path, output_file_path)
     self.output_file = output_file_path
     
