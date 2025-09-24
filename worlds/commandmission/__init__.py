@@ -133,13 +133,13 @@ class MMXCMWorld(World):
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):
       clean_iso_path = kwargs.get("clean_iso_path")
-        output_data = {
-            "Seed": self.multiworld.seed,
-            "Slot": self.player,
-            "Name": self.player_name,
-            "Options": {},
-            "Locations": {},
-        }
+      output_data = {
+          "Seed": self.multiworld.seed,
+          "Slot": self.player,
+          "Name": self.player_name,
+          "Options": {},
+          "Locations": {},
+      }
 
         #This outputs our options to the file.
         for field in fields(self.options):
