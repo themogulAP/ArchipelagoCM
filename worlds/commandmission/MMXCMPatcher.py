@@ -1,17 +1,20 @@
 import os 
 import json 
 import copy 
-import re 
+import re
+import tempfile
 from math import ceil 
 from random import choice, randint 
 import shutil 
 import struct
 
 from gclib.gcm import GCM 
-from gclib.dol import DOL 
+from gclib.dol import DOL
 
+import Utils
 from .items import ALL_ITEMS_TABLE, MMXCMItemData 
-from .locations import LOCATION_TABLE, MMXCMLocationData 
+from .locations import LOCATION_TABLE, MMXCMLocationData
+from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME
 
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
@@ -206,11 +209,40 @@ CODE_PATCHES = [
 
 
 class MMXCMPatcher:
-    def __init__(self, clean_iso_path, randomized_output_file_path):
+    def __init__(self, clean_iso_path, randomized_output_file_path: str, ap_output_data: bytes):
         self.clean_iso_path = clean_iso_path
         self.randomized_output_file_path = randomized_output_file_path
         self.gcm = None
         self.dol = None
+
+        try:
+            if os.path.isfile(randomized_output_file_path):
+                temp_file = open(randomized_output_file_path, "r+")
+                temp_file.close()
+        except IOError:
+            raise Exception("'" + randomized_output_file_path + "' is currently used in another program.")
+
+        self.output_data = json.loads(ap_output_data.decode('utf-8'))
+
+        # This will make sure the client and server versions match
+        self._check_server_version(self.output_data)
+
+        # This will read the entire iso, system files, etc after checking server version.
+        self.gcm = GCM(self.clean_iso_path)
+        self.gcm.read_entire_disc()
+        self.dol = DOL()
+
+    def _check_server_version(self, output_data):
+        """
+        Compares the version in the patch to the client version.
+        """
+        ap_world_version = "<0.5.6"
+
+        if AP_WORLD_VERSION_NAME in output_data:
+            ap_world_version = output_data[AP_WORLD_VERSION_NAME]
+        if ap_world_version != CLIENT_VERSION:
+            raise Utils.VersionException("Error! Server was generated with a different MMXCM Seed!")
+
 
     def write_item_to_location(self, location_name: str, item_name: str):
         """
@@ -246,12 +278,7 @@ class MMXCMPatcher:
     def create_patch(self, output_data: dict, base_path: str, destination_path: str): 
         """ 
         This function will take the base ROM, apply our changes and randomization data, and save the patched ROM. 
-        """ 
-        self.gcm = GCM(self.clean_iso_path)  # We will path this to the Vanilla ROM!  
-        self.gcm.read_entire_disc() 
-        self.dol = DOL() 
-
-        self.dol = self.gcm.read_dol_from_disc() 
+        """
 
         print("Applying Internal Code Patches...") 
 
