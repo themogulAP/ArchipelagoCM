@@ -1,152 +1,198 @@
-from typing import ClassVar
+#This imports all classes we need for the Logic behind the rules. 
+from typing import TYPE_CHECKING, Any
+from BaseClasses import CollectionState
 
-from dataclasses import fields
+#Importing all of our location data from locations.py to be added here,
+#Then uses AP architecture to import add_rule.
+from .locations import LOCATION_TABLE, MMXCMLocationData
+from worlds.generic.Rules import add_rule, add_item_rule
+from .helpers import ACCESS_CODES_DATA
 
-from BaseClasses import Region, Location, Item
-from worlds.AutoWorld import World
-from .items import ALL_ITEMS_TABLE, FILLER_TABLE
-from .locations import LOCATION_TABLE
-from .rules import set_rules, REBELLION_MEDALS_GROUP
-from .options import MMXCMOptions
+# Creating a class to be called later called ItemGroup
+class ItemGroup:
+    def __init__(self, name: str, item_names: frozenset[str]):
+        self.name = name
+        self.item_names = item_names
 
-import random
-import os
+#This defines our group from items and locations of medals so we can check if the player has enough. 
+REBELLION_MEDALS_GROUP = ItemGroup("Rebellion Medals", frozenset({
+    "Rebellion Medal 1",
+    "Rebellion Medal 2",
+    "Rebellion Medal 3",
+    "Rebellion Medal 4",
+    "Rebellion Medal 5",
+    "Rebellion Medal 6",
+    "Rebellion Medal 7",
+    "Rebellion Medal 8",
+    "Rebellion Medal 9"
+}))
 
-#Define the MMX Command Mission Class:
-class MMXCMWorld(World):
-  """
-  Mega Man X: Command Mission is a turn-based RPG set in the Mega Man X universe.
-  """
+#Prevents the rules py from importing the entire world!
+if TYPE_CHECKING:
+    from . import MMXCMWorld
 
-# Describe the name of the game that will appear on AP Client. 
-# Link options from the options py to here, and then set player options.
-# Topology is for randomize maps, not needed for current implementation of static maps. 
-# Data Version is the current version. 
-  game: ClassVar[str] = "Mega Man X Command Mission"
-  options_dataclass = MMXCMOptions
-  options: MMXCMOptions
-  topology_present: ClassVar[bool] = False
-  data_version: ClassVar[int] = 1
+#Set rules is what "orders" the games rules. 
+#This will also provide us the means to lock Chapter 10 behind rebellion medals. 
+def set_rules(world: "MMXCMWorld"):
+    # Iterate through all locations to find the one that contains the
+    # "Far East HQ Access Code" item.
+    for location in world.multiworld.get_locations(world.player):
+        # Check if the location has our specific item.
+        if location.item and location.item.name == "Far East HQ Access Code":
+            # Now, apply the rule to the location itself.
+            add_rule(location, lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
+            break  # We found the item's location, so we can stop searching.
 
-  # This will tell AP what our group actually is for Rebellion Medals.
-  item_name_groups: ClassVar[dict[str, frozenset[str]]] = {
-        REBELLION_MEDALS_GROUP.name: REBELLION_MEDALS_GROUP.item_names
-    }
+    # This loop remains the same, applying rules to specific locations.
+    for location_name, rule in get_rules_dict(world).items():
+        add_rule(world.multiworld.get_location(location_name, world.player), rule)
 
-#Create the dictionaries that will map every item and every location for our AP! 
-  item_name_to_id: ClassVar[dict[str, int]] = {name: data.code for name, data in ALL_ITEMS_TABLE.items()}
-  location_name_to_id: ClassVar[dict[str, int]] = {name: data.code for name, data in LOCATION_TABLE.items()}
+    # Prevent other access codes from being placed in the Far East HQ region.
+    far_east_hq_region = world.multiworld.get_region("Far East HQ", world.player)
+    # Use the keys from the imported ACCESS_CODES_DATA dictionary.
+    non_far_east_access_codes = {code for code in ACCESS_CODES_DATA.keys() if code != "Far East HQ Access Code"}
+    for location in far_east_hq_region.locations:
+        add_item_rule(location, lambda item: item.name not in non_far_east_access_codes)
 
-#This is the very first piece of code that runs when a new MMX CM World will be created! 
-  #It will then map all of our items and  to their respective Strings to IDs that we put in items and  py. 
-  def __init__(self, *args, **kwargs):
-    super(MMXCMWorld, self).__init__(*args, **kwargs)
+#This is the logic behind the rules we will set for each location.
+def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
+    player = world.player
+    rules = {}
 
-# This places any logic we need to before the generation process.
-  def generate_early(self): 
-   pass
-
-# This will build the entire map for our randomized AP! 
-  def create_regions(self):
-    # This will serve as a Master Dictionary for our loops, describing the codes needed for the same area.
-    region_data = {
-      "Lagrano Ruins": "Lagrano Ruins Access Code",
-      "Tianna Camp": "Tianna Camp Access Code",
-      "Gaudile Laboratory": "Gaudile Laboratory Access Code",
-      "Ulfat Factory": "Ulfat Factory Access Code",
-      "Gimialla Mine": "Gimialla Mine Access Code",
-      "Vanallia Desert": "Vanallia Desert Access Code",
-      "Melda Ore Plant": "Melda Ore Plant Access Code",
-      "Grave Ruins Base": "Grave Ruins Base Access Code",
-      "Far East HQ": "Far East HQ Access Code"
-    }
-
-    menu_region = Region("Menu", self.player, self.multiworld)
-    self.multiworld.regions.append(menu_region)
-
-    #Create our Central Tower main hub and full verision (when code is received)! 
-    central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
-    central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
-    self.multiworld.regions.append(central_tower_hub_region)
-    self.multiworld.regions.append(central_tower_full_region)
-
-    menu_region.connect(central_tower_hub_region)
-
-    #Connect the Regions here.
-    central_tower_hub_region.connect(
-      central_tower_full_region,
-      rule=lambda state: state.has("Central Tower Access Code", self.player)
-    )
-
-    # Create all the other regions and connect them to the Central Tower hub!
-    for region_name, access_code in region_data.items():
-      new_region = Region(region_name, self.player, self.multiworld)
-      self.multiworld.regions.append(new_region)
-
-      central_tower_hub_region.connect(
-        new_region,
-        rule=lambda state, code=access_code: state.has(code, self.player)
-      )
-
-    # Add Every location from our  py to their regions! 
     for location_name, location_data in LOCATION_TABLE.items():
-      region=self.multiworld.get_region(location_data.parent_region, self.player)
-      location = Location(
-        self.player,
-        location_name,
-        location_data.code,
-        region,
-      )
-      region.locations.append(location)
+         #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
+        if location_data.parent_region == "Lagrano Ruins":
+             rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
 
-# This will build the entire item pool for our randomized AP! 
-  def create_items(self):
-      item_pool = []
-      for item_name, item_data in ALL_ITEMS_TABLE.items():
+        elif location_data.parent_region == "Central Tower Full":
+               rules[location_name] = lambda state: state.has("Central Tower Access Code", player)
 
-          # Exclude the Event item Great Redips and statically place it on the location. 
-          if item_name == "Defeated Great Redips":
-                continue 
-        
-          if "Rebellion Medal" in item_name:
-                continue
-          item_pool.append(self.create_item(item_name))
+        elif location_data.parent_region == "Tianna Camp":
+               rules[location_name] = lambda state: state.has("Tianna Camp Access Code", player)
 
-      self.multiworld.itempool.extend(item_pool)
+        elif location_data.parent_region == "Gaudile Laboratory":
+               rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
 
-    # This adds our filler items, and will calculate the number to add. 
-      locations_count = len(self.multiworld.get_unfilled_locations(self.player))
-      items_in_pool = len(self.multiworld.itempool)
-      filler_needed = locations_count - items_in_pool
+        elif location_data.parent_region == "Ulfat Factory":
+               rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
 
-#Randomly selects the filler items to add into the pool.
-      filler_items_to_add = random.choices(list(FILLER_TABLE.keys()), k=filler_needed)
+        elif location_data.parent_region == "Gimialla Mine":
+               rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
 
-      for filler_item_name in filler_items_to_add:
-          self.multiworld.itempool.append(self.create_item(filler_item_name))
+        elif location_data.parent_region == "Vanallia Desert":
+               rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player)
 
-      # It is the helper that the create_items method calls.
-  def create_item(self, name: str) -> Item:
-    item_data = ALL_ITEMS_TABLE[name]
-    return Item(name, item_data.classification, item_data.code, self.player)
+        elif location_data.parent_region == "Melda Ore Plant":
+               rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
 
-# This will apply all the logic that we described in rules py! 
-  def set_rules(self):
-      set_rules(self)
+        elif location_data.parent_region == "Grave Ruins Base":
+               rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
 
-  #This is where we set out rules!
-  def set_completion_rules(self):
-      self.multiworld.completion_condition[self.player] = lambda state: \
-        state.has("Defeated Great Redips", self.player)
+        elif location_data.parent_region == "Far East HQ":
+               rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
-  # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
-  def generate_output(self, output_directory: str, **kwargs):
-      pass
+        # Add the new rule for the end-game event
+        elif location_name == "Defeated Great Redips":
+                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
-def fill_slot_data(self):
-    """This will provide the slot data information upon connecting to AP."""
-    return {
-        "rebellion_medal_count": self.options.rebellion_medal_count.value,
-        "total_locations": len(LOCATION_TABLE),
-        "encounter_rate": self.options.encounter_rate.value
-    }
+        # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
+    for location_name, location_data in LOCATION_TABLE.items():
+        if location_data.parent_region != "Far East HQ":
+            add_item_rule(world.multiworld.get_location(location_name, world.player),
+                            lambda i: i.name == "Far East HQ Access Code",
+                            combine="or")
+
+        #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
+
+        # Lagrano Key Locations
+        elif location_name in ["East Area Stairs 4F to 5F MD 1", "East Area Stairs 4F to 5F MD 2", "East Area Stairs 4F to 5F MD 3"]:
+            rules[location_name] = lambda state: state.has("Lagrano Key", player)
+
+        # Central Key Locations
+        elif location_name in [
+            "Special Sealed Area 1st Room MD 1", "Special Sealed Area 1st Room MD 2", "Special Sealed Area 1st Room MD 3",
+            "Special Sealed Area 1st Room MD 4", "Special Sealed Area 1st Room MD 5", "Special Sealed Area 1st Room MD 6",
+            "Special Sealed Area 1st Room MD 7", "Special Sealed Area 1st Room MD 8", "Special Sealed Area 1st Room MD 9",
+            "Special Sealed Area 1st Room MD 10", "Special Sealed Area 2nd Room MD 1", "Special Sealed Area 2nd Room MD 2",
+            "Special Sealed Area 2nd Room MD 3", "Special Sealed Area 2nd Room MD 4", "Special Sealed Area 2nd Room MD 5",
+            "Special Sealed Area 2nd Room MD 6", "Special Sealed Area 2nd Room MD 7", "Special Sealed Area 2nd Room MD 8",
+            "Special Sealed Area 2nd Room MD 9", "Special Sealed Area 2nd Room MD 10", "Special Sealed Area 3rd Room MD 1",
+            "Special Sealed Area 3rd Room MD 2", "Special Sealed Area 3rd Room MD 3", "Special Sealed Area 3rd Room MD 4",
+            "Special Sealed Area 3rd Room MD 5", "Special Sealed Area 3rd Room MD 6", "Special Sealed Area 3rd Room MD 7",
+            "Special Sealed Area 3rd Room MD 8", "Special Sealed Area By Ninetales MD 1", "Special Sealed Area By Ninetales MD 2",
+            "Special Sealed Area By Ninetales MD 3", "Special Sealed Area By Ninetales MD 4", "Special Sealed Area By Ninetales MD 5",
+            "Special Sealed Area By Ninetales MD 6", "Special Sealed Area By Ninetales MD 7"
+        ]:
+            rules[location_name] = lambda state: state.has("Central Key", player)
+
+        # Tianna Key Locations
+        elif location_name in ["Maze Area 1 Behind Key MD 1", "Maze Area 1 Rafflesian MD 1", "Maze Area 1 Rafflesian MD 2", "Maze Area 1 Rafflesian MD 3"]:
+            rules[location_name] = lambda state: state.has("Tianna Key", player)
+
+        # Gimialla Mine Keys & Items
+        elif location_name in ["L2 Southwest Division MD 1", "L2 Southeast Division MD 2", "L2 Northeast Division MD 1"]:
+            rules[location_name] = lambda state: state.has("Booster Parts", player)
+        elif location_name == "L2 Northeast Division MD 3":
+            rules[location_name] = lambda state: state.has("Mega Mantor", player)
+        elif location_name == "L3 Main Tunnel Blue Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Blue Pickaxe", player)
+        elif location_name == "L3 Northwest Division Red Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Red Pickaxe", player)
+        elif location_name == "L3 Northwest Division Yellow Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Yellow Pickaxe", player)
+        elif location_name == "L3 Northeast Division Green Miner Trade Complete":
+            rules[location_name] = lambda state: state.has("Green Pickaxe", player)
+        elif location_name in ["L3 Southwest Division MD 2", "L3 Southwest Division MD 3"]:
+            rules[location_name] = lambda state: state.has("Gimialla Key", player)
+        elif location_name == "L3 Southwest Division MD 1":
+            rules[location_name] = lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) or state.has("Gold Blader", player)
+        elif location_name in ["Level 4 Main Tunnel MD 1", "Level 4 Main Tunnel MD 2", "Level 4 Main Tunnel MD 3", "Level 4 Main Tunnel MD 4", "Level 4 Main Tunnel MD 5", "Level 4 Main Tunnel MD 6", "Level 4 Main Tunnel MD 7", "Level 4 Durability Lab MD 1", "Level 4 Durability Lab MD 2", "Level 4 Durability Lab MD 3"]:
+            rules[location_name] = lambda state: state.has("Electric Components", player)
+
+        # Melda Ore Plant Key
+        elif location_name in ["B1 Entrance Hall MD 2", "B1 Entrance Hall MD 3", "B1 Entrance Hall MD 4", "Missile Maintenance Room MD 1"]:
+            rules[location_name] = lambda state: state.has("Melda Key", player)
+
+        # Mehaniloid Location Rules
+        elif location_name == "Deerball":
+            rules[location_name] = lambda state: state.has("Lagrano Key", player) and state.has("Lagrano Ruins Access Code", player)
+        elif location_name == "Radar Killer":
+            rules[location_name] = lambda state: state.has("Tianna Key", player) and state.has("Tianna Camp Access Code", player)
+        elif location_name == "Blowfish":
+            rules[location_name] = lambda state: state.has("Mini Battery", player, 3) and state.has("Tianna Camp Access Code", player)
+        elif location_name == "Big Monkey":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Preon":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Dober Man":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player) and state.has("Bone Key", player)
+        elif location_name == "Mettaur":
+            rules[location_name] = lambda state: state.has("Gaudile Laboratory Access Code", player)
+        elif location_name == "Einhammer":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player) and state.has("Ball & Chain Hammer", player)
+        elif location_name == "Killer Mantis":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
+        elif location_name == "Rush Loader":
+            rules[location_name] = lambda state: state.has("Ulfat Factory Access Code", player)
+        elif location_name == "Mega Mantor":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Mini Battery", player, 3)
+        elif location_name == "Degraver":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
+        elif location_name == "Bat Bone":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player)
+        elif location_name == "Gold Blader":
+            rules[location_name] = lambda state: state.has("Gimialla Mine Access Code", player) and state.has("Heavy Motor", player) and state.has("Gimialla Key", player)
+        elif location_name == "Liquid Glob":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Cyber Liquid", player)
+        elif location_name == "Mega Tortoise":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Battery", player, 3)
+        elif location_name == "Pararoid":
+            rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player) and state.has("Mini Motor", player)
+        elif location_name == "Meltdown":
+            rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player) and state.has("Melda Key", player)
+        elif location_name == "Rabbid":
+            rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
+        elif location_name == "Bladey":
+            rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
+
+    return rules
