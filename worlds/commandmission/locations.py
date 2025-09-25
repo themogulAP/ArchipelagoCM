@@ -10,6 +10,37 @@ class MMXCMLocationData(NamedTuple):
   ram_addr: Optional[MMXCMRamData] = None
   event_item: bool = False
 
+# These are the static locations we can't get from the server but are still considered "locations".
+REBELLION_MEDALS_DATA: Dict[str, Dict[str, any]] = {
+    "Rebellion Medal 1": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=2)
+    },
+    "Rebellion Medal 2": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=3)
+    },
+    "Rebellion Medal 3": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=4)
+    },
+    "Rebellion Medal 4": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=5)
+    },
+    "Rebellion Medal 5": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=6)
+    },
+    "Rebellion Medal 6": {
+        "ram_addr": MMXCMRamData(0x804A2109, bit_position=7)
+    },
+    "Rebellion Medal 7": {
+        "ram_addr": MMXCMRamData(0x804A210A, bit_position=0)
+    },
+    "Rebellion Medal 8": {
+        "ram_addr": MMXCMRamData(0x804A210A, bit_position=1)
+    },
+    "Rebellion Medal 9": {
+        "ram_addr": MMXCMRamData(0x804A210A, bit_position=2)
+    },
+}
+
 # This begins the list for every single randomized item in AP.
 LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
   # Here is an example of the location and the bit position to track it.
