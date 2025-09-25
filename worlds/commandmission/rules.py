@@ -71,11 +71,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     rules = {}
    
     for location_name, location_data in LOCATION_TABLE.items():
-
-        #Prevents addnig rules to Great Redips and triggering key error. 
-        if location_data.event_item:
-            continue
-            
+        
          #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
         if location_data.parent_region == "Lagrano Ruins":
              rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
@@ -106,6 +102,9 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
        
         elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
+
+        elif location_name == "Defeated Great Redips":
+             rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
         
         # Lagrano Key Locations
