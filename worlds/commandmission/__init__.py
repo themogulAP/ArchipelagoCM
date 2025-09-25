@@ -90,6 +90,10 @@ class MMXCMWorld(World):
 
     # Add Every location from our  py to their regions! 
     for location_name, location_data in LOCATION_TABLE.items():
+        #Fixes the issue of great Redips being randomized.
+        if location_data.event_item:
+            continue
+      
       region=self.multiworld.get_region(location_data.parent_region, self.player)
       location = Location(
         self.player,
