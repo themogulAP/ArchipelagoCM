@@ -1,11 +1,24 @@
 #This imports all classes we need for the Logic behind the rules. 
 from typing import TYPE_CHECKING, Any
-from BaseClasses import CollectionState
+from BaseClasses import CollectionState, ItemGroup
 
 #Importing all of our location data from locations.py to be added here,
 #Then uses AP architecture to import add_rule.
 from .locations import LOCATION_TABLE, MMXCMLocationData
 from worlds.generic.Rules import add_rule, add_item_rule
+
+#This defines our group from items and locations of medals so we can check if the player has enough. 
+REBELLION_MEDALS_GROUP = ItemGroup("Rebellion Medals", [
+    "Rebellion Medal 1",
+    "Rebellion Medal 2",
+    "Rebellion Medal 3",
+    "Rebellion Medal 4",
+    "Rebellion Medal 5",
+    "Rebellion Medal 6",
+    "Rebellion Medal 7",
+    "Rebellion Medal 8",
+    "Rebellion Medal 9"
+])
 
 #Prevents the rules py from importing the entire world!
 if TYPE_CHECKING:
