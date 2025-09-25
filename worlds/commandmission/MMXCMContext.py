@@ -1,4 +1,6 @@
 from CommonClient import CommonContext
+from NetUtils import NetworkItem
+
 
 class MMXCMContext(CommonContext):
   """
