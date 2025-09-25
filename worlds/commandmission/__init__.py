@@ -2,7 +2,7 @@ from typing import ClassVar
 
 from dataclasses import fields
 
-from BaseClasses import Region, Location, Item, ItemClassification
+from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
@@ -45,7 +45,7 @@ class MMXCMWorld(World):
 # This places any logic we need to before the generation process.
   def generate_early(self): 
    pass
-    
+
 # This will build the entire map for our randomized AP! 
   def create_regions(self):
     # This will serve as a Master Dictionary for our loops, describing the codes needed for the same area.
@@ -63,7 +63,7 @@ class MMXCMWorld(World):
 
     menu_region = Region("Menu", self.player, self.multiworld)
     self.multiworld.regions.append(menu_region)
-    
+
     #Create our Central Tower main hub and full verision (when code is received)! 
     central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
     central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
@@ -71,7 +71,7 @@ class MMXCMWorld(World):
     self.multiworld.regions.append(central_tower_full_region)
 
     menu_region.connect(central_tower_hub_region)
-    
+
     #Connect the Regions here.
     central_tower_hub_region.connect(
       central_tower_full_region,
@@ -90,28 +90,14 @@ class MMXCMWorld(World):
 
     # Add Every location from our  py to their regions! 
     for location_name, location_data in LOCATION_TABLE.items():
-        region = self.multiworld.get_region(location_data.parent_region, self.player)
-
-        location = Location(
-            self.player,
-            location_name,
-            location_data.code,
-            region,
-    )
-
-    if location_data.event_item:
-        # Mark the Location as an Event
-        location.event = True
-        
-        # Create and statically place the corresponding Event Item
-        # The ItemClassification.progression ensures it counts towards victory logic.
-        location.item = Item(location_name, ItemClassification.progression, None, self.player)
-        
-        # Flag the Item as an Event Item
-        location.item.event = True
-    
-    # Add the created Location (whether normal or event) to its region
-    region.locations.append(location)
+      region=self.multiworld.get_region(location_data.parent_region, self.player)
+      location = Location(
+        self.player,
+        location_name,
+        location_data.code,
+        region,
+      )
+      region.locations.append(location)
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
@@ -121,7 +107,7 @@ class MMXCMWorld(World):
           # Exclude the Event item Great Redips and statically place it on the location. 
           if item_name == "Defeated Great Redips":
                 continue 
-
+        
           if "Rebellion Medal" in item_name:
                 continue
           item_pool.append(self.create_item(item_name))
@@ -156,7 +142,7 @@ class MMXCMWorld(World):
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):
       pass
-    
+
 def fill_slot_data(self):
     """This will provide the slot data information upon connecting to AP."""
     return {
