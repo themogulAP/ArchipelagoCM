@@ -103,6 +103,11 @@ class MMXCMWorld(World):
   def create_items(self):
       item_pool = []
       for item_name, item_data in ALL_ITEMS_TABLE.items():
+
+          # Exclude the Event item Great Redips and statically place it on the location. 
+          if item_name == "Defeated Great Redips":
+                continue 
+        
           if "Rebellion Medal" in item_name:
                 continue
           item_pool.append(self.create_item(item_name))
