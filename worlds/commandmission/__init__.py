@@ -94,14 +94,14 @@ class MMXCMWorld(World):
         if location_data.event_item:
             continue
       
-      region=self.multiworld.get_region(location_data.parent_region, self.player)
-      location = Location(
-        self.player,
-        location_name,
-        location_data.code,
-        region,
-      )
-      region.locations.append(location)
+        region=self.multiworld.get_region(location_data.parent_region, self.player)
+        location = Location(
+          self.player,
+          location_name,
+          location_data.code,
+          region,
+        )
+        region.locations.append(location)
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
