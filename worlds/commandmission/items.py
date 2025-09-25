@@ -108,55 +108,55 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=1)]
   ),
    #This is adding our Rebellion Medal items to the AP , but NOT Randomly.
-  "Rebellion Medal (Lagrano Ruins)": MMXCMItemData(
+  "Rebellion Medal 1": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=2)]
   ),
-  "Rebellion Medal (Central Tower)": MMXCMItemData(
+  "Rebellion Medal 2": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=3)]
   ),
-  "Rebellion Medal (Tianna Camp)": MMXCMItemData(
+  "Rebellion Medal 3": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=4)]
   ),
-  "Rebellion Medal (Gaudile Laboratory)": MMXCMItemData(
+  "Rebellion Medal 4": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=5)]
   ),
-  "Rebellion Medal (Ulfat Factory)": MMXCMItemData(
+  "Rebellion Medal 5": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=6)]
   ),
-  "Rebellion Medal (Gimialla Mine)": MMXCMItemData(
+  "Rebellion Medal 6": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=7)]
   ),
-  "Rebellion Medal (Vanallia Desert)": MMXCMItemData(
+  "Rebellion Medal 7": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=0)]
   ),
-  "Rebellion Medal (Melda Ore Plant)": MMXCMItemData(
+  "Rebellion Medal 8": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=1)]
   ),
-  "Rebellion Medal (Grave Ruins Base)": MMXCMItemData(
+  "Rebellion Medal 9": MMXCMItemData(
     type="Key Item",
     code=None,
     classification=IC.progression,
