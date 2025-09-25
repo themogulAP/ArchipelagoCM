@@ -53,6 +53,17 @@ def set_rules(world: "MMXCMWorld"):
     non_far_east_access_codes = {code for code in ACCESS_CODES_DATA.keys() if code != "Far East HQ Access Code"}
     for location in far_east_hq_region.locations:
         add_item_rule(location, lambda item: item.name not in non_far_east_access_codes)
+
+    # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
+    for location_name, location_data in LOCATION_TABLE.items():
+
+        if location_data.event_item:
+            continue
+        
+        if location_data.parent_region != "Far East HQ":
+            add_item_rule(world.multiworld.get_location(location_name, world.player),
+                            lambda i: i.name == "Far East HQ Access Code",
+                            combine="or")
         
 #This is the logic behind the rules we will set for each location.
 def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
@@ -60,6 +71,11 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     rules = {}
    
     for location_name, location_data in LOCATION_TABLE.items():
+
+        #Prevents addnig rules to Great Redips and triggering key error. 
+        if location_data.event_item:
+            continue
+            
          #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
         if location_data.parent_region == "Lagrano Ruins":
              rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
@@ -90,18 +106,6 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
        
         elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
-
-        # Add the new rule for the end-game event
-        elif location_name == "Defeated Great Redips":
-                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
-
-        # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
-    for location_name, location_data in LOCATION_TABLE.items():
-        if location_data.parent_region != "Far East HQ":
-            add_item_rule(world.multiworld.get_location(location_name, world.player),
-                            lambda i: i.name == "Far East HQ Access Code",
-                            combine="or")
-
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
         
         # Lagrano Key Locations
