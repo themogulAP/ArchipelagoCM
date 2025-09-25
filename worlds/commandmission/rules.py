@@ -54,31 +54,19 @@ def set_rules(world: "MMXCMWorld"):
     for location in far_east_hq_region.locations:
         add_item_rule(location, lambda item: item.name not in non_far_east_access_codes)
 
-    # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
-    for location_name, location_data in LOCATION_TABLE.items():
-
-        if location_data.event_item:
-            continue
-        
-        if location_data.parent_region != "Far East HQ":
-            add_item_rule(world.multiworld.get_location(location_name, world.player),
-                            lambda i: i.name == "Far East HQ Access Code",
-                            combine="or")
-        
 #This is the logic behind the rules we will set for each location.
 def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     player = world.player
     rules = {}
-   
+
     for location_name, location_data in LOCATION_TABLE.items():
-        
          #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
         if location_data.parent_region == "Lagrano Ruins":
              rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
 
         elif location_data.parent_region == "Central Tower Full":
                rules[location_name] = lambda state: state.has("Central Tower Access Code", player)
-             
+
         elif location_data.parent_region == "Tianna Camp":
                rules[location_name] = lambda state: state.has("Tianna Camp Access Code", player)
 
@@ -93,24 +81,33 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
 
         elif location_data.parent_region == "Vanallia Desert":
                rules[location_name] = lambda state: state.has("Vanallia Desert Access Code", player)
-             
+
         elif location_data.parent_region == "Melda Ore Plant":
                rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
 
         elif location_data.parent_region == "Grave Ruins Base":
                rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
-       
+
         elif location_data.parent_region == "Far East HQ":
                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
 
+        # Add the new rule for the end-game event
         elif location_name == "Defeated Great Redips":
-             rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
+                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
+
+        # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
+    for location_name, location_data in LOCATION_TABLE.items():
+        if location_data.parent_region != "Far East HQ":
+            add_item_rule(world.multiworld.get_location(location_name, world.player),
+                            lambda i: i.name == "Far East HQ Access Code",
+                            combine="or")
+
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
-        
+
         # Lagrano Key Locations
         elif location_name in ["East Area Stairs 4F to 5F MD 1", "East Area Stairs 4F to 5F MD 2", "East Area Stairs 4F to 5F MD 3"]:
             rules[location_name] = lambda state: state.has("Lagrano Key", player)
-            
+
         # Central Key Locations
         elif location_name in [
             "Special Sealed Area 1st Room MD 1", "Special Sealed Area 1st Room MD 2", "Special Sealed Area 1st Room MD 3",
@@ -127,7 +124,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             "Special Sealed Area By Ninetales MD 6", "Special Sealed Area By Ninetales MD 7"
         ]:
             rules[location_name] = lambda state: state.has("Central Key", player)
-            
+
         # Tianna Key Locations
         elif location_name in ["Maze Area 1 Behind Key MD 1", "Maze Area 1 Rafflesian MD 1", "Maze Area 1 Rafflesian MD 2", "Maze Area 1 Rafflesian MD 3"]:
             rules[location_name] = lambda state: state.has("Tianna Key", player)
@@ -155,7 +152,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         # Melda Ore Plant Key
         elif location_name in ["B1 Entrance Hall MD 2", "B1 Entrance Hall MD 3", "B1 Entrance Hall MD 4", "Missile Maintenance Room MD 1"]:
             rules[location_name] = lambda state: state.has("Melda Key", player)
-        
+
         # Mehaniloid Location Rules
         elif location_name == "Deerball":
             rules[location_name] = lambda state: state.has("Lagrano Key", player) and state.has("Lagrano Ruins Access Code", player)
@@ -197,5 +194,5 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Melda Ore Plant Access Code", player)
         elif location_name == "Bladey":
             rules[location_name] = lambda state: state.has("Grave Ruins Base Access Code", player)
-        
+
     return rules
