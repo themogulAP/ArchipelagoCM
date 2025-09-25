@@ -2,7 +2,7 @@ from typing import ClassVar
 
 from dataclasses import fields
 
-from BaseClasses import Region, Location, Item
+from BaseClasses import Region, Location, Item, ItemClassification
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
@@ -90,18 +90,28 @@ class MMXCMWorld(World):
 
     # Add Every location from our  py to their regions! 
     for location_name, location_data in LOCATION_TABLE.items():
-        #Fixes the issue of great Redips being randomized.
-        if location_data.event_item:
-            continue
-      
-        region=self.multiworld.get_region(location_data.parent_region, self.player)
+        region = self.multiworld.get_region(location_data.parent_region, self.player)
+
         location = Location(
-          self.player,
-          location_name,
-          location_data.code,
-          region,
-        )
-        region.locations.append(location)
+            self.player,
+            location_name,
+            location_data.code,
+            region,
+    )
+
+    if location_data.event_item:
+        # Mark the Location as an Event
+        location.event = True
+        
+        # Create and statically place the corresponding Event Item
+        # The ItemClassification.progression ensures it counts towards victory logic.
+        location.item = Item(location_name, ItemClassification.progression, None, self.player)
+        
+        # Flag the Item as an Event Item
+        location.item.event = True
+    
+    # Add the created Location (whether normal or event) to its region
+    region.locations.append(location)
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
