@@ -16,6 +16,8 @@ from .items import ALL_ITEMS_TABLE, MMXCMItemData
 from .locations import LOCATION_TABLE, MMXCMLocationData
 from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME
 
+RANDOMIZER_NAME = "Mega Man X Command Mission"
+
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
 CODE_PATCHES = [ 
