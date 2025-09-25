@@ -132,6 +132,20 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
             return # Exit after writing the item to the inventory slot.
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
 
+async def mmxcm_update_non_savable_ram(self):
+    value_to_write = bytes([1])
+    memory_address = -0x804A20B1
+
+    try:
+      while True:
+          dolphin.write_bytes(memory_address, value_to_write)
+          #Add the small delay to prevent the loop.
+          await asyncio.sleep(0.1)
+    except Exception as e:
+      print(f"An error occurred: {e}")
+    finally:
+      print("RAM write operation has stopped.")
+
 async def game_watcher(ctx: MMXCMContext):
     """
     This is the main loop that will handle checking locations and giving items.
