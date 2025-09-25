@@ -6,7 +6,7 @@ from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
-from .rules import set_rules
+from .rules import set_rules, REBELLION_MEDALS_GROUP
 from .options import MMXCMOptions
 
 import random
@@ -27,6 +27,11 @@ class MMXCMWorld(World):
   options: MMXCMOptions
   topology_present: ClassVar[bool] = False
   data_version: ClassVar[int] = 1
+
+  # This will tell AP what our group actually is for Rebellion Medals.
+  item_name_groups: ClassVar[dict[str, frozenset[str]]] = {
+        REBELLION_MEDALS_GROUP.name: REBELLION_MEDALS_GROUP.item_names
+    }
 
 #Create the dictionaries that will map every item and every location for our AP! 
   item_name_to_id: ClassVar[dict[str, int]] = {name: data.code for name, data in ALL_ITEMS_TABLE.items()}
