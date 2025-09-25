@@ -170,25 +170,6 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
-#This is where the Rebellion Medals will be definited into an item group, to be used in other files.  
-class ItemGroup():
-    def __init__(self, items):
-        self.items = items
-
-ITEM_GROUP = {
-  "Rebellion Medals": ItemGroup({
-    "Rebellion Medal (Lagrano Ruins)",
-    "Rebellion Medal (Central Tower)",
-    "Rebellion Medal (Tianna Camp)",
-    "Rebellion Medal (Gaudile Laboratory)",
-    "Rebellion Medal (Ulfat Factory)",
-    "Rebellion Medal (Gimialla Mine)",
-    "Rebellion Medal (Vanallia Desert)",
-    "Rebellion Medal (Melda Ore Plant)",
-    "Rebellion Medal (Grave Ruins Base)"
-  })
-}
-
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
 # This is the list of Useful items, like armors and keys.
  "Treasure Radar": MMXCMItemData(
