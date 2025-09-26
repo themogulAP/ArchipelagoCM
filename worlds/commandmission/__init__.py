@@ -9,9 +9,19 @@ from .locations import LOCATION_TABLE
 from .rules import set_rules, REBELLION_MEDALS_GROUP
 from .options import MMXCMOptions
 from .files.mmxcm_rom import MMXCMPlayerContainer
+from worlds.LauncherComponents import Component, SuffixIdentifier, Type, components, launch_subprocess, icon_paths
 
 import random
 import os
+
+def run_client(*args):
+    from .MMXCMClient import async_main  # lazy import
+    launch_subprocess(async_main, name="MMMXCMClient", args=args)
+
+# Adds the launcher for our component and our client logo.
+components.append(
+    Component("MMXCM Client", func=run_client, component_type=Type.CLIENT,
+        file_identifier=SuffixIdentifier(".apmmxcm")))
 
 #Define the MMX Command Mission Class:
 class MMXCMWorld(World):

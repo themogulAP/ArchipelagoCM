@@ -6,7 +6,7 @@ import tempfile
 from math import ceil 
 from random import choice, randint 
 import shutil 
-import struct
+import struct, zipfile
 
 from gclib.gcm import GCM 
 from gclib.dol import DOL
@@ -210,20 +210,25 @@ CODE_PATCHES = [
 
 
 class MMXCMPatcher:
-    def __init__(self, clean_iso_path, randomized_output_file_path: str, ap_output_data: bytes):
-        self.clean_iso_path = clean_iso_path
-        self.randomized_output_file_path = randomized_output_file_path
+    def __init__(self, patch_file_path: str):
+        from .files.mmxcm_rom import get_base_rom_path, MMXCMPlayerContainer
+        self.clean_iso_path = get_base_rom_path()
+
+        base_path = os.path.splitext(patch_file_path)[0]
+        self.randomized_output_file_path = base_path + MMXCMPlayerContainer.patch_file_ending
         self.gcm = None
         self.dol = None
 
         try:
-            if os.path.isfile(randomized_output_file_path):
-                temp_file = open(randomized_output_file_path, "r+")
+            if os.path.isfile(patch_file_path):
+                temp_file = open(patch_file_path, "r+")
                 temp_file.close()
         except IOError:
-            raise Exception("'" + randomized_output_file_path + "' is currently used in another program.")
+            raise Exception("'" + patch_file_path + "' is currently used in another program.")
 
-        self.output_data = json.loads(ap_output_data.decode('utf-8'))
+        with zipfile.ZipFile(patch_file_path, "r") as zf:
+            apmmxcm_bytes = zf.read("patch.apmmxcm")
+        self.output_data = json.loads(apmmxcm_bytes.decode('utf-8'))
 
         # This will make sure the client and server versions match
         self._check_apworld_version(self.output_data)
@@ -278,7 +283,7 @@ class MMXCMPatcher:
             print(f"An error occured while writing data for location '{location_name}' and item '{item_name}': {e}")
             return
 
-    def create_patch(self, output_data: dict):
+    def create_patch(self):
         """ 
         This function will take the base ROM, apply our changes and randomization data, and save the patched ROM. 
         """
@@ -307,8 +312,8 @@ class MMXCMPatcher:
 
         #This is the loop for calling the REFACTORED item to location information above. 
         print("Applying Randomized Item Patches...")
-        for location_name, item_name in output_data["locations"].items():
-            self.write_item_to_location(location_name, item_name)
+        #for location_name, item_name in output_data["locations"].items():
+         #   self.write_item_to_location(location_name, item_name)
         print("Randomized item patching complete!")
         
         # Save all changes to the DOL itself. 

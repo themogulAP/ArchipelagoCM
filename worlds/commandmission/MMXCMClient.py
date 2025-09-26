@@ -1,9 +1,8 @@
-import asyncio
-import json
+import asyncio, json
 import struct
 import time
 import traceback
-import typing
+from typing import Optional
 
 import settings
 
@@ -15,7 +14,7 @@ import dolphin_memory_engine as dolphin
 from NetUtils import NetworkItem, ClientStatus
 from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
-from MMXCMContext import MMXCMContext
+from .MMXCMContext import MMXCMContext
 from . import helpers
 
 # Starts the full loop and debug messages for connecting to Dolphin.
@@ -358,11 +357,16 @@ async def game_watcher(ctx: MMXCMContext):
     dolphin.disconnect()
     print("Disconnected from Dolphin.")
 
-async def _async_main():
+async def async_main(output_data: Optional[str] = None):
     """
     This is the main function that will be called by the `CommonClient`
     to start our client.
     """
+    if output_data:
+        from .MMXCMPatcher import MMXCMPatcher
+        mmxcm_patch = MMXCMPatcher(output_data)
+        mmxcm_patch.create_patch()
+
     parser = get_base_parser(ctx_defaults={"game": "Mega Man X: Command Mission"})
     args = parser.parse_args()
 
@@ -379,4 +383,4 @@ async def _async_main():
 
 if __name__ == "__main__":
     # This ensures that the script will run the main function when executed.
-    asyncio.run(_async_main())
+    asyncio.run(async_main())

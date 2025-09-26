@@ -75,7 +75,7 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
 
     def patch(self, apmmxcm_patch:str):
         #Gets the AP path for base ROM.
-        mmxcm_clean_iso = self.get_base_rom_path()
+        mmxcm_clean_iso = get_base_rom_path()
         logger.info("Provided MMXCM Iso Path was: " + mmxcm_clean_iso)
 
         base_path = os.path.splitext(apmmxcm_patch)[0]
@@ -104,14 +104,6 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
             raise Exception(f"File (version: {mainfest['compatible_version']}) too new"
                             f"for this handler (version: {self.version}")
         return mainfest
-
-    @classmethod
-    def get_base_rom_path(cls) -> str:
-        options: Settings = get_settings()
-        file_name = options["commandmission_options"]["iso_file"]
-        if not os.path.exists(file_name):
-            file_name = Utils.user_path(file_name)
-        return file_name
 
     @classmethod
     def verify_base_rom(cls, mmxcm_rom_path: str, throw_on_missing_speedups: bool = False):
@@ -184,5 +176,12 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
                 self.create_iso(local_dir_path, apmmxcm_patch, output_file, mmxcm_clean_iso)
         except PermissionError:
             logger.warning("Failed to cleanup temp folder, %s ignoring delete.", local_dir_path)
+
+def get_base_rom_path() -> str:
+    options: Settings = get_settings()
+    file_name = options["commandmission_options"]["iso_file"]
+    if not os.path.exists(file_name):
+        file_name = Utils.user_path(file_name)
+    return file_name
 
 
