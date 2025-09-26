@@ -105,7 +105,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
 
         # Lagrano Key Locations
-        elif location_name in ["East Area Stairs 4F to 5F MD 1", "East Area Stairs 4F to 5F MD 2", "East Area Stairs 4F to 5F MD 3"]:
+        elif location_name in ["East Area Stairs 4F to 5F Tank Parts", "East Area Stairs 4F to 5F Figure Token 1", "East Area Stairs 4F to 5F Figure Token 2"]:
             rules[location_name] = lambda state: state.has("Lagrano Key", player)
 
         # Central Key Locations
