@@ -9,10 +9,9 @@ from hashlib import md5
 from typing import Any
 import json, logging, sys, os, zipfile, tempfile
 
-from worlds.commandmission.MMXCMPatcher import RANDOMIZER_NAME
+from ..MMXCMPatcher import MMXCMPatcher
 
 logger = logging.getLogger()
-MAIN_PKG_NAME = "worlds.commandmission.MMXCMPatcher"
 
 RANDOMIZER_NAME = "Mega Man X Command Mission"
 
@@ -36,8 +35,9 @@ class MMXCMPlayerContainer(APPlayerContainer):
     compression_method = zipfile.ZIP_DEFLATED
     patch_file_ending = ".apmmxcm"
 
-    def __init__(self, player_choices: dict, patch_path: str, player_name: str, player: int):
-        self.output_data = player_choices
+    # Player options is the RANDOMIZED data based on the players options... not the options themselves.
+    def __init__(self, player_options: dict, patch_path: str, player_name: str, player: int):
+        self.output_data = player_options
         super().__init__(patch_path, player, player_name)
 
     def write_contents(self, opened_zipfile: zipfile.ZipFile) -> None:
@@ -155,7 +155,7 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
             raise InvalidCleanISOError(f"Invalid vanilla {RANDOMIZER_NAME} ISO... make sure it is .ISO")
 
         else:
-            raise InvalidCleanISOError("Invalied game given as vanilla MMXCM Iso. Verify it is the Vanilla PAL iso!")
+            raise InvalidCleanISOError("Invalid game given as vanilla MMXCM Iso. Verify it is the Vanilla PAL iso!")
 
     def create_iso(self, temp_dir_path: str, patch_file_path: str, output_iso_path: str, vanilla_iso_path: str):
         logger.info(f"Appending the following to sys path to get dependencies: {temp_dir_path}")

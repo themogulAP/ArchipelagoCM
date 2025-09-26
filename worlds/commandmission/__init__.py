@@ -8,6 +8,7 @@ from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules, REBELLION_MEDALS_GROUP
 from .options import MMXCMOptions
+from .files.mmxcm_rom import MMXCMPlayerContainer
 
 import random
 import os
@@ -141,7 +142,14 @@ class MMXCMWorld(World):
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):
-      pass
+      # Outputs the plando details to our expected output file
+      # Create the output path based on the current player + expected patch file ending.
+      patch_path = os.path.join(output_directory, f"{self.multiworld.get_out_file_name_base(self.player)}"
+                                                  f"{MMXCMPlayerContainer.patch_file_ending}")
+      # Create a zip (container) that will contain all the necessary output files for us to use during patching.
+      mmxcm_container = MMXCMPlayerContainer({}, patch_path, self.multiworld.player_name[self.player], self.player)
+      # Write the expected output zip container to the Generated Seed folder.
+      mmxcm_container.write()
 
 def fill_slot_data(self):
     """This will provide the slot data information upon connecting to AP."""

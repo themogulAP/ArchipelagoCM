@@ -15,8 +15,7 @@ import Utils
 from .items import ALL_ITEMS_TABLE, MMXCMItemData 
 from .locations import LOCATION_TABLE, MMXCMLocationData
 from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME
-
-RANDOMIZER_NAME = "Mega Man X Command Mission"
+#from .files.mmxcm_rom import RANDOMIZER_NAME
 
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
@@ -133,8 +132,8 @@ CODE_PATCHES = [
         # Change Lagrano Ruins AREA back to Shopping Arcade w/o Access Code 
         # RAM: 80082fac 
         "address": 0x07ffac, 
-        "data": [0x38, 0x04, 0x05, 0x4F] 
-    }, 
+        "data": [0x38, 0x04, 0x05, 0x4F]
+    },
     { 
         # Change Tianna Camp Stage to Central Tower w/o Access Code 
         # RAM Address: 80082fcc 
@@ -227,18 +226,18 @@ class MMXCMPatcher:
         self.output_data = json.loads(ap_output_data.decode('utf-8'))
 
         # This will make sure the client and server versions match
-        self._check_server_version(self.output_data)
+        self._check_apworld_version(self.output_data)
 
         # This will read the entire iso, system files, etc after checking server version.
         self.gcm = GCM(self.clean_iso_path)
         self.gcm.read_entire_disc()
         self.dol = DOL()
 
-    def _check_server_version(self, output_data):
+    def _check_apworld_version(self, output_data):
         """
-        Compares the version in the patch to the client version.
+        Compares the AP version in the patch to the client version.
         """
-        ap_world_version = "<0.5.6"
+        ap_world_version = "<0.1"
 
         if AP_WORLD_VERSION_NAME in output_data:
             ap_world_version = output_data[AP_WORLD_VERSION_NAME]
@@ -255,13 +254,15 @@ class MMXCMPatcher:
             if location_name not in LOCATION_TABLE:
                 print(f"Warning: Skipping unknown '{location_name}'.")
                 return
-            location_data: MMXCMLocationData = LOCATION_TABLE[location_name]
-            dol_address = location_data.dol_address
 
             # 2 - Look up the Item's ID from ALL_ITEMS_TABLE
             if item_name not in ALL_ITEMS_TABLE:
                 print(f"Warning: Skipping Unknown Item '{item_name}'.")
                 return
+
+            location_data: MMXCMLocationData = LOCATION_TABLE[location_name]
+            dol_address = location_data.dol_address
+
             item_data: MMXCMItemData = ALL_ITEMS_TABLE[item_name]
             # This access our item ID from our Data class to tell this randomizer WHICH item it is. 
             # I.e. X Buster = 25
@@ -277,7 +278,7 @@ class MMXCMPatcher:
             print(f"An error occured while writing data for location '{location_name}' and item '{item_name}': {e}")
             return
 
-    def create_patch(self, output_data: dict, base_path: str, destination_path: str): 
+    def create_patch(self, output_data: dict):
         """ 
         This function will take the base ROM, apply our changes and randomization data, and save the patched ROM. 
         """
