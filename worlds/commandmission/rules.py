@@ -126,7 +126,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Central Key", player)
 
         # Tianna Key Locations
-        elif location_name in ["Maze Area 1 Behind Key MD 1", "Maze Area 1 Rafflesian MD 1", "Maze Area 1 Rafflesian MD 2", "Maze Area 1 Rafflesian MD 3"]:
+        elif location_name in ["Maze Area 1 Behind Key Tank Parts", "Maze Area 1 Rafflesian Figure Token 1", "Maze Area 1 Rafflesian Figure Token 2", "Maze Area 1 Rafflesian Ultimate Armor"]:
             rules[location_name] = lambda state: state.has("Tianna Key", player)
 
         # Gimialla Mine Keys & Items
