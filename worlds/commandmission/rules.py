@@ -110,18 +110,18 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
 
         # Central Key Locations
         elif location_name in [
-            "Special Sealed Area 1st Room MD 1", "Special Sealed Area 1st Room MD 2", "Special Sealed Area 1st Room MD 3",
-            "Special Sealed Area 1st Room MD 4", "Special Sealed Area 1st Room MD 5", "Special Sealed Area 1st Room MD 6",
-            "Special Sealed Area 1st Room MD 7", "Special Sealed Area 1st Room MD 8", "Special Sealed Area 1st Room MD 9",
-            "Special Sealed Area 1st Room MD 10", "Special Sealed Area 2nd Room MD 1", "Special Sealed Area 2nd Room MD 2",
-            "Special Sealed Area 2nd Room MD 3", "Special Sealed Area 2nd Room MD 4", "Special Sealed Area 2nd Room MD 5",
-            "Special Sealed Area 2nd Room MD 6", "Special Sealed Area 2nd Room MD 7", "Special Sealed Area 2nd Room MD 8",
-            "Special Sealed Area 2nd Room MD 9", "Special Sealed Area 2nd Room MD 10", "Special Sealed Area 3rd Room MD 1",
-            "Special Sealed Area 3rd Room MD 2", "Special Sealed Area 3rd Room MD 3", "Special Sealed Area 3rd Room MD 4",
-            "Special Sealed Area 3rd Room MD 5", "Special Sealed Area 3rd Room MD 6", "Special Sealed Area 3rd Room MD 7",
-            "Special Sealed Area 3rd Room MD 8", "Special Sealed Area By Ninetales MD 1", "Special Sealed Area By Ninetales MD 2",
-            "Special Sealed Area By Ninetales MD 3", "Special Sealed Area By Ninetales MD 4", "Special Sealed Area By Ninetales MD 5",
-            "Special Sealed Area By Ninetales MD 6", "Special Sealed Area By Ninetales MD 7"
+            "Special Sealed Area 1st Room Enter The Intruder", "Special Sealed Area 1st Room The Throne", "Special Sealed Area 1st Room Capital",
+            "Special Sealed Area 1st Room Battle Epsilon", "Special Sealed Area 1st Room Epsilon 1", "Special Sealed Area 1st Room Ruins Passageway",
+            "Special Sealed Area 1st Room The End", "Special Sealed Area 1st Room Epsilon 2", "Special Sealed Area 1st Room Display Device",
+            "Special Sealed Area 1st Room Grave Ruins", "Special Sealed Area 2nd Room Flying Mechs", "Special Sealed Area 2nd Room Redips Soldier",
+            "Special Sealed Area 2nd Room Aerial Assault", "Special Sealed Area 2nd Room Dragoon", "Special Sealed Area 2nd Room The Chair",
+            "Special Sealed Area 2nd Room Transform Ability", "Special Sealed Area 2nd Room Transforming Mech", "Special Sealed Area 2nd Room Coliseum",
+            "Special Sealed Area 2nd Room Battle Redips", "Special Sealed Area 2nd Room Judgment", "Special Sealed Area 3rd Room Redips 1",
+            "Special Sealed Area 3rd Room Space", "Special Sealed Area 3rd Room Epsilon", "Special Sealed Area 3rd Room Redips 2",
+            "Special Sealed Area 3rd Room Redips 3", "Special Sealed Area 3rd Room Tails", "Special Sealed Area 3rd Room Parts",
+            "Special Sealed Area 3rd Room Scores Settled", "Special Sealed Area By Ninetales Great Redips", "Special Sealed Area By Ninetales Tails Front",
+            "Special Sealed Area By Ninetales Tails Back", "Special Sealed Area By Ninetales X's Weapons", "Special Sealed Area By Ninetales Zero's Weapons",
+            "Special Sealed Area By Ninetales Cinnamon's Weapons", "Special Sealed Area By Ninetales Massimo's Weapons"
         ]:
             rules[location_name] = lambda state: state.has("Central Key", player)
 
