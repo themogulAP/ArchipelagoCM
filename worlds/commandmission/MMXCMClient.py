@@ -1,58 +1,19 @@
 import asyncio, json
 import struct
-import time
 import traceback
 from typing import Optional
 
-import settings
-
-import Patch
-import Utils
 from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, gui_enabled, logger, server_loop
 import dolphin_memory_engine as dolphin
 
-from NetUtils import NetworkItem, ClientStatus
+from NetUtils import NetworkItem
+from worlds.commandmission.helpers import CONNECTION_INITIAL_STATUS, CONNECTION_CONNECTED_STATUS, \
+    CONNECTION_REFUSED_STATUS, CONNECTION_VERIFY_SERVER, CONNECTION_LOST_STATUS
 from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
+from worlds.tww.TWWClient import read_string
 from .MMXCMContext import MMXCMContext
 from . import helpers
-
-# Starts the full loop and debug messages for connecting to Dolphin.
-async def dolphin_connect_loop(ctx: CommonContext):
-    """
-    Connects to the Dolphin emulator and waits for the correct game to be running.
-    """
-    while True:
-        try:
-            if not dolphin.is_hooked():
-                dolphin.hook()
-
-            if dolphin.get_status() == dolphin.Dolphin.DolphinStatus.no_emu or \
-               dolphin.get_status() == dolphin.Dolphin.DolphinStatus.not_running:
-                if dolphin.is_hooked():
-                    dolphin.un_hook()
-                print("Dolphin not running. Waiting for emulator...")
-                await asyncio.sleep(5)
-                continue
-
-            game_id = dolphin.read_bytes(0x80000000, 4)
-            if game_id.decode("ascii") not in ["GXRP08", "GXRP01"]:
-                print("Incorrect game ID. Make sure Mega Man X: Command Mission is running.")
-                if dolphin.is_hooked():
-                    dolphin.un_hook()
-                await asyncio.sleep(5)
-                continue
-            
-            print("Connected to Dolphin with the correct game running.")
-            break
-
-        except Exception as e:
-            if dolphin.is_hooked():
-                dolphin.un_hook()
-            print(f"Could not connect to Dolphin: {e}")
-            print("Retrying in 5 seconds...")
-            await asyncio.sleep(5)
-            continue
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
@@ -79,6 +40,57 @@ INVENTORY_INFO = {
         "slot_size": 4,
     }
 }
+
+
+async def wait_for_next_loop(time_to_wait: float):
+    await asyncio.sleep(5)
+
+# Starts the full loop and debug messages for connecting to Dolphin.
+async def dolphin_connect_loop(ctx: CommonContext):
+    """
+    Connects to the Dolphin emulator and waits for the correct game to be running.
+    """
+    while not ctx.exit_event.is_set():
+        try:
+            if not dolphin.is_hooked():
+                dolphin.hook()
+                if dolphin.get_status() == dolphin.get_status().no_emu or dolphin.get_status() == dolphin.get_status().notRunning:
+                    dolphin.un_hook()
+                ctx.dolphin_status = CONNECTION_INITIAL_STATUS
+                logger.info(ctx.dolphin_status)
+                await wait_for_next_loop(5)
+                continue
+
+            # If the Game ID is a standard one, disconnect because it isnt the randomized ROM.
+            if not ctx.dolphin_status == CONNECTION_CONNECTED_STATUS:
+                game_id = read_string(0x80000000, 6)
+                if game_id in ["GXRP08"]:
+                    logger.info(CONNECTION_REFUSED_STATUS)
+                    ctx.dolphin_status = CONNECTION_REFUSED_STATUS
+                    dolphin.un_hook()
+                    await wait_for_next_loop(5)
+                    continue
+
+            ctx.locations_checked = set()
+
+            # Inform player we are ready for connection
+            if not ctx.dolphin_status == CONNECTION_VERIFY_SERVER:
+                ctx.dolphin_status = CONNECTION_VERIFY_SERVER
+                logger.info(ctx.dolphin_status)
+            await ctx.server_auth()
+
+            if not ctx.slot:
+                await wait_for_next_loop(5)
+                continue
+
+        except Exception:
+            dolphin.un_hook()
+            logger.error(traceback.format_exc())
+            logger.info("Connection to Dolphin failed, attempting in 5 seconds...")
+            ctx.dolphin_status = CONNECTION_LOST_STATUS
+            await ctx.disconnect()
+            await asyncio.sleep(5)
+            continue
 
 class MMXCMCommandProcessor(ClientCommandProcessor):
     def __init__(self, ctx: MMXCMContext):
@@ -165,7 +177,7 @@ async def game_watcher(ctx: MMXCMContext):
             if location_name not in checked_locations_in_game:
                 # Reads the value at the locations RAM address.
                 try:
-                    ram_data = location_info.get("ram_addr")
+                    ram_data = location_info.get('ram_addr')
                     if ram_data:
                         # Read the value at the locations RAM address.
                         location_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
@@ -192,7 +204,7 @@ async def game_watcher(ctx: MMXCMContext):
                     # Check if the bit for defeating Redips is set.
                     if boss_defeated_value == 9:
                         print("Final boss defeated! Signaling game completion to the server.")
-                        await ctx.send_goal()
+                        await ctx.CLIENT_GOAL()
                         ctx.finished_game = True  # This ends the while loop on the next pass.
             except Exception as e:
                 # This will catch errors if the game state is not readable or the address is invalid.
