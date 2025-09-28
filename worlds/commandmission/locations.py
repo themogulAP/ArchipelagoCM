@@ -1036,235 +1036,235 @@ GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
       
 ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Smelting Furnace 1 MD 1": MMXCMLocationData(
+  "Smelting Furnace 1 300 FME": MMXCMLocationData(
     name="Smelting Furnace 1-1",
     code=164,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=0)
   ),
-  "Smelting Furnace 1 MD 2": MMXCMLocationData(
+  "Smelting Furnace 1 1000z": MMXCMLocationData(
     name="Smelting Furnace 1-2",
     code=165,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=1)
   ),
-  "Smelting Furnace 1 MD 3": MMXCMLocationData(
+  "Smelting Furnace 1 Fire Guard": MMXCMLocationData(
     name="Smelting Furnace 1-3",
     code=166,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=2)
   ),
-  "Smelting Furnace 1 MD 4": MMXCMLocationData(
+  "Smelting Furnace 1 Ultra Blizzard": MMXCMLocationData(
     name="Smelting Furnace 1-4",
     code=167,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=3)
   ),
-  "Smelting Furnace 1 MD 5": MMXCMLocationData(
+  "Smelting Furnace 1 Build LE": MMXCMLocationData(
     name="Smelting Furnace 1-5",
     code=168,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=4)
   ),
-  "Smelting Furnace 1 MD 6": MMXCMLocationData(
+  "Smelting Furnace 1 Figure Token 1": MMXCMLocationData(
     name="Smelting Furnace 1-6",
     code=169,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=5)
   ),
-  "Smelting Furnace 1 MD 7": MMXCMLocationData(
+  "Smelting Furnace 1 Figure Token 2": MMXCMLocationData(
     name="Smelting Furnace 1-7",
     code=170,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2166, bit_position=6)
   ),
-  "Smelting Furnace 2 MD 1": MMXCMLocationData(
+  "Smelting Furnace 2 Tank Parts": MMXCMLocationData(
     name="Smelting Furnace 2-1",
     code=171,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=0)
   ),
-  "Smelting Furnace 2 MD 2": MMXCMLocationData(
+  "Smelting Furnace 2 King of Hearts": MMXCMLocationData(
     name="Smelting Furnace 2-2",
     code=172,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=1)
   ),
-  "Smelting Furnace 2 MD 3": MMXCMLocationData(
+  "Smelting Furnace 2 Figure Token 1": MMXCMLocationData(
     name="Smelting Furnace 2-3",
     code=173,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=2)
   ),
-  "Smelting Furnace 2 MD 4": MMXCMLocationData(
+  "Smelting Furnace 2 Build WE": MMXCMLocationData(
     name="Smelting Furnace 2-4",
     code=174,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=3)
   ),
-  "Smelting Furnace 2 MD 5": MMXCMLocationData(
+  "Smelting Furnace 2 Tank Energy 50": MMXCMLocationData(
     name="Smelting Furnace 2-5",
     code=175,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=4)
   ),
-  "Smelting Furnace 2 MD 6": MMXCMLocationData(
+  "Smelting Furnace 2 800z": MMXCMLocationData(
     name="Smelting Furnace 2-6",
     code=176,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=5)
   ),
-  "Smelting Furnace 2 MD 7": MMXCMLocationData(
+  "Smelting Furnace 2 Figure Token 2": MMXCMLocationData(
     name="Smelting Furnace 2-7",
     code=177,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2165, bit_position=6)
   ),
-  "Smelting Furnace 3 MD 1": MMXCMLocationData(
+  "Smelting Furnace 3 Mini Battery": MMXCMLocationData(
     name="Smelting Furnace 3-1",
     code=178,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=0)
   ),
-  "Smelting Furnace 3 MD 2": MMXCMLocationData(
+  "Smelting Furnace 3 Aero Buster": MMXCMLocationData(
     name="Smelting Furnace 3-2",
     code=179,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=1)
   ),
-  "Smelting Furnace 3 MD 3": MMXCMLocationData(
+  "Smelting Furnace 3 Tank Energy 50": MMXCMLocationData(
     name="Smelting Furnace 3-3",
     code=180,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=2)
   ),
-  "Smelting Furnace 3 MD 4": MMXCMLocationData(
+  "Smelting Furnace 3 Boost Speed": MMXCMLocationData(
     name="Smelting Furnace 3-4",
     code=181,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=3)
   ),
-  "Smelting Furnace 3 MD 5": MMXCMLocationData(
+  "Smelting Furnace 3 Build Speed": MMXCMLocationData(
     name="Smelting Furnace 3-5",
     code=182,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=4)
   ),
-  "Parts Intake Line MD 1": MMXCMLocationData(
+  "Parts Intake Line Gain Hyper": MMXCMLocationData(
     name="Parts Intake Line 1",
     code=183,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=6)
   ),
-  "Parts Intake Line MD 2": MMXCMLocationData(
+  "Parts Intake Line Tank Energy 25": MMXCMLocationData(
     name="Parts Intake Line 2",
     code=184,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2164, bit_position=7)
   ),
-  "Parts Intake Line MD 3": MMXCMLocationData(
+  "Parts Intake Line 1000z": MMXCMLocationData(
     name="Parts Intake Line 3",
     code=185,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216B, bit_position=0)
   ),
-  "Parts Intake Line MD 4": MMXCMLocationData(
+  "Parts Intake Line WE +5": MMXCMLocationData(
     name="Parts Intake Line 4",
     code=186,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216B, bit_position=1)
   ),
-  "Parts Delivery Line MD 1": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 1": MMXCMLocationData(
     name="Parts Delivery Line 1",
     code=187,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216B, bit_position=5)
   ),
-  "Parts Delivery Line MD 2": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 2": MMXCMLocationData(
     name="Parts Delivery Line 2",
     code=188,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216B, bit_position=6)
   ),
-  "Parts Delivery Line MD 3": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 3": MMXCMLocationData(
     name="Parts Delivery Line 3",
     code=189,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216B, bit_position=7)
   ),
-  "Parts Delivery Line MD 4": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 4": MMXCMLocationData(
     name="Parts Delivery Line 4",
     code=190,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=0)
   ),
-  "Parts Delivery Line MD 5": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 5": MMXCMLocationData(
     name="Parts Delivery Line 5",
     code=191,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=1)
   ),
-  "Parts Delivery Line MD 6": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 6": MMXCMLocationData(
     name="Parts Delivery Line 6",
     code=192,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=2)
   ),
-  "Parts Delivery Line MD 7": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 7": MMXCMLocationData(
     name="Parts Delivery Line 7",
     code=193,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=3)
   ),
-  "Parts Delivery Line MD 8": MMXCMLocationData(
+  "Parts Delivery Line Figure Token 8": MMXCMLocationData(
     name="Parts Delivery Line 8",
     code=194,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=4)
   ),
-  "Computer Room MD 1": MMXCMLocationData(
+  "Computer Room Hunter Missile": MMXCMLocationData(
     name="Computer Room 1",
     code=195,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=6)
   ),
-  "Computer Room MD 2": MMXCMLocationData(
+  "Computer Room Build Armor": MMXCMLocationData(
     name="Computer Room 2",
     code=196,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A216A, bit_position=7)
   ),
-  "Computer Room MD 3": MMXCMLocationData(
+  "Computer Room Build Shield": MMXCMLocationData(
     name="Computer Room 3",
     code=197,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=0)
   ),
-  "Assembly Line Monitor Room MD 1": MMXCMLocationData(
+  "Assembly Line Monitor Room Backup": MMXCMLocationData(
     name="Assembly Line Monitor Room 1",
     code=198,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=1)
   ),
-  "Assembly Line Monitor Room MD 2": MMXCMLocationData(
+  "Assembly Line Monitor Room Build Power": MMXCMLocationData(
     name="Assembly Line Monitor Room 2",
     code=199,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=2)
   ),
-  "Computer Room Corridor MD 1": MMXCMLocationData(
+  "Computer Room Corridor Tank Energy 100 1": MMXCMLocationData(
     name="Computer Room Corridor 1",
     code=200,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=3)
   ),
-  "Computer Room Corridor MD 2": MMXCMLocationData(
+  "Computer Room Corridor Tank Energy 100 2": MMXCMLocationData(
     name="Computer Room Corridor 2",
     code=201,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=4)
   ),
-  "Computer Room Corridor MD 3": MMXCMLocationData(
+  "Computer Room Corridor Gain Hyper": MMXCMLocationData(
     name="Computer Room Corridor 3",
     code=202,
     parent_region="Ulfat Factory",
