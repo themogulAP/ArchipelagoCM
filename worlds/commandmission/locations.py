@@ -823,211 +823,211 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
 
 GAUDILE_LABORATORY_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "East Deck High Speed Lift Area MD 1": MMXCMLocationData(
+  "East Deck High Speed Lift Area Cooler": MMXCMLocationData(
     name="East Deck High Speed Lift Area 1",
     code=129,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A215C, bit_position=4)
   ),
-  "East Deck High Speed Lift Area MD 2": MMXCMLocationData(
+  "East Deck High Speed Lift Area Vaccine Program": MMXCMLocationData(
     name="East Deck High Speed Lift Area 2",
     code=130,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A215C, bit_position=5)
   ),
-  "East Deck High Speed Lift Area MD 3": MMXCMLocationData(
+  "East Deck High Speed Lift Area Figure Token 1": MMXCMLocationData(
     name="East Deck High Speed Lift Area 3",
     code=131,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A215C, bit_position=6)
   ),
-  "East Deck High Speed Lift Area MD 4": MMXCMLocationData(
+  "East Deck High Speed Lift Area Figure Token 2": MMXCMLocationData(
     name="East Deck High Speed Lift Area 4",
     code=132,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A215C, bit_position=7)
   ),
-  "East Deck High Speed Lift Area MD 5": MMXCMLocationData(
+  "East Deck High Speed Lift Area Cure One": MMXCMLocationData(
     name="East Deck High Speed Lift Area 5",
     code=133,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A215D, bit_position=6)
   ),
-  "East Deck Main Route MD 1": MMXCMLocationData(
+  "East Deck Main Route Tank Energy 25": MMXCMLocationData(
     name="East Deck Main Route 1",
     code=134,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=0)
   ),
-  "East Deck Main Route MD 2": MMXCMLocationData(
+  "East Deck Main Route LE +100": MMXCMLocationData(
     name="East Deck Main Route 2",
     code=135,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=1)
   ),
-  "East Deck Main Route MD 3": MMXCMLocationData(
+  "East Deck Main Route Build WE": MMXCMLocationData(
     name="East Deck Main Route 3",
     code=136,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=2)
   ),
-  "East Deck Main Route MD 4": MMXCMLocationData(
+  "East Deck Main Route Build LE": MMXCMLocationData(
     name="East Deck Main Route 4",
     code=137,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=3)
   ),
-  "East Deck Residential Division 101 MD 1": MMXCMLocationData(
+  "East Deck Residential Division 101 Figure Token 1": MMXCMLocationData(
     name="East Deck Residential Division 101-1",
     code=138,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=4)
   ),
-  "East Deck Residential Division 101 MD 2": MMXCMLocationData(
+  "East Deck Residential Division 101 Figure Token 2": MMXCMLocationData(
     name="East Deck Residential Division 101-2",
     code=139,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=5)
   ),
-  "East Deck Residential Division 101 MD 3": MMXCMLocationData(
+  "East Deck Residential Division 101 Figure Token 3": MMXCMLocationData(
     name="East Deck Residential Division 101-3",
     code=140,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=6)
   ),
-  "East Deck Residential Division 101 MD 4": MMXCMLocationData(
+  "East Deck Residential Division 101 Figure Token 4": MMXCMLocationData(
     name="East Deck Residential Division 101-4",
     code=141,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=7)
   ),
-  "East Deck Residential Division 101 MD 5": MMXCMLocationData(
+  "East Deck Residential Division 101 Figure Token 5": MMXCMLocationData(
     name="East Deck Residential Division 101-5",
     code=142,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=0)
   ),
-  "East Deck Residential Division 102 MD 1": MMXCMLocationData(
+  "East Deck Residential Division 102 Tank Parts": MMXCMLocationData(
     name="East Deck Residential Division 102-1",
     code=143,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=1)
   ),
-  "East Deck Residential Division 102 MD 2": MMXCMLocationData(
+  "East Deck Residential Division 102 600z": MMXCMLocationData(
     name="East Deck Residential Division 102-2",
     code=144,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=2)
   ),
-  "East Deck Residential Division 102 MD 3": MMXCMLocationData(
+  "East Deck Residential Division 102 Protect +1": MMXCMLocationData(
     name="East Deck Residential Division 102-3",
     code=145,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=3)
   ),
-  "East Deck Residential Division 102 MD 4": MMXCMLocationData(
+  "East Deck Residential Division 102 Tank Energy 50": MMXCMLocationData(
     name="East Deck Residential Division 102-4",
     code=146,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=4)
   ),
-  "Observation Deck Area MD 1": MMXCMLocationData(
+  "Observation Deck Area Figure Token 1": MMXCMLocationData(
     name="Observation Deck Area 1",
     code=147,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2162, bit_position=0)
   ),
-  "Observation Deck Area MD 2": MMXCMLocationData(
+  "Observation Deck Area Tank Energy 50": MMXCMLocationData(
     name="Observation Deck Area 2",
     code=148,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2162, bit_position=1)
   ),
-  "Observation Deck Area MD 3": MMXCMLocationData(
+  "Observation Deck Area Figure Token 2": MMXCMLocationData(
     name="Observation Deck Area 3",
     code=149,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=6)
   ),
-  "Observation Deck Area MD 4": MMXCMLocationData(
+  "Observation Deck Area Queen of Hearts": MMXCMLocationData(
     name="Observation Deck Area 4",
     code=150,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2163, bit_position=7)
   ),
-  "Laboratory Approach MD 1": MMXCMLocationData(
+  "Laboratory Approach Cure All": MMXCMLocationData(
     name="Laboratory Approach 1",
     code=151,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2162, bit_position=4)
   ),
-  "Laboratory Approach MD 2": MMXCMLocationData(
+  "Laboratory Approach 500z 1": MMXCMLocationData(
     name="Laboratory Approach 2",
     code=152,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2162, bit_position=5)
   ),
-  "Laboratory Approach MD 3": MMXCMLocationData(
+  "Laboratory Approach 500z 2": MMXCMLocationData(
     name="Laboratory Approach 3",
     code=153,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2162, bit_position=6)
   ),
-  "Counter-Biohazard Sample Storage MD 1": MMXCMLocationData(
+  "Counter-Biohazard Sample Storage Build Armor": MMXCMLocationData(
     name="Counter-Biohazard Sample Storage 1",
     code=154,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2161, bit_position=0)
   ),
-  "Counter-Biohazard Sample Storage MD 2": MMXCMLocationData(
+  "Counter-Biohazard Sample Storage Build Speed": MMXCMLocationData(
     name="Counter-Biohazard Sample Storage 2",
     code=155,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2161, bit_position=1)
   ),
-  "Counter-Biohazard Sample Storage MD 3": MMXCMLocationData(
+  "Counter-Biohazard Sample Storage Gain WE+5": MMXCMLocationData(
     name="Counter-Biohazard Sample Storage 3",
     code=156,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2161, bit_position=2)
   ),
-  "Counter-Biohazard Sample Storage MD 4": MMXCMLocationData(
+  "Counter-Biohazard Sample Storage Figure Token 1": MMXCMLocationData(
     name="Counter-Biohazard Sample Storage 4",
     code=157,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2161, bit_position=3)
   ),
-  "Counter-Biohazard Sample Storage MD 5": MMXCMLocationData(
+  "Counter-Biohazard Sample Storage Figure Token 2": MMXCMLocationData(
     name="Counter-Biohazard Sample Storage 5",
     code=158,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2161, bit_position=4)
   ),
-  "West Deck Main Route MD 1": MMXCMLocationData(
+  "West Deck Main Route Cure One": MMXCMLocationData(
     name="West Deck Main Route 1",
     code=159,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=0)
   ),
-  "West Deck Main Route MD 2": MMXCMLocationData(
+  "West Deck Main Route Reboot": MMXCMLocationData(
     name="West Deck Main Route 2",
     code=160,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=1)
   ),
-  "West Deck Main Route MD 3": MMXCMLocationData(
+  "West Deck Main Route Tank Energy 50": MMXCMLocationData(
     name="West Deck Main Route 3",
     code=161,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2160, bit_position=2)
   ),
-  "Great Tree Stump Hall Approach MD 1": MMXCMLocationData(
+  "Great Tree Stump Hall Approach Tank Energy 100": MMXCMLocationData(
     name="Great Tree Stump Hall Approach 1",
     code=162,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A2167, bit_position=5)
   ),
-  "Great Tree Stump Hall Approach MD 2": MMXCMLocationData(
+  "Great Tree Stump Hall Approach Gain Hyper": MMXCMLocationData(
     name="Great Tree Stump Hall Approach 2",
     code=163,
     parent_region="Gaudile Laboratory",
