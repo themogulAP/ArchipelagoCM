@@ -1760,183 +1760,201 @@ VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
 
 MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Ore Plant External Tank MD 1": MMXCMLocationData(
+  "Ore Plant External Tank Heavy Motor": MMXCMLocationData(
     name="Ore Plant External Tank 1",
     code=283,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=2)
   ),
-  "Ore Plant External Tank MD 2": MMXCMLocationData(
+  "Ore Plant External Tank Tank Parts": MMXCMLocationData(
     name="Ore Plant External Tank 2",
     code=284,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=3)
   ),
-  "Ore Plant External Tank MD 3": MMXCMLocationData(
+  "Ore Plant External Tank Figure Token 1": MMXCMLocationData(
     name="Ore Plant External Tank 3",
     code=285,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=4)
   ),
-  "Ore Plant External Tank MD 4": MMXCMLocationData(
+  "Ore Plant External Tank Figure Token 2": MMXCMLocationData(
     name="Ore Plant External Tank 4",
     code=286,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=5)
   ),
-  "B1 Entrance Hall MD 1": MMXCMLocationData(
+  "B1 Entrance Hall Ultra Thunder": MMXCMLocationData(
     name="B1 Entrance Hall 1",
     code=287,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=1)
   ),
-  "B1 Entrance Hall MD 2": MMXCMLocationData(
+  "B1 Entrance Hall Figure Token 1": MMXCMLocationData(
     name="B1 Entrance Hall 2",
     code=288,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=0)
   ),
-  "B1 Entrance Hall MD 3": MMXCMLocationData(
+  "B1 Entrance Hall Figure Token 2": MMXCMLocationData(
     name="B1 Entrance Hall 3",
     code=289,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=6)
   ),
-  "B1 Entrance Hall MD 4": MMXCMLocationData(
+  "B1 Entrance Hall Figure Token 3": MMXCMLocationData(
     name="B1 Entrance Hall 4",
     code=290,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2175, bit_position=7)
   ),
-  "Area E-B02 MD 1": MMXCMLocationData(
+  "Area E-B02 Figure Token 1": MMXCMLocationData(
     name="Area E-B02-1",
     code=291,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217B, bit_position=1)
   ),
-  "Area E-B02 MD 2": MMXCMLocationData(
+  "Area E-B02 Build LE": MMXCMLocationData(
     name="Area E-B02-2",
     code=292,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217B, bit_position=2)
   ),
-  "Area E-B02 MD 3": MMXCMLocationData(
+  "Area E-B02 Build WE": MMXCMLocationData(
     name="Area E-B02-3",
     code=293,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217B, bit_position=3)
   ),
-  "Area E-B03 MD 1": MMXCMLocationData(
+  "Area E-B03 Mini Battery": MMXCMLocationData(
     name="Area E-B03-1",
     code=294,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=1)
   ),
-  "Area E-B03 MD 2": MMXCMLocationData(
+  "Area E-B03 800 FME": MMXCMLocationData(
     name="Area E-B03-2",
     code=295,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=2)
   ),
-  "Area E-B03 MD 3": MMXCMLocationData(
+  "Area E-B03 Build Shield": MMXCMLocationData(
     name="Area E-B03-3",
     code=296,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217A, bit_position=3)
   ),
-  "Area E-B04 MD 1": MMXCMLocationData(
+  "Area E-B04 Figure Token 1": MMXCMLocationData(
     name="Area E-B04-1",
     code=297,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=0)
   ),
-  "Area E-B04 MD 2": MMXCMLocationData(
+  "Area E-B04 Tank Energy 50": MMXCMLocationData(
     name="Area E-B04-2",
     code=298,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=1)
   ),
-  "Missile Silo Base Lower Section MD 1": MMXCMLocationData(
+  "Missile Silo Base Lower Section Figure Token 1": MMXCMLocationData(
     name="Missile Silo Base Lower Section 1",
     code=299,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=3)
   ),
-  "Missile Silo Base Lower Section MD 2": MMXCMLocationData(
+  "Missile Silo Base Lower Section 3000z": MMXCMLocationData(
     name="Missile Silo Base Lower Section 2",
     code=300,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=4)
   ),
-  "Missile Silo Base Lower Section MD 3": MMXCMLocationData(
+  "Missile Silo Base Lower Section 1000 FME": MMXCMLocationData(
     name="Missile Silo Base Lower Section 3",
     code=301,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=5)
   ),
-  "Missile Silo Base Lower Section MD 4": MMXCMLocationData(
+  "Missile Silo Base Lower Section Gain Hyper": MMXCMLocationData(
     name="Missile Silo Base Lower Section 4",
     code=302,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=6)
   ),
-  "B5 - East-West Block Access Tunnel MD 1": MMXCMLocationData(
+  "B5 - East-West Block Access Tunnel Build Speed": MMXCMLocationData(
     name="B5 - East-West Block Access Tunnel 1",
     code=303,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=2)
   ),
-  "Area W-B03 MD 1": MMXCMLocationData(
-    name="Area W-B03 1",
+  "Area W-B04 Figure Token 1": MMXCMLocationData(
+    name="Area W-B04 1",
     code=304,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A217B, bit_position=5)
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=5)
   ),
-  "Area W-B03 MD 2": MMXCMLocationData(
-    name="Area W-B03 2",
+  "Area W-B04 Tank Energy 50": MMXCMLocationData(
+    name="Area W-B04 2",
     code=305,
     parent_region="Melda Ore Plant",
-    ram_addr=MMXCMRamData(0x804A21BA, bit_position=6)
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=6)
   ),
-  "Area W-B03 MD 3": MMXCMLocationData(
+  "Area W-B04 Build Power": MMXCMLocationData(
     name="Area W-B03 3",
     code=306,
     parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217A, bit_position=7)
+  ),
+  "Area W-B03 Cryogenic": MMXCMLocationData(
+    name="Area W-B03 1",
+    code=307,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=5)
+  ),
+  "Area W-B03 2000z": MMXCMLocationData(
+    name="Area W-B03 2",
+    code=308,
+    parent_region="Melda Ore Plant",
+    ram_addr=MMXCMRamData(0x804A217B, bit_position=6)
+  ),
+  "Area W-B03 Build Armor": MMXCMLocationData(
+    name="Area W-B03 3",
+    code=309,
+    parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A217B, bit_position=7)
   ),
-  "Area W-B02 MD 1": MMXCMLocationData(
+  "Area W-B02 Figure Token 1": MMXCMLocationData(
     name="Area W-B02 1",
-    code=307,
+    code=310,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=5)
   ),
-  "Area W-B02 MD 2": MMXCMLocationData(
+  "Area W-B02 Tank Energy 100": MMXCMLocationData(
     name="Area W-B02 2",
-    code=308,
+    code=311,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=6)
   ),
-  "Area W-B02 MD 3": MMXCMLocationData(
+  "Area W-B02 Gain Hyper": MMXCMLocationData(
     name="Area W-B02 3",
-    code=309,
+    code=312,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=7)
   ),
-  "Missile Warhead Adjustment Room MD 1": MMXCMLocationData(
+  "Missile Warhead Adjustment Room Gatling Buster II": MMXCMLocationData(
     name="Missile Warhead Adjustment Room 1",
-    code=310,
+    code=313,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2179, bit_position=7)
   ),
-  "Area W-B01 MD 1": MMXCMLocationData(
+  "Area W-B01 Generator": MMXCMLocationData(
     name="Area W-B01-1",
-    code=311,
+    code=314,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2174, bit_position=3)
   ),
-  "Missile Maintenance Room MD 1": MMXCMLocationData(
+  "Missile Maintenance Room Absolute Zero": MMXCMLocationData(
     name="Missile Maintenance Room 1",
-    code=312,
+    code=315,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=0)
   ),
@@ -1945,211 +1963,211 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Level E Security Zone MD 1": MMXCMLocationData(
     name="Level E Security Zone 1",
-    code=313,
+    code=316,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=2)
   ),
   "Level E Security Zone MD 2": MMXCMLocationData(
     name="Level E Security Zone 2",
-    code=314,
+    code=317,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=3)
   ),
   "Level D Security Zone MD 1": MMXCMLocationData(
     name="Level D Security Zone 1",
-    code=315,
+    code=318,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=5)
   ),
   "Level C Security Zone MD 1": MMXCMLocationData(
     name="Level C Security Zone 1",
-    code=316,
+    code=319,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=7)
   ),
   "Level C Security Zone MD 2": MMXCMLocationData(
     name="Level C Security Zone 2",
-    code=317,
+    code=320,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=0)
   ),
   "Level C Security Zone MD 3": MMXCMLocationData(
     name="Level C Security Zone 3",
-    code=318,
+    code=321,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=1)
   ),
   "Level C Security Zone MD 4": MMXCMLocationData(
     name="Level C Security Zone 4",
-    code=319,
+    code=322,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=2)
   ),
   "Level C Security Zone MD 5": MMXCMLocationData(
     name="Level C Security Zone 5",
-    code=320,
+    code=323,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=3)
   ),
   "Level B Security Zone MD 1": MMXCMLocationData(
     name="Level B Security Zone 1",
-    code=321,
+    code=324,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=7)
   ),
   "Level B Security Zone MD 2": MMXCMLocationData(
     name="Level B Security Zone 2",
-    code=322,
+    code=325,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=0)
   ),
   "Battle Field MD 1": MMXCMLocationData(
     name="Battle Field 1",
-    code=323,
+    code=326,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=0)
   ),
   "Battle Field MD 2": MMXCMLocationData(
     name="Battle Field 2",
-    code=324,
+    code=327,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=1)
   ),
   "Battle Field MD 3": MMXCMLocationData(
     name="Battle Field 3",
-    code=325,
+    code=328,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=2)
   ),
   "Battle Field MD 4": MMXCMLocationData(
     name="Battle Field 4",
-    code=326,
+    code=329,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=3)
   ),
   "Battle Field MD 5": MMXCMLocationData(
     name="Battle Field 5",
-    code=327,
+    code=330,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=5)
   ),
   "Battle Field MD 6": MMXCMLocationData(
     name="Battle Field 6",
-    code=328,
+    code=331,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=6)
   ),
   "Battle Field MD 7": MMXCMLocationData(
     name="Battle Field 7",
-    code=329,
+    code=332,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=7)
   ),
   "Revolver Shaft Area MD 1": MMXCMLocationData(
     name="Revolver Shaft Area 1",
-    code=330,
+    code=333,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=2)
   ),
   "Revolver Shaft Area MD 2": MMXCMLocationData(
     name="Revolver Shaft Area 2",
-    code=331,
+    code=334,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=3)
   ),
   "Revolver Room #4 MD 1": MMXCMLocationData(
     name="Revolver Room #4 1",
-    code=332,
+    code=335,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=5)
   ),
   "Revolver Room #6 MD 1": MMXCMLocationData(
     name="Revolver Room #6 1",
-    code=333,
+    code=336,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=6)
   ),
   "Revolver Room #7 MD 1": MMXCMLocationData(
     name="Revolver Room #7 1",
-    code=334,
+    code=337,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=7)
   ),
   "Revolver Shaft Area Right Side MD 1": MMXCMLocationData(
     name="Revolver Shaft Area Right Side 1",
-    code=335,
+    code=338,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=4)
   ),
   "Level S Top Security Zone MD 1": MMXCMLocationData(
     name="Level S Top Security Zone 1",
-    code=336,
+    code=339,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=1)
   ),
   "Level S Top Security Zone MD 2": MMXCMLocationData(
     name="Level S Top Security Zone 2",
-    code=337,
+    code=340,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=2)
   ),
   "Level S Top Security Zone MD 3": MMXCMLocationData(
     name="Level S Top Security Zone 3",
-    code=338,
+    code=341,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=3)
   ),
   "Level S Top Security Zone MD 4": MMXCMLocationData(
     name="Level S Top Security Zone 4",
-    code=339,
+    code=342,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=4)
   ),
   "Level S Top Security Zone MD 5": MMXCMLocationData(
     name="Level S Top Security Zone 5",
-    code=340,
+    code=343,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=0)
   ),
   "Level S Top Security Zone MD 6": MMXCMLocationData(
     name="Level S Top Security Zone 6",
-    code=341,
+    code=344,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=1)
   ),
   "Level S Top Security Zone MD 7": MMXCMLocationData(
     name="Level S Top Security Zone 7",
-    code=342,
+    code=345,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=5)
   ),
   "Level S Top Security Zone MD 8": MMXCMLocationData(
     name="Level S Top Security Zone 8",
-    code=343,
+    code=346,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=6)
   ),
   "Level S Top Security Zone MD 9": MMXCMLocationData(
     name="Level S Top Security Zone 9",
-    code=344,
+    code=347,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=7)
   ),
   "Final Gate MD 1": MMXCMLocationData(
     name="Final Gate 1",
-    code=345,
+    code=348,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=2)
   ),
   "Final Gate MD 2": MMXCMLocationData(
     name="Final Gate 2",
-    code=346,
+    code=349,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=3)
   ),
   "Final Gate MD 3": MMXCMLocationData(
     name="Final Gate 3",
-    code=347,
+    code=350,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=4)
   ),
@@ -2158,91 +2176,91 @@ GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Teleport Terminal MD 1": MMXCMLocationData(
     name="Teleport Terminal 1",
-    code=348,
+    code=351,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=0)
   ),
   "Teleport Terminal MD 2": MMXCMLocationData(
     name="Teleport Terminal 2",
-    code=349,
+    code=352,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=1)
   ),
   "Teleport Terminal MD 3": MMXCMLocationData(
     name="Teleport Terminal 3",
-    code=350,
+    code=353,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=6)
   ),
   "Teleport Terminal MD 4": MMXCMLocationData(
     name="Teleport Terminal 4",
-    code=351,
+    code=354,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=7)
   ),
   "Final Gate Chapter 10 MD 1": MMXCMLocationData(
     name="Final Gate Chapter 10-1",
-    code=352,
+    code=355,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=4)
   ),
   "Final Gate Chapter 10 MD 2": MMXCMLocationData(
     name="Final Gate Chapter 10-2",
-    code=353,
+    code=356,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=5)
   ),
   "Final Gate Chapter 10 MD 3": MMXCMLocationData(
     name="Final Gate Chapter 10-3",
-    code=354,
+    code=357,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=6)
   ),
   "Final Gate Chapter 10 MD 4": MMXCMLocationData(
     name="Final Gate Chapter 10-4",
-    code=355,
+    code=358,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=7)
   ),
   "Final Gate Chapter 10 MD 5": MMXCMLocationData(
     name="Final Gate Chapter 10-5",
-    code=356,
+    code=359,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=0)
   ),
   "Final Gate Chapter 10 MD 6": MMXCMLocationData(
     name="Final Gate Chapter 10-6",
-    code=357,
+    code=360,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=1)
   ),
   "Final Gate Chapter 10 MD 7": MMXCMLocationData(
     name="Final Gate Chapter 10-7",
-    code=358,
+    code=361,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=2)
   ),
   "Final Gate Chapter 10 MD 8": MMXCMLocationData(
     name="Final Gate Chapter 10-8",
-    code=359,
+    code=362,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=3)
   ),
   "Super-Strato Terminal MD 1": MMXCMLocationData(
     name="Super Strato Terminal 1",
-    code=360,
+    code=363,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=2)
   ),
   "Blue Earth Tunnel MD 1": MMXCMLocationData(
     name="Blue Earth Tunnel 1",
-    code=361,
+    code=364,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=4)
   ),
   "Blue Earth Tunnel MD 2": MMXCMLocationData(
     name="Blue Earth Tunnel 2",
-    code=362,
+    code=365,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=5)
   ),
@@ -2259,121 +2277,121 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Deerball": MMXCMLocationData(
     name="Deerball",
-    code=363,
+    code=366,
     parent_region="Lagrano Ruins",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=5)
   ),                                                                                  
   "Radar Killer": MMXCMLocationData(
     name="Radar Killer",
-    code=364,
+    code=367,
     parent_region="Tianna Camp",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=3)
   ),
   "Blowfish": MMXCMLocationData(
     name="Blowfish",
-    code=365,
+    code=368,
     parent_region="Tianna Camp",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=1)
   ),
   "Big Monkey": MMXCMLocationData(
     name="Big Monkey",
-    code=366,
+    code=369,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=0)
   ),
   "Preon": MMXCMLocationData(
     name="Preon",
-    code=367,
+    code=370,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=0)
   ),
   "Dober Man": MMXCMLocationData(
     name="Dober Man",
-    code=368,
+    code=371,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=1)
   ),
   "Mettaur": MMXCMLocationData(
     name="Mettaur",
-    code=369,
+    code=372,
     parent_region="Gaudile Laboratory",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=2)
   ),
   "Einhammer": MMXCMLocationData(
     name="Einhammer",
-    code=370,
+    code=373,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=1)
   ),
   "Killer Mantis": MMXCMLocationData(
     name="Killer Mantis",
-    code=371,
+    code=374,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=2)
   ),
   "Rush Loader": MMXCMLocationData(
     name="Rush Loader",
-    code=372,
+    code=375,
     parent_region="Ulfat Factory",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=2)
   ),
   "Mega Mantor": MMXCMLocationData(
     name="Mega Mantor",
-    code=373,
+    code=376,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=4)
   ),
   "Degraver": MMXCMLocationData(
     name="Degraver",
-    code=374,
+    code=377,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=3)
   ),
   "Bat Bone": MMXCMLocationData(
     name="Bat Bone",
-    code=375,
+    code=378,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=0)
   ),
   "Gold Blader": MMXCMLocationData(
     name="Gold Blader",
-    code=376,
+    code=379,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=5)
   ),
   "Liquid Glob": MMXCMLocationData(
     name="Liquid Glob",
-    code=377,
+    code=380,
     parent_region="Vanallia Desert",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=5)
   ),
   "Mega Tortoise": MMXCMLocationData(
     name="Mega Tortoise",
-    code=378,
+    code=381,
     parent_region="Vanallia Desert",
     ram_addr=MMXCMRamData(0x804A212D, bit_position=4)
   ),
   "Pararoid": MMXCMLocationData(
     name="Pararoid",
-    code=379,
+    code=382,
     parent_region="Vanallia Desert",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=3)
   ),
   "Meltdown": MMXCMLocationData(
     name="Meltdown", 
-    code=380,
+    code=383,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A212E, bit_position=6)
   ),
   "Rabbid": MMXCMLocationData(
     name="Rabbid",
-    code=381,
+    code=384,
     parent_region="Melda Ore Plant",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=4)
   ),
   "Bladey": MMXCMLocationData(
     name="Bladey",
-    code=382,
+    code=385,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A212C, bit_position=6)
   ),

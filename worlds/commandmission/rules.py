@@ -150,7 +150,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Electric Components", player)
 
         # Melda Ore Plant Key
-        elif location_name in ["B1 Entrance Hall MD 2", "B1 Entrance Hall MD 3", "B1 Entrance Hall MD 4", "Missile Maintenance Room MD 1"]:
+        elif location_name in ["B1 Entrance Hall Figure Token 1", "B1 Entrance Hall Figure Token 2", "B1 Entrance Hall Figure Token 3", "Missile Maintenance Room Absolute Zero"]:
             rules[location_name] = lambda state: state.has("Melda Key", player)
 
         # Mehaniloid Location Rules
