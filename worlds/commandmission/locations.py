@@ -1273,73 +1273,73 @@ ULFAT_FACTORY_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
       
 GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Level 1 Shaft Entrance MD 1": MMXCMLocationData(
+  "Level 1 Shaft Entrance Ultra Fire": MMXCMLocationData(
     name="Level 1 Shaft Entrance 1",
     code=203,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2169, bit_position=7)
   ),
-  "Level 1 Shaft Entrance MD 2": MMXCMLocationData(
+  "Level 1 Shaft Entrance Ultra Blizzard": MMXCMLocationData(
     name="Level 1 Shaft Entrance 2",
     code=204,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=0)
   ),
-  "Level 1 Shaft Entrance MD 3": MMXCMLocationData(
+  "Level 1 Shaft Entrance Ultra Thunder": MMXCMLocationData(
     name="Level 1 Shaft Entrance 3",
     code=205,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=1)
   ),
-  "Level 2 Main Tunnel MD 1": MMXCMLocationData(
+  "Level 2 Main Tunnel Anti-Lock": MMXCMLocationData(
     name="Level 2 Main Tunnel 1",
     code=206,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=3)
   ),
-  "Level 2 Main Tunnel MD 2": MMXCMLocationData(
+  "Level 2 Main Tunnel DOA Protection": MMXCMLocationData(
     name="Level 2 Main Tunnel 2",
     code=207,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=4)
   ),
-  "Level 2 Main Tunnel MD 3": MMXCMLocationData(
+  "Level 2 Main Tunnel 1200z": MMXCMLocationData(
     name="Level 2 Main Tunnel 3",
     code=208,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=5)
   ),
-  "Level 2 Main Tunnel MD 4": MMXCMLocationData(
+  "Level 2 Main Tunnel Figure Token 1": MMXCMLocationData(
     name="Level 2 Main Tunnel 4",
     code=209,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=6)
   ),
-  "Level 2 Main Tunnel MD 5": MMXCMLocationData(
+  "Level 2 Main Tunnel Figure Token 2": MMXCMLocationData(
     name="Level 2 Main Tunnel 5",
     code=210,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2168, bit_position=7)
   ),
-  "L2 Northwest Division MD 1": MMXCMLocationData(
+  "L2 Northwest Division Figure Token 1": MMXCMLocationData(
     name="L2 Northwest Division 1",
     code=211,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=0)
   ),
-  "L2 Northwest Division MD 2": MMXCMLocationData(
+  "L2 Northwest Division Figure Token 2": MMXCMLocationData(
     name="L2 Northwest Division 2",
     code=212,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=1)
   ),
-  "L2 Northwest Division MD 3": MMXCMLocationData(
+  "L2 Northwest Division Figure Token 3": MMXCMLocationData(
     name="L2 Northwest Division 3",
     code=213,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=2)
   ),
-  "L2 Southwest Division MD 1": MMXCMLocationData(
+  "L2 Southwest Division Mini Motor": MMXCMLocationData(
     name="L2 Southwest Division 1",
     code=214,
     parent_region="Gimialla Mine",
@@ -1352,49 +1352,49 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A210E, bit_position=4)
   ),
-  "L2 Southeast Division MD 1": MMXCMLocationData(
+  "L2 Southeast Division Ace of Spades": MMXCMLocationData(
     name="L2 Southeast Division 1",
     code=216,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216E, bit_position=1)
   ),
-  "L2 Southeast Division MD 2": MMXCMLocationData(
+  "L2 Southeast Division Figure Token": MMXCMLocationData(
     name="L2 Southeast Division 2",
     code=217,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216E, bit_position=2)
   ),
-  "L2 Northeast Division MD 1": MMXCMLocationData(
+  "L2 Northeast Division Tank Parts": MMXCMLocationData(
     name="L2 Northeast Division 1",
     code=218,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=3)
   ),
-  "L2 Northeast Division MD 2": MMXCMLocationData(
+  "L2 Northeast Division Build LE": MMXCMLocationData(
     name="L2 Northeast Division 2",
     code=219,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=4)
   ),
-  "L2 Northeast Division MD 3": MMXCMLocationData(
+  "L2 Northeast Division 800 FME": MMXCMLocationData(
     name="L2 Northeast Division 3",
     code=220,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216F, bit_position=5)
   ),
-  "Level 3 Main Tunnel MD 1": MMXCMLocationData(
+  "Level 3 Main Tunnel Figure Token 1": MMXCMLocationData(
     name="Level 3 Main Tunnel 1",
     code=221,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216E, bit_position=3)
   ),
-  "Level 3 Main Tunnel MD 2": MMXCMLocationData(
+  "Level 3 Main Tunnel Figure Token 2": MMXCMLocationData(
     name="Level 3 Main Tunnel 2",
     code=222,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216E, bit_position=4)
   ),
-  "Level 3 Main Tunnel MD 3": MMXCMLocationData(
+  "Level 3 Main Tunnel Tank Energy 100": MMXCMLocationData(
     name="Level 3 Main Tunnel 3",
     code=223,
     parent_region="Gimialla Mine",
@@ -1406,19 +1406,19 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2113, bit_position=4)
   ),
-  "L3 Northwest Division MD 1": MMXCMLocationData(
+  "L3 Northwest Division Ace of Hearts": MMXCMLocationData(
     name="L3 Northwest Division 1",
     code=225,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216D, bit_position=0)
   ),
-  "L3 Northwest Division MD 2": MMXCMLocationData(
+  "L3 Northwest Division Figure Token": MMXCMLocationData(
     name="L3 Northwest Division 2",
     code=226,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216D, bit_position=1)
   ),
-  "L3 Northwest Division MD 3": MMXCMLocationData(
+  "L3 Northwest Division 1300z": MMXCMLocationData(
     name="L3 Northwest Division 3",
     code=227,
     parent_region="Gimialla Mine",
@@ -1436,7 +1436,7 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A210C, bit_position=2)
   ),
-  "L3 Northeast Division MD 1": MMXCMLocationData(
+  "L3 Northeast Division Force Missiles": MMXCMLocationData(
     name="L3 Northeast Division 1",
     code=230,
     parent_region="Gimialla Mine",
@@ -1448,79 +1448,79 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A210C, bit_position=7) 
   ),
-  "L3 Southwest Division MD 1": MMXCMLocationData(
+  "L3 Southwest Division Tank Parts": MMXCMLocationData(
     name="L3 Southwest Division 1",
     code=232,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216D, bit_position=5) 
   ),
-  "L3 Southwest Division MD 2": MMXCMLocationData(
+  "L3 Southwest Division Figure Token 1": MMXCMLocationData(
     name="L3 Southwest Division 2",
     code=233,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216D, bit_position=6)
   ),
-  "L3 Southwest Division MD 3": MMXCMLocationData(
+  "L3 Southwest Division Figure Token 2": MMXCMLocationData(
     name="L3 Southwest Division 3",
     code=234,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216D, bit_position=7)
   ),
-  "Level 4 Main Tunnel MD 1": MMXCMLocationData(
+  "Level 4 Main Tunnel Tank Energy 100": MMXCMLocationData(
     name="Level 4 Main Tunnel 1",
     code=235,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=0)
   ),
-  "Level 4 Main Tunnel MD 2": MMXCMLocationData(
+  "Level 4 Main Tunnel Gain Hyper": MMXCMLocationData(
     name="Level 4 Main Tunnel 2",
     code=236,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=1)
   ),
-  "Level 4 Main Tunnel MD 3": MMXCMLocationData(
+  "Level 4 Main Tunnel Build Power": MMXCMLocationData(
     name="Level 4 Main Tunnel 3",
     code=237,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=2)
   ),
-  "Level 4 Main Tunnel MD 4": MMXCMLocationData(
+  "Level 4 Main Tunnel Build Armor": MMXCMLocationData(
     name="Level 4 Main Tunnel 4",
     code=238,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=3)
   ),
-  "Level 4 Main Tunnel MD 5": MMXCMLocationData(
+  "Level 4 Main Tunnel Build Shield": MMXCMLocationData(
     name="Level 4 Main Tunnel 5",
     code=239,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=4)
   ),
-  "Level 4 Main Tunnel MD 6": MMXCMLocationData(
+  "Level 4 Main Tunnel Build Speed": MMXCMLocationData(
     name="Level 4 Main Tunnel 6",
     code=240,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=5)
   ),
-  "Level 4 Main Tunnel MD 7": MMXCMLocationData(
+  "Level 4 Main Tunnel Build WE": MMXCMLocationData(
     name="Level 4 Main Tunnel 7",
     code=241,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=6)
   ),
-  "Level 4 Durability Lab MD 1": MMXCMLocationData(
+  "Level 4 Durability Lab Fire Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 1",
     code=242,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A216C, bit_position=7)
   ),
-  "Level 4 Durability Lab MD 2": MMXCMLocationData(
+  "Level 4 Durability Lab Water Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 2",
     code=243,
     parent_region="Gimialla Mine",
     ram_addr=MMXCMRamData(0x804A2173, bit_position=0)
   ),
-  "Level 4 Durability Lab MD 3": MMXCMLocationData(
+  "Level 4 Durability Lab Thunder Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 3",
     code=244,
     parent_region="Gimialla Mine",

@@ -130,9 +130,9 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Tianna Key", player)
 
         # Gimialla Mine Keys & Items
-        elif location_name in ["L2 Southwest Division MD 1", "L2 Southeast Division MD 2", "L2 Northeast Division MD 1"]:
+        elif location_name in ["L2 Southwest Division Mini Motor", "L2 Southeast Division Figure Token", "L2 Northeast Division Tank Parts"]:
             rules[location_name] = lambda state: state.has("Booster Parts", player)
-        elif location_name == "L2 Northeast Division MD 3":
+        elif location_name == "L2 Northeast Division Build LE":
             rules[location_name] = lambda state: state.has("Mega Mantor", player)
         elif location_name == "L3 Main Tunnel Blue Miner Trade Complete":
             rules[location_name] = lambda state: state.has("Blue Pickaxe", player)
@@ -142,11 +142,11 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Yellow Pickaxe", player)
         elif location_name == "L3 Northeast Division Green Miner Trade Complete":
             rules[location_name] = lambda state: state.has("Green Pickaxe", player)
-        elif location_name in ["L3 Southwest Division MD 2", "L3 Southwest Division MD 3"]:
+        elif location_name in ["L3 Southwest Division Figure Token 1", "L3 Southwest Division Figure Token 2"]:
             rules[location_name] = lambda state: state.has("Gimialla Key", player)
-        elif location_name == "L3 Southwest Division MD 1":
-            rules[location_name] = lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) or state.has("Gold Blader", player)
-        elif location_name in ["Level 4 Main Tunnel MD 1", "Level 4 Main Tunnel MD 2", "Level 4 Main Tunnel MD 3", "Level 4 Main Tunnel MD 4", "Level 4 Main Tunnel MD 5", "Level 4 Main Tunnel MD 6", "Level 4 Main Tunnel MD 7", "Level 4 Durability Lab MD 1", "Level 4 Durability Lab MD 2", "Level 4 Durability Lab MD 3"]:
+        elif location_name == "L3 Southwest Division Tank Parts":
+            rules[location_name] = lambda state: state.has("Gimialla Key", player) and state.has("Heavy Motor", player) and state.has("Gold Blader", player)
+        elif location_name in ["Level 4 Main Tunnel Tank Energy 100", "Level 4 Main Tunnel Gain Hyper", "Level 4 Main Tunnel Build Power", "Level 4 Main Tunnel Build Armor", "Level 4 Main Tunnel Build Shield", "Level 4 Main Tunnel Build Speed", "Level 4 Main Tunnel Build WE", "Level 4 Durability Lab Water Guard", "Level 4 Durability Lab Thunder Guard", "Level 4 Durability Lab Fire Guard"]:
             rules[location_name] = lambda state: state.has("Electric Components", player)
 
         # Melda Ore Plant Key
