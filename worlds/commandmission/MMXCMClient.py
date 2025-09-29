@@ -197,7 +197,7 @@ async def game_watcher(ctx: MMXCMContext):
         if not ctx.finished_game:
             try:
                 # Get the RAM data for the Great Redips event. This is our "beating the game". 
-                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].get("ram_addr")
+                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_addr
 
                 if redips_ram_data:
                     # Read the value at the event's memory address.
