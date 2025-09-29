@@ -7,7 +7,7 @@ import NetUtils
 from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, gui_enabled, logger, server_loop
 import dolphin_memory_engine as dolphin
 
-from NetUtils import NetworkItem, ClientStatus
+from NetUtils import NetworkItem
 from worlds.commandmission.helpers import CONNECTION_INITIAL_STATUS, CONNECTION_CONNECTED_STATUS, \
     CONNECTION_REFUSED_STATUS, CONNECTION_VERIFY_SERVER, CONNECTION_LOST_STATUS
 from worlds.commandmission.locations import LOCATION_TABLE
