@@ -3,10 +3,11 @@ import struct
 import traceback
 from typing import Optional
 
+import NetUtils
 from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, gui_enabled, logger, server_loop
 import dolphin_memory_engine as dolphin
 
-from NetUtils import NetworkItem
+from NetUtils import NetworkItem, ClientStatus
 from worlds.commandmission.helpers import CONNECTION_INITIAL_STATUS, CONNECTION_CONNECTED_STATUS, \
     CONNECTION_REFUSED_STATUS, CONNECTION_VERIFY_SERVER, CONNECTION_LOST_STATUS
 from worlds.commandmission.locations import LOCATION_TABLE
@@ -205,8 +206,11 @@ async def game_watcher(ctx: MMXCMContext):
                     # Check if the bit for defeating Redips is set.
                     if boss_defeated_value == 9:
                         print("Final boss defeated! Signaling game completion to the server.")
-                        await ctx.CLIENT_GOAL()
                         ctx.finished_game = True  # This ends the while loop on the next pass.
+                        await ctx.send_msgs([{
+                            "cmd": "StatusUpdate",
+                            "status": NetUtils.ClientStatus.CLIENT_GOAL,
+                        }])
             except Exception as e:
                 # This will catch errors if the game state is not readable or the address is invalid.
                 print(f"Error checking for game completion: {e}")
