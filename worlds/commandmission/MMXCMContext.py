@@ -1,6 +1,9 @@
 from CommonClient import CommonContext
 from NetUtils import NetworkItem
 from typing import Dict
+import dolphin_memory_engine as dolphin
+
+from worlds.commandmission.helpers import CONNECTION_LOST_STATUS
 
 
 class MMXCMContext(CommonContext):
@@ -10,11 +13,24 @@ class MMXCMContext(CommonContext):
   This will hold all the game information, state, and functionality to run the client.
   """
 
+  async def disconnect(self, allow_autoreconnect: bool = False):
+      """
+      Disconnect the client from the server and reset game state variables.
+
+      :param allow_autoreconnect: Allow the client to auto-reconnect to the server. Defaults to `False`.
+
+      """
+      await super().disconnect(allow_autoreconnect)
+      self.auth = None
+      dolphin.un_hook()
+      self.dolphin_status = CONNECTION_LOST_STATUS
+      self.already_fired_events = False
+
   item_id_to_name: Dict[int, str]
 
   slot_to_player_name: Dict[int,str]
 
-  def __init__(self, server_address: str = "", settings: dict = {}, *args, **kwargs):
+  def __init__(self, server_address: str = "", settings: dict = None, *args, **kwargs):
       super().__init__(server_address, *args, **kwargs)
     
       # We will use this list to store every location already checked.
