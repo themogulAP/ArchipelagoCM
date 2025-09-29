@@ -175,9 +175,11 @@ async def game_watcher(ctx: MMXCMContext):
         newly_checked_locations = []
         for location_name, location_info in LOCATION_TABLE.items():
             if location_name not in checked_locations_in_game:
+                # Sets ram _data to default none to avoid the errors.
+                ram_data = None
                 # Reads the value at the locations RAM address.
                 try:
-                    ram_data = location_info.get('ram_addr')
+                    ram_data = location_info.ram_addr
                     if ram_data:
                         # Read the value at the locations RAM address.
                         location_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
@@ -186,7 +188,7 @@ async def game_watcher(ctx: MMXCMContext):
                             newly_checked_locations.append(location_name)
                             checked_locations_in_game.add(location_name)
                 except Exception as e:
-                    print(f"Error reading location '{location_name}' at address {hex(location_info['ram_addr'])}: {e}")
+                    print(f"Error reading location '{location_name}' at address {hex(ram_data.ram_addr)}: {e}")
 
         if newly_checked_locations:
             print(f"Found new locations: {newly_checked_locations}")
