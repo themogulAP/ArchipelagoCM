@@ -1,4 +1,4 @@
-import asyncio, json
+import asyncio
 import struct
 import traceback
 from typing import Optional
@@ -13,7 +13,6 @@ from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
 from worlds.tww.TWWClient import read_string
 from .MMXCMContext import MMXCMContext
-from . import helpers
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
