@@ -47,12 +47,15 @@ def set_rules(world: "MMXCMWorld"):
     for location_name, rule in get_rules_dict(world).items():
         add_rule(world.multiworld.get_location(location_name, world.player), rule)
 
-    # Prevent other access codes from being placed in the Far East HQ region.
+    # Prevent other access codes and important key items from being placed in the Far East HQ region.
     far_east_hq_region = world.multiworld.get_region("Far East HQ", world.player)
     # Use the keys from the imported ACCESS_CODES_DATA dictionary.
     non_far_east_access_codes = {code for code in ACCESS_CODES_DATA.keys() if code != "Far East HQ Access Code"}
     for location in far_east_hq_region.locations:
         add_item_rule(location, lambda item: item.name not in non_far_east_access_codes)
+
+    for location in far_east_hq_region.locations:
+        add_item_rule(location, lambda item: item.name != "Electric Components")
 
 #This is the logic behind the rules we will set for each location.
 def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
