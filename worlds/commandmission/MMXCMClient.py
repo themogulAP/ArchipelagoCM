@@ -371,7 +371,6 @@ async def game_watcher(ctx: MMXCMContext):
         
         await asyncio.sleep(1) # Can set this so sleep to avoid CPU usage.
 
-    dolphin.disconnect()
     print("Disconnected from Dolphin.")
 
 async def async_main(output_data: Optional[str] = None):
@@ -379,6 +378,7 @@ async def async_main(output_data: Optional[str] = None):
     This is the main function that will be called by the `CommonClient`
     to start our client.
     """
+
     if output_data:
         from .MMXCMPatcher import MMXCMPatcher
         mmxcm_patch = MMXCMPatcher(output_data)
@@ -396,7 +396,7 @@ async def async_main(output_data: Optional[str] = None):
 
     await dolphin_connect_loop(ctx)
     
-    await server_loop(ctx, game_watcher, "Game")
+    await server_loop(ctx, game_watcher)
 
 if __name__ == "__main__":
     # This ensures that the script will run the main function when executed.
