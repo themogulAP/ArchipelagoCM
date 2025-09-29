@@ -1961,211 +1961,211 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
 
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Level E Security Zone MD 1": MMXCMLocationData(
+  "Level E Security Zone Figure Token 1": MMXCMLocationData(
     name="Level E Security Zone 1",
     code=316,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=2)
   ),
-  "Level E Security Zone MD 2": MMXCMLocationData(
+  "Level E Security Zone 5000z": MMXCMLocationData(
     name="Level E Security Zone 2",
     code=317,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=3)
   ),
-  "Level D Security Zone MD 1": MMXCMLocationData(
+  "Level D Security Zone Beam Miracle S": MMXCMLocationData(
     name="Level D Security Zone 1",
     code=318,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=5)
   ),
-  "Level C Security Zone MD 1": MMXCMLocationData(
+  "Level C Security Zone Tank Energy 100": MMXCMLocationData(
     name="Level C Security Zone 1",
     code=319,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2178, bit_position=7)
   ),
-  "Level C Security Zone MD 2": MMXCMLocationData(
+  "Level C Security Zone Figure Token 1": MMXCMLocationData(
     name="Level C Security Zone 2",
     code=320,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=0)
   ),
-  "Level C Security Zone MD 3": MMXCMLocationData(
+  "Level C Security Zone Unlock Limiter": MMXCMLocationData(
     name="Level C Security Zone 3",
     code=321,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=1)
   ),
-  "Level C Security Zone MD 4": MMXCMLocationData(
+  "Level C Security Zone Gain Hyper": MMXCMLocationData(
     name="Level C Security Zone 4",
     code=322,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=2)
   ),
-  "Level C Security Zone MD 5": MMXCMLocationData(
+  "Level C Security Zone 3000 FME": MMXCMLocationData(
     name="Level C Security Zone 5",
     code=323,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=3)
   ),
-  "Level B Security Zone MD 1": MMXCMLocationData(
+  "Level B Security Zone Cure All": MMXCMLocationData(
     name="Level B Security Zone 1",
     code=324,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217F, bit_position=7)
   ),
-  "Level B Security Zone MD 2": MMXCMLocationData(
+  "Level B Security Zone Backup": MMXCMLocationData(
     name="Level B Security Zone 2",
     code=325,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=0)
   ),
-  "Battle Field MD 1": MMXCMLocationData(
+  "Battle Field Build Power": MMXCMLocationData(
     name="Battle Field 1",
     code=326,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=0)
   ),
-  "Battle Field MD 2": MMXCMLocationData(
+  "Battle Field Build Armor": MMXCMLocationData(
     name="Battle Field 2",
     code=327,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=1)
   ),
-  "Battle Field MD 3": MMXCMLocationData(
+  "Battle Field Build Shield": MMXCMLocationData(
     name="Battle Field 3",
     code=328,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=2)
   ),
-  "Battle Field MD 4": MMXCMLocationData(
+  "Battle Field Build Speed": MMXCMLocationData(
     name="Battle Field 4",
     code=329,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=3)
   ),
-  "Battle Field MD 5": MMXCMLocationData(
+  "Battle Field Build Hyper": MMXCMLocationData(
     name="Battle Field 5",
     code=330,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=5)
   ),
-  "Battle Field MD 6": MMXCMLocationData(
+  "Battle Field Build LE": MMXCMLocationData(
     name="Battle Field 6",
     code=331,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=6)
   ),
-  "Battle Field MD 7": MMXCMLocationData(
+  "Battle Field Build WE": MMXCMLocationData(
     name="Battle Field 7",
     code=332,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=7)
   ),
-  "Revolver Shaft Area MD 1": MMXCMLocationData(
+  "Revolver Shaft Area Tank Energy 25": MMXCMLocationData(
     name="Revolver Shaft Area 1",
     code=333,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=2)
   ),
-  "Revolver Shaft Area MD 2": MMXCMLocationData(
+  "Revolver Shaft Area Tank Energy 50": MMXCMLocationData(
     name="Revolver Shaft Area 2",
     code=334,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=3)
   ),
-  "Revolver Room #4 MD 1": MMXCMLocationData(
+  "Revolver Room #4 Z Saber+++": MMXCMLocationData(
     name="Revolver Room #4 1",
     code=335,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=5)
   ),
-  "Revolver Room #6 MD 1": MMXCMLocationData(
+  "Revolver Room #6 Vitality Missiles": MMXCMLocationData(
     name="Revolver Room #6 1",
     code=336,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=6)
   ),
-  "Revolver Room #7 MD 1": MMXCMLocationData(
+  "Revolver Room #7 Tank Parts": MMXCMLocationData(
     name="Revolver Room #7 1",
     code=337,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=7)
   ),
-  "Revolver Shaft Area Right Side MD 1": MMXCMLocationData(
+  "Revolver Shaft Area Right Side Tank Energy 50": MMXCMLocationData(
     name="Revolver Shaft Area Right Side 1",
     code=338,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217E, bit_position=4)
   ),
-  "Level S Top Security Zone MD 1": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 1": MMXCMLocationData(
     name="Level S Top Security Zone 1",
     code=339,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=1)
   ),
-  "Level S Top Security Zone MD 2": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 2": MMXCMLocationData(
     name="Level S Top Security Zone 2",
     code=340,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=2)
   ),
-  "Level S Top Security Zone MD 3": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 3": MMXCMLocationData(
     name="Level S Top Security Zone 3",
     code=341,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=3)
   ),
-  "Level S Top Security Zone MD 4": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 4": MMXCMLocationData(
     name="Level S Top Security Zone 4",
     code=342,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=4)
   ),
-  "Level S Top Security Zone MD 5": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 5": MMXCMLocationData(
     name="Level S Top Security Zone 5",
     code=343,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=0)
   ),
-  "Level S Top Security Zone MD 6": MMXCMLocationData(
+  "Level S Top Security Zone Super Absorber": MMXCMLocationData(
     name="Level S Top Security Zone 6",
     code=344,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=1)
   ),
-  "Level S Top Security Zone MD 7": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 6": MMXCMLocationData(
     name="Level S Top Security Zone 7",
     code=345,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=5)
   ),
-  "Level S Top Security Zone MD 8": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 7": MMXCMLocationData(
     name="Level S Top Security Zone 8",
     code=346,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=6)
   ),
-  "Level S Top Security Zone MD 9": MMXCMLocationData(
+  "Level S Top Security Zone Figure Token 8": MMXCMLocationData(
     name="Level S Top Security Zone 9",
     code=347,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217D, bit_position=7)
   ),
-  "Final Gate MD 1": MMXCMLocationData(
+  "Final Gate Tank Energy 100 1": MMXCMLocationData(
     name="Final Gate 1",
     code=348,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=2)
   ),
-  "Final Gate MD 2": MMXCMLocationData(
+  "Final Gate Tank Energy 100 2": MMXCMLocationData(
     name="Final Gate 2",
     code=349,
     parent_region="Grave Ruins Base",
     ram_addr=MMXCMRamData(0x804A217C, bit_position=3)
   ),
-  "Final Gate MD 3": MMXCMLocationData(
+  "Final Gate Gain Hyper": MMXCMLocationData(
     name="Final Gate 3",
     code=350,
     parent_region="Grave Ruins Base",
@@ -2174,91 +2174,91 @@ GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
 }
 
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Teleport Terminal MD 1": MMXCMLocationData(
+  "Teleport Terminal Tank Parts": MMXCMLocationData(
     name="Teleport Terminal 1",
     code=351,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=0)
   ),
-  "Teleport Terminal MD 2": MMXCMLocationData(
+  "Teleport Terminal Build Hyper": MMXCMLocationData(
     name="Teleport Terminal 2",
     code=352,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=1)
   ),
-  "Teleport Terminal MD 3": MMXCMLocationData(
+  "Teleport Terminal Figure Token 1": MMXCMLocationData(
     name="Teleport Terminal 3",
     code=353,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=6)
   ),
-  "Teleport Terminal MD 4": MMXCMLocationData(
+  "Teleport Terminal Figure Token 2": MMXCMLocationData(
     name="Teleport Terminal 4",
     code=354,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=7)
   ),
-  "Final Gate Chapter 10 MD 1": MMXCMLocationData(
+  "Final Gate Chapter 10 Figure Token 1": MMXCMLocationData(
     name="Final Gate Chapter 10-1",
     code=355,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=4)
   ),
-  "Final Gate Chapter 10 MD 2": MMXCMLocationData(
+  "Final Gate Chapter 10 Figure Token 2": MMXCMLocationData(
     name="Final Gate Chapter 10-2",
     code=356,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=5)
   ),
-  "Final Gate Chapter 10 MD 3": MMXCMLocationData(
+  "Final Gate Chapter 10 5000 FME": MMXCMLocationData(
     name="Final Gate Chapter 10-3",
     code=357,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=6)
   ),
-  "Final Gate Chapter 10 MD 4": MMXCMLocationData(
+  "Final Gate Chapter 10 10000z": MMXCMLocationData(
     name="Final Gate Chapter 10-4",
     code=358,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2183, bit_position=7)
   ),
-  "Final Gate Chapter 10 MD 5": MMXCMLocationData(
+  "Final Gate Chapter 10 Cure All": MMXCMLocationData(
     name="Final Gate Chapter 10-5",
     code=359,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=0)
   ),
-  "Final Gate Chapter 10 MD 6": MMXCMLocationData(
+  "Final Gate Chapter 10 Backup": MMXCMLocationData(
     name="Final Gate Chapter 10-6",
     code=360,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=1)
   ),
-  "Final Gate Chapter 10 MD 7": MMXCMLocationData(
+  "Final Gate Chapter 10 Gain Hyper": MMXCMLocationData(
     name="Final Gate Chapter 10-7",
     code=361,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=2)
   ),
-  "Final Gate Chapter 10 MD 8": MMXCMLocationData(
+  "Final Gate Chapter 10 Tank Energy 100": MMXCMLocationData(
     name="Final Gate Chapter 10-8",
     code=362,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=3)
   ),
-  "Super-Strato Terminal MD 1": MMXCMLocationData(
+  "Super-Strato Terminal Figure Token 1": MMXCMLocationData(
     name="Super Strato Terminal 1",
     code=363,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2181, bit_position=2)
   ),
-  "Blue Earth Tunnel MD 1": MMXCMLocationData(
+  "Blue Earth Tunnel Gain Hyper": MMXCMLocationData(
     name="Blue Earth Tunnel 1",
     code=364,
     parent_region="Far East HQ",
     ram_addr=MMXCMRamData(0x804A2182, bit_position=4)
   ),
-  "Blue Earth Tunnel MD 2": MMXCMLocationData(
+  "Blue Earth Tunnel Tank Energy Infinite": MMXCMLocationData(
     name="Blue Earth Tunnel 2",
     code=365,
     parent_region="Far East HQ",
