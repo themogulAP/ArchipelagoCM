@@ -1,5 +1,6 @@
 from CommonClient import CommonContext
 from NetUtils import NetworkItem
+from typing import Dict
 
 
 class MMXCMContext(CommonContext):
@@ -8,6 +9,11 @@ class MMXCMContext(CommonContext):
   This will inherit from the core class "CommonContext" in AP.
   This will hold all the game information, state, and functionality to run the client.
   """
+
+  item_id_to_name: Dict[int, str]
+
+  slot_to_player_name: Dict[int,str]
+
   def __init__(self, server_address: str = "", settings: dict = {}, *args, **kwargs):
       super().__init__(server_address, *args, **kwargs)
     
