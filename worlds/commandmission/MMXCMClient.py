@@ -389,7 +389,7 @@ async def async_main(output_data: Optional[str] = None):
 
     # Create our context and initialize the command processor.
     ctx = MMXCMContext(args.connect, args.password)
-    ctx.command_processor = MMXCMCommandProcessor(ctx)
+    ctx.command_processor = MMXCMCommandProcessor
 
     # Run the client!
     ctx.run_gui = gui_enabled
