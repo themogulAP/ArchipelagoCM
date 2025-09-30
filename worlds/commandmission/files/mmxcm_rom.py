@@ -179,7 +179,7 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
 
 def get_base_rom_path() -> str:
     options: Settings = get_settings()
-    file_name = options["commandmission_options"]["iso_file"]
+    file_name = (options.get("commandmission_options", "")).get("iso_file", "")
     if not os.path.exists(file_name):
         file_name = Utils.user_path(file_name)
     return file_name

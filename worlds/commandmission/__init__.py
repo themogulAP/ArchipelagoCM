@@ -1,9 +1,8 @@
 from typing import ClassVar
 
-from dataclasses import fields
-
 from BaseClasses import Region, Location, Item
 from worlds.AutoWorld import World
+from .files.mmxcm_settings import MMXCMSettings
 from .items import ALL_ITEMS_TABLE, FILLER_TABLE
 from .locations import LOCATION_TABLE
 from .rules import set_rules, REBELLION_MEDALS_GROUP
@@ -38,6 +37,7 @@ class MMXCMWorld(World):
   options: MMXCMOptions
   topology_present: ClassVar[bool] = False
   data_version: ClassVar[int] = 1
+  settings: MMXCMSettings
 
   # This will tell AP what our group actually is for Rebellion Medals.
   item_name_groups: ClassVar[dict[str, frozenset[str]]] = {
