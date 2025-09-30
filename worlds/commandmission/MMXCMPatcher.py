@@ -1,11 +1,5 @@
 import os 
-import json 
-import copy 
-import re
-import tempfile
-from math import ceil 
-from random import choice, randint 
-import shutil 
+import json
 import struct, zipfile
 
 from gclib.gcm import GCM 
@@ -15,7 +9,6 @@ import Utils
 from .items import ALL_ITEMS_TABLE, MMXCMItemData 
 from .locations import LOCATION_TABLE, MMXCMLocationData
 from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME
-#from .files.mmxcm_rom import RANDOMIZER_NAME
 
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
@@ -288,24 +281,24 @@ class MMXCMPatcher:
 
         print("Applying Internal Code Patches...") 
 
-        for patch in CODE_PATCHES: 
-            try: 
-                address = patch["address"] 
-                data_to_write = bytes(patch["data"]) 
-            
-                # Seeks the specific DOL Offset. 
-                self.dol.data.seek(address) 
-            
-                # Write the new bytes, overwriting old PowerPc command. 
-                self.dol.data.write(data_to_write) 
-            
-                # We want to have GClib just do this to target the DOL!  
-            
-                print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.") 
-            except KeyError as e: 
-                print(f"Skipping malformed patch data: missing key {e}") 
-            except Exception as e: 
-                print(f"An error occured while applying a code patch: {e}") 
+        for patch in CODE_PATCHES:
+            try:
+                address = patch["address"]
+                data_to_write = bytes(patch["data"])
+
+                # Seeks the specific DOL Offset.
+                self.dol.data.seek(address)
+
+                # Write the new bytes, overwriting old PowerPc command.
+                self.dol.data.write(data_to_write)
+
+                # We want to have GClib just do this to target the DOL!
+
+                print(f"Wrote {len(data_to_write)} bytes at address {hex(address)}.")
+            except KeyError as e:
+                print(f"Skipping malformed patch data: missing key {e}")
+            except Exception as e:
+                print(f"An error occured while applying a code patch: {e}")
         print("Internal code patching complete.")
 
         #This is the loop for calling the REFACTORED item to location information above. 
