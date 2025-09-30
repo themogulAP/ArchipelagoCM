@@ -2,6 +2,7 @@ import asyncio
 import struct
 import sys
 import traceback
+from typing import Dict
 
 import NetUtils
 from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, logger, server_loop
@@ -13,7 +14,7 @@ from worlds.commandmission.helpers import CONNECTION_INITIAL_STATUS, CONNECTION_
 from worlds.commandmission.locations import LOCATION_TABLE
 from worlds.commandmission.items import ALL_ITEMS_TABLE
 from worlds.tww.TWWClient import read_string
-from .MMXCMContext import MMXCMContext
+
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
@@ -94,7 +95,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
 
 
 class MMXCMCommandProcessor(ClientCommandProcessor):
-    def __init__(self, ctx: MMXCMContext):
+    def __init__(self, ctx: 'MMXCMContext'):
         super().__init__(ctx)
 
     def _cmd_mmxcm(self, *args):
@@ -104,6 +105,88 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
         """
         print("Mega Man X: Command Mission Client.")
 
+class MMXCMContext(CommonContext):
+    command_processor = MMXCMCommandProcessor
+    game = "Mega Man X: Command Mission"
+    items_handling = 0b111
+    dolphin_connected: bool = False
+    seed_verified: bool = False
+    slot_data: dict | None = {}
+    checked_locations = set()
+
+    item_id_to_name: Dict[int, str]
+
+    slot_to_player_name: Dict[int, str]
+
+    def __init__(self, server_address, password):
+        """
+        Initialize the MMXCM Context
+        :param server_address: Address of AP Server.
+        :param password: Password for the server.
+        """
+        super().__init__(server_address, password)
+
+        #List the variables needed for connection.
+        self.slot = None
+        self.slot_data = None
+        self.team =None
+
+        self.items_received = []
+
+    async def server_auth(self, password_requested: bool = False):
+        if password_requested and not self.password:
+            await super(MMXCMContext, self).server_auth(password_requested)
+
+        await self.get_username() # Gets the player name and alias.
+        await self.send_connect() # Sends final Connection packet to server.
+
+    def on_package(self, cmd: str, args: dict):
+        """
+        Handles the incoming network pakages from the server.
+        """
+        super().on_package(cmd,args)
+
+        slot_data = args.get("slot_data", {})
+
+        match cmd:
+            case "Connected":
+
+                # Seed verification step.
+                arg_seed = str(slot_data["seed"])
+
+                try:
+                    #Read the ISO seed #
+                    iso_seed = read_string(0x80000001, len(arg_seed))
+                except Exception:
+                    iso_seed = ""
+
+                if arg_seed != iso_seed:
+                    print("Error! Incorrect Randomized MMXCM Iso File. Seed does not match!")
+                else:
+                    self.seed_verified = True
+                    print("Game seed verified successfully")
+
+                self.slot_data = slot_data
+                print("Successfully connected to the Archipelago server!")
+
+            case "ReceivedItems":
+                # This is the package sent when we get something from a different player.
+                items_to_add = []
+                for item in args["items"]:
+                    # This is the format of the item.
+                    items_to_add.append(NetworkItem(*item))
+
+                self.items_received.extend(items_to_add)
+
+    async def disconnect(self, allow_autoreconnect: bool = False):
+        await super().disconnect(allow_autoreconnect)
+
+        self.slot = None
+        self.team = None
+        self.slot_data = None
+        self.checked_locations = set()
+        self.seed_verified = False
+        self.dolphin_connected = False
 
 async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str):
     """
@@ -404,8 +487,7 @@ async def async_main(*launch_args: str):
 
         await dolphin_connect_loop(ctx)
 
-        ctx.dolphin_sync_task = asyncio.create_task(server_loop(ctx),
-                                                    name="MMXCM GameWatcher")
+        ctx.dolphin_sync_task = asyncio.create_task(server_loop(ctx), name="MMXCM GameWatcher")
 
         if ctx.dolphin_sync_task:
             await ctx.dolphin_sync_task
