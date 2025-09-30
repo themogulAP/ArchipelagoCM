@@ -15,8 +15,8 @@ import random
 import os
 
 def run_client(*args):
-    from .MMXCMClient import async_main  # lazy import
-    launch_subprocess(async_main, name="MMMXCMClient", args=args)
+    from .MMXCMClient import sync_main  # lazy import
+    launch_subprocess(sync_main, name="MMMXCMClient", args=args)
 
 # Adds the launcher for our component and our client logo.
 components.append(
