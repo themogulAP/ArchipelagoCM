@@ -1,10 +1,10 @@
 import asyncio
 import struct
+import sys
 import traceback
-from typing import Optional
 
 import NetUtils
-from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, gui_enabled, logger, server_loop
+from CommonClient import ClientCommandProcessor, CommonContext, get_base_parser, logger, server_loop
 import dolphin_memory_engine as dolphin
 
 from NetUtils import NetworkItem
@@ -41,8 +41,9 @@ INVENTORY_INFO = {
     }
 }
 
-async def wait_for_next_loop():
-    await asyncio.sleep(5)
+async def wait_for_next_loop(time_to_wait: int):
+    await asyncio.sleep(time_to_wait)
+
 
 # Starts the full loop and debug messages for connecting to Dolphin.
 async def dolphin_connect_loop(ctx: CommonContext):
@@ -57,7 +58,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
                     dolphin.un_hook()
                 ctx.dolphin_status = CONNECTION_INITIAL_STATUS
                 logger.info(ctx.dolphin_status)
-                await wait_for_next_loop()
+                await wait_for_next_loop(5)
                 continue
 
             # If the Game ID is a standard one, disconnect because it isnt the randomized ROM.
@@ -67,7 +68,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
                     logger.info(CONNECTION_REFUSED_STATUS)
                     ctx.dolphin_status = CONNECTION_REFUSED_STATUS
                     dolphin.un_hook()
-                    await wait_for_next_loop()
+                    await wait_for_next_loop(5)
                     continue
 
             ctx.locations_checked = set()
@@ -79,7 +80,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
             await ctx.server_auth()
 
             if not ctx.slot:
-                await wait_for_next_loop()
+                await wait_for_next_loop(5)
                 continue
 
         except Exception:
@@ -91,6 +92,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
             await asyncio.sleep(5)
             continue
 
+
 class MMXCMCommandProcessor(ClientCommandProcessor):
     def __init__(self, ctx: MMXCMContext):
         super().__init__(ctx)
@@ -101,6 +103,7 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
         Serving as a place holder until we need custom commands!
         """
         print("Mega Man X: Command Mission Client.")
+
 
 async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str):
     """
@@ -138,23 +141,25 @@ async def write_to_inventory(ctx: MMXCMContext, item: NetworkItem, inv_type: str
 
             # Write the item to the empty slot.
             dolphin.write_bytes(slot_address, item_id_bytes)
-            print (f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
-            return # Exit after writing the item to the inventory slot.
+            print(f"Wrote item {ctx.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
+            return  # Exit after writing the item to the inventory slot.
     print(f"Error: No empty {inv_type} slots found for item {item.item}!")
+
 
 async def mmxcm_update_non_savable_ram(self):
     value_to_write = bytes([1])
     memory_address = -0x804A20B1
 
     try:
-      while True:
-          dolphin.write_bytes(memory_address, value_to_write)
-          #Add the small delay to prevent the loop.
-          await asyncio.sleep(0.1)
+        while True:
+            dolphin.write_bytes(memory_address, value_to_write)
+            # Add the small delay to prevent the loop.
+            await asyncio.sleep(0.1)
     except Exception as e:
-      print(f"An error occurred: {e}")
+        print(f"An error occurred: {e}")
     finally:
-      print("RAM write operation has stopped.")
+        print("RAM write operation has stopped.")
+
 
 async def game_watcher(ctx: MMXCMContext):
     """
@@ -195,7 +200,7 @@ async def game_watcher(ctx: MMXCMContext):
 
         if not ctx.finished_game:
             try:
-                # Get the RAM data for the Great Redips event. This is our "beating the game". 
+                # Get the RAM data for the Great Redips event. This is our "beating the game".
                 redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_addr
 
                 if redips_ram_data:
@@ -213,7 +218,7 @@ async def game_watcher(ctx: MMXCMContext):
             except Exception as e:
                 # This will catch errors if the game state is not readable or the address is invalid.
                 print(f"Error checking for game completion: {e}")
-        
+
         # Check for new items.
         while ctx.items_received:
             item_to_add = ctx.items_received.pop(0)
@@ -222,144 +227,144 @@ async def game_watcher(ctx: MMXCMContext):
             player_name = ctx.slot_to_player_name[item_to_add.player]
             print(f"Received item: {item_name} from {player_name}.")
 
-    # ---------------------- Dynamic LOGIC for all Access Codes to change the RAM addresses once received. ---------------------------
-            #Lagrano Ruins
+            # ---------------------- Dynamic LOGIC for all Access Codes to change the RAM addresses once received. ---------------------------
+            # Lagrano Ruins
             if item_name == "Lagrano Ruins Access Code":
                 print("Lagrano Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x80082fa4, b'\x3c\x80\x00\x01')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x80082fac, b'\x38\x08\x03\x46')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Lagrano Access Code: {e}")
-                
+
                 # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
                 continue
 
-           # Central Tower: Changing the Spider , Arakure, and Aile Blockers. 
+            # Central Tower: Changing the Spider , Arakure, and Aile Blockers.
             elif item_name == "Central Tower Access Code":
                 print("Central Tower Access Code received! Changing RAM value to enable the teleporter.")
                 try:
-                    # Write a single byte with a value of 0 -  removes cutscene blockers. 
+                    # Write a single byte with a value of 0 -  removes cutscene blockers.
                     dolphin.write_bytes(0x804A20BD, b'\x00')
-                    
-                    # Write a single byte with a value of 1 - removes Aile Blocker 
+
+                    # Write a single byte with a value of 1 - removes Aile Blocker
                     dolphin.write_bytes(0x804A20C1, b'\x01')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Central Tower Access Code: {e}")
-                
+
                 continue
-            
+
             # Tianna Camp
             elif item_name == "Tianna Camp Access Code":
                 print("Tianna Camp Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x80082fcc, b'\x3c\x80\x00\x03')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x80082fd4, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Tianna Camp Access Code: {e}")
-                
+
                 # We do not want to add this to the in-game inventory, so we skip the rest of the loop.
                 continue
-            
+
             # Gaudile Laboratory Teleport
             elif item_name == "Gaudile Laboratory Access Code":
                 print("Gaudile Laboratory Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x80082ff4, b'\x3c\x80\x00\x04')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x80082ffC, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Gaudile Laboratory Access Code: {e}")
-                
+
                 continue
-            
+
             # Ulfat Factory Access Code
             elif item_name == "Ulfat Factory Access Code":
                 print("Ulfat Factory Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x8008301c, b'\x3c\x80\x00\x05')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x80083024, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Ulfat Factory Access Code: {e}")
-                
+
                 continue
-            
+
             # Gimialla Mine
             elif item_name == "Gimialla Mine Access Code":
                 print("Gimialla Mine Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x80083044, b'\x3c\x80\x00\x06')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x8008304c, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Gimialla Mine Access Code: {e}")
-                
+
                 continue
-            
+
             # Vanallia Desert
             elif item_name == "Vanallia Desert Access Code":
                 print("Vanallia Desert Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x8008306c, b'\x3c\x80\x00\x07')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x80083074, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Vanallia Desert Access Code: {e}")
-                
+
                 continue
-            
+
             # Melda Ore Plant ----------------
             elif item_name == "Melda Ore Plant Access Code":
                 print("Melda Ore Plant Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x80083094, b'\x3c\x80\x00\x08')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x8008309c, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Melda Ore Plant Access Code: {e}")
-                
+
                 continue
-            
+
             elif item_name == "Grave Ruins Base Access Code":
                 print("Grave Ruins Base Access Code received! Patching RAM to enable the teleporter.")
                 try:
                     # Write the first PowerPC instruction.
                     dolphin.write_bytes(0x800830bc, b'\x3c\x80\x00\x09')
-                    
+
                     # Write the second PowerPC instruction.
                     dolphin.write_bytes(0x800830c4, b'\x38\x04\x01\x41')
-                    
+
                 except Exception as e:
                     print(f"Error while writing to RAM for Grave Ruins Base Access Code: {e}")
-                
+
                 continue
-    # --- ---------------------------END DYNAMIC CLIENT LOGIC ------------------------------------------------------
-            
+            # --- ---------------------------END DYNAMIC CLIENT LOGIC ------------------------------------------------------
+
             item_info = ALL_ITEMS_TABLE.get(item_name)
 
             if item_info and "type" in item_info:
@@ -367,40 +372,47 @@ async def game_watcher(ctx: MMXCMContext):
                 await write_to_inventory(ctx, item_to_add, item_type)
             else:
                 print(f"Error: Could not find type information for item ID {item_to_add.item}.")
-        
-        await asyncio.sleep(1) # Can set this so sleep to avoid CPU usage.
+
+        await asyncio.sleep(1)  # Can set this so sleep to avoid CPU usage.
 
     print("Disconnected from Dolphin.")
 
-async def async_main(output_data: Optional[str] = None):
+
+async def async_main(*launch_args: str):
     """
     This is the main function that will be called by the `CommonClient`
     to start our client.
     """
 
-    if output_data:
-        from .MMXCMPatcher import MMXCMPatcher
-        mmxcm_patch = MMXCMPatcher(output_data)
-        mmxcm_patch.create_patch()
+    try:
+        parser = get_base_parser()
+        parser.add_argument('apmmxcm_file', default="", type=str, nargs="?", help='Path to an APMMXCM file')
+        args = parser.parse_args(launch_args)
 
-    parser = get_base_parser()
-    args = parser.parse_args()
+        if args.apmmxcm_file:
+            from .MMXCMPatcher import MMXCMPatcher
+            mmxcm_patch = MMXCMPatcher(args.apmmxcm_file)
+            mmxcm_patch.create_patch()
 
-    # Create our context and initialize the command processor.
-    ctx = MMXCMContext(args.connect, args.password)
-    ctx.command_processor = MMXCMCommandProcessor
+        # Create our context and initialize the command processor.
+        ctx = MMXCMContext(args.connect, args.password)
+        ctx.command_processor = MMXCMCommandProcessor
 
-    # Run the client!
-    ctx.run_gui = gui_enabled
+        # Run the client!
+        ctx.run_gui()
+        ctx.run_cli()
 
-    await dolphin_connect_loop(ctx)
+        await dolphin_connect_loop(ctx)
 
-    ctx.dolphin_sync_task = asyncio.create_task(server_loop(ctx),
-    name="MMXCM GameWatcher")
+        ctx.dolphin_sync_task = asyncio.create_task(server_loop(ctx),
+                                                    name="MMXCM GameWatcher")
 
-    if ctx.dolphin_sync_task:
-        await ctx.dolphin_sync_task
+        if ctx.dolphin_sync_task:
+            await ctx.dolphin_sync_task
+    except Exception as genericEx:
+        print("Unable to run dolphin async. Ex: " + str(genericEx))
+
 
 if __name__ == "__main__":
     # This ensures that the script will run the main function when executed.
-    asyncio.run(async_main())
+    async_main(*sys.argv[1:])
