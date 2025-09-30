@@ -41,8 +41,7 @@ INVENTORY_INFO = {
     }
 }
 
-
-async def wait_for_next_loop(time_to_wait: float):
+async def wait_for_next_loop():
     await asyncio.sleep(5)
 
 # Starts the full loop and debug messages for connecting to Dolphin.
@@ -58,7 +57,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
                     dolphin.un_hook()
                 ctx.dolphin_status = CONNECTION_INITIAL_STATUS
                 logger.info(ctx.dolphin_status)
-                await wait_for_next_loop(5)
+                await wait_for_next_loop()
                 continue
 
             # If the Game ID is a standard one, disconnect because it isnt the randomized ROM.
@@ -68,7 +67,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
                     logger.info(CONNECTION_REFUSED_STATUS)
                     ctx.dolphin_status = CONNECTION_REFUSED_STATUS
                     dolphin.un_hook()
-                    await wait_for_next_loop(5)
+                    await wait_for_next_loop()
                     continue
 
             ctx.locations_checked = set()
@@ -80,7 +79,7 @@ async def dolphin_connect_loop(ctx: CommonContext):
             await ctx.server_auth()
 
             if not ctx.slot:
-                await wait_for_next_loop(5)
+                await wait_for_next_loop()
                 continue
 
         except Exception:
