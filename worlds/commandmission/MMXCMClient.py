@@ -192,7 +192,7 @@ async def game_watcher(ctx: MMXCMContext):
 
         if newly_checked_locations:
             print(f"Found new locations: {newly_checked_locations}")
-            await ctx.send_checked_locations(newly_checked_locations)
+            await ctx.check_locations(newly_checked_locations)
 
         if not ctx.finished_game:
             try:
@@ -384,7 +384,7 @@ async def async_main(output_data: Optional[str] = None):
         mmxcm_patch = MMXCMPatcher(output_data)
         mmxcm_patch.create_patch()
 
-    parser = get_base_parser(ctx_defaults={"game": "Mega Man X: Command Mission"})
+    parser = get_base_parser()
     args = parser.parse_args()
 
     # Create our context and initialize the command processor.
@@ -395,8 +395,12 @@ async def async_main(output_data: Optional[str] = None):
     ctx.run_gui = gui_enabled
 
     await dolphin_connect_loop(ctx)
-    
-    await server_loop(ctx, game_watcher)
+
+    ctx.dolphin_sync_task = asyncio.create_task(server_loop(ctx),
+    name="MMXCM GameWatcher")
+
+    if ctx.dolphin_sync_task:
+        await ctx.dolphin_sync_task
 
 if __name__ == "__main__":
     # This ensures that the script will run the main function when executed.
