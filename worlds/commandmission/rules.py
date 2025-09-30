@@ -27,6 +27,18 @@ REBELLION_MEDALS_GROUP = ItemGroup("Rebellion Medals", frozenset({
     "Rebellion Medal 9"
 }))
 
+REQUIRED_ACCESS_CODES = ItemGroup("9 Access Codes", frozenset({
+    "Lagrano Ruins Access Code",
+    "Central Tower Access Code",
+    "Tianna Camp Access Code",
+    "Gaudile Laboratory Access Code",
+    "Ulfat Factory Access Code",
+    "Gimialla Mine Access Code",
+    "Vanallia Desert Access Code",
+    "Melda Ore Plant Access Code",
+    "Grave Ruins Base Access Code"
+}))
+
 #Prevents the rules py from importing the entire world!
 if TYPE_CHECKING:
     from . import MMXCMWorld
@@ -40,7 +52,9 @@ def set_rules(world: "MMXCMWorld"):
         # Check if the location has our specific item.
         if location.item and location.item.name == "Far East HQ Access Code":
             # Now, apply the rule to the location itself.
-            add_rule(location, lambda state: state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
+            add_rule(location, lambda state:
+            state.has_group("9 Access Codes", world.player) and
+            state.has_group("Rebellion Medals", world.player, world.options.rebellion_medal_count.value))
             break  # We found the item's location, so we can stop searching.
 
     # This loop remains the same, applying rules to specific locations.
