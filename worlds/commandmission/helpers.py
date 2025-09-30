@@ -1,3 +1,4 @@
+import asyncio
 from typing import NamedTuple, Optional
 
 """ Collection of commonly used constants for MMX Command Mission. """
@@ -60,3 +61,6 @@ def write_bit_to_ram(address: int, bit_position: int, dolphin_instance):
 
     except Exception as e:
         print(f"Error writing to RAM at address {hex(address)}: {e}")
+
+async def wait_for_next_loop(time_to_wait: int):
+    await asyncio.sleep(time_to_wait)
