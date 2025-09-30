@@ -211,11 +211,11 @@ CODE_PATCHES = [
 
 class MMXCMPatcher:
     def __init__(self, patch_file_path: str):
-        from .files.mmxcm_rom import get_base_rom_path, MMXCMPlayerContainer
+        from .files.mmxcm_rom import get_base_rom_path, MMXCMPALPatch
         self.clean_iso_path = get_base_rom_path()
 
         base_path = os.path.splitext(patch_file_path)[0]
-        self.randomized_output_file_path = base_path + MMXCMPlayerContainer.patch_file_ending
+        self.randomized_output_file_path = base_path + MMXCMPALPatch.result_file_ending
         self.gcm = None
         self.dol = None
 
@@ -242,10 +242,8 @@ class MMXCMPatcher:
         """
         Compares the AP version in the patch to the client version.
         """
-        ap_world_version = "<0.1"
 
-        if AP_WORLD_VERSION_NAME in output_data:
-            ap_world_version = output_data[AP_WORLD_VERSION_NAME]
+        ap_world_version = output_data[AP_WORLD_VERSION_NAME]
         if ap_world_version != CLIENT_VERSION:
             raise Utils.VersionException("Error! Server was generated with a different MMXCM Seed!")
 
