@@ -94,8 +94,11 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     code=13,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=1)]
-  ),
-   #This is adding our Rebellion Medal items to the AP , but NOT Randomly.
+  )
+}
+
+EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
+#This is adding our Rebellion Medal items to the AP , but NOT Randomly.
   "Rebellion Medal 1": MMXCMItemData(
     type="Key Item",
     code=None,
@@ -2492,6 +2495,7 @@ COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 #This is where all the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
+  **EVENT_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
   **FILLER_TABLE,
   **WEAPONS_TABLE,
