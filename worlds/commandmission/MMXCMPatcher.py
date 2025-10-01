@@ -83,7 +83,7 @@ CODE_PATCHES = [
         # Stores the Arcade Door Open flag 
         # RAM: 8000d914 
         "address": 0x0A914, 
-        "data": [0x90, 0x64, 0x00, 0x06] 
+        "data": [0x90, 0x64, 0x00, 0x60]
     }, 
     { 
         # sets every other flag back to zero 
