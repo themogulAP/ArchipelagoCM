@@ -1,4 +1,4 @@
-import os 
+import os
 import json
 import struct, zipfile
 
@@ -230,6 +230,7 @@ class MMXCMPatcher:
         self.gcm = GCM(self.clean_iso_path)
         self.gcm.read_entire_disc()
         self.dol = DOL()
+        self.dol.read(self.gcm.read_file_data("sys/main.dol"))
 
     def _check_apworld_version(self, output_data):
         """
@@ -257,7 +258,7 @@ class MMXCMPatcher:
                 return
 
             location_data: MMXCMLocationData = LOCATION_TABLE[location_name]
-            dol_address = location_data.dol_address
+            dol_address = location_data.ram_addr
 
             item_data: MMXCMItemData = ALL_ITEMS_TABLE[item_name]
             # This access our item ID from our Data class to tell this randomizer WHICH item it is. 
@@ -303,8 +304,8 @@ class MMXCMPatcher:
 
         #This is the loop for calling the REFACTORED item to location information above. 
         print("Applying Randomized Item Patches...")
-        #for location_name, item_name in output_data["locations"].items():
-         #   self.write_item_to_location(location_name, item_name)
+        for location_name, item_name in self.output_data["locations"].items():
+            self.write_item_to_location(location_name, item_name)
         print("Randomized item patching complete!")
         
         # Save all changes to the DOL itself. 
