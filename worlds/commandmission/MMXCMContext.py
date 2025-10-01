@@ -351,7 +351,7 @@ class MMXCMContext(CommonContext):
             try:
                 if not dolphin.is_hooked():
                     dolphin.hook()
-                    if dolphin.get_status() == dolphin.get_status().no_emu or dolphin.get_status() == dolphin.get_status().notRunning:
+                    if dolphin.get_status() == dolphin.get_status().noEmu or dolphin.get_status() == dolphin.get_status().notRunning:
                         dolphin.un_hook()
                     self.dolphin_status = CONNECTION_INITIAL_STATUS
                     logger.info(self.dolphin_status)
