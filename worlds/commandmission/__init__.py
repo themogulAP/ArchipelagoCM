@@ -159,8 +159,11 @@ class MMXCMWorld(World):
                                                   f"{MMXCMPlayerContainer.patch_file_ending}")
       # Create a zip (container) that will contain all the necessary output files for us to use during patching.
       dict_output_data: dict = {
-          "APWorldVersion": CLIENT_VERSION,
-          "locations": {}
+          "Seed": self.multiworld.seed,
+          "Slot": self.player,
+          "Name": self.player_name,
+          "Locations": {},
+          "APWorldVersion": CLIENT_VERSION
       }
 
       mmxcm_container = MMXCMPlayerContainer(dict_output_data, patch_path, self.multiworld.player_name[self.player], self.player)

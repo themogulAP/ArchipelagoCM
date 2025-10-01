@@ -6,9 +6,10 @@ from gclib.gcm import GCM
 from gclib.dol import DOL
 
 import Utils
+
 from .items import ALL_ITEMS_TABLE, MMXCMItemData 
 from .locations import LOCATION_TABLE, MMXCMLocationData
-from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME
+from .helpers import CLIENT_VERSION, AP_WORLD_VERSION_NAME, StringByteFunction as sbf
 
 # This is our section that will iilustrate the direct code changes we need to make... before any randomization. 
 # If adding more changes: fill in this dictionary with the address and new bytes.  
@@ -232,6 +233,17 @@ class MMXCMPatcher:
         self.dol = DOL()
         self.dol.read(self.gcm.read_file_data("sys/main.dol"))
 
+        # Change game ID so save files are different
+        from CommonClient import logger # We have to lazy import to avoid error.
+
+        logger.info("Updating the ISO game id with the AP generated seed.")
+        self.seed = self.output_data["Seed"]
+        magic_seed = str(self.seed)
+        bin_data = self.gcm.read_file_data("sys/boot.bin")
+        bin_data.seek(0x01)
+        bin_data.write(sbf.string_to_bytes(magic_seed, len(magic_seed)))
+        self.gcm.changed_files["sys/boot.bin"] = bin_data
+
     def _check_apworld_version(self, output_data):
         """
         Compares the AP version in the patch to the client version.
@@ -304,7 +316,7 @@ class MMXCMPatcher:
 
         #This is the loop for calling the REFACTORED item to location information above. 
         print("Applying Randomized Item Patches...")
-        for location_name, item_name in self.output_data["locations"].items():
+        for location_name, item_name in self.output_data["Locations"].items():
             self.write_item_to_location(location_name, item_name)
         print("Randomized item patching complete!")
         
