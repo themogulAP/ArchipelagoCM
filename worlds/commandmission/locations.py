@@ -2399,7 +2399,7 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
 
 """CHAPTER_CLEAR_LOCATIONS: dict[str, MMXCMLocationData] = {
     "Lagrano Ruins Clear": {
-        "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D0, bit_position=0), # Placeholder RAM Address - REPLACE LATER
+        "ram_addr": MMXCMLocationData(ram_addr=804A2096, bit_position=3),
         "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal A"]["item_id"]
     },
     "Central Tower Clear": {
