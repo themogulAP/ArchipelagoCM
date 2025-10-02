@@ -98,7 +98,7 @@ class MMXCMContext(CommonContext):
 
                 try:
                     # Read the ISO seed #
-                    iso_seed = read_string(0x80000001, len(arg_seed))
+                    iso_seed = read_string(0x80000000, len(arg_seed))
                 except Exception as genericEx:
                     iso_seed = ""
                     logger.error(str(genericEx))
