@@ -2396,7 +2396,7 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A212C, bit_position=6)
   ),
 }
-
+"""
 CHAPTER_CLEAR_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Lagrano Ruins Clear": MMXCMLocationData(
         name="Lagrano Ruins Clear",
@@ -2453,7 +2453,7 @@ CHAPTER_CLEAR_LOCATIONS: dict[str, MMXCMLocationData] = {
         ram_addr=MMXCMRamData(0x804A2127, bit_position=1)
     ),
 }
-
+"""
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
 
@@ -2470,7 +2470,7 @@ LOCATION_TABLE: dict[str, MMXCMLocationData] = {
   **GRAVE_RUINS_BASE_LOCATIONS,
   **FAR_EAST_HQ_LOCATIONS,
   **MECHANILOIDS_LOCATIONS,
-  **CHAPTER_CLEAR_LOCATIONS,
+  #**CHAPTER_CLEAR_LOCATIONS,
   **BOSS_DROPS_LOCATIONS,
   **SKY_ROOM_LOCATIONS,
 }
