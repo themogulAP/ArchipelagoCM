@@ -10,36 +10,6 @@ class MMXCMLocationData(NamedTuple):
   ram_addr: Optional[MMXCMRamData] = None
   event_item: bool = False
 
-# These are the static locations we can't get from the server but are still considered "locations".
-REBELLION_MEDALS_DATA: Dict[str, Dict[str, any]] = {
-    "Rebellion Medal 1": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=2)
-    },
-    "Rebellion Medal 2": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=3)
-    },
-    "Rebellion Medal 3": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=4)
-    },
-    "Rebellion Medal 4": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=5)
-    },
-    "Rebellion Medal 5": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=6)
-    },
-    "Rebellion Medal 6": {
-        "ram_addr": MMXCMRamData(0x804A2109, bit_position=7)
-    },
-    "Rebellion Medal 7": {
-        "ram_addr": MMXCMRamData(0x804A210A, bit_position=0)
-    },
-    "Rebellion Medal 8": {
-        "ram_addr": MMXCMRamData(0x804A210A, bit_position=1)
-    },
-    "Rebellion Medal 9": {
-        "ram_addr": MMXCMRamData(0x804A210A, bit_position=2)
-    },
-}
 
 # This begins the list for every single randomized item in AP.
 LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
@@ -2396,64 +2366,64 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
     ram_addr=MMXCMRamData(0x804A212C, bit_position=6)
   ),
 }
-"""
-CHAPTER_CLEAR_LOCATIONS: dict[str, MMXCMLocationData] = {
-  "Lagrano Ruins Clear": MMXCMLocationData(
-        name="Lagrano Ruins Clear",
+
+REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
+  "Rebellion Medal 1": MMXCMLocationData(
+        name="Rebellion Medal 1",
         code=None,
         parent_region="Lagrano Ruins",
         ram_addr=MMXCMRamData(0x804A2096, bit_position=3)
     ),
-    "Central Tower Clear": MMXCMLocationData(
-        name="Central Tower Clear",
+    "Rebellion Medal 2": MMXCMLocationData(
+        name="Rebellion Medal 2",
         code=None,
         parent_region="Central Tower Full",
         ram_addr=MMXCMRamData(0x804A20BC, bit_position=4)
     ),
-    "Tianna Camp Clear": MMXCMLocationData(
-        name="Tianna Camp Clear",
+    "Rebellion Medal 3": MMXCMLocationData(
+        name="Rebellion Medal 3",
         code=None,
         parent_region="Tianna Camp",
         ram_addr=MMXCMRamData(0x804A20FB, bit_position=6)
     ),
-    "Gaudile Laboratory Clear": MMXCMLocationData(
-        name="Gaudile Laboratory Clear",
+    "Rebellion Medal 4": MMXCMLocationData(
+        name="Rebellion Medal 4",
         code=None,
         parent_region="Gaudile Laboratory",
         ram_addr=MMXCMRamData(0x804A2106, bit_position=5)
     ),
-    "Ulfat Factory Clear": MMXCMLocationData(
-        name="Ulfat Factory Clear",
+    "Rebellion Medal 5": MMXCMLocationData(
+        name="Rebellion Medal 5",
         code=None,
         parent_region="Ulfat Factory",
         ram_addr=MMXCMRamData(0x804A210B, bit_position=7)
     ),
-    "Gimialla Mine Clear": MMXCMLocationData(
-        name="Gimialla Mine Clear",
+    "Rebellion Medal 6": MMXCMLocationData(
+        name="Rebellion Medal 6",
         code=None,
         parent_region="Gimialla Mine",
         ram_addr=MMXCMRamData(0x804A210E, bit_position=0)
     ),
-    "Vanallia Desert Clear": MMXCMLocationData(
-        name="Vanallia Desert Clear",
+    "Rebellion Medal 7": MMXCMLocationData(
+        name="Rebellion Medal 7",
         code=None,
         parent_region="Vanallia Desert",
         ram_addr=MMXCMRamData(0x804A2117, bit_position=5)
     ),
-    "Melda Ore Plant Clear": MMXCMLocationData(
-        name="Melda Ore Plant Clear",
+    "Rebellion Medal 8": MMXCMLocationData(
+        name="Rebellion Medal 8",
         code=None,
         parent_region="Melda Ore Plant",
         ram_addr=MMXCMRamData(0x804A211D, bit_position=3)
     ),
-    "Grave Ruins Base Clear": MMXCMLocationData(
-        name="Grave Ruins Base Clear",
+    "Rebellion Medal 9": MMXCMLocationData(
+        name="Rebellion Medal 9",
         code=None,
         parent_region="Grave Ruins Base",
         ram_addr=MMXCMRamData(0x804A2127, bit_position=1)
     ),
 }
-"""
+
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
 
@@ -2470,7 +2440,7 @@ LOCATION_TABLE: dict[str, MMXCMLocationData] = {
   **GRAVE_RUINS_BASE_LOCATIONS,
   **FAR_EAST_HQ_LOCATIONS,
   **MECHANILOIDS_LOCATIONS,
-  #**CHAPTER_CLEAR_LOCATIONS,
+  **REBELLION_MEDAL_LOCATIONS,
   **BOSS_DROPS_LOCATIONS,
   **SKY_ROOM_LOCATIONS,
 }

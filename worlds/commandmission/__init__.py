@@ -116,6 +116,17 @@ class MMXCMWorld(World):
           self.create_item("Defeated Great Redips")
       )
 
+      # This will be for setting our rebellion medals STATICALLY to their spots.
+      rebellion_medal_names = [
+          "Rebellion Medal 1", "Rebellion Medal 2", "Rebellion Medal 3",
+          "Rebellion Medal 4", "Rebellion Medal 5", "Rebellion Medal 6",
+          "Rebellion Medal 7", "Rebellion Medal 8", "Rebellion Medal 9"
+      ]
+      for medal_name in rebellion_medal_names:
+          self.multiworld.get_location(medal_name, self.player).place_locked_item(
+              self.create_item(medal_name)
+          )
+
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
       item_pool = []
