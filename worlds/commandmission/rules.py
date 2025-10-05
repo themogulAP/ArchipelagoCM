@@ -45,6 +45,11 @@ if TYPE_CHECKING:
 #Set rules is what "orders" the games rules. 
 #This will also provide us the means to lock Chapter 10 behind rebellion medals. 
 def set_rules(world: "MMXCMWorld"):
+    #player = world.player
+    #multiworld = world.multiworld
+
+    #multiworld.completion_condition[player] = lambda state: state.has("Great Redips Defeated", player)
+
     # Iterate through all locations to find the one that contains the
     # "Far East HQ Access Code" item.
     for location in world.multiworld.get_locations(world.player):
