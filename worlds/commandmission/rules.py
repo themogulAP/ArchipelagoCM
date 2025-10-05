@@ -1,10 +1,9 @@
 #This imports all classes we need for the Logic behind the rules. 
 from typing import TYPE_CHECKING, Any
-from BaseClasses import CollectionState
 
 #Importing all of our location data from locations.py to be added here,
 #Then uses AP architecture to import add_rule.
-from .locations import LOCATION_TABLE, MMXCMLocationData
+from .locations import LOCATION_TABLE
 from worlds.generic.Rules import add_rule, add_item_rule
 from .helpers import ACCESS_CODES_DATA
 
