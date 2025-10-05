@@ -65,6 +65,7 @@ class MMXCMContext(CommonContext):
     dolphin_server_task = None
     dolphin_status = None
     medal_monitor_task: asyncio.Task = None # This manages the medal monitoring task async.
+    revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
 
     logger = logging.getLogger(CLIENT_NAME)
 
@@ -84,6 +85,30 @@ class MMXCMContext(CommonContext):
         0x4A: "Rebellion Medal 8",
     }
     GRAVE_RUINS_MEDAL = "Rebellion Medal 9"
+
+    # This is the BIG Block for the TELEPORT BACK AFTER EACH CHAPTER LOGIC (followed by REVERT)------
+    # These are the "Big 4" PowerPC lines we need to change for each medal.
+    GAMEPLAY_STATE_SET_ADDR = 0x80054b20 #The first powerpc line. - Sets the gameplay to 7
+    GAMEPLAY_STATE_STORE_ADDR = 0x80054b24 #Stores the Gameplay State as 7.
+    STAGE_SET_ADDR = 0x80054b28 # Sets the Stage
+    AREA_SET_ADDR = 0x80054b2C # Sets the Area
+    #Note that the 5th powerpc line after does NOT need changing.
+
+    #Original PowerPC Code lines:
+    GAMEPLAY_SET_VANILLA = b'\x38\x60\x00\x00'  # li r3, 0 - - -
+    GAMEPLAY_STORE_VANILLA = b'\xfc\x40\x08\x90'  # fmr f2, f1
+    STAGE_VANILLA = b'\x38\x80\x00\x01'  # li r4, 1
+    AREA_VANILLA = b'\x80\x1f\x00\x68'  # lwz r0,0x0068(r31) - - - -
+
+    GAMEPLAY_PATCH = b'\x38\x00\x00\x07'  # li r0, 7
+    GAMEPLAY_STORE_PATCH = b'\x90\x1a\x00\x28'  # stw r0, 0x0028(r26)
+    STAGE_PATCH = b'\x3c\x00\x00\x02'  # lis r0, 0x0002
+
+    ARCADE_PATCH = b'\x60\x00\x05\x4c'  # For Medals 1, 3-9 (0x054C)
+    HELIPAD_PATCH = b'\x60\x00\x15\x53'  # For Medal 2 (0x1553)
+
+    # Monitor this RAM for reverting.
+    REVERT_STATE_ADDRESS = 0x804A208E
 
     def __init__(self, server_address, password):
         """
@@ -141,11 +166,90 @@ class MMXCMContext(CommonContext):
         if self.medal_monitor_task and not self.medal_monitor_task.done():
             self.medal_monitor_task.cancel()
 
+        if self.revert_monitor_task and not self.revert_monitor_task.done():
+            self.revert_monitor_task.cancel()
+
         dolphin.un_hook()
         self.checked_locations = set()
         self.seed_verified = False
         self.dolphin_connected = False
         self.already_fired_events = False
+
+    def apply_big_4(self, is_medal_2: bool):
+        """Applies the four required PowerPC patches, using a unique 4th patch for Medal 2."""
+        # Determine which unique 4th patch to use
+        patch_4_value = self.HELIPAD_PATCH if is_medal_2 else self.ARCADE_PATCH
+        patch_name = "Helipad" if is_medal_2 else "Arcade"
+
+        logger.info(f"APPLYING The Big 4 PowerPC patches ({patch_name}).")
+        try:
+            # Shared Patches (1, 2, 3)
+            dolphin.write_bytes(self.GAMEPLAY_STATE_SET_ADDR, self.GAMEPLAY_PATCH)
+            dolphin.write_bytes(self.GAMEPLAY_STATE_STORE_ADDR, self.GAMEPLAY_STORE_PATCH)
+            dolphin.write_bytes(self.STAGE_SET_ADDR, self.STAGE_PATCH)
+            # Unique/Common Patch (4)
+            dolphin.write_bytes(self.AREA_SET_ADDR, patch_4_value)
+        except Exception as e:
+            logger.error(f"Error applying 'Big 4' patches ({patch_name}): {e}")
+
+    def revert_big_4(self):
+        """Reverts the four required PowerPC patches back to their original state."""
+        logger.info("REVERTING The Big 4 PowerPC patches.")
+        try:
+            dolphin.write_bytes(self.GAMEPLAY_STATE_SET_ADDR, self.GAMEPLAY_SET_VANILLA)
+            dolphin.write_bytes(self.GAMEPLAY_STATE_STORE_ADDR, self.GAMEPLAY_STORE_VANILLA)
+            dolphin.write_bytes(self.STAGE_SET_ADDR, self.STAGE_VANILLA)
+            dolphin.write_bytes(self.AREA_SET_ADDR, self.AREA_VANILLA)
+        except Exception as e:
+            logger.error(f"Error reverting 'Big 4' patches: {e}")
+
+    async def monitor_revert_state(self):
+        """Monitors RAM conditions to trigger the revert of the Big 4 PowerPC patches."""
+        logger.info("Starting Big 4 revert monitor...")
+
+        try:
+            while not self.exit_event.is_set():
+                if self.slot and dolphin.is_hooked():
+
+                    # Read the two addresses necessary for all revert conditions
+                    # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
+                    revert_state_value = int.from_bytes(
+                        dolphin.read_bytes(self.REVERT_STATE_ADDRESS, 1), byteorder='big'
+                    )
+
+                    # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
+                    screen_select_value = int.from_bytes(
+                        dolphin.read_bytes(self.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
+                    )
+
+                    # --- Evaluate Conditions ---
+
+                    # All three Arcade/Helipad reverts require the game to be in state 7 (exiting room)
+                    is_game_state_7 = (screen_select_value == 7)
+
+                    # Condition 3 (Exit 3) requires SCREEN_SELECT = 5 (without game state 7 check)
+                    is_exit_3 = (screen_select_value == 5)
+
+                    # Condition 4 (Medal 2-specific revert) requires REVERT_STATE = 20 AND SCREEN_SELECT = 7
+                    is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
+
+                    # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
+                    is_arcade_revert = (revert_state_value == 4) and is_game_state_7
+
+                    # --- Trigger Revert if ANY condition is met ---
+                    if is_exit_3 or is_medal_2_revert or is_arcade_revert:
+                        # Revert the patches and break the loop to end the monitoring task
+                        self.revert_big_4()
+                        break
+
+                await asyncio.sleep(1)  # Check every 1 second
+
+        except asyncio.CancelledError:
+            pass  # Task was intentionally cancelled
+        except Exception as e:
+            logger.error(f"Error in Big 4 revert monitor: {e}")
+        finally:
+            logger.info("Big 4 revert monitor stopped.")
 
     async def monitor_medals(self):
         """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
@@ -265,6 +369,22 @@ class MMXCMContext(CommonContext):
 
                 item_name = self.item_id_to_name[item_to_add.item]
                 player_name = self.slot_to_player_name[item_to_add.player]
+
+                # Check for Rebellion Medals
+                if item_name.startswith("Rebellion Medal"):
+
+                    #Determine if its Jango's Medal
+                    is_medal_2 = (item_name == "Rebellion Medal 2")
+                    self.apply_big_4(is_medal_2)
+
+                #After patch is applied, we need to start the monitoring
+                #This will eventually revert the changes.
+                if not self.revert_monitor_task or self.revert_monitor_task.done():
+                    self.revert_monitor_task = asyncio.create_task(
+                        self.monitor_revert_state(),
+                        name="Revert Monitor"
+                    )
+
                 print(f"Received item: {item_name} from {player_name}.")
 
                 # ---------------------- Dynamic LOGIC for all Access Codes to change the RAM addresses once received. ---------------------------
