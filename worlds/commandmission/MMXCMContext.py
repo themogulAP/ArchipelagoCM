@@ -18,6 +18,7 @@ from .items import ALL_ITEMS_TABLE
 from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import (CONNECTION_INITIAL_STATUS, CONNECTION_CONNECTED_STATUS, CONNECTION_REFUSED_STATUS,
     CONNECTION_LOST_STATUS, CLIENT_NAME, CONNECTION_VERIFY_SERVER, wait_for_next_loop)
+from .files import Constants
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
@@ -69,46 +70,7 @@ class MMXCMContext(CommonContext):
 
     logger = logging.getLogger(CLIENT_NAME)
 
-    # Describing Constants for our Rebellion Medal Logic - - - - -
-    SCREEN_SELECT_ADDRESS = 0x804A208B
-    CUTSCENE_ID_ADDRESS = 0x804A208F
-    ROOM_ID_ADDRESS = 0x804A2083
-
-    REBELLION_MEDAL_CHECKS = { # These are the CUTSCENE IDs we want to tie to the Location.
-        0x05: "Rebellion Medal 1", # Lagrano Ruins Clear
-        0x12: "Rebellion Medal 2", # Central Tower Clear...
-        0x1B: "Rebellion Medal 3",
-        0x26: "Rebellion Medal 4",
-        0x2D: "Rebellion Medal 5",
-        0x37: "Rebellion Medal 6",
-        0x3E: "Rebellion Medal 7",
-        0x4A: "Rebellion Medal 8",
-    }
-    GRAVE_RUINS_MEDAL = "Rebellion Medal 9"
-
-    # This is the BIG Block for the TELEPORT BACK AFTER EACH CHAPTER LOGIC (followed by REVERT)------
-    # These are the "Big 4" PowerPC lines we need to change for each medal.
-    GAMEPLAY_STATE_SET_ADDR = 0x80054b20 #The first powerpc line. - Sets the gameplay to 7
-    GAMEPLAY_STATE_STORE_ADDR = 0x80054b24 #Stores the Gameplay State as 7.
-    STAGE_SET_ADDR = 0x80054b28 # Sets the Stage
-    AREA_SET_ADDR = 0x80054b2C # Sets the Area
-    #Note that the 5th powerpc line after does NOT need changing.
-
-    #Original PowerPC Code lines:
-    GAMEPLAY_SET_VANILLA = b'\x38\x60\x00\x00'  # li r3, 0 - - -
-    GAMEPLAY_STORE_VANILLA = b'\xfc\x40\x08\x90'  # fmr f2, f1
-    STAGE_VANILLA = b'\x38\x80\x00\x01'  # li r4, 1
-    AREA_VANILLA = b'\x80\x1f\x00\x68'  # lwz r0,0x0068(r31) - - - -
-
-    GAMEPLAY_PATCH = b'\x38\x00\x00\x07'  # li r0, 7
-    GAMEPLAY_STORE_PATCH = b'\x90\x1a\x00\x28'  # stw r0, 0x0028(r26)
-    STAGE_PATCH = b'\x3c\x00\x00\x02'  # lis r0, 0x0002
-
-    ARCADE_PATCH = b'\x60\x00\x05\x4c'  # For Medals 1, 3-9 (0x054C)
-    HELIPAD_PATCH = b'\x60\x00\x15\x53'  # For Medal 2 (0x1553)
-
-    # Monitor this RAM for reverting.
-    REVERT_STATE_ADDRESS = 0x804A208E
+    Constants = Constants
 
     def __init__(self, server_address, password):
         """
@@ -178,17 +140,17 @@ class MMXCMContext(CommonContext):
     def apply_big_4(self, is_medal_2: bool):
         """Applies the four required PowerPC patches, using a unique 4th patch for Medal 2."""
         # Determine which unique 4th patch to use
-        patch_4_value = self.HELIPAD_PATCH if is_medal_2 else self.ARCADE_PATCH
+        patch_4_value = self.Constants.HELIPAD_PATCH if is_medal_2 else self.Constants.ARCADE_PATCH
         patch_name = "Helipad" if is_medal_2 else "Arcade"
 
         logger.info(f"APPLYING The Big 4 PowerPC patches ({patch_name}).")
         try:
             # Shared Patches (1, 2, 3)
-            dolphin.write_bytes(self.GAMEPLAY_STATE_SET_ADDR, self.GAMEPLAY_PATCH)
-            dolphin.write_bytes(self.GAMEPLAY_STATE_STORE_ADDR, self.GAMEPLAY_STORE_PATCH)
-            dolphin.write_bytes(self.STAGE_SET_ADDR, self.STAGE_PATCH)
+            dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_SET_ADDR, self.Constants.GAMEPLAY_PATCH)
+            dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_STORE_ADDR, self.Constants.GAMEPLAY_STORE_PATCH)
+            dolphin.write_bytes(self.Constants.STAGE_SET_ADDR, self.Constants.STAGE_PATCH)
             # Unique/Common Patch (4)
-            dolphin.write_bytes(self.AREA_SET_ADDR, patch_4_value)
+            dolphin.write_bytes(self.Constants.AREA_SET_ADDR, patch_4_value)
         except Exception as e:
             logger.error(f"Error applying 'Big 4' patches ({patch_name}): {e}")
 
@@ -196,10 +158,10 @@ class MMXCMContext(CommonContext):
         """Reverts the four required PowerPC patches back to their original state."""
         logger.info("REVERTING The Big 4 PowerPC patches.")
         try:
-            dolphin.write_bytes(self.GAMEPLAY_STATE_SET_ADDR, self.GAMEPLAY_SET_VANILLA)
-            dolphin.write_bytes(self.GAMEPLAY_STATE_STORE_ADDR, self.GAMEPLAY_STORE_VANILLA)
-            dolphin.write_bytes(self.STAGE_SET_ADDR, self.STAGE_VANILLA)
-            dolphin.write_bytes(self.AREA_SET_ADDR, self.AREA_VANILLA)
+            dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_SET_ADDR, self.Constants.GAMEPLAY_SET_VANILLA)
+            dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_STORE_ADDR, self.Constants.GAMEPLAY_STORE_VANILLA)
+            dolphin.write_bytes(self.Constants.STAGE_SET_ADDR, self.Constants.STAGE_VANILLA)
+            dolphin.write_bytes(self.Constants.AREA_SET_ADDR, self.Constants.AREA_VANILLA)
         except Exception as e:
             logger.error(f"Error reverting 'Big 4' patches: {e}")
 
@@ -214,12 +176,12 @@ class MMXCMContext(CommonContext):
                     # Read the two addresses necessary for all revert conditions
                     # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
                     revert_state_value = int.from_bytes(
-                        dolphin.read_bytes(self.REVERT_STATE_ADDRESS, 1), byteorder='big'
+                        dolphin.read_bytes(self.Constants.REVERT_STATE_ADDRESS, 1), byteorder='big'
                     )
 
                     # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
                     screen_select_value = int.from_bytes(
-                        dolphin.read_bytes(self.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
+                        dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
                     )
 
                     # --- Evaluate Conditions ---
@@ -263,18 +225,18 @@ class MMXCMContext(CommonContext):
 
                     # 1. Read the necessary memory addresses
                     # status_flag for Medals 1-8 check (must be 4)
-                    status_flag = int.from_bytes(dolphin.read_bytes(self.SCREEN_SELECT_ADDRESS, 1), byteorder='big')
+                    status_flag = int.from_bytes(dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big')
                     # cutscene_id for Medals 1-8 check (1-byte read)
-                    cutscene_id = int.from_bytes(dolphin.read_bytes(self.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
+                    cutscene_id = int.from_bytes(dolphin.read_bytes(self.Constants.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
 
                     # room_id_value for Medal 9 check (1-byte read from dedicated address)
                     # Note: We must read as 1 byte to get the full 76 Room value (0x4C)
-                    room_id_value = int.from_bytes(dolphin.read_bytes(self.ROOM_ID_ADDRESS, 1), byteorder='big')
+                    room_id_value = int.from_bytes(dolphin.read_bytes(self.Constants.ROOM_ID_ADDRESS, 1), byteorder='big')
 
                     # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
                     if status_flag == 0x04:
-                        if cutscene_id in self.REBELLION_MEDAL_CHECKS:
-                            location_name = self.REBELLION_MEDAL_CHECKS[cutscene_id]
+                        if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
+                            location_name = self.Constants.REBELLION_MEDAL_CHECKS[cutscene_id]
                             # Use self.location_names_to_ids for lookup
                             medal_location_check_id = self.location_names.get(location_name)
 
@@ -284,13 +246,13 @@ class MMXCMContext(CommonContext):
                                 logger.info(f"Medal check found: {location_name}")
 
                     # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
-                    medal_9_check_id = self.location_names.get(self.GRAVE_RUINS_MEDAL)
+                    medal_9_check_id = self.location_names.get(self.Constants.GRAVE_RUINS_MEDAL)
 
                     if room_id_value == 76:
                         if medal_9_check_id and medal_9_check_id not in self.checked_locations:
                             new_checks_to_send.add(medal_9_check_id)
                             self.checked_locations.add(medal_9_check_id)
-                            logger.info(f"Medal check found: {self.GRAVE_RUINS_MEDAL}")
+                            logger.info(f"Medal check found: {self.Constants.GRAVE_RUINS_MEDAL}")
 
                     # --- REPORT NEW CHECKS ---
                     if new_checks_to_send:
@@ -377,12 +339,12 @@ class MMXCMContext(CommonContext):
                     is_medal_2 = (item_name == "Rebellion Medal 2")
                     self.apply_big_4(is_medal_2)
 
-                #After patch is applied, we need to start the monitoring
-                #This will eventually revert the changes.
-                if not self.revert_monitor_task or self.revert_monitor_task.done():
-                    self.revert_monitor_task = asyncio.create_task(
-                        self.monitor_revert_state(),
-                        name="Revert Monitor"
+                    #After patch is applied, we need to start the monitoring
+                    #This will eventually revert the changes.
+                    if not self.revert_monitor_task or self.revert_monitor_task.done():
+                        self.revert_monitor_task = asyncio.create_task(
+                            self.monitor_revert_state(),
+                            name="Revert Monitor"
                     )
 
                 print(f"Received item: {item_name} from {player_name}.")
