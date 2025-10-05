@@ -2400,39 +2400,39 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
 """CHAPTER_CLEAR_LOCATIONS: dict[str, MMXCMLocationData] = {
     "Lagrano Ruins Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=804A2096, bit_position=3),
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal A"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 1"]["item_id"]
     },
     "Central Tower Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D1, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal B"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 2"]["item_id"]
     },
     "Tianna Camp Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D2, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal C"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 3"]["item_id"]
     },
     "Gaudile Laboratory Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D3, bit_position=0), # Placeholder RAM Address - REPLACE LGCAL
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal D"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 4"]["item_id"]
     },
     "Ulfat Factory Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D4, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal E"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 5"]["item_id"]
     },
     "Gimialla Mine Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D5, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal F"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 6"]["item_id"]
     },
     "Vanallia Desert Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D6, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal G"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 7"]["item_id"]
     },
     "Melda Ore Plant Clear": {
         "ram_addr": MMXCMLocationData(ram_addr=0xCAFE00D7, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal H"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 8"]["item_id"]
     },
     "Grave Ruins Base Clear": {
         "ram_addr": MMXCMRamData(ram_addr=0xCAFE00D8, bit_position=0), # Placeholder RAM Address - REPLACE LATER
-        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal I"]["item_id"]
+        "item_id": items.ALL_ITEMS_TABLE["Rebellion Medal 9"]["item_id"]
     },
 }"""
 
