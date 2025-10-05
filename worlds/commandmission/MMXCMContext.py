@@ -2,7 +2,7 @@
 import asyncio
 import logging
 import struct
-from typing import Dict
+from typing import Dict, Set
 
 # AP related imports
 import NetUtils
@@ -64,8 +64,26 @@ class MMXCMContext(CommonContext):
 
     dolphin_server_task = None
     dolphin_status = None
+    medal_monitor_task: asyncio.Task = None # This manages the medal monitoring task async.
 
     logger = logging.getLogger(CLIENT_NAME)
+
+    # Describing Constants for our Rebellion Medal Logic - - - - -
+    SCREEN_SELECT_ADDRESS = 0x804A208B
+    CUTSCENE_ID_ADDRESS = 0x804A208F
+    ROOM_ID_ADDRESS = 0x804A2083
+
+    REBELLION_MEDAL_CHECKS = { # These are the CUTSCENE IDs we want to tie to the Location.
+        0x05: "Rebellion Medal 1", # Lagrano Ruins Clear
+        0x12: "Rebellion Medal 2", # Central Tower Clear...
+        0x1B: "Rebellion Medal 3",
+        0x26: "Rebellion Medal 4",
+        0x2D: "Rebellion Medal 5",
+        0x37: "Rebellion Medal 6",
+        0x3E: "Rebellion Medal 7",
+        0x4A: "Rebellion Medal 8",
+    }
+    GRAVE_RUINS_MEDAL = "Rebellion Medal 9"
 
     def __init__(self, server_address, password):
         """
@@ -120,11 +138,68 @@ class MMXCMContext(CommonContext):
     async def disconnect(self, allow_autoreconnect: bool = False):
         await super().disconnect(allow_autoreconnect)
 
+        if self.medal_monitor_task and not self.medal_monitor_task.done():
+            self.medal_monitor_task.cancel()
+
         dolphin.un_hook()
         self.checked_locations = set()
         self.seed_verified = False
         self.dolphin_connected = False
         self.already_fired_events = False
+
+    async def monitor_medals(self):
+        """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
+        logger.info("Starting Rebellion Medal monitor...")
+        new_checks_to_send: Set[int] = set()
+
+        try:
+            while not self.exit_event.is_set():
+                # Use 'self' to access context properties
+                if self.slot and dolphin.is_hooked():
+
+                    # 1. Read the necessary memory addresses
+                    # status_flag for Medals 1-8 check (must be 4)
+                    status_flag = int.from_bytes(dolphin.read_bytes(self.SCREEN_SELECT_ADDRESS, 1), byteorder='big')
+                    # cutscene_id for Medals 1-8 check (1-byte read)
+                    cutscene_id = int.from_bytes(dolphin.read_bytes(self.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
+
+                    # room_id_value for Medal 9 check (2-byte read from dedicated address)
+                    # Note: We must read as 2 bytes to get the full 1750 value (0x06D6)
+                    room_id_value = int.from_bytes(dolphin.read_bytes(self.ROOM_ID_ADDRESS, 1), byteorder='big')
+
+                    # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
+                    if status_flag == 0x04:
+                        if cutscene_id in self.REBELLION_MEDAL_CHECKS:
+                            location_name = self.REBELLION_MEDAL_CHECKS[cutscene_id]
+                            # Use self.location_names_to_ids for lookup
+                            medal_location_check_id = self.location_names.get(location_name)
+
+                            if medal_location_check_id and medal_location_check_id not in self.checked_locations:
+                                new_checks_to_send.add(medal_location_check_id)
+                                self.checked_locations.add(medal_location_check_id)
+                                logger.info(f"Medal check found: {location_name}")
+
+                    # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
+                    medal_9_check_id = self.location_names.get(self.GRAVE_RUINS_MEDAL)
+
+                    if room_id_value == 76:
+                        if medal_9_check_id and medal_9_check_id not in self.checked_locations:
+                            new_checks_to_send.add(medal_9_check_id)
+                            self.checked_locations.add(medal_9_check_id)
+                            logger.info(f"Medal check found: {self.GRAVE_RUINS_MEDAL}")
+
+                    # --- REPORT NEW CHECKS ---
+                    if new_checks_to_send:
+                        # Use self.send_msgs to report the locations to the server
+                        await self.send_msgs([{"cmd": "LocationChecks", "locations": list(new_checks_to_send)}])
+                        new_checks_to_send.clear()
+
+                await asyncio.sleep(3)  # Check every three seconds
+
+        except Exception as e:
+            logger.error(f"Error in Rebellion Medal monitor: {e}")
+        finally:
+            logger.info("Rebellion Medal monitor stopped.")
 
     async def game_watcher(self):
         """
@@ -379,6 +454,9 @@ class MMXCMContext(CommonContext):
                 if not self.slot:
                     await wait_for_next_loop(5)
                     continue
+
+                if not self.medal_monitor_task or self.medal_monitor_task.done():
+                    self.medal_monitor_task = asyncio.create_task(self.monitor_medals(), name= "MMXCM Medal Monitor")
 
             except Exception as genericEx:
                 dolphin.un_hook()
