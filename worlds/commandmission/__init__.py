@@ -55,7 +55,7 @@ class MMXCMWorld(World):
     super(MMXCMWorld, self).__init__(*args, **kwargs)
 
 # This places any logic we need to before the generation process.
-  def generate_early(self): 
+  def generate_early(self):
    pass
 
 # This will build the entire map for our randomized AP! 
@@ -110,6 +110,11 @@ class MMXCMWorld(World):
         region,
       )
       region.locations.append(location)
+
+  def generate_basic(self):
+      self.multiworld.get_location("Defeated Great Redips", self.player).place_locked_item(
+          self.create_item("Defeated Great Redips")
+      )
 
 # This will build the entire item pool for our randomized AP! 
   def create_items(self):
