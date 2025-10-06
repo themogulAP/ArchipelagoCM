@@ -204,56 +204,29 @@ class MMXCMContext(CommonContext):
     async def monitor_medals(self):
         """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
         logger.info("Starting Rebellion Medal monitor...")
-        new_checks_to_send: Set[int] = set()
+        # Use 'self' to access context properties
+        # 1. Read the necessary memory addresses
+        # status_flag for Medals 1-8 check (must be 4)
+        status_flag = int.from_bytes(dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big')
+        # cutscene_id for Medals 1-8 check (1-byte read)
+        cutscene_id = int.from_bytes(dolphin.read_bytes(self.Constants.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
 
-        try:
-            while not self.exit_event.is_set():
-                # Use 'self' to access context properties
-                if self.slot and dolphin.is_hooked():
+        # room_id_value for Medal 9 check (1-byte read from dedicated address)
+        # Note: We must read as 1 byte to get the full 76 Room value (0x4C)
+        room_id_value = int.from_bytes(dolphin.read_bytes(self.Constants.ROOM_ID_ADDRESS, 1), byteorder='big')
 
-                    # 1. Read the necessary memory addresses
-                    # status_flag for Medals 1-8 check (must be 4)
-                    status_flag = int.from_bytes(dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big')
-                    # cutscene_id for Medals 1-8 check (1-byte read)
-                    cutscene_id = int.from_bytes(dolphin.read_bytes(self.Constants.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
+        # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
+        if status_flag == 0x04: # This is for the Cutscene Screen State.
+            if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
+                # TODO: UPDATE THE THREE CONSTANT PATCHES FOR MEDALS TO TELEPORT TO ARCADE OR HELIPAD.
+                pass
+        # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
 
-                    # room_id_value for Medal 9 check (1-byte read from dedicated address)
-                    # Note: We must read as 1 byte to get the full 76 Room value (0x4C)
-                    room_id_value = int.from_bytes(dolphin.read_bytes(self.Constants.ROOM_ID_ADDRESS, 1), byteorder='big')
+        if room_id_value == 76:
+            # TODO: Check self.items_received contains medal 9. Then teleport back to Arcade.
+            pass
 
-                    # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
-                    if status_flag == 0x04:
-                        if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
-                            location_name = self.Constants.REBELLION_MEDAL_CHECKS[cutscene_id]
-                            # Use self.location_names_to_ids for lookup
-                            medal_location_check_id = self.location_names.get(location_name)
-
-                            if medal_location_check_id and medal_location_check_id not in self.checked_locations:
-                                new_checks_to_send.add(medal_location_check_id)
-                                self.checked_locations.add(medal_location_check_id)
-                                logger.info(f"Medal check found: {location_name}")
-
-                    # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
-                    medal_9_check_id = self.location_names.get(self.Constants.GRAVE_RUINS_MEDAL)
-
-                    if room_id_value == 76:
-                        if medal_9_check_id and medal_9_check_id not in self.checked_locations:
-                            new_checks_to_send.add(medal_9_check_id)
-                            self.checked_locations.add(medal_9_check_id)
-                            logger.info(f"Medal check found: {self.Constants.GRAVE_RUINS_MEDAL}")
-
-                    # --- REPORT NEW CHECKS ---
-                    if new_checks_to_send:
-                        # Use self.send_msgs to report the locations to the server
-                        await self.send_msgs([{"cmd": "LocationChecks", "locations": list(new_checks_to_send)}])
-                        new_checks_to_send.clear()
-
-                await asyncio.sleep(3)  # Check every three seconds
-
-        except Exception as e:
-            logger.error(f"Error in Rebellion Medal monitor: {e}")
-        finally:
-            logger.info("Rebellion Medal monitor stopped.")
+        await asyncio.sleep(3)  # Check every three seconds
 
     async def game_watcher(self):
         """
@@ -301,6 +274,11 @@ class MMXCMContext(CommonContext):
         # Check for new items.
         while self.items_received:
             logger.info("Starting Received Items Loop!")
+            # TODO: Refactor this to the LAST SAVED IDX (Based on LM's code) FIRST
+            # FIND THE 4 ADDRESS BLOCK THAT IS UNUSED but SAVEABLE in RAM.
+            # Read it to get the last saved index, check for new items, if new items, loop through and give.
+            # For each iteration, increase the last index received +1
+            # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
             item_to_add = self.items_received.pop(0)
 
             item_name = self.item_id_to_name[item_to_add.item]
