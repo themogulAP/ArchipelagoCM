@@ -81,6 +81,7 @@ class MMXCMContext(CommonContext):
         """
         super().__init__(server_address, password)
         self.dolphin_status = CONNECTION_INITIAL_STATUS
+        self.arg_seed = ""
 
     def run_gui(self):
         """Import kivy UI system from make_gui() and start running it as self.ui_task."""
@@ -370,6 +371,22 @@ class MMXCMContext(CommonContext):
 
         print("Disconnected from Dolphin.")
 
+    async def server_auth(self, password_requested: bool = False):
+        """
+        Authenticate with the Archipelago server.
+
+        :param password_requested: Whether the server requires a password. Defaults to `False`.
+        """
+        if password_requested and not self.password:
+            await super(MMXCMContext, self).server_auth(password_requested)
+        if not self.auth:
+            await self.get_username()
+        await self.send_connect()
+
+        if self.slot:
+            logger.info(CONNECTION_CONNECTED_STATUS)
+            self.dolphin_status = CONNECTION_CONNECTED_STATUS
+
     # Starts the full loop and debug messages for connecting to Dolphin.
     async def dolphin_connect_loop(self):
         """
@@ -396,20 +413,32 @@ class MMXCMContext(CommonContext):
                         await wait_for_next_loop(5)
                         continue
 
-                self.locations_checked = set()
+                    self.locations_checked = set()
 
-                # Inform player we are ready for connection
-                if not self.dolphin_status == CONNECTION_VERIFY_SERVER:
-                    self.dolphin_status = CONNECTION_VERIFY_SERVER
-                    logger.info(self.dolphin_status)
-                await self.server_auth()
+                    # Inform player we are ready for connection
+                    if not self.dolphin_status == CONNECTION_VERIFY_SERVER:
+                        self.dolphin_status = CONNECTION_VERIFY_SERVER
+                        logger.info(self.dolphin_status)
 
-                if not self.slot:
-                    await wait_for_next_loop(5)
-                    continue
+                    await self.server_auth()
 
-                if not self.medal_monitor_task or self.medal_monitor_task.done():
-                    self.medal_monitor_task = asyncio.create_task(self.monitor_medals(), name= "MMXCM Medal Monitor")
+                    if not self.slot:
+                        await wait_for_next_loop(5)
+                        continue
+
+                    arg_seed = read_string(0x80000001, len(str(self.arg_seed)))
+                    if arg_seed != self.arg_seed:
+                        raise Exception(
+                            "Incorrect Randomized MMX Command Mission ISO file selected. The seed does not match." +
+                            "Please verify that you are using the right ISO/seed/apmmxcm file.")
+
+                logger.info("Anything that just lets us know that we are here.")
+
+                await self.game_watcher()
+                await self.monitor_medals()
+
+               # if not self.medal_monitor_task or self.medal_monitor_task.done():
+                #    self.medal_monitor_task = asyncio.create_task(self.monitor_medals(), name= "MMXCM Medal Monitor")
 
             except Exception as genericEx:
                 dolphin.un_hook()

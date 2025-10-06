@@ -192,14 +192,16 @@ class MMXCMWorld(World):
           "APWorldVersion": CLIENT_VERSION
       }
 
+        # Creates the zip that will hold all necessary output files.
       mmxcm_container = MMXCMPlayerContainer(dict_output_data, patch_path, self.multiworld.player_name[self.player], self.player)
       # Write the expected output zip container to the Generated Seed folder.
       mmxcm_container.write()
 
-def fill_slot_data(self):
-    """This will provide the slot data information upon connecting to AP."""
-    return {
-        "rebellion_medal_count": self.options.rebellion_medal_count.value,
-        "total_locations": len(LOCATION_TABLE),
-        "encounter_rate": self.options.encounter_rate.value
-    }
+  def fill_slot_data(self):
+        """This will provide the slot data information upon connecting to AP."""
+        return {
+            "rebellion_medal_count": self.options.rebellion_medal_count.value,
+            "total_locations": len(LOCATION_TABLE),
+            "encounter_rate": self.options.encounter_rate.value,
+            "seed": self.multiworld.seed,
+        }
