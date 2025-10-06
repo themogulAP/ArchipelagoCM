@@ -48,6 +48,10 @@ INVENTORY_INFO = {
     }
 }
 
+# These addresses appear to be unused throughout the game - we will use them for Item get refactoring.
+LAST_RECV_ITEM_ADDR = 0x804A3327
+NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A3328
+
 class MMXCMContext(CommonContext):
     """
     This is the context class for the Mega Man X: Command Mission client.
@@ -83,6 +87,9 @@ class MMXCMContext(CommonContext):
         super().__init__(server_address, password)
         self.dolphin_status = CONNECTION_INITIAL_STATUS
         self.arg_seed = ""
+
+        self.last_received_idx: int = 0
+        self.non_save_last_recv_idx: int = 0
 
     def run_gui(self):
         """Import kivy UI system from make_gui() and start running it as self.ui_task."""
@@ -228,6 +235,27 @@ class MMXCMContext(CommonContext):
 
         await asyncio.sleep(3)  # Check every three seconds
 
+    def update_received_idx(self, last_recov_idx: int):
+        """
+        This will write the current item index to saveable and non saveable RAM address using 4 byte write,
+        to overall prevent the player from getting EVERY check every time they login.
+        """
+        self.last_received_idx = last_recov_idx
+
+        byte_data = last_recov_idx.to_bytes(4, 'big')
+
+        try:
+            dolphin.write_bytes(LAST_RECV_ITEM_ADDR, byte_data)
+        except Exception as e:
+            logger.info(f"Error writing 4-byte index to LAST RECOV ITEM ADDR: {e}")
+
+        if last_recov_idx > self.non_save_last_recv_idx:
+            self.non_save_last_recv_idx = last_recov_idx
+            try:
+                dolphin.write_bytes(NOT_SAVE_LAST_RECV_ITEM_ADDR, byte_data)
+            except Exception as e:
+                logger.info(f"Error writing 4-byte index to NOT SAVE LAST RECOV ITEM.")
+
     async def game_watcher(self):
         """
         This is the main loop that will handle checking locations and giving items.
@@ -272,54 +300,87 @@ class MMXCMContext(CommonContext):
                 logger.error(f"Error checking for game completion: {e}")
 
         # Check for new items.
-        while self.items_received:
-            logger.info("Starting Received Items Loop!")
-            # TODO: Refactor this to the LAST SAVED IDX (Based on LM's code) FIRST
-            # FIND THE 4 ADDRESS BLOCK THAT IS UNUSED but SAVEABLE in RAM.
-            # Read it to get the last saved index, check for new items, if new items, loop through and give.
-            # For each iteration, increase the last index received +1
+            logger.info("Starting Received Items Loop- Index Based!")
+            # TODO: Refactor this to the LAST SAVED IDX (Based on LM's code) FIRST, WE NEED THE FULL 4 BLOCK STILL
             # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
-            item_to_add = self.items_received.pop(0)
 
-            item_name = self.item_id_to_name[item_to_add.item]
-            player_name = self.slot_to_player_name[item_to_add.player]
+            # 1 --- -- Read the Saveable Index from RAM ------
+            try:
+                # Read the 4 bytes from defined Saveable RAM address.
+                ram_bytes = dolphin.read_bytes(LAST_RECV_ITEM_ADDR, 4)
+                last_recv_idx = int.from_bytes(ram_bytes, 'big')
+            except Exception as e:
+                logger.warning(f"Failed to read saveable index from RAM: {e}")
+                last_recv_idx = 0
 
-            # Check for Rebellion Medals
-            if item_name.startswith("Rebellion Medal"):
+            # 2 - - - - -Compare the saved index to the total number received from AP server.
+            if len(self.items_received) == last_recv_idx:
+                logger.info("No New Items received since last save.")
+                logger.info("Ending Received Items Loop!")
+                return
 
-                #Determine if its Jango's Medal
-                is_medal_2 = (item_name == "Rebellion Medal 2")
-                self.apply_big_4(is_medal_2)
+            # 3 - - -  - Read Non-Saveable Index (for future use on traps and such)
+            self.last_received_idx = last_recv_idx
+            try:
+                non_save_bytes = dolphin.read_bytes(NOT_SAVE_LAST_RECV_ITEM_ADDR, 4)
+                self.non_save_last_recv_idx = int.from_bytes(non_save_bytes, 'big')
+            except Exception as e:
+                logger.warning(f"Failed to read non-saveable index from RAM: {e}")
+                self.non_save_last_recv_idx = 0
 
-                #After patch is applied, we need to start the monitoring
-                #This will eventually revert the changes.
-                if not self.revert_monitor_task or self.revert_monitor_task.done():
-                    self.revert_monitor_task = asyncio.create_task(
-                        self.monitor_revert_state(),
-                        name="Revert Monitor"
-                )
-                continue
+            # 4 -  - - Get ONLY the new items received from the AP server since our last saved index.
+            recv_items = self.items_received[last_recv_idx:]
 
-            print(f"Received item: {item_name} from {player_name}.")
+            # 5 -  - - Process EACH new item! - - - -
+            for item_to_add in recv_items:
 
-            # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
-            if item_name in ACCESS_CODE_PATCHES:
-                try:
-                    # Call the patching function and execute it from our new patch codes py
-                    ACCESS_CODE_PATCHES[item_name]()
-                except Exception as e:
-                    logger.error(f" Error while writing RAM for {item_name}: {e}")
-                continue
-            # END DYNAMIC CLIENT LOGIC
+                last_recv_idx += 1
 
-            item_info = ALL_ITEMS_TABLE.get(item_name)
+                # - Get the readable names
+                item_name = self.item_id_to_name[item_to_add.item]
+                player_name = self.slot_to_player_name[item_to_add.player]
 
-            if item_info and "type" in item_info:
-                item_type = item_info["type"]
-                await self.write_to_inventory(item_to_add, item_type)
-            else:
-                logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
-        logger.info("Ending Received Items Loop!")
+                print(f"Received item: {item_name} from {player_name}.")
+
+                # Check for Rebellion Medals
+                if item_name.startswith("Rebellion Medal"):
+
+                    #Determine if its Jango's Medal
+                    is_medal_2 = (item_name == "Rebellion Medal 2")
+                    self.apply_big_4(is_medal_2)
+
+                    #After patch is applied, we need to start the monitoring
+                    #This will eventually revert the changes.
+                    if not self.revert_monitor_task or self.revert_monitor_task.done():
+                        self.revert_monitor_task = asyncio.create_task(
+                            self.monitor_revert_state(),
+                            name="Revert Monitor"
+                    )
+
+                    self.update_received_idx(last_recv_idx)
+                    continue
+
+                # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
+                if item_name in ACCESS_CODE_PATCHES:
+                    try:
+                        # Call the patching function and execute it from our new patch codes py
+                        ACCESS_CODE_PATCHES[item_name]()
+                    except Exception as e:
+                        logger.error(f" Error while writing RAM for {item_name}: {e}")
+
+                    self.update_received_idx(last_recv_idx)
+                    continue
+                # END DYNAMIC CLIENT LOGIC
+
+                item_info = ALL_ITEMS_TABLE.get(item_name)
+
+                if item_info and "type" in item_info:
+                    item_type = item_info["type"]
+                    await self.write_to_inventory(item_to_add, item_type)
+                    self.update_received_idx(last_recv_idx)
+                else:
+                    logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
+            logger.info("Ending Received Items Loop!")
 
     async def server_auth(self, password_requested: bool = False):
         """
