@@ -1,5 +1,6 @@
 # Python related imports
 import asyncio
+import copy
 import logging
 import struct
 from typing import Dict, Set
@@ -101,22 +102,7 @@ class MMXCMContext(CommonContext):
             case "Connected":
 
                 # Seed verification step.
-                arg_seed = str(slot_data["seed"])
-
-                try:
-                    # Read the ISO seed #
-                    iso_seed = read_string(0x80000000, len(arg_seed))
-                except Exception as genericEx:
-                    iso_seed = ""
-                    logger.error(str(genericEx))
-
-                if arg_seed != iso_seed:
-                    raise Exception("Error! Incorrect Randomized MMXCM Iso File. Seed does not match!")
-                else:
-                    self.seed_verified = True
-                    logger.info("Game seed verified successfully")
-
-                logger.info("Successfully connected to the Archipelago server!")
+                self.arg_seed = str(slot_data["seed"])
                 self.game_running = True
 
             case "ReceivedItems":
@@ -274,102 +260,85 @@ class MMXCMContext(CommonContext):
         This is the main loop that will handle checking locations and giving items.
         It will run as long as the client is connected to the server.
         """
-        # This initializes the set locations checked.
-        checked_locations_in_game = set()
 
-        while not self.finished_game:
-            # Check for new locations.
-            # Replace these with the flags in locations py.
-            newly_checked_locations = []
-            for location_name, location_info in LOCATION_TABLE.items():
-                if location_name not in checked_locations_in_game:
-                    # Sets ram _data to default none to avoid the errors.
-                    ram_data = None
-                    # Reads the value at the locations RAM address.
-                    try:
-                        ram_data = location_info.ram_addr
-                        if ram_data:
-                            # Read the value at the locations RAM address.
-                            location_value = dolphin.read_bytes(ram_data.ram_addr, 1)[0]
-                            # Check if the location's bit position has been set in the value.
-                            if (location_value & (1 << ram_data.bit_position)) > 0:
-                                newly_checked_locations.append(location_name)
-                                checked_locations_in_game.add(location_name)
-                    except Exception as e:
-                        logger.error(
-                            f"Error reading location '{location_name}' at address {hex(ram_data.ram_addr)}: {e}")
+        # Check for new locations.
+        # Missing locations is the AP ID , a list of integers broken down by AP.
+        local_missing_locations = copy.deepcopy(self.missing_locations) # Deepcopy makes it separate copies.
+        for missing_locations in local_missing_locations: #Missing locations is the value from for loop.
+            local_location_name = self.location_names.lookup_in_game(missing_locations)
+            mmxcm_local_data = LOCATION_TABLE[local_location_name] #This grabs the data per name from AP ID.
+            # Read the value at the locations RAM address.
+            location_value = dolphin.read_bytes(mmxcm_local_data.ram_addr, 1)[0]
+            # Check if the location's bit position has been set in the value.
+            if (location_value & (1 << mmxcm_local_data.ram_addr.bit_position)) > 0:
+                self.locations_checked.add(missing_locations)
 
-            if newly_checked_locations:
-                print(f"Found new locations: {newly_checked_locations}")
-                await self.check_locations(newly_checked_locations)
+        await self.check_locations(self.locations_checked) # Locations_checked = LOCAL locations of game
+        # Checked_locations = AP SERVER STATE of locations.
 
-            if not self.finished_game:
+        if not self.finished_game:
+            try:
+                # Get the RAM data for the Great Redips event. This is our "beating the game".
+                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_addr
+
+                if redips_ram_data:
+                    # Read the value at the event's memory address.
+                    boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
+
+                    # Check if the bit for defeating Redips is set.
+                    if boss_defeated_value == 9:
+                        print("Final boss defeated! Signaling game completion to the server.")
+                        self.finished_game = True  # This ends the while loop on the next pass.
+                        await self.send_msgs([{
+                            "cmd": "StatusUpdate",
+                            "status": NetUtils.ClientStatus.CLIENT_GOAL,
+                        }])
+            except Exception as e:
+                # This will catch errors if the game state is not readable or the address is invalid.
+                logger.error(f"Error checking for game completion: {e}")
+
+        # Check for new items.
+        while self.items_received:
+            item_to_add = self.items_received.pop(0)
+
+            item_name = self.item_id_to_name[item_to_add.item]
+            player_name = self.slot_to_player_name[item_to_add.player]
+
+            # Check for Rebellion Medals
+            if item_name.startswith("Rebellion Medal"):
+
+                #Determine if its Jango's Medal
+                is_medal_2 = (item_name == "Rebellion Medal 2")
+                self.apply_big_4(is_medal_2)
+
+                #After patch is applied, we need to start the monitoring
+                #This will eventually revert the changes.
+                if not self.revert_monitor_task or self.revert_monitor_task.done():
+                    self.revert_monitor_task = asyncio.create_task(
+                        self.monitor_revert_state(),
+                        name="Revert Monitor"
+                )
+                continue
+
+            print(f"Received item: {item_name} from {player_name}.")
+
+            # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
+            if item_name in ACCESS_CODE_PATCHES:
                 try:
-                    # Get the RAM data for the Great Redips event. This is our "beating the game".
-                    redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_addr
-
-                    if redips_ram_data:
-                        # Read the value at the event's memory address.
-                        boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
-
-                        # Check if the bit for defeating Redips is set.
-                        if boss_defeated_value == 9:
-                            print("Final boss defeated! Signaling game completion to the server.")
-                            self.finished_game = True  # This ends the while loop on the next pass.
-                            await self.send_msgs([{
-                                "cmd": "StatusUpdate",
-                                "status": NetUtils.ClientStatus.CLIENT_GOAL,
-                            }])
+                    # Call the patching function and execute it from our new patch codes py
+                    ACCESS_CODE_PATCHES[item_name]()
                 except Exception as e:
-                    # This will catch errors if the game state is not readable or the address is invalid.
-                    logger.error(f"Error checking for game completion: {e}")
+                    logger.error(f" Error while writing RAM for {item_name}: {e}")
+                continue
+            # END DYNAMIC CLIENT LOGIC
 
-            # Check for new items.
-            while self.items_received:
-                item_to_add = self.items_received.pop(0)
+            item_info = ALL_ITEMS_TABLE.get(item_name)
 
-                item_name = self.item_id_to_name[item_to_add.item]
-                player_name = self.slot_to_player_name[item_to_add.player]
-
-                # Check for Rebellion Medals
-                if item_name.startswith("Rebellion Medal"):
-
-                    #Determine if its Jango's Medal
-                    is_medal_2 = (item_name == "Rebellion Medal 2")
-                    self.apply_big_4(is_medal_2)
-
-                    #After patch is applied, we need to start the monitoring
-                    #This will eventually revert the changes.
-                    if not self.revert_monitor_task or self.revert_monitor_task.done():
-                        self.revert_monitor_task = asyncio.create_task(
-                            self.monitor_revert_state(),
-                            name="Revert Monitor"
-                    )
-                    continue
-
-                print(f"Received item: {item_name} from {player_name}.")
-
-                # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
-                if item_name in ACCESS_CODE_PATCHES:
-                    try:
-                        # Call the patching function and execute it from our new patch codes py
-                        ACCESS_CODE_PATCHES[item_name]()
-                    except Exception as e:
-                        logger.error(f" Error while writing RAM for {item_name}: {e}")
-                    continue
-                # END DYNAMIC CLIENT LOGIC
-
-                item_info = ALL_ITEMS_TABLE.get(item_name)
-
-                if item_info and "type" in item_info:
-                    item_type = item_info["type"]
-                    await self.write_to_inventory(item_to_add, item_type)
-                else:
-                    logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
-
-            await asyncio.sleep(1)  # Can set this so sleep to avoid CPU usage.
-
-        print("Disconnected from Dolphin.")
+            if item_info and "type" in item_info:
+                item_type = item_info["type"]
+                await self.write_to_inventory(item_to_add, item_type)
+            else:
+                logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
 
     async def server_auth(self, password_requested: bool = False):
         """
@@ -379,6 +348,8 @@ class MMXCMContext(CommonContext):
         """
         if password_requested and not self.password:
             await super(MMXCMContext, self).server_auth(password_requested)
+        if self.dolphin_status != CONNECTION_VERIFY_SERVER:
+            return
         if not self.auth:
             await self.get_username()
         await self.send_connect()
@@ -431,8 +402,6 @@ class MMXCMContext(CommonContext):
                         raise Exception(
                             "Incorrect Randomized MMX Command Mission ISO file selected. The seed does not match." +
                             "Please verify that you are using the right ISO/seed/apmmxcm file.")
-
-                logger.info("Anything that just lets us know that we are here.")
 
                 await self.game_watcher()
                 await self.monitor_medals()
