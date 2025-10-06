@@ -14,6 +14,9 @@ from worlds.LauncherComponents import Component, SuffixIdentifier, Type, compone
 import random
 import os
 
+from ..dlcquest.Rules import set_completion_condition
+
+
 def run_client(*args):
     from .MMXCMClient import sync_main  # lazy import
     launch_subprocess(sync_main, name="MMMXCMClient", args=args)
@@ -63,6 +66,7 @@ class MMXCMWorld(World):
     # This will serve as a Master Dictionary for our loops, describing the codes needed for the same area.
     region_data = {
       "Lagrano Ruins": "Lagrano Ruins Access Code",
+      "Central Tower Boss Arena": "Central Tower Access Code",
       "Tianna Camp": "Tianna Camp Access Code",
       "Gaudile Laboratory": "Gaudile Laboratory Access Code",
       "Ulfat Factory": "Ulfat Factory Access Code",
@@ -79,6 +83,8 @@ class MMXCMWorld(World):
     #Create our Central Tower main hub and full verision (when code is received)! 
     central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
     central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
+    central_tower_boss_arena_region = Region("Central Tower Boss Arena", self.player, self.multiworld)
+    far_east_hq_region = Region("Far East HQ", self.player, self.multiworld)
     self.multiworld.regions.append(central_tower_hub_region)
     self.multiworld.regions.append(central_tower_full_region)
 
@@ -88,6 +94,15 @@ class MMXCMWorld(World):
     central_tower_hub_region.connect(
       central_tower_full_region,
       rule=lambda state: state.has("Central Tower Access Code", self.player)
+    )
+
+    central_tower_full_region.connect(
+        central_tower_boss_arena_region
+    )
+    central_tower_boss_arena_region.connect(
+        far_east_hq_region,
+        rule=lambda state: state.has_group("Rebellion Medals", self.player, 9) and
+        state.has("Far East HQ Access Code", self.player)
     )
 
     # Create all the other regions and connect them to the Central Tower hub!
@@ -145,7 +160,7 @@ class MMXCMWorld(World):
     # This adds our filler items, and will calculate the number to add. 
       locations_count = len(self.multiworld.get_unfilled_locations(self.player))
       items_in_pool = len(self.multiworld.itempool)
-      filler_needed = locations_count - items_in_pool
+      filler_needed = locations_count - items_in_pool - 10 # Have to subtract 10 because of Medals + Redips Item
 
 #Randomly selects the filler items to add into the pool.
       filler_items_to_add = random.choices(list(FILLER_TABLE.keys()), k=filler_needed)
@@ -160,12 +175,9 @@ class MMXCMWorld(World):
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
-      set_rules(self)
-
-  #This is where we set out rules!
-  def set_completion_rules(self):
       self.multiworld.completion_condition[self.player] = lambda state: \
-        state.has("Defeated Great Redips", self.player)
+          state.has("Defeated Great Redips", self.player)
+      set_rules(self)
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
   def generate_output(self, output_directory: str, **kwargs):

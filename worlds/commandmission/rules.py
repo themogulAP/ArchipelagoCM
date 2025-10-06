@@ -45,10 +45,10 @@ if TYPE_CHECKING:
 #Set rules is what "orders" the games rules. 
 #This will also provide us the means to lock Chapter 10 behind rebellion medals. 
 def set_rules(world: "MMXCMWorld"):
-    #player = world.player
-    #multiworld = world.multiworld
+    player = world.player
+    multiworld = world.multiworld
 
-    #multiworld.completion_condition[player] = lambda state: state.has("Great Redips Defeated", player)
+    multiworld.completion_condition[player] = lambda state: state.has("Defeated Great Redips", player)
 
     # Iterate through all locations to find the one that contains the
     # "Far East HQ Access Code" item.
@@ -81,7 +81,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
     rules = {}
 
     for location_name, location_data in LOCATION_TABLE.items():
-         #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code. 
+         #Rule: For All locations in Lagrano Ruins to require the Lagrano Ruins Access Code.
         if location_data.parent_region == "Lagrano Ruins":
              rules[location_name] = lambda state: state.has("Lagrano Ruins Access Code", player)
 
@@ -114,14 +114,7 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
 
         # Add the new rule for the end-game event
         elif location_name == "Defeated Great Redips":
-                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player)
-
-        # This prevents the endless loop and tells the AP where Far East Access Code CAN BE!
-    for location_name, location_data in LOCATION_TABLE.items():
-        if location_data.parent_region != "Far East HQ":
-            add_item_rule(world.multiworld.get_location(location_name, world.player),
-                            lambda i: i.name == "Far East HQ Access Code",
-                            combine="or")
+                rules[location_name] = lambda state: state.has("Far East HQ Access Code", player) and state.has_group("9 Access Codes", player)
 
         #--------------------------- --- Specific rules based on required keys/items -------------------------------------------------
 
