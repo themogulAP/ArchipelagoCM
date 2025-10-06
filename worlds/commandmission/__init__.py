@@ -175,8 +175,6 @@ class MMXCMWorld(World):
 
 # This will apply all the logic that we described in rules py! 
   def set_rules(self):
-      self.multiworld.completion_condition[self.player] = lambda state: \
-          state.has("Defeated Great Redips", self.player)
       set_rules(self)
 
   # Creates the dictionary for all locations in output data, sets the path and gives us a patch to downlaod! 
