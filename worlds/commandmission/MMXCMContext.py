@@ -260,7 +260,7 @@ class MMXCMContext(CommonContext):
         This is the main loop that will handle checking locations and giving items.
         It will run as long as the client is connected to the server.
         """
-
+        logger.info("Starting Location check Loop!")
         # Check for new locations.
         # Missing locations is the AP ID , a list of integers broken down by AP.
         local_missing_locations = copy.deepcopy(self.missing_locations) # Deepcopy makes it separate copies.
@@ -268,18 +268,19 @@ class MMXCMContext(CommonContext):
             local_location_name = self.location_names.lookup_in_game(missing_locations)
             mmxcm_local_data = LOCATION_TABLE[local_location_name] #This grabs the data per name from AP ID.
             # Read the value at the locations RAM address.
-            location_value = dolphin.read_bytes(mmxcm_local_data.ram_addr, 1)[0]
+            location_value = dolphin.read_bytes(mmxcm_local_data.ram_data.ram_addr, 1)[0]
             # Check if the location's bit position has been set in the value.
-            if (location_value & (1 << mmxcm_local_data.ram_addr.bit_position)) > 0:
+            if (location_value & (1 << mmxcm_local_data.ram_data.bit_position)) > 0:
                 self.locations_checked.add(missing_locations)
-
+        logger.info("Ending Location check Loop!")
         await self.check_locations(self.locations_checked) # Locations_checked = LOCAL locations of game
         # Checked_locations = AP SERVER STATE of locations.
 
         if not self.finished_game:
+            logger.info("Checking finished game!")
             try:
                 # Get the RAM data for the Great Redips event. This is our "beating the game".
-                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_addr
+                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_data
 
                 if redips_ram_data:
                     # Read the value at the event's memory address.
@@ -299,6 +300,7 @@ class MMXCMContext(CommonContext):
 
         # Check for new items.
         while self.items_received:
+            logger.info("Starting Received Items Loop!")
             item_to_add = self.items_received.pop(0)
 
             item_name = self.item_id_to_name[item_to_add.item]
@@ -339,6 +341,7 @@ class MMXCMContext(CommonContext):
                 await self.write_to_inventory(item_to_add, item_type)
             else:
                 logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
+        logger.info("Ending Received Items Loop!")
 
     async def server_auth(self, password_requested: bool = False):
         """

@@ -14,9 +14,6 @@ from worlds.LauncherComponents import Component, SuffixIdentifier, Type, compone
 import random
 import os
 
-from ..dlcquest.Rules import set_completion_condition
-
-
 def run_client(*args):
     from .MMXCMClient import sync_main  # lazy import
     launch_subprocess(sync_main, name="MMMXCMClient", args=args)

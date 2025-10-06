@@ -270,7 +270,7 @@ class MMXCMPatcher:
                 return
 
             location_data: MMXCMLocationData = LOCATION_TABLE[location_name]
-            dol_address = location_data.ram_addr
+            dol_address = location_data.ram_data
 
             item_data: MMXCMItemData = ALL_ITEMS_TABLE[item_name]
             # This access our item ID from our Data class to tell this randomizer WHICH item it is. 
