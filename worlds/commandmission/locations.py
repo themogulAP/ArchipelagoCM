@@ -2240,7 +2240,7 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
     code=None,
     parent_region="Far East HQ",
     event_item=True,
-    ram_data=MMXCMRamData(ram_data=0x804A210A, bit_position=3)
+    ram_data=MMXCMRamData(0x804A210A, bit_position=3)
   ),
 }
 
