@@ -13,12 +13,12 @@ from worlds.tww.TWWClient import read_string
 # 3rd party related imports
 import dolphin_memory_engine as dolphin
 
+from .files.Constants import WAIT_TIMER_SHORT_TIMEOUT
 # Project relative imports.
 from .locations import LOCATION_TABLE
 from .items import ALL_ITEMS_TABLE
 from .MMXCMClient import MMXCMCommandProcessor
-from .helpers import (CONNECTION_INITIAL_STATUS, CONNECTION_CONNECTED_STATUS, CONNECTION_REFUSED_STATUS,
-    CONNECTION_LOST_STATUS, CLIENT_NAME, CONNECTION_VERIFY_SERVER, wait_for_next_loop)
+from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
 from .files import Constants
 
@@ -408,6 +408,7 @@ class MMXCMContext(CommonContext):
 
                 await self.game_watcher()
                 await self.monitor_medals()
+                await wait_for_next_loop(WAIT_TIMER_SHORT_TIMEOUT)
 
                # if not self.medal_monitor_task or self.medal_monitor_task.done():
                 #    self.medal_monitor_task = asyncio.create_task(self.monitor_medals(), name= "MMXCM Medal Monitor")

@@ -82,5 +82,5 @@ def write_bit_to_ram(address: int, bit_position: int, dolphin_instance):
     except Exception as e:
         print(f"Error writing to RAM at address {hex(address)}: {e}")
 
-async def wait_for_next_loop(time_to_wait: int):
+async def wait_for_next_loop(time_to_wait: float):
     await asyncio.sleep(time_to_wait)

@@ -8,6 +8,8 @@ ROOM_ID_ADDRESS = 0x804A2083
 # Address used for checking the specific room exit state for the Big 4 revert logic
 REVERT_STATE_ADDRESS = 0x804A208E
 
+WAIT_TIMER_SHORT_TIMEOUT: float = 0.125
+
 # --- Rebellion Medal Location Checks ---
 REBELLION_MEDAL_CHECKS = {
     0x05: "Rebellion Medal 1", # Lagrano Ruins Clear
