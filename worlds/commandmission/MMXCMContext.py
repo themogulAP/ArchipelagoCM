@@ -49,8 +49,8 @@ INVENTORY_INFO = {
 }
 
 # These addresses appear to be unused throughout the game - we will use them for Item get refactoring.
-LAST_RECV_ITEM_ADDR = 0x804A3327
-NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A3328
+LAST_RECV_ITEM_ADDR = 0x804A2174
+NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A2175
 
 class MMXCMContext(CommonContext):
     """
@@ -210,7 +210,7 @@ class MMXCMContext(CommonContext):
 
     async def monitor_medals(self):
         """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
-        logger.info("Starting Rebellion Medal monitor...")
+        #logger.info("Starting Rebellion Medal monitor...")
         # Use 'self' to access context properties
         # 1. Read the necessary memory addresses
         # status_flag for Medals 1-8 check (must be 4)
@@ -261,7 +261,7 @@ class MMXCMContext(CommonContext):
         This is the main loop that will handle checking locations and giving items.
         It will run as long as the client is connected to the server.
         """
-        logger.info("Starting Location check Loop!")
+        #logger.info("Starting Location check Loop!")
         # Check for new locations.
         # Missing locations is the AP ID , a list of integers broken down by AP.
         local_missing_locations = copy.deepcopy(self.missing_locations) # Deepcopy makes it separate copies.
@@ -273,12 +273,12 @@ class MMXCMContext(CommonContext):
             # Check if the location's bit position has been set in the value.
             if (location_value & (1 << mmxcm_local_data.ram_data.bit_position)) > 0:
                 self.locations_checked.add(missing_locations)
-        logger.info("Ending Location check Loop!")
+        #logger.info("Ending Location check Loop!")
         await self.check_locations(self.locations_checked) # Locations_checked = LOCAL locations of game
         # Checked_locations = AP SERVER STATE of locations.
 
         if not self.finished_game:
-            logger.info("Checking finished game!")
+            #logger.info("Checking finished game!")
             try:
                 # Get the RAM data for the Great Redips event. This is our "beating the game".
                 redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_data
@@ -300,7 +300,7 @@ class MMXCMContext(CommonContext):
                 logger.error(f"Error checking for game completion: {e}")
 
         # Check for new items.
-            logger.info("Starting Received Items Loop- Index Based!")
+          #  logger.info("Starting Received Items Loop- Index Based!")
             # TODO: Refactor this to the LAST SAVED IDX (Based on LM's code) FIRST, WE NEED THE FULL 4 BLOCK STILL
             # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
 
@@ -315,8 +315,8 @@ class MMXCMContext(CommonContext):
 
             # 2 - - - - -Compare the saved index to the total number received from AP server.
             if len(self.items_received) == last_recv_idx:
-                logger.info("No New Items received since last save.")
-                logger.info("Ending Received Items Loop!")
+                #logger.info("No New Items received since last save.")
+                #logger.info("Ending Received Items Loop!")
                 return
 
             # 3 - - -  - Read Non-Saveable Index (for future use on traps and such)
@@ -380,7 +380,7 @@ class MMXCMContext(CommonContext):
                     self.update_received_idx(last_recv_idx)
                 else:
                     logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
-            logger.info("Ending Received Items Loop!")
+           # logger.info("Ending Received Items Loop!")
 
     async def server_auth(self, password_requested: bool = False):
         """
