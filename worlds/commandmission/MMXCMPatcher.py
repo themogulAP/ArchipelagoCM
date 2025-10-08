@@ -202,6 +202,7 @@ CODE_PATCHES = [
     } 
 ] 
 
+MMXCM_PLAYER_NAME_BYTE_LENGTH = 64
 
 class MMXCMPatcher:
     def __init__(self, patch_file_path: str):
@@ -319,6 +320,10 @@ class MMXCMPatcher:
         for location_name, item_name in self.output_data["Locations"].items():
             self.write_item_to_location(location_name, item_name)
         print("Randomized item patching complete!")
+
+        # Put the player name into the DOL Bytes.
+        self.dol.data.seek(0x2E0D00)
+        self.dol.data.write(sbf.string_to_bytes(self.output_data["Name"], MMXCM_PLAYER_NAME_BYTE_LENGTH))
         
         # Save all changes to the DOL itself. 
         self.dol.save_changes() 

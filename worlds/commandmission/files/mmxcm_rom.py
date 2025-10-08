@@ -9,8 +9,6 @@ from hashlib import md5
 from typing import Any
 import json, logging, sys, os, zipfile, tempfile
 
-from ..MMXCMPatcher import MMXCMPatcher
-
 logger = logging.getLogger()
 
 RANDOMIZER_NAME = "Mega Man X Command Mission"
@@ -87,12 +85,9 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
 
             # Calls the MMXCMPatcher to patch the file into ISO
             from ..MMXCMPatcher import MMXCMPatcher
-            with zipfile.ZipFile(apmmxcm_patch, "r") as zf:
-                apmmxcm_bytes = zf.read("patch.apmmxcm")
-
-            MMXCMPatcher(mmxcm_clean_iso, output_file, apmmxcm_bytes)
+            MMXCMPatcher(apmmxcm_patch)
         except ImportError:
-            self.__get_remote_dependencies_and_create_iso(apmmxcm_patch, output_file, mmxcm_clean_iso)
+            self.__get_remote_dependencies_and_create_iso(apmmxcm_patch, mmxcm_clean_iso)
         return output_file
 
     def read_contents(self, apmmxcm_patch: str) -> dict[str, Any]:
@@ -149,7 +144,7 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
         else:
             raise InvalidCleanISOError("Invalid game given as vanilla MMXCM Iso. Verify it is the Vanilla PAL iso!")
 
-    def create_iso(self, temp_dir_path: str, patch_file_path: str, output_iso_path: str, vanilla_iso_path: str):
+    def create_iso(self, temp_dir_path: str, patch_file_path: str, vanilla_iso_path: str):
         logger.info(f"Appending the following to sys path to get dependencies: {temp_dir_path}")
         sys.path.insert(0, temp_dir_path)
 
@@ -158,13 +153,11 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
 
         #Use the Patcher to patch it into an iso.
         from ..MMXCMPatcher import MMXCMPatcher
-        with zipfile.ZipFile(patch_file_path, "r") as zf:
-            apmmxcm_bytes = zf.read("patch.apmmxcm")
-        MMXCMPatcher(vanilla_iso_path, output_iso_path, apmmxcm_bytes)
+        MMXCMPatcher(patch_file_path)
 
-    def __get_remote_dependencies_and_create_iso(self, apmmxcm_patch: str, output_file: str, mmxcm_clean_iso: str):
+    def __get_remote_dependencies_and_create_iso(self, apmmxcm_patch: str, mmxcm_clean_iso: str):
+        local_dir_path = self.__get_temp_folder_name()
         try:
-            local_dir_path = self.__get_temp_folder_name()
             # Remove the temporary directory if we failed to patch the ISO correctly.
             if os.path.isdir(local_dir_path):
                 logger.info("Found temp directory after failing seed generation, deleting %s.", local_dir_path)
@@ -173,7 +166,7 @@ class MMXCMPALPatch(APPatch, metaclass=AutoPatchRegister):
 
                 #Load external dependencies based on which OS
                 logger.info("Temporary Directory created as: %s", local_dir_path)
-                self.create_iso(local_dir_path, apmmxcm_patch, output_file, mmxcm_clean_iso)
+                self.create_iso(local_dir_path, apmmxcm_patch, mmxcm_clean_iso)
         except PermissionError:
             logger.warning("Failed to cleanup temp folder, %s ignoring delete.", local_dir_path)
 

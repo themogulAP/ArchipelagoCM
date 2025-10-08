@@ -52,6 +52,11 @@ INVENTORY_INFO = {
 LAST_RECV_ITEM_ADDR = 0x804A2174
 NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A2175
 
+# This is the address that holds the player's slot name.
+# This way, the player does not have to manually authenticate their slot name.
+SLOT_NAME_ADDR = 0x802E3D00
+SLOT_NAME_STR_LENGTH = 64
+
 class MMXCMContext(CommonContext):
     """
     This is the context class for the Mega Man X: Command Mission client.
@@ -108,11 +113,6 @@ class MMXCMContext(CommonContext):
                 # Seed verification step.
                 self.arg_seed = str(slot_data["seed"])
                 self.game_running = True
-
-            case "ReceivedItems":
-                # This is the package sent when we get something from a different player.
-                # We should call our own function to either update ram addresses or physically give items in game.
-                pass
 
     async def disconnect(self, allow_autoreconnect: bool = False):
         await super().disconnect(allow_autoreconnect)
@@ -376,7 +376,7 @@ class MMXCMContext(CommonContext):
         if self.dolphin_status != CONNECTION_VERIFY_SERVER:
             return
         if not self.auth:
-            await self.get_username()
+            return
         await self.send_connect()
 
         if self.slot:
@@ -394,10 +394,10 @@ class MMXCMContext(CommonContext):
                     dolphin.hook()
                     if dolphin.get_status() == dolphin.get_status().noEmu or dolphin.get_status() == dolphin.get_status().notRunning:
                         dolphin.un_hook()
-                    self.dolphin_status = CONNECTION_INITIAL_STATUS
-                    logger.info(self.dolphin_status)
-                    await wait_for_next_loop(5)
-                    continue
+                        self.dolphin_status = CONNECTION_INITIAL_STATUS
+                        logger.info(self.dolphin_status)
+                        await wait_for_next_loop(5)
+                        continue
 
                 # If the Game ID is a standard one, disconnect because it isnt the randomized ROM.
                 if not self.dolphin_status == CONNECTION_CONNECTED_STATUS:
@@ -408,6 +408,18 @@ class MMXCMContext(CommonContext):
                         dolphin.un_hook()
                         await wait_for_next_loop(5)
                         continue
+
+                    if not self.auth:
+                        self.auth = read_string(SLOT_NAME_ADDR, SLOT_NAME_STR_LENGTH)
+
+                        # If no player name is found, disconnect DME and inform player
+                        if not self.auth:
+                            self.auth = None
+                            self.dolphin_status = NO_SLOT_NAME_STATUS
+                            logger.info(self.dolphin_status)
+                            dolphin.un_hook()
+                            await wait_for_next_loop(5)
+                            continue
 
                     self.locations_checked = set()
 
