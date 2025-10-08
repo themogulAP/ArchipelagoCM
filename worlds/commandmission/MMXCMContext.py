@@ -66,8 +66,8 @@ class MMXCMContext(CommonContext):
     already_fired_events = False
     game_running = False
 
-    item_id_to_name: Dict[int, str]
-    slot_to_player_name: Dict[int, str]
+    item_id_to_name: Dict[int, str] = {}
+    slot_to_player_name: Dict[int, str] = {}
 
     dolphin_server_task = None
     dolphin_status = None
