@@ -3,7 +3,7 @@ import asyncio
 import copy
 import logging
 import struct
-from typing import Dict, Set
+from typing import Dict, Set, TYPE_CHECKING
 
 # AP related imports
 import NetUtils
@@ -16,7 +16,7 @@ import dolphin_memory_engine as dolphin
 from .files.Constants import WAIT_TIMER_SHORT_TIMEOUT
 # Project relative imports.
 from .locations import LOCATION_TABLE
-from .items import ALL_ITEMS_TABLE
+from .items import ALL_ITEMS_TABLE, MMXCMItemData
 from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
@@ -65,9 +65,6 @@ class MMXCMContext(CommonContext):
     seed_verified: bool = False
     already_fired_events = False
     game_running = False
-
-    item_id_to_name: Dict[int, str] = {}
-    slot_to_player_name: Dict[int, str] = {}
 
     dolphin_server_task = None
     dolphin_status = None
@@ -260,42 +257,35 @@ class MMXCMContext(CommonContext):
         # Missing locations is the AP ID , a list of integers broken down by AP.
         local_missing_locations = copy.deepcopy(self.missing_locations) # Deepcopy makes it separate copies.
         for missing_locations in local_missing_locations: #Missing locations is the value from for loop.
-            logger.info("Line 263")
             local_location_name = self.location_names.lookup_in_game(missing_locations)
             mmxcm_local_data = LOCATION_TABLE[local_location_name] #This grabs the data per name from AP ID.
             # Read the value at the locations RAM address.
             location_value = dolphin.read_bytes(mmxcm_local_data.ram_data.ram_addr, 1)[0]
-            logger.info("Line 268")
             # Check if the location's bit position has been set in the value.
             if (location_value & (1 << mmxcm_local_data.ram_data.bit_position)) > 0:
                 self.locations_checked.add(missing_locations)
         #logger.info("Ending Location check Loop!")
-        logger.info("Line 268")
         await self.check_locations(self.locations_checked) # Locations_checked = LOCAL locations of game
         # Checked_locations = AP SERVER STATE of locations.
 
         if not self.finished_game:
             #logger.info("Checking finished game!")
             try:
-                logger.info("Line 280")
                 # Get the RAM data for the Great Redips event. This is our "beating the game".
                 redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_data
 
                 if redips_ram_data:
-                    logger.info("Line 285")
                     # Read the value at the event's memory address.
                     boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
 
                     # Check if the bit for defeating Redips is set.
                     if boss_defeated_value == 9:
-                        logger.info("Line 291")
                         print("Final boss defeated! Signaling game completion to the server.")
                         self.finished_game = True  # This ends the while loop on the next pass.
                         await self.send_msgs([{
                             "cmd": "StatusUpdate",
                             "status": NetUtils.ClientStatus.CLIENT_GOAL,
                         }])
-                        logger.info("Line 298")
             except Exception as e:
                 # This will catch errors if the game state is not readable or the address is invalid.
                 logger.error(f"Error checking for game completion: {e}")
@@ -307,12 +297,10 @@ class MMXCMContext(CommonContext):
 
             # 1 --- -- Read the Saveable Index from RAM ------
             try:
-                logger.info("Line 310")
                 # Read the 4 bytes from defined Saveable RAM address.
                 ram_bytes = dolphin.read_bytes(LAST_RECV_ITEM_ADDR, 4)
                 last_recv_idx = int.from_bytes(ram_bytes, 'big')
             except Exception as e:
-                logger.info("Line 315")
                 logger.warning(f"Failed to read saveable index from RAM: {e}")
                 last_recv_idx = 0
 
@@ -320,13 +308,11 @@ class MMXCMContext(CommonContext):
             if len(self.items_received) == last_recv_idx:
                 #logger.info("No New Items received since last save.")
                 #logger.info("Ending Received Items Loop!")
-                logger.info("Line 323")
                 return
 
             # 3 - - -  - Read Non-Saveable Index (for future use on traps and such)
             self.last_received_idx = last_recv_idx
             try:
-                logger.info("Line 329")
                 non_save_bytes = dolphin.read_bytes(NOT_SAVE_LAST_RECV_ITEM_ADDR, 4)
                 self.non_save_last_recv_idx = int.from_bytes(non_save_bytes, 'big')
             except Exception as e:
@@ -338,38 +324,33 @@ class MMXCMContext(CommonContext):
 
             # 5 -  - - Process EACH new item! - - - -
             for item_to_add in recv_items:
-                logger.info("Line 341")
                 last_recv_idx += 1
 
                 # - Get the readable names
-                item_name = self.item_id_to_name[item_to_add.item]
-                player_name = self.slot_to_player_name[item_to_add.player]
-
-                print(f"Received item: {item_name} from {player_name}.")
+                item_name = self.item_names.lookup_in_game(item_to_add.item)
+              #  player_name = self.slot_to_player_name[item_to_add.player]
 
                 # Check for Rebellion Medals
                 if item_name.startswith("Rebellion Medal"):
-                    logger.info("Line 352")
                     #Determine if its Jango's Medal
                     is_medal_2 = (item_name == "Rebellion Medal 2")
                     self.apply_big_4(is_medal_2)
 
                     #After patch is applied, we need to start the monitoring
                     #This will eventually revert the changes.
-                    if not self.revert_monitor_task or self.revert_monitor_task.done():
-                        self.revert_monitor_task = asyncio.create_task(
-                            self.monitor_revert_state(),
-                            name="Revert Monitor"
-                    )
+                    # if not self.revert_monitor_task or self.revert_monitor_task.done():
+                    #     self.revert_monitor_task = asyncio.create_task(
+                    #         self.monitor_revert_state(),
+                    #         name="Revert Monitor"
+                    # )
+                    await self.monitor_revert_state()
 
                     self.update_received_idx(last_recv_idx)
-                    logger.info("Line 366")
                     continue
 
                 # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
-                if item_name in ACCESS_CODE_PATCHES:
+                elif item_name in ACCESS_CODE_PATCHES:
                     try:
-                        logger.info("Line 372")
                         # Call the patching function and execute it from our new patch codes py
                         ACCESS_CODE_PATCHES[item_name]()
                     except Exception as e:
@@ -380,16 +361,9 @@ class MMXCMContext(CommonContext):
                 # END DYNAMIC CLIENT LOGIC
 
                 item_info = ALL_ITEMS_TABLE.get(item_name)
-
-                if item_info and "type" in item_info:
-                    logger.info("Line 385")
-                    item_type = item_info["type"]
-                    await self.write_to_inventory(item_to_add, item_type)
-                    self.update_received_idx(last_recv_idx)
-                    logger.info("Line 389")
-                else:
-                    logger.error(f"Error: Could not find type information for item ID {item_to_add.item}.")
-           # logger.info("Ending Received Items Loop!")
+                item_type = item_info["type"]
+                await self.write_to_inventory(item_info, item_name, item_type)
+                self.update_received_idx(last_recv_idx)
 
     async def server_auth(self, password_requested: bool = False):
         """
@@ -467,19 +441,13 @@ class MMXCMContext(CommonContext):
                 await asyncio.sleep(5)
                 continue
 
-    async def write_to_inventory(self, item: NetUtils.NetworkItem, inv_type: str):
+    async def write_to_inventory(self, item_info: MMXCMItemData, item_name: str, inv_type: str):
         """
         This will find the first empty inventory slot and write the item's ID to it.
         """
-        # Look up the item's data using its name, not its Archipelago ID
-        item_info = ALL_ITEMS_TABLE.get(self.item_id_to_name[item.item])
-
-        if not item_info:
-            logger.error(f"Error: Could not find item information for item ID {item.item}.")
-            return
 
         if inv_type not in INVENTORY_INFO:
-            logger.error(f"Error Unknown inventory type '{inv_type}' for item {self.item_id_to_name[item.item]}.")
+            logger.error(f"Error Unknown inventory type '{inv_type}' for item {item_name}.")
             return
 
         inv_data = INVENTORY_INFO[inv_type]
@@ -499,10 +467,10 @@ class MMXCMContext(CommonContext):
                 print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
 
                 # Get the in-game Item ID and convert it to bytes.
-                item_id_bytes = struct.pack(">I", item_info["item_id"])
+                item_id_bytes = struct.pack(">I", item_info.item_id)
 
                 # Write the item to the empty slot.
                 dolphin.write_bytes(slot_address, item_id_bytes)
-                print(f"Wrote item {self.item_id_to_name[item.item]} ({item.item}) to {inv_type} inventory.")
+                print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
-        logger.error(f"Error: No empty {inv_type} slots found for item {item.item}!")
+        logger.error(f"Error: No empty {inv_type} slots found for item {item_name}!")
