@@ -448,7 +448,7 @@ class MMXCMContext(CommonContext):
 
             except Exception as genericEx:
                 dolphin.un_hook()
-                logger.error(str(genericEx))
+                logger.info(str(genericEx))
                 logger.info("Connection to Dolphin failed, attempting in 5 seconds...")
                 self.dolphin_status = CONNECTION_LOST_STATUS
                 await self.disconnect()
