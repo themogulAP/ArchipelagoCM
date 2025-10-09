@@ -253,11 +253,22 @@ class MMXCMContext(CommonContext):
         else:
             dolphin.write_bytes(dolphin.follow_pointers(addr, ram_offset), curr_value)
 
+    def check_ingame(self):
+        # The game has an address that lets us know if we are in a playable state or not.
+        int_play_state = dolphin.read_word(self.Constants.GAMEPLAY_STATE_SET_ADDR)
+        if not int_play_state == 7:
+            return False
+        return True
+
     async def game_watcher(self):
         """
         This is the main loop that will handle checking locations and giving items.
         It will run as long as the client is connected to the server.
         """
+        # This will check for the game state being 7 to make sure the player is in game.
+        if not self.check_ingame():
+            return
+
         #logger.info("Starting Location check Loop!")
         # Check for new locations.
         # Missing locations is the AP ID , a list of integers broken down by AP.
