@@ -247,6 +247,12 @@ class MMXCMContext(CommonContext):
             except Exception as e:
                 logger.info(f"Error writing 4-byte index to NOT SAVE LAST RECOV ITEM.")
 
+    async def write_bytes_and_validate(self, addr: int, ram_offset: list[str] | None, curr_value: bytes) -> None:
+        if not ram_offset:
+            dolphin.write_bytes(addr, curr_value)
+        else:
+            dolphin.write_bytes(dolphin.follow_pointers(addr, ram_offset), curr_value)
+
     async def game_watcher(self):
         """
         This is the main loop that will handle checking locations and giving items.
@@ -328,6 +334,8 @@ class MMXCMContext(CommonContext):
 
                 # - Get the readable names
                 item_name = self.item_names.lookup_in_game(item_to_add.item)
+                item_info = ALL_ITEMS_TABLE.get(item_name)
+                item_type = item_info.type
               #  player_name = self.slot_to_player_name[item_to_add.player]
 
                 # Check for Rebellion Medals
@@ -358,10 +366,37 @@ class MMXCMContext(CommonContext):
 
                     self.update_received_idx(last_recv_idx)
                     continue
-                # END DYNAMIC CLIENT LOGIC
 
-                item_info = ALL_ITEMS_TABLE.get(item_name)
-                item_type = item_info["type"]
+                elif item_type == "Mechaniloid Item" or item_type == "Trade Item":
+                    for addr_to_update in item_info.update_ram_addr:
+                        byte_size = 1 if addr_to_update.ram_byte_size is None else addr_to_update.ram_byte_size
+                        ram_offset = None if not addr_to_update.pointer_offset else [addr_to_update.pointer_offset]
+
+                        if not addr_to_update.item_count is None:
+                            if not ram_offset is None:
+                                curr_val = int.from_bytes(dolphin.read_bytes(dolphin.follow_pointers(addr_to_update.ram_addr,
+                                        [addr_to_update.pointer_offset]), byte_size))
+
+                                curr_val += addr_to_update.item_count
+                            else:
+                                curr_val = int.from_bytes(dolphin.read_bytes(addr_to_update.ram_addr, byte_size))
+                                curr_val += addr_to_update.item_count
+                        else:
+                            if not addr_to_update.pointer_offset is None:
+                                curr_val = int.from_bytes(dolphin.read_bytes(dolphin.follow_pointers(addr_to_update.ram_addr,
+                                    [addr_to_update.pointer_offset]), byte_size))
+                                curr_val = (curr_val | (1 << addr_to_update.bit_position))
+
+                            else:
+                                curr_val = int.from_bytes(dolphin.read_bytes(addr_to_update.ram_addr, byte_size))
+                                if not addr_to_update.bit_position is None:
+                                    curr_val = (curr_val | (1 << addr_to_update.bit_position))
+                                else:
+                                    curr_val += 1
+
+                        await self.write_bytes_and_validate(addr_to_update.ram_addr, ram_offset,
+                                                       curr_val.to_bytes(byte_size, 'big'))
+                # END DYNAMIC CLIENT LOGIC
                 await self.write_to_inventory(item_info, item_name, item_type)
                 self.update_received_idx(last_recv_idx)
 
