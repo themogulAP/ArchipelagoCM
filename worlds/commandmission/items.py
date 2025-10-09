@@ -11,6 +11,7 @@ class MMXCMItemData(NamedTuple):
   code: Optional[int] = None
   item_id: Optional[int] = None #This is the item's unique ID
   update_ram_addr: Optional[list[MMXCMRamData]] = None
+  item_count: int = 1
 
 # This is the list for every single item we are currently randomzing in AP.
 PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
@@ -2410,7 +2411,7 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
     type="Mechaniloid Item",
     code=303,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=0)]
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=0)]
   ),
   "Mini Battery B": MMXCMItemData(
     type="Mechaniloid Item",

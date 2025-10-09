@@ -27,22 +27,22 @@ from .files import Constants
 # The slot is 4 away from the previous one, and the data itself is a 4 Byte.
 INVENTORY_INFO = {
     "Consumable": {
-        "base_address": 0x804A32A9,
+        "base_address": 0x804A32A8,
         "slot_count": 32,
         "slot_size": 4,
     },
     "Weapon": {
-        "base_address": 0x804A34B9,
+        "base_address": 0x804A34B8,
         "slot_count": 120,
         "slot_size": 4,
     },
     "Sub-Weapon": {
-        "base_address": 0x804A3699,
+        "base_address": 0x804A3698,
         "slot_count": 64,
         "slot_size": 4,
     },
     "Force Metal": {
-        "base_address": 0x804A3329,
+        "base_address": 0x804A3328,
         "slot_count": 96,
         "slot_size": 4,
     }
@@ -255,7 +255,7 @@ class MMXCMContext(CommonContext):
 
     def check_ingame(self):
         # The game has an address that lets us know if we are in a playable state or not.
-        int_play_state = dolphin.read_word(self.Constants.GAMEPLAY_STATE_SET_ADDR)
+        int_play_state = dolphin.read_byte(self.Constants.SCREEN_SELECT_ADDRESS)
         if not int_play_state == 7:
             return False
         return True
@@ -277,7 +277,7 @@ class MMXCMContext(CommonContext):
             local_location_name = self.location_names.lookup_in_game(missing_locations)
             mmxcm_local_data = LOCATION_TABLE[local_location_name] #This grabs the data per name from AP ID.
             # Read the value at the locations RAM address.
-            location_value = dolphin.read_bytes(mmxcm_local_data.ram_data.ram_addr, 1)[0]
+            location_value: int = dolphin.read_byte(mmxcm_local_data.ram_data.ram_addr)
             # Check if the location's bit position has been set in the value.
             if (location_value & (1 << mmxcm_local_data.ram_data.bit_position)) > 0:
                 self.locations_checked.add(missing_locations)
@@ -407,6 +407,8 @@ class MMXCMContext(CommonContext):
 
                         await self.write_bytes_and_validate(addr_to_update.ram_addr, ram_offset,
                                                        curr_val.to_bytes(byte_size, 'big'))
+                    self.update_received_idx(last_recv_idx)
+                    continue
                 # END DYNAMIC CLIENT LOGIC
                 await self.write_to_inventory(item_info, item_name, item_type)
                 self.update_received_idx(last_recv_idx)
@@ -518,17 +520,16 @@ class MMXCMContext(CommonContext):
 
             # Reads the current value of the slot
             current_item_id_bytes = dolphin.read_bytes(slot_address, slot_size)
+            #TODO : Check the 2nd or 3rd byte to see if its empty instead of whole thing.
             current_item_id = struct.unpack(">I", current_item_id_bytes)[0]
 
             # A Value of 0 indicates an empty slot!
             if current_item_id == 0:
                 print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
 
-                # Get the in-game Item ID and convert it to bytes.
-                item_id_bytes = struct.pack(">I", item_info.item_id)
-
-                # Write the item to the empty slot.
-                dolphin.write_bytes(slot_address, item_id_bytes)
+                # Get the in-game Item ID and convert it to bytes
+                item_value = item_info.item_id.to_bytes(1, 'big') + item_info.item_count.to_bytes(1, 'big')
+                dolphin.write_bytes(slot_address + 1, item_value)
                 print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
         logger.error(f"Error: No empty {inv_type} slots found for item {item_name}!")
