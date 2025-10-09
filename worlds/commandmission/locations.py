@@ -48,98 +48,98 @@ LAGRANO_RUINS_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Area 2F East 4",
     code=6,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=0)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=0)
   ),
   "Area 3F East Tank Energy 25": MMXCMLocationData(
     name="Area 3F East 1",
     code=7,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=3)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=3)
   ),
   "Area 3F East Melt Missile": MMXCMLocationData(
     name="Area 3F East 2",
     code=8,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=2)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=2)
   ),
   "East Area Stairs 3F to 4F Tank Energy 50": MMXCMLocationData(
     name="East Area Stairs 3F to 4F 1",
     code=9,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=4)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=4)
   ),
   "Area 4F East Backup": MMXCMLocationData(
     name="Area 4F East 1",
     code=10,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=3)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=3)
   ),
   "Area 4F East Build Shield": MMXCMLocationData(
     name="Area 4F East 2",
     code=11,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=2)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=2)
   ),
   "Area 4F East Tank Energy Infinite": MMXCMLocationData(
     name="Area 4F East 3",
     code=12,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=1)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=1)
   ),
   "4F: Test Hall 1 Power +1": MMXCMLocationData(
   # These two entries are the MD's after Hippo is defeated.
     name="4F Test Hall 1-1",
     code=13,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=0)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=0)
   ),
   "4F: Test Hall 1 Speed +1": MMXCMLocationData(
     name="4F Test Hall 1-2",
     code=14,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=7)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=7)
   ),
   "Area 4F West Tank Parts": MMXCMLocationData(
     name="Area 4F West 1",
     code=15,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=6)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=6)
   ),
   "Area 4F West 80z": MMXCMLocationData(
     name="Area 4F West 2",
     code=16,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042152, bit_position=5)
+    ram_data=MMXCMRamData(0x804A2152, bit_position=5)
   ), 
   "East Area Stairs 4F to 5F Tank Parts": MMXCMLocationData(
     name="East Area Stairs 4F to 5F MD 1",
     code=17,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=5)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=5)
   ),
   "East Area Stairs 4F to 5F Figure Token 1": MMXCMLocationData(
     name="East Area Stairs 4F to 5F 2",
     code=18,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=6)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=6)
   ),      
   "East Area Stairs 4F to 5F Figure Token 2": MMXCMLocationData(
     name="East Area Stairs 4F to 5F 3",
     code=19,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042151, bit_position=7)
+    ram_data=MMXCMRamData(0x804A2151, bit_position=7)
   ),
   "Area 5F West Reboot": MMXCMLocationData(
     name="Area 5F West 1",
     code=20,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042150, bit_position=0)
+    ram_data=MMXCMRamData(0x804A2150, bit_position=0)
   ),
   "Area 5F West Vaccine Program": MMXCMLocationData(
     name="Area 5F West 2",
     code=21,
     parent_region="Lagrano Ruins",
-    ram_data=MMXCMRamData(0x8042150, bit_position=1)
+    ram_data=MMXCMRamData(0x804A2150, bit_position=1)
   ), 
 }
           
