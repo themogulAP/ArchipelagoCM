@@ -378,7 +378,7 @@ class MMXCMContext(CommonContext):
                     self.update_received_idx(last_recv_idx)
                     continue
 
-                elif item_type == "Mechaniloid Item" or item_type == "Trade Item":
+                elif item_type == "Mechaniloid Item" or item_type == "Trade Item" or item_type == "Major Item" or item_type == "Key Item":
                     for addr_to_update in item_info.update_ram_addr:
                         byte_size = 1 if addr_to_update.ram_byte_size is None else addr_to_update.ram_byte_size
                         ram_offset = None if not addr_to_update.pointer_offset else [addr_to_update.pointer_offset]
