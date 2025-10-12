@@ -519,14 +519,19 @@ class MMXCMContext(CommonContext):
             slot_address = base_address + (i * slot_size)
 
             # Reads the current value of the slot
-            current_item_id_bytes = dolphin.read_bytes(slot_address, slot_size)
-            #TODO : Check the 2nd or 3rd byte to see if its empty instead of whole thing.
-            current_item_id = struct.unpack(">I", current_item_id_bytes)[0]
+            current_item_id = dolphin.read_byte(slot_address+1)
+
+            # If the IDs match, try to combine them
+            if current_item_id == item_info.item_id:
+                current_item_val = dolphin.read_byte(slot_address + 2)
+                current_item_val += item_info.item_count
+                dolphin.write_byte(slot_address + 2, current_item_val.to_bytes(1, 'big'))
+                print(f"Wrote item {item_name} to {inv_type} inventory.")
+                return  # Exit after writing the item to the inventory slot.
 
             # A Value of 0 indicates an empty slot!
-            if current_item_id == 0:
+            elif current_item_id == 0:
                 print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
-
                 # Get the in-game Item ID and convert it to bytes
                 item_value = item_info.item_id.to_bytes(1, 'big') + item_info.item_count.to_bytes(1, 'big')
                 dolphin.write_bytes(slot_address + 1, item_value)
