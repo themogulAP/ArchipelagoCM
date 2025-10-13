@@ -300,8 +300,6 @@ class MMXCMContext(CommonContext):
                 logger.error(f"Error checking for game completion: {e}")
 
         # Check for new items.
-          #  logger.info("Starting Received Items Loop- Index Based!")
-            # TODO: Refactor this to the LAST SAVED IDX (Based on LM's code) FIRST, WE NEED THE FULL 4 BLOCK STILL
             # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
 
             # 1 --- -- Read the Saveable Index from RAM ------
