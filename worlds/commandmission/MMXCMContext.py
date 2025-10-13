@@ -278,7 +278,6 @@ class MMXCMContext(CommonContext):
         # Checked_locations = AP SERVER STATE of locations.
 
         if not self.finished_game:
-            #logger.info("Checking finished game!")
             try:
                 # Get the RAM data for the Great Redips event. This is our "beating the game".
                 redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_data
@@ -313,8 +312,6 @@ class MMXCMContext(CommonContext):
 
             # 2 - - - - -Compare the saved index to the total number received from AP server.
             if len(self.items_received) == last_recv_idx:
-                #logger.info("No New Items received since last save.")
-                #logger.info("Ending Received Items Loop!")
                 return
 
             # 3 - - -  - Read Non-Saveable Index (for future use on traps and such)
