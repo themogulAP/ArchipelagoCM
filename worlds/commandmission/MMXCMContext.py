@@ -525,7 +525,7 @@ class MMXCMContext(CommonContext):
             if current_item_id == item_info.item_id:
                 current_item_val = dolphin.read_byte(slot_address + 2)
                 current_item_val += item_info.item_count
-                dolphin.write_byte(slot_address + 2, current_item_val.to_bytes(1, 'big'))
+                dolphin.write_byte(slot_address + 2, current_item_val)
                 print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
 
