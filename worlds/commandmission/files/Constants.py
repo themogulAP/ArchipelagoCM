@@ -20,9 +20,8 @@ REBELLION_MEDAL_CHECKS = {
     0x37: "Rebellion Medal 6",
     0x3E: "Rebellion Medal 7",
     0x4A: "Rebellion Medal 8",
+    0x51: "Rebellion Medal 9"
 }
-GRAVE_RUINS_MEDAL = "Rebellion Medal 9"
-
 
 # --- PowerPC Patches for "The Big 4" ---
 # Addresses
