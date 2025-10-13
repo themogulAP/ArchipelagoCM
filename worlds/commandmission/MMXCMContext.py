@@ -201,7 +201,8 @@ class MMXCMContext(CommonContext):
 
     async def monitor_medals(self):
         """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
-        #logger.info("Starting Rebellion Medal monitor...")
+        logger.info("Starting Rebellion Medal monitor...")
+
         # Use 'self' to access context properties
         # 1. Read the necessary memory addresses
         # status_flag for Medals 1-8 check (must be 4)
@@ -214,7 +215,6 @@ class MMXCMContext(CommonContext):
             if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
                 # TODO: UPDATE THE THREE CONSTANT PATCHES FOR MEDALS TO TELEPORT TO ARCADE OR HELIPAD.
                 pass
-        # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
 
         await asyncio.sleep(3)  # Check every three seconds
 
