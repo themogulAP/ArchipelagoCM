@@ -201,8 +201,6 @@ class MMXCMContext(CommonContext):
 
     async def monitor_medals(self):
         """Monitors RAM addresses for Rebellion Medal completion and reports checks."""
-        logger.info("Starting Rebellion Medal monitor...")
-
         # Use 'self' to access context properties
         # 1. Read the necessary memory addresses
         # status_flag for Medals 1-8 check (must be 4)
@@ -261,7 +259,6 @@ class MMXCMContext(CommonContext):
         if not self.check_ingame():
             return
 
-        #logger.info("Starting Location check Loop!")
         # Check for new locations.
         # Missing locations is the AP ID , a list of integers broken down by AP.
         local_missing_locations = copy.deepcopy(self.missing_locations) # Deepcopy makes it separate copies.
@@ -273,7 +270,6 @@ class MMXCMContext(CommonContext):
             # Check if the location's bit position has been set in the value.
             if (location_value & (1 << mmxcm_local_data.ram_data.bit_position)) > 0:
                 self.locations_checked.add(missing_locations)
-        #logger.info("Ending Location check Loop!")
         await self.check_locations(self.locations_checked) # Locations_checked = LOCAL locations of game
         # Checked_locations = AP SERVER STATE of locations.
 
