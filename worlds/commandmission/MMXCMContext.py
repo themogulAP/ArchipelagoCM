@@ -209,10 +209,6 @@ class MMXCMContext(CommonContext):
         # cutscene_id for Medals 1-8 check (1-byte read)
         cutscene_id = int.from_bytes(dolphin.read_bytes(self.Constants.CUTSCENE_ID_ADDRESS, 1), byteorder='big')
 
-        # room_id_value for Medal 9 check (1-byte read from dedicated address)
-        # Note: We must read as 1 byte to get the full 76 Room value (0x4C)
-        room_id_value = int.from_bytes(dolphin.read_bytes(self.Constants.ROOM_ID_ADDRESS, 1), byteorder='big')
-
         # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
         if status_flag == 0x04: # This is for the Cutscene Screen State.
             if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
