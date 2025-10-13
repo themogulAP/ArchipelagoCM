@@ -216,10 +216,6 @@ class MMXCMContext(CommonContext):
                 pass
         # --- CHECK LOGIC FOR MEDAL 9 (Dedicated Room ID 1750) ---
 
-        if room_id_value == 76:
-            # TODO: Check self.items_received contains medal 9. Then teleport back to Arcade.
-            pass
-
         await asyncio.sleep(3)  # Check every three seconds
 
     def update_received_idx(self, last_recov_idx: int):
