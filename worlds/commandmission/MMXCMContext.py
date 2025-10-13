@@ -337,7 +337,6 @@ class MMXCMContext(CommonContext):
                 item_name = self.item_names.lookup_in_game(item_to_add.item)
                 item_info = ALL_ITEMS_TABLE.get(item_name)
                 item_type = item_info.type
-              #  player_name = self.slot_to_player_name[item_to_add.player]
 
                 # Check for Rebellion Medals
                 if item_name.startswith("Rebellion Medal"):
