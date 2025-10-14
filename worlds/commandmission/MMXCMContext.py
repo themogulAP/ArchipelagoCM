@@ -74,7 +74,7 @@ class MMXCMContext(CommonContext):
     dolphin_server_task = None
     dolphin_status = None
     medal_monitor_task: asyncio.Task = None # This manages the medal monitoring task async.
-    revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
+    # revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
 
     logger = logging.getLogger(CLIENT_NAME)
 
@@ -120,8 +120,8 @@ class MMXCMContext(CommonContext):
         if self.medal_monitor_task and not self.medal_monitor_task.done():
             self.medal_monitor_task.cancel()
 
-        if self.revert_monitor_task and not self.revert_monitor_task.done():
-            self.revert_monitor_task.cancel()
+        # if self.revert_monitor_task and not self.revert_monitor_task.done():
+        #     self.revert_monitor_task.cancel()
 
         dolphin.un_hook()
         self.checked_locations = set()
@@ -212,8 +212,17 @@ class MMXCMContext(CommonContext):
         # --- CHECK LOGIC FOR MEDALS 1-8 (Status 4 + Unique 1-byte ID) ---
         if status_flag == 0x04: # This is for the Cutscene Screen State.
             if cutscene_id in self.Constants.REBELLION_MEDAL_CHECKS:
-                # TODO: UPDATE THE THREE CONSTANT PATCHES FOR MEDALS TO TELEPORT TO ARCADE OR HELIPAD.
-                pass
+
+                medal_name = self.Constants.REBELLION_MEDAL_CHECKS[cutscene_id]
+                medal_location_id = LOCATION_TABLE[medal_name].code
+
+                if medal_location_id not in self.locations_checked:
+
+                    self.logger.info(f"Rebellion Medal check found: {medal_name}")
+
+                    self.locations_checked.add(medal_location_id)
+
+                    pass
 
         await asyncio.sleep(3)  # Check every three seconds
 
@@ -372,7 +381,7 @@ class MMXCMContext(CommonContext):
                     #         self.monitor_revert_state(),
                     #         name="Revert Monitor"
                     # )
-                    await self.monitor_revert_state()
+                    # await self.monitor_revert_state()
 
                     self.update_received_idx(last_recv_idx)
                     continue
