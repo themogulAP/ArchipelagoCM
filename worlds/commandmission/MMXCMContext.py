@@ -284,14 +284,12 @@ class MMXCMContext(CommonContext):
                         await self.write_bytes_and_validate(
                             ram_addr, None, new_val.to_bytes(byte_size, 'big')
                         )
-                        logger.info(f"Goal triggered by Credits Screen 9! Granted item '{redips_item_name}'.")
 
                     else:
                         logger.error(f"Redips item data not found or misconfigured. Cannot grant item for goal.")
                     # --- END: ITEM GRANT LOGIC ---
 
                     # 3. SIGNAL GOAL (CRITICAL STEP 3 & 4)
-                    print("Final boss defeated! Signaling game completion to the server.")
                     self.finished_game = True
                     await self.send_msgs([{
                         "cmd": "StatusUpdate",
