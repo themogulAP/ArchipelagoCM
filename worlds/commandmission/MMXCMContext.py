@@ -256,7 +256,15 @@ class MMXCMContext(CommonContext):
         It will run as long as the client is connected to the server.
         """
         # This will check for the game state being 7 to make sure the player is in game.
-        if not self.check_ingame():
+        # if not self.check_ingame():
+        #     return
+
+        if self.finished_game:
+            # (Insert the force check logic from above)
+            if self.missing_locations:
+                self.locations_checked.update(self.missing_locations)
+                await self.check_locations(self.locations_checked)
+                self.missing_locations.clear()
             return
 
         # Check for new locations.
@@ -276,20 +284,50 @@ class MMXCMContext(CommonContext):
         if not self.finished_game:
             try:
                 # Get the RAM data for the Great Redips event. This is our "beating the game".
-                redips_ram_data = LOCATION_TABLE["Defeated Great Redips"].ram_data
+                credits_screen_address = self.Constants.SCREEN_SELECT_ADDRESS
 
-                if redips_ram_data:
+                if credits_screen_address:
                     # Read the value at the event's memory address.
-                    boss_defeated_value = dolphin.read_bytes(redips_ram_data.ram_addr, 1)[0]
+                    credits_screen_value = dolphin.read_bytes(credits_screen_address, 1)[0]
 
                     # Check if the bit for defeating Redips is set.
-                    if boss_defeated_value == 9:
+                    if credits_screen_value == 9:
+                        redips_item_name = "Defeated Great Redips"
+                        redips_item_info = ALL_ITEMS_TABLE.get(redips_item_name)
+
+                        # Ensure the item data exists and has a patch address
+                        if redips_item_info and redips_item_info.update_ram_addr and len(
+                                redips_item_info.update_ram_addr) > 0:
+
+                            addr_to_update = redips_item_info.update_ram_addr[0]
+                            ram_addr = addr_to_update.ram_addr
+                            bit_position = addr_to_update.bit_position
+                            byte_size = 1
+
+                            # Read current value (Using byteorder='big' for safety)
+                            curr_val = int.from_bytes(dolphin.read_bytes(ram_addr, byte_size), 'big')
+
+                            # Apply the item's bit-set effect (grants the item)
+                            new_val = (curr_val | (1 << bit_position))
+
+                            # Write the new value back to RAM
+                            await self.write_bytes_and_validate(
+                                ram_addr, None, new_val.to_bytes(byte_size, 'big')
+                            )
+                            logger.info(f"Goal triggered by Credits Screen 9! Granted item '{redips_item_name}'.")
+
+                        else:
+                            logger.error(f"Redips item data not found or misconfigured. Cannot grant item for goal.")
+                        # --- END: ITEM GRANT LOGIC ---
+
+                        # 3. SIGNAL GOAL (CRITICAL STEP 3 & 4)
                         print("Final boss defeated! Signaling game completion to the server.")
-                        self.finished_game = True  # This ends the while loop on the next pass.
+                        self.finished_game = True
                         await self.send_msgs([{
                             "cmd": "StatusUpdate",
                             "status": NetUtils.ClientStatus.CLIENT_GOAL,
                         }])
+
             except Exception as e:
                 # This will catch errors if the game state is not readable or the address is invalid.
                 logger.error(f"Error checking for game completion: {e}")
