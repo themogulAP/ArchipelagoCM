@@ -247,7 +247,7 @@ class MMXCMContext(CommonContext):
     def check_ingame(self):
         # The game has an address that lets us know if we are in a playable state or not.
         int_play_state = dolphin.read_byte(self.Constants.SCREEN_SELECT_ADDRESS)
-        if not int_play_state == 7:
+        if not int_play_state == 7 or int_play_state == 4:
             return False
         return True
 
