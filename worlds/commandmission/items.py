@@ -98,70 +98,6 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
-EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
-#This is adding our Rebellion Medal items to the AP , but NOT Randomly.
-  "Rebellion Medal 1": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=2)]
-  ),
-  "Rebellion Medal 2": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=3)]
-  ),
-  "Rebellion Medal 3": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=4)]
-  ),
-  "Rebellion Medal 4": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=5)]
-  ),
-  "Rebellion Medal 5": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=6)]
-  ),
-  "Rebellion Medal 6": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=7)]
-  ),
-  "Rebellion Medal 7": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=0)]
-  ),
-  "Rebellion Medal 8": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=1)]
-  ),
-  "Rebellion Medal 9": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=2)]
-  ),
-  "Defeated Great Redips": MMXCMItemData(
-    type="Key Item",
-    code=None,
-    classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=3)]
-  )
-}
-
 USEFUL_ITEM_TABLE: dict[str, MMXCMItemData] = {
 # This is the list of Useful items, like armors and keys.
  "Treasure Radar": MMXCMItemData(
@@ -2490,13 +2426,76 @@ TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
+EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
+#This is adding our Rebellion Medal items to the AP , but NOT Randomly.
+  "Rebellion Medal 1": MMXCMItemData(
+    type="Key Item",
+    code=316,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=2)]
+  ),
+  "Rebellion Medal 2": MMXCMItemData(
+    type="Key Item",
+    code=317,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=3)]
+  ),
+  "Rebellion Medal 3": MMXCMItemData(
+    type="Key Item",
+    code=318,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=4)]
+  ),
+  "Rebellion Medal 4": MMXCMItemData(
+    type="Key Item",
+    code=319,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=5)]
+  ),
+  "Rebellion Medal 5": MMXCMItemData(
+    type="Key Item",
+    code=320,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=6)]
+  ),
+  "Rebellion Medal 6": MMXCMItemData(
+    type="Key Item",
+    code=321,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=7)]
+  ),
+  "Rebellion Medal 7": MMXCMItemData(
+    type="Key Item",
+    code=322,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=0)]
+  ),
+  "Rebellion Medal 8": MMXCMItemData(
+    type="Key Item",
+    code=323,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=1)]
+  ),
+  "Rebellion Medal 9": MMXCMItemData(
+    type="Key Item",
+    code=324,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=2)]
+  ),
+  "Defeated Great Redips": MMXCMItemData(
+    type="Key Item",
+    code=325,
+    classification=IC.progression,
+    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=3)]
+  )
+}
+
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 
 #This is where all the item tables are listed into one Dictionary.
 ALL_ITEMS_TABLE = {
   **PROGRESSION_ITEM_TABLE,
-  **EVENT_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
   **FILLER_TABLE,
   **WEAPONS_TABLE,
@@ -2505,6 +2504,7 @@ ALL_ITEMS_TABLE = {
   **FORCE_METAL_TABLE,
   **MECHANILOID_ITEMS_TABLE,
   **TRADE_ITEMS_TABLE,
+  **EVENT_ITEM_TABLE,
   **COLLECTIBLE_TABLE
 
 }
