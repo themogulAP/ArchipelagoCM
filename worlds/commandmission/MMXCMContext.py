@@ -162,37 +162,35 @@ class MMXCMContext(CommonContext):
         logger.info("Starting Big 4 revert monitor...")
 
         try:
-            if self.slot and dolphin.is_hooked():
+            # Read the two addresses necessary for all revert conditions
+            # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
+            revert_state_value = int.from_bytes(
+                dolphin.read_bytes(self.Constants.REVERT_STATE_ADDRESS, 1), byteorder='big'
+            )
 
-                # Read the two addresses necessary for all revert conditions
-                # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
-                revert_state_value = int.from_bytes(
-                    dolphin.read_bytes(self.Constants.REVERT_STATE_ADDRESS, 1), byteorder='big'
-                )
+            # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
+            screen_select_value = int.from_bytes(
+                dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
+            )
 
-                # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
-                screen_select_value = int.from_bytes(
-                    dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
-                )
+            # --- Evaluate Conditions ---
 
-                # --- Evaluate Conditions ---
+            # All three Arcade/Helipad reverts require the game to be in state 7 (exiting room)
+            is_game_state_7 = (screen_select_value == 7)
 
-                # All three Arcade/Helipad reverts require the game to be in state 7 (exiting room)
-                is_game_state_7 = (screen_select_value == 7)
+            # Condition 3 (Exit 3) requires SCREEN_SELECT = 5 (without game state 7 check)
+            is_exit_3 = (screen_select_value == 5)
 
-                # Condition 3 (Exit 3) requires SCREEN_SELECT = 5 (without game state 7 check)
-                is_exit_3 = (screen_select_value == 5)
+            # Condition 4 (Medal 2-specific revert) requires REVERT_STATE = 20 AND SCREEN_SELECT = 7
+            is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
 
-                # Condition 4 (Medal 2-specific revert) requires REVERT_STATE = 20 AND SCREEN_SELECT = 7
-                is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
+            # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
+            is_arcade_revert = (revert_state_value == 4) and is_game_state_7
 
-                # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
-                is_arcade_revert = (revert_state_value == 4) and is_game_state_7
-
-                # --- Trigger Revert if ANY condition is met ---
-                if is_exit_3 or is_medal_2_revert or is_arcade_revert:
-                    # Revert the patches and break the loop to end the monitoring task
-                    self.revert_big_4()
+            # --- Trigger Revert if ANY condition is met ---
+            if is_exit_3 or is_medal_2_revert or is_arcade_revert:
+                # Revert the patches and break the loop to end the monitoring task
+                self.revert_big_4()
 
         except Exception as e:
             logger.error(f"Error in Big 4 revert monitor: {e}")
