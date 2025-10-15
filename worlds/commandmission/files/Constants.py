@@ -29,14 +29,14 @@ STAGE_SET_ADDR = 0x80010514
 AREA_SET_ADDR = 0x80010518
 
 # Original/Revert Values (Vanilla)
-GAMEPLAY_SET_VANILLA = b'\x38\x60\x00\x00'  # li r3, 0
-GAMEPLAY_STORE_VANILLA = b'\xfc\x40\x08\x90'  # fmr f2, f1
-STAGE_VANILLA = b'\x38\x80\x00\x01'  # li r4, 1
-AREA_VANILLA = b'\x80\x1f\x00\x68'  # lwz r0,0x0068(r31)
+GAMEPLAY_SET_VANILLA = b'\x7c\x84\x02\x14'  # add r4, r4, r0
+GAMEPLAY_STORE_VANILLA = b'\x80\x64\x00\x04'  # lwz r3, 0x0004 (r4)
+STAGE_VANILLA = b'\x80\x04\x00\x08'  # lwz r0, 0x0008 (r4)
+AREA_VANILLA = b'\x90\x65\x00\x28'  # stw r3, 0x0028 (r5)
 
 # Shared Patch Values (The first 3 lines for ALL medals)
 GAMEPLAY_PATCH = b'\x38\x60\x00\x07'  # li r3, 7
-GAMEPLAY_STORE_PATCH = b'\x90\x65\x00\x28'  # stw r0, 0x0028(r26)
+GAMEPLAY_STORE_PATCH = b'\x90\x65\x00\x28'  # stw r3, 0x0028(r26)
 STAGE_PATCH = b'\x3c\x00\x00\x02'  # lis r0, 0x0002
 
 # Unique 4th Patch Values
