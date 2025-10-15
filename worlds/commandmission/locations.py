@@ -2372,55 +2372,55 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
         name="Rebellion Medal 1",
         code=386,
         parent_region="Lagrano Ruins",
-        ram_data=MMXCMRamData(0x804A2096, bit_position=3)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=2)
     ),
     "Rebellion Medal 2": MMXCMLocationData(
         name="Rebellion Medal 2",
         code=387,
         parent_region="Central Tower Full",
-        ram_data=MMXCMRamData(0x804A20BC, bit_position=4)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=3)
     ),
     "Rebellion Medal 3": MMXCMLocationData(
         name="Rebellion Medal 3",
         code=388,
         parent_region="Tianna Camp",
-        ram_data=MMXCMRamData(0x804A20FB, bit_position=6)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=4)
     ),
     "Rebellion Medal 4": MMXCMLocationData(
         name="Rebellion Medal 4",
         code=389,
         parent_region="Gaudile Laboratory",
-        ram_data=MMXCMRamData(0x804A2106, bit_position=5)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=5)
     ),
     "Rebellion Medal 5": MMXCMLocationData(
         name="Rebellion Medal 5",
         code=390,
         parent_region="Ulfat Factory",
-        ram_data=MMXCMRamData(0x804A210B, bit_position=7)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=6)
     ),
     "Rebellion Medal 6": MMXCMLocationData(
         name="Rebellion Medal 6",
         code=391,
         parent_region="Gimialla Mine",
-        ram_data=MMXCMRamData(0x804A210E, bit_position=0)
+        ram_data=MMXCMRamData(0x804A2109, bit_position=7)
     ),
     "Rebellion Medal 7": MMXCMLocationData(
         name="Rebellion Medal 7",
         code=392,
         parent_region="Vanallia Desert",
-        ram_data=MMXCMRamData(0x804A2117, bit_position=5)
+        ram_data=MMXCMRamData(0x804A210A, bit_position=0)
     ),
     "Rebellion Medal 8": MMXCMLocationData(
         name="Rebellion Medal 8",
         code=393,
         parent_region="Melda Ore Plant",
-        ram_data=MMXCMRamData(0x804A211D, bit_position=3)
+        ram_data=MMXCMRamData(0x804A210A, bit_position=1)
     ),
     "Rebellion Medal 9": MMXCMLocationData(
         name="Rebellion Medal 9",
         code=394,
         parent_region="Grave Ruins Base",
-        ram_data=MMXCMRamData(0x804A2127, bit_position=1)
+        ram_data=MMXCMRamData(0x804A210A, bit_position=2)
     ),
 }
 
