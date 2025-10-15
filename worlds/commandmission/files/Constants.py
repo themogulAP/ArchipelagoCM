@@ -10,23 +10,23 @@ WAIT_TIMER_SHORT_TIMEOUT: float = 0.125
 
 # --- Rebellion Medal Location Checks ---
 REBELLION_MEDAL_CHECKS = {
-    0x05: "Rebellion Medal 1", # Lagrano Ruins Clear
-    0x12: "Rebellion Medal 2", # Central Tower Clear...
-    0x1B: "Rebellion Medal 3",
-    0x26: "Rebellion Medal 4",
-    0x2D: "Rebellion Medal 5",
-    0x37: "Rebellion Medal 6",
-    0x3E: "Rebellion Medal 7",
-    0x4A: "Rebellion Medal 8",
-    0x51: "Rebellion Medal 9"
+    0x04: "Rebellion Medal 1", # Lagrano Ruins Clear
+    0x11: "Rebellion Medal 2", # Central Tower Clear...
+    0x1A: "Rebellion Medal 3",
+    0x25: "Rebellion Medal 4",
+    0x2C: "Rebellion Medal 5",
+    0x36: "Rebellion Medal 6",
+    0x3D: "Rebellion Medal 7",
+    0x49: "Rebellion Medal 8",
+    0x50: "Rebellion Medal 9"
 }
 
 # --- PowerPC Patches for "The Big 4" ---
 # Addresses
-GAMEPLAY_STATE_SET_ADDR = 0x80054b20
-GAMEPLAY_STATE_STORE_ADDR = 0x80054b24
-STAGE_SET_ADDR = 0x80054b28
-AREA_SET_ADDR = 0x80054b2C
+GAMEPLAY_STATE_SET_ADDR = 0x8001050C
+GAMEPLAY_STATE_STORE_ADDR = 0x80010510
+STAGE_SET_ADDR = 0x80010514
+AREA_SET_ADDR = 0x80010518
 
 # Original/Revert Values (Vanilla)
 GAMEPLAY_SET_VANILLA = b'\x38\x60\x00\x00'  # li r3, 0
@@ -35,8 +35,8 @@ STAGE_VANILLA = b'\x38\x80\x00\x01'  # li r4, 1
 AREA_VANILLA = b'\x80\x1f\x00\x68'  # lwz r0,0x0068(r31)
 
 # Shared Patch Values (The first 3 lines for ALL medals)
-GAMEPLAY_PATCH = b'\x38\x00\x00\x07'  # li r0, 7
-GAMEPLAY_STORE_PATCH = b'\x90\x1a\x00\x28'  # stw r0, 0x0028(r26)
+GAMEPLAY_PATCH = b'\x38\x60\x00\x07'  # li r3, 7
+GAMEPLAY_STORE_PATCH = b'\x90\x65\x00\x28'  # stw r0, 0x0028(r26)
 STAGE_PATCH = b'\x3c\x00\x00\x02'  # lis r0, 0x0002
 
 # Unique 4th Patch Values
