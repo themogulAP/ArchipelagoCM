@@ -3,8 +3,6 @@
 SCREEN_SELECT_ADDRESS = 0x804A208B
 # Address used for reading the current cutscene ID (for medal checks)
 CUTSCENE_ID_ADDRESS = 0x804A208F
-# Address used for reading the current room ID (for Medal 9 check)
-ROOM_ID_ADDRESS = 0x804A2083
 # Address used for checking the specific room exit state for the Big 4 revert logic
 REVERT_STATE_ADDRESS = 0x804A208E
 
