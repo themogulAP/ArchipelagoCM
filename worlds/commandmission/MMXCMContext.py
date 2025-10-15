@@ -371,9 +371,6 @@ class MMXCMContext(CommonContext):
 
                 # Check for Rebellion Medals
                 if item_name.startswith("Rebellion Medal"):
-                    #Determine if its Jango's Medal
-                    # is_medal_2 = (item_name == "Rebellion Medal 2")
-                    # self.apply_big_4(is_medal_2)
 
                     #After patch is applied, we need to start the monitoring
                     #This will eventually revert the changes.
