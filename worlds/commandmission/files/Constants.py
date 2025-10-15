@@ -18,7 +18,7 @@ REBELLION_MEDAL_CHECKS = {
     0x36: "Rebellion Medal 6",
     0x3D: "Rebellion Medal 7",
     0x49: "Rebellion Medal 8",
-    0x50: "Rebellion Medal 9"
+    0x51: "Rebellion Medal 9"
 }
 
 # --- PowerPC Patches for "The Big 4" ---
