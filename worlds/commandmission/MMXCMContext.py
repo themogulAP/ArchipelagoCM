@@ -137,12 +137,14 @@ class MMXCMContext(CommonContext):
 
         logger.info(f"APPLYING The Big 4 PowerPC patches ({patch_name}).")
         try:
+            logger.info("Line 140")
             # Shared Patches (1, 2, 3)
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_SET_ADDR, self.Constants.GAMEPLAY_PATCH)
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_STORE_ADDR, self.Constants.GAMEPLAY_STORE_PATCH)
             dolphin.write_bytes(self.Constants.STAGE_SET_ADDR, self.Constants.STAGE_PATCH)
             # Unique/Common Patch (4)
             dolphin.write_bytes(self.Constants.AREA_SET_ADDR, patch_4_value)
+            logger.info("Line 147 after patches")
         except Exception as e:
             logger.error(f"Error applying 'Big 4' patches ({patch_name}): {e}")
 
@@ -217,8 +219,10 @@ class MMXCMContext(CommonContext):
                 medal_location_id = LOCATION_TABLE[medal_name].code
 
                 if medal_location_id not in self.locations_checked:
-
-                    self.logger.info(f"Rebellion Medal check found: {medal_name}")
+                    logger.info(f"Rebellion Medal check found: {medal_name}")
+                    # Determine if its Jango's Medal
+                    is_medal_2 = (medal_name == "Rebellion Medal 2")
+                    self.apply_big_4(is_medal_2)
 
                     self.locations_checked.add(medal_location_id)
 
@@ -371,8 +375,8 @@ class MMXCMContext(CommonContext):
                 # Check for Rebellion Medals
                 if item_name.startswith("Rebellion Medal"):
                     #Determine if its Jango's Medal
-                    is_medal_2 = (item_name == "Rebellion Medal 2")
-                    self.apply_big_4(is_medal_2)
+                    # is_medal_2 = (item_name == "Rebellion Medal 2")
+                    # self.apply_big_4(is_medal_2)
 
                     #After patch is applied, we need to start the monitoring
                     #This will eventually revert the changes.
