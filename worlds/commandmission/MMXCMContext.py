@@ -135,16 +135,13 @@ class MMXCMContext(CommonContext):
         patch_4_value = self.Constants.HELIPAD_PATCH if is_medal_2 else self.Constants.ARCADE_PATCH
         patch_name = "Helipad" if is_medal_2 else "Arcade"
 
-        logger.info(f"APPLYING The Big 4 PowerPC patches ({patch_name}).")
         try:
-            logger.info("Line 140")
             # Shared Patches (1, 2, 3)
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_SET_ADDR, self.Constants.GAMEPLAY_PATCH)
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_STORE_ADDR, self.Constants.GAMEPLAY_STORE_PATCH)
             dolphin.write_bytes(self.Constants.STAGE_SET_ADDR, self.Constants.STAGE_PATCH)
             # Unique/Common Patch (4)
             dolphin.write_bytes(self.Constants.AREA_SET_ADDR, patch_4_value)
-            logger.info("Line 147 after patches")
         except Exception as e:
             logger.error(f"Error applying 'Big 4' patches ({patch_name}): {e}")
 
