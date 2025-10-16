@@ -74,7 +74,7 @@ class MMXCMContext(CommonContext):
     dolphin_server_task = None
     dolphin_status = None
     medal_monitor_task: asyncio.Task = None # This manages the medal monitoring task async.
-    # revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
+    revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
 
     logger = logging.getLogger(CLIENT_NAME)
 
@@ -120,8 +120,8 @@ class MMXCMContext(CommonContext):
         if self.medal_monitor_task and not self.medal_monitor_task.done():
             self.medal_monitor_task.cancel()
 
-        # if self.revert_monitor_task and not self.revert_monitor_task.done():
-        #     self.revert_monitor_task.cancel()
+        if self.revert_monitor_task and not self.revert_monitor_task.done():
+            self.revert_monitor_task.cancel()
 
         dolphin.un_hook()
         self.checked_locations = set()
@@ -160,41 +160,47 @@ class MMXCMContext(CommonContext):
         """Monitors RAM conditions to trigger the revert of the Big 4 PowerPC patches."""
         logger.info("Starting Big 4 revert monitor...")
 
-        try:
-            # Read the two addresses necessary for all revert conditions
-            # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
-            revert_state_value = int.from_bytes(
-                dolphin.read_bytes(self.Constants.REVERT_STATE_ADDRESS, 1), byteorder='big'
-            )
+        while not self.exit_event.is_set():
+            try:
+                # Read the two addresses necessary for all revert conditions
+                # REVERT_STATE_ADDRESS (0x804A208E) is used for values 4 and 20
+                revert_state_value = int.from_bytes(
+                    dolphin.read_bytes(self.Constants.REVERT_STATE_ADDRESS, 1), byteorder='big'
+                )
 
-            # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
-            screen_select_value = int.from_bytes(
-                dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
-            )
+                # SCREEN_SELECT_ADDRESS (0x804A208B) is used for values 5 and 7
+                screen_select_value = int.from_bytes(
+                    dolphin.read_bytes(self.Constants.SCREEN_SELECT_ADDRESS, 1), byteorder='big'
+                )
 
-            # --- Evaluate Conditions ---
+                # --- Evaluate Conditions ---
 
-            # All three Arcade/Helipad reverts require the game to be in state 7 (exiting room)
-            is_game_state_7 = (screen_select_value == 7)
+                # All three Arcade/Helipad reverts require the game to be in state 7 (exiting room)
+                is_game_state_7 = (screen_select_value == 7)
 
-            # Condition 3 (Exit 3) requires SCREEN_SELECT = 5 (without game state 7 check)
-            is_exit_3 = (screen_select_value == 5)
+                # Condition 3 (Exit 3) requires SCREEN_SELECT = 5 (without game state 7 check)
+                is_exit_3 = (screen_select_value == 5)
 
-            # Condition 4 (Medal 2-specific revert) requires REVERT_STATE = 20 AND SCREEN_SELECT = 7
-            is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
+                # Condition 4 (Medal 2-specific revert) requires REVERT_STATE = 20 AND SCREEN_SELECT = 7
+                is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
 
-            # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
-            is_arcade_revert = (revert_state_value == 4) and is_game_state_7
+                # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
+                is_arcade_revert = (revert_state_value == 4) and is_game_state_7
 
-            # --- Trigger Revert if ANY condition is met ---
-            if is_exit_3 or is_medal_2_revert or is_arcade_revert:
-                # Revert the patches and break the loop to end the monitoring task
+                # --- Trigger Revert if ANY condition is met ---
+                if is_exit_3 or is_medal_2_revert or is_arcade_revert:
+                    # Revert the patches and break the loop to end the monitoring task
+                    self.revert_big_4()
+                    break
+
+            except Exception as e:
+                logger.error(f"Error in Big 4 revert monitor: {e}")
                 self.revert_big_4()
+                break
 
-        except Exception as e:
-            logger.error(f"Error in Big 4 revert monitor: {e}")
-        finally:
-            logger.info("Big 4 revert monitor stopped.")
+            await asyncio.sleep(self.Constants.WAIT_TIMER_SHORT_TIMEOUT)
+        logger.info("Big 4 Revert Monitor Stopped.")
+
 
     async def monitor_medals(self):
         if not self.check_ingame():
@@ -220,6 +226,14 @@ class MMXCMContext(CommonContext):
                     # Determine if its Jango's Medal
                     is_medal_2 = (medal_name == "Rebellion Medal 2")
                     self.apply_big_4(is_medal_2)
+
+                    # After patch is applied, we need to start the monitoring
+                    # This will eventually revert the changes.
+                    if not self.revert_monitor_task or self.revert_monitor_task.done():
+                        self.revert_monitor_task = asyncio.create_task(
+                            self.monitor_revert_state(),
+                            name="Revert Monitor"
+                    )
 
                     self.locations_checked.add(medal_location_id)
 
@@ -371,16 +385,6 @@ class MMXCMContext(CommonContext):
 
                 # Check for Rebellion Medals
                 if item_name.startswith("Rebellion Medal"):
-
-                    #After patch is applied, we need to start the monitoring
-                    #This will eventually revert the changes.
-                    # if not self.revert_monitor_task or self.revert_monitor_task.done():
-                    #     self.revert_monitor_task = asyncio.create_task(
-                    #         self.monitor_revert_state(),
-                    #         name="Revert Monitor"
-                    # )
-                    # await self.monitor_revert_state()
-
                     self.update_received_idx(last_recv_idx)
                     continue
 
