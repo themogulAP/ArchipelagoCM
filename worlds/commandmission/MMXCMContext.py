@@ -16,7 +16,7 @@ import dolphin_memory_engine as dolphin
 from .files.Constants import WAIT_TIMER_SHORT_TIMEOUT
 # Project relative imports.
 from .locations import LOCATION_TABLE, REBELLION_MEDAL_LOCATIONS
-from .items import ALL_ITEMS_TABLE, MMXCMItemData, EVENT_ITEM_TABLE, PROGRESSION_ITEM_TABLE
+from .items import ALL_ITEMS_TABLE, MMXCMItemData, PROGRESSION_ITEM_TABLE
 from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
