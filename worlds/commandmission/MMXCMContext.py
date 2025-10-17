@@ -15,8 +15,8 @@ import dolphin_memory_engine as dolphin
 
 from .files.Constants import WAIT_TIMER_SHORT_TIMEOUT
 # Project relative imports.
-from .locations import LOCATION_TABLE
-from .items import ALL_ITEMS_TABLE, MMXCMItemData
+from .locations import LOCATION_TABLE, REBELLION_MEDAL_LOCATIONS
+from .items import ALL_ITEMS_TABLE, MMXCMItemData, EVENT_ITEM_TABLE, PROGRESSION_ITEM_TABLE
 from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
@@ -202,6 +202,60 @@ class MMXCMContext(CommonContext):
             await asyncio.sleep(self.Constants.WAIT_TIMER_SHORT_TIMEOUT)
         logger.info("Big 4 Revert Monitor Stopped.")
 
+    # --------------- CHECK FOR FAR EAST HQ ACCESS CODE AND 9 MEDALS TO UNLOCK CHPT 10 DOOR --------------------
+    def get_checked_medal_count(self) -> int:
+        """Helper function to count how many Rebellion Medals have been reported by AP."""
+        medal_location_names = [f"Rebellion Medal {i}" for i in range(1, 10)]
+
+        try:
+            medal_location_ids = {REBELLION_MEDAL_LOCATIONS[name].code for name in medal_location_names}
+        except KeyError as e:
+            logger.error(f"Rebellion Medal locations missing expected name: {e}")
+            return 0
+        # Find where the medals aee and how many we have.
+        return len(self.locations_checked.intersection(medal_location_ids))
+
+    def has_received_access_code(self, item_name: str) -> bool:
+        """Helper function to check if the randomized Chpt 10 Access code has been found."""
+        target_medal_id = None
+
+        for name, data in PROGRESSION_ITEM_TABLE.items():
+            if name == item_name:
+                target_medal_id = data.code
+                break
+
+        if target_medal_id is None:
+            logger.error(f"Attempted to check for unknown of missing event data: {item_name}.")
+            return False
+
+        for item in self.items_received:
+            if item.item == target_medal_id:
+                return True
+        return False
+
+    def check_far_east_door(self):
+        """Resets the Chapter 10 Door (0x804A2128) back to 0 if all medals and Access code are gained."""
+        FAR_EAST_DOOR_ADDR = 0x804A2128
+        UNLOCKED_VALUE = 0x00
+
+        medal_count = self.get_checked_medal_count()
+
+        has_far_east_access = self.has_received_access_code("Far East HQ Access Code")
+
+        if medal_count >=9 and has_far_east_access:
+            try:
+                current_value = dolphin.read_byte(FAR_EAST_DOOR_ADDR)
+            except Exception:
+                return
+
+            if current_value != UNLOCKED_VALUE:
+                try:
+                    dolphin.write_byte(FAR_EAST_DOOR_ADDR, UNLOCKED_VALUE)
+                    logger.info("Far East HQ Door Unlocked: Ram Address Changed to 0")
+                except Exception as e:
+                    logger.error(f"Error unlocking Far East HQ Door: {e}")
+
+        # --------------- END CHECK FOR FAR EAST HQ ACCESS CODE AND 9 MEDALS TO UNLOCK CHPT 10 DOOR --------------------
 
     async def monitor_medals(self):
         if not self.check_ingame():
@@ -347,6 +401,8 @@ class MMXCMContext(CommonContext):
         # Checked_locations = AP SERVER STATE of locations.
 
         if not self.finished_game:
+
+            self.check_far_east_door()
             # Check for new items.
             # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
 
