@@ -28,13 +28,6 @@ GAMEPLAY_STATE_STORE_ADDR = 0x80010510
 STAGE_SET_ADDR = 0x80010514
 AREA_SET_ADDR = 0x80010518
 
-# These are the 2nd set of addresses for the 2nd-9th EARNED medals.
-# GAMEPLAY_STATE_SET_ADDR	0x80054B20	Corresponds to the first patch value (GAMEPLAY_PATCH)
-# GAMEPLAY_STATE_STORE_ADDR	0x80054B24	Corresponds to the second patch value (GAMEPLAY_STORE_PATCH)
-# STAGE_SET_ADDR	0x80054B28	Corresponds to the third patch value (STAGE_PATCH)
-# AREA_SET_ADDR	0x80054B2C	Corresponds to the fourth patch value (HELIPAD_PATCH/ARCADE_PATCH)
-
-
 # Original/Revert Values (Vanilla)
 GAMEPLAY_SET_VANILLA = b'\x7c\x84\x02\x14'  # add r4, r4, r0
 GAMEPLAY_STORE_VANILLA = b'\x80\x64\x00\x04'  # lwz r3, 0x0004 (r4)

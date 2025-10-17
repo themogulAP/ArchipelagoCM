@@ -185,7 +185,7 @@ class MMXCMContext(CommonContext):
                 is_medal_2_revert = (revert_state_value == 20) and is_game_state_7
 
                 # Conditions 1 & 2 (Arcade reverts) require REVERT_STATE = 4 AND SCREEN_SELECT = 7
-                is_arcade_revert = (revert_state_value == 4) and is_game_state_7
+                is_arcade_revert = (revert_state_value == 4 or revert_state_value == 6) and is_game_state_7
 
                 # --- Trigger Revert if ANY condition is met ---
                 if is_exit_3 or is_medal_2_revert or is_arcade_revert:
