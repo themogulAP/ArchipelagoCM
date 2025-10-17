@@ -27,6 +27,24 @@ async def mmxcm_update_non_savable_ram():
     ALWAYS_SUBTANK_ADDRESS = 0x804A329F
     ALWAYS_SUBTANK_VALUE = bytes([100])
 
+    # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
+    # WARNING: These are temporary and should be removed after the testing period.
+    FULL_HP_VALUE = bytes([255])
+
+    # SetsOfHPCurrent
+    TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A2CB6
+    # HPCurrent
+    TEST_HP_CURRENT_ADDRESS = 0x804A2CB7
+    # SetsOfHPMax
+    TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A2CBA
+    # HPMax
+    TEST_HP_MAX_ADDRESS = 0x804A2CBB
+    # SetsOfHPActual
+    TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A2CBE
+    # HPActual
+    TEST_HP_ACTUAL_ADDRESS = 0x804A2CBF
+    # ----------------------------------------------------------------------
+
     while not dolphin.is_hooked():
         await asyncio.sleep(1)
 
@@ -34,6 +52,17 @@ async def mmxcm_update_non_savable_ram():
         while True:
             dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
             dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
+
+            # --- TESTING WRITES (Full HP) ---
+            # Set all Current/Max/Actual HP values to 255 for invincibility testing
+            dolphin.write_bytes(TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+            dolphin.write_bytes(TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+            dolphin.write_bytes(TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
+            dolphin.write_bytes(TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
+            dolphin.write_bytes(TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+            dolphin.write_bytes(TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+            # --------------------------------
+
             # Add the small delay to prevent the loop.
             await asyncio.sleep(0.1)
     except Exception as e:
