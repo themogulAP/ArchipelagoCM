@@ -22,7 +22,11 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
 
 async def mmxcm_update_non_savable_ram():
     value_to_write = bytes([1])
-    memory_address = -0x804A20B1
+    memory_address = 0x804A20B1
+
+    while not dolphin.is_hooked():
+        logger.info("Non Save waiting for Dolphin...")
+        await asyncio.sleep(1)
 
     try:
         while True:
@@ -67,6 +71,7 @@ async def async_main(connect, password):
         ctx.run_cli()
 
         ctx.dolphin_server_task = asyncio.create_task(ctx.dolphin_connect_loop(), name="MMXCM Dolphin Loop")
+        ctx.mmxcm_nonsavable_ram_task = asyncio.create_task(mmxcm_update_non_savable_ram(), name="NonSavableRAMLoop")
 
         if ctx.dolphin_server_task:
             await ctx.dolphin_server_task
