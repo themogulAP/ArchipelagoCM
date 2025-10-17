@@ -9,7 +9,6 @@ PatchFunction = Callable[[], None]
 
 def patch_lagrano_ruins():
     """Patches RAM for Lagrano Ruins Access Code."""
-    logger.info("Patching RAM to enable Lagrano Ruins teleporter.")
     # Write the first PowerPC instruction. (0x80082fa4)
     dolphin.write_bytes(0x80082fa4, b'\x3c\x80\x00\x01')
     # Write the second PowerPC instruction. (0x80082fac)
@@ -17,7 +16,6 @@ def patch_lagrano_ruins():
 
 def patch_central_tower():
     """Patches RAM for Central Tower Access Code."""
-    logger.info("Changing RAM value to remove Central Tower cutscene and Aile blockers.")
     # Write a single byte with a value of 0 - removes cutscene blockers. (0x804A20BD)
     dolphin.write_bytes(0x804A20BD, b'\x00')
     # Write a single byte with a value of 1 - removes Aile Blocker. (0x804A20C1)
@@ -25,7 +23,6 @@ def patch_central_tower():
 
 def patch_tianna_camp():
     """Patches RAM for Tianna Camp Access Code."""
-    logger.info("Patching RAM to enable Tianna Camp teleporter.")
     # Write the first PowerPC instruction. (0x80082fcc)
     dolphin.write_bytes(0x80082fcc, b'\x3c\x80\x00\x03')
     # Write the second PowerPC instruction. (0x80082fd4)
@@ -33,7 +30,6 @@ def patch_tianna_camp():
 
 def patch_gaudile_laboratory():
     """Patches RAM for Gaudile Laboratory Access Code."""
-    logger.info("Patching RAM to enable Gaudile Laboratory teleporter.")
     # Write the first PowerPC instruction. (0x80082ff4)
     dolphin.write_bytes(0x80082ff4, b'\x3c\x80\x00\x04')
     # Write the second PowerPC instruction. (0x80082ffC)
@@ -41,7 +37,6 @@ def patch_gaudile_laboratory():
 
 def patch_ulfat_factory():
     """Patches RAM for Ulfat Factory Access Code."""
-    logger.info("Patching RAM to enable Ulfat Factory teleporter.")
     # Write the first PowerPC instruction. (0x8008301c)
     dolphin.write_bytes(0x8008301c, b'\x3c\x80\x00\x05')
     # Write the second PowerPC instruction. (0x80083024)
@@ -49,7 +44,6 @@ def patch_ulfat_factory():
 
 def patch_gimialla_mine():
     """Patches RAM for Gimialla Mine Access Code."""
-    logger.info("Patching RAM to enable Gimialla Mine teleporter.")
     # Write the first PowerPC instruction. (0x80083044)
     dolphin.write_bytes(0x80083044, b'\x3c\x80\x00\x06')
     # Write the second PowerPC instruction. (0x8008304c)
@@ -57,7 +51,6 @@ def patch_gimialla_mine():
 
 def patch_vanallia_desert():
     """Patches RAM for Vanallia Desert Access Code."""
-    logger.info("Patching RAM to enable Vanallia Desert teleporter.")
     # Write the first PowerPC instruction. (0x8008306c)
     dolphin.write_bytes(0x8008306c, b'\x3c\x80\x00\x07')
     # Write the second PowerPC instruction. (0x80083074)
@@ -65,7 +58,6 @@ def patch_vanallia_desert():
 
 def patch_melda_ore_plant():
     """Patches RAM for Melda Ore Plant Access Code."""
-    logger.info("Patching RAM to enable Melda Ore Plant teleporter.")
     # Write the first PowerPC instruction. (0x80083094)
     dolphin.write_bytes(0x80083094, b'\x3c\x80\x00\x08')
     # Write the second PowerPC instruction. (0x8008309c)
@@ -73,7 +65,6 @@ def patch_melda_ore_plant():
 
 def patch_grave_ruins_base():
     """Patches RAM for Grave Ruins Base Access Code."""
-    logger.info("Patching RAM to enable Grave Ruins Base teleporter.")
     # Write the first PowerPC instruction. (0x800830bc)
     dolphin.write_bytes(0x800830bc, b'\x3c\x80\x00\x09')
     # Write the second PowerPC instruction. (0x800830c4)
