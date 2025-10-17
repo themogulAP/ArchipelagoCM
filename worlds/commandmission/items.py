@@ -206,161 +206,184 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     code=29,
     classification=IC.filler,
     item_id=1,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Anti-Lock": MMXCMItemData(
     type="Consumable",
     code=30,
     classification=IC.filler,
     item_id=2,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Warm-up": MMXCMItemData(
     type="Consumable",
     code=31,
     classification=IC.filler,
     item_id=3,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Cooler": MMXCMItemData(
     type="Consumable",
     code=32,
     classification=IC.filler,
     item_id=4,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Clear Vision": MMXCMItemData(
     type="Consumable",
     code=33,
     classification=IC.filler,
     item_id=5,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Cure One": MMXCMItemData(
     type="Consumable",
     code=34,
     classification=IC.filler,
     item_id=6,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Cure All": MMXCMItemData(
     type="Consumable",
     code=35,
     classification=IC.filler,
     item_id=7,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Reboot": MMXCMItemData(
     type="Consumable",
     code=36,
     classification=IC.filler,
     item_id=8,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Backup": MMXCMItemData(
     type="Consumable",
     code=37,
     classification=IC.filler,
     item_id=9,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Boost Power": MMXCMItemData(
     type="Consumable",
     code=38,
     classification=IC.filler,
     item_id=10,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Boost Armor": MMXCMItemData(
     type="Consumable",
     code=39,
     classification=IC.filler,
     item_id=11,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Boost Shield": MMXCMItemData(
     type="Consumable",
     code=40,
     classification=IC.filler,
     item_id=12,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Boost Speed": MMXCMItemData(
     type="Consumable",
     code=41,
     classification=IC.filler,
     item_id=13,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Unlock Limiter": MMXCMItemData(
     type="Consumable",
     code=42,
     classification=IC.filler,
     item_id=14,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Mega Fire": MMXCMItemData(
     type="Consumable",
     code=43,
     classification=IC.filler,
     item_id=20,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Ultra Fire": MMXCMItemData(
     type="Consumable",
     code=44,
     classification=IC.filler,
     item_id=21,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Mega Blizzard": MMXCMItemData(
     type="Consumable",
     code=45,
     classification=IC.filler,
     item_id=22,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Ultra Blizzard": MMXCMItemData(
     type="Consumable",
     code=46,
     classification=IC.filler,
     item_id=23,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Mega Thunder": MMXCMItemData(
     type="Consumable",
     code=47,
     classification=IC.filler,
     item_id=24,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Ultra Thunder": MMXCMItemData(
     type="Consumable",
     code=48,
     classification=IC.filler,
     item_id=25,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Liquid Suffocation": MMXCMItemData(
     type="Consumable",
     code=49,
     classification=IC.filler,
     item_id=26,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Chaff": MMXCMItemData(
     type="Consumable",
     code=50,
     classification=IC.filler,
     item_id=27,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
   "Gain Hyper": MMXCMItemData(
     type="Consumable",
     code=51,
     classification=IC.filler,
     item_id=31,
-    update_ram_addr=None
+    update_ram_addr=None,
+    item_count = 9
   ),
 }
 

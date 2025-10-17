@@ -150,7 +150,11 @@ class MMXCMWorld(World):
         
           if "Rebellion Medal" in item_name:
                 continue
-          item_pool.append(self.create_item(item_name))
+
+          quantity = getattr(item_data, 'item_count', 1)
+
+          for _ in range(quantity):
+            item_pool.append(self.create_item(item_name))
 
       self.multiworld.itempool.extend(item_pool)
 
