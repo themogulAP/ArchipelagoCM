@@ -28,7 +28,6 @@ async def mmxcm_update_non_savable_ram():
     ALWAYS_SUBTANK_VALUE = bytes([100])
 
     while not dolphin.is_hooked():
-        logger.info("Non Save waiting for Dolphin...")
         await asyncio.sleep(1)
 
     try:
