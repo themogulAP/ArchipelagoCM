@@ -157,7 +157,7 @@ class MMXCMWorld(World):
     # This adds our filler items, and will calculate the number to add. 
       locations_count = len(self.multiworld.get_unfilled_locations(self.player))
       items_in_pool = len(self.multiworld.itempool)
-      filler_needed = locations_count - items_in_pool - 10 # Have to subtract 10 because of Medals + Redips Item
+      filler_needed = locations_count - items_in_pool # Have to subtract 10 because of Medals + Redips Item
 
 #Randomly selects the filler items to add into the pool.
       filler_items_to_add = random.choices(list(FILLER_TABLE.keys()), k=filler_needed)
