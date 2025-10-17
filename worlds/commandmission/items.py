@@ -2517,7 +2517,7 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 
 #This is where all the item tables are listed into one Dictionary.
-ALL_ITEMS_TABLE = {
+ALL_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   **PROGRESSION_ITEM_TABLE,
   **USEFUL_ITEM_TABLE,
   **FILLER_TABLE,
