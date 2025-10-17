@@ -148,7 +148,6 @@ class MMXCMContext(CommonContext):
 
     def revert_big_4(self):
         """Reverts the four required PowerPC patches back to their original state."""
-        logger.info("REVERTING The Big 4 PowerPC patches.")
         try:
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_SET_ADDR, self.Constants.GAMEPLAY_SET_VANILLA)
             dolphin.write_bytes(self.Constants.GAMEPLAY_STATE_STORE_ADDR, self.Constants.GAMEPLAY_STORE_VANILLA)
@@ -159,7 +158,6 @@ class MMXCMContext(CommonContext):
 
     async def monitor_revert_state(self):
         """Monitors RAM conditions to trigger the revert of the Big 4 PowerPC patches."""
-        logger.info("Starting Big 4 revert monitor...")
 
         while not self.exit_event.is_set():
             try:
@@ -200,7 +198,6 @@ class MMXCMContext(CommonContext):
                 break
 
             await asyncio.sleep(self.Constants.WAIT_TIMER_SHORT_TIMEOUT)
-        logger.info("Big 4 Revert Monitor Stopped.")
 
     # --------------- CHECK FOR FAR EAST HQ ACCESS CODE AND 9 MEDALS TO UNLOCK CHPT 10 DOOR --------------------
     def get_checked_medal_count(self) -> int:
@@ -251,7 +248,7 @@ class MMXCMContext(CommonContext):
             if current_value != UNLOCKED_VALUE:
                 try:
                     dolphin.write_byte(FAR_EAST_DOOR_ADDR, UNLOCKED_VALUE)
-                    logger.info("Far East HQ Door Unlocked: Ram Address Changed to 0")
+                    logger.info("Far East HQ Door Unlocked: Good Luck!")
                 except Exception as e:
                     logger.error(f"Error unlocking Far East HQ Door: {e}")
 
@@ -277,7 +274,6 @@ class MMXCMContext(CommonContext):
                 medal_location_id = LOCATION_TABLE[medal_name].code
 
                 if medal_location_id not in self.locations_checked:
-                    logger.info(f"Rebellion Medal check found: {medal_name}")
                     # Determine if its Jango's Medal
                     is_medal_2 = (medal_name == "Rebellion Medal 2")
                     self.apply_big_4(is_medal_2)
