@@ -21,8 +21,11 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
 
 
 async def mmxcm_update_non_savable_ram():
-    value_to_write = bytes([1])
-    memory_address = 0x804A20B1
+    SOFTLOCK_PREVENT_VALUE = bytes([1])
+    SOFTLOCK_PREVENT_ADDRESS = 0x804A20B1
+
+    ALWAYS_SUBTANK_ADDRESS = 0x804A329F
+    ALWAYS_SUBTANK_VALUE = bytes([100])
 
     while not dolphin.is_hooked():
         logger.info("Non Save waiting for Dolphin...")
@@ -30,7 +33,8 @@ async def mmxcm_update_non_savable_ram():
 
     try:
         while True:
-            dolphin.write_bytes(memory_address, value_to_write)
+            dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
+            dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
             # Add the small delay to prevent the loop.
             await asyncio.sleep(0.1)
     except Exception as e:
