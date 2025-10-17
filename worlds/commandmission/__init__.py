@@ -11,7 +11,6 @@ from .helpers import CLIENT_VERSION
 from .files.mmxcm_rom import MMXCMPlayerContainer
 from worlds.LauncherComponents import Component, SuffixIdentifier, Type, components, launch_subprocess, icon_paths
 
-import random
 import os
 
 
@@ -126,6 +125,7 @@ class MMXCMWorld(World):
             )
             region.locations.append(location)
 
+
     def generate_basic(self):
         self.multiworld.get_location("Defeated Great Redips", self.player).place_locked_item(
             self.create_item("Defeated Great Redips")
@@ -141,6 +141,7 @@ class MMXCMWorld(World):
             self.multiworld.get_location(medal_name, self.player).place_locked_item(
                 self.create_item(medal_name)
             )
+
 
     # This will build the entire item pool for our randomized AP!
     def create_items(self):
@@ -162,18 +163,17 @@ class MMXCMWorld(World):
 
         # This adds our filler items, and will calculate the number to add.
         locations_count = len(self.multiworld.get_unfilled_locations(self.player))
-        items_in_pool = len(self.multiworld.itempool)
+        items_in_pool = len(item_pool) + 10 # 9 Rebellion medallions are added in locked locations + 1 goal item.
         filler_needed = locations_count - items_in_pool
 
-        # Randomly selects the filler items to add into the pool.
-        filler_items_to_add = random.choices(list(FILLER_TABLE.keys()), k=filler_needed)
-
-        for filler_item_name in filler_items_to_add:
-            self.multiworld.itempool.append(self.create_item(filler_item_name))
-
-        # It is the helper that the create_items method calls.
+        for _ in range(filler_needed):
+            # We do this as .choices allows you to use weights, however since it always returns a list, [0]
+            # will give us the first item in that list.
+            item_to_add = self.random.choices(list(FILLER_TABLE.keys()))[0]
+            self.multiworld.itempool.append(self.create_item(item_to_add))
 
 
+    # It is the helper that the create_items method calls.
     def create_item(self, name: str) -> Item:
         item_data = ALL_ITEMS_TABLE[name]
         return Item(name, item_data.classification, item_data.code, self.player)
