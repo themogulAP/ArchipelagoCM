@@ -50,8 +50,8 @@ INVENTORY_INFO = {
 
 # These addresses appear to be unused throughout the game - we will use them for Item get refactoring.
 # Currently Testing these to make sure it doesn't pop checks or flags.
-LAST_RECV_ITEM_ADDR = 0x804A219A
-NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A219E
+LAST_RECV_ITEM_ADDR = 0x804A218C
+NOT_SAVE_LAST_RECV_ITEM_ADDR = 0x804A2190
 
 # This is the address that holds the player's slot name.
 # This way, the player does not have to manually authenticate their slot name.
