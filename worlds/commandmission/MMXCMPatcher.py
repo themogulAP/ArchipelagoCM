@@ -73,29 +73,41 @@ CODE_PATCHES = [
         # RAM: 8000d90c 
         "address": 0x0A90C, 
         "data": [0x98, 0x64, 0x00, 0x5D] # 98 = Store BYTE in PPC.
-    }, 
+    },
+    {
+        # Sets the KEIBI Preons in Command Room to Off.
+        # RAM: 8000d910
+        "address": 0x0A910,
+        "data": [0x38, 0x60, 0x00, 0x07]
+    },
+    {
+        # STORES the KEIBI Preons in Command Room to Off.
+        # RAM: 8000d914
+        "address": 0x0A914,
+        "data": [0x98, 0x64, 0x00, 0x5E]
+    },
     { 
         # Sets the Arcade Door and Jango's Door to Open
-        # RAM: 8000d910 
-        "address": 0x0A910, 
+        # RAM: 8000d918
+        "address": 0x0A918,
         "data": [0x38, 0x60, 0x00, 0x09]
     }, 
     { 
         # Stores BYTE FOR the Arcade Door Open flag
-        # RAM: 8000d914 
-        "address": 0x0A914, 
+        # RAM: 8000d91c
+        "address": 0x0A91C,
         "data": [0x98, 0x64, 0x00, 0x63]
     }, 
     { 
         # sets every other flag back to zero 
-        # RAM: 8000d918 
-        "address": 0x0A918, 
+        # RAM: 8000d920
+        "address": 0x0A920,
         "data": [0x38, 0x60, 0x00, 0x00] 
     }, 
     { 
         # Stores every other flag to zero 
-        # RAM: 8000d91c 
-        "address": 0x0A91C, 
+        # RAM: 8000d924
+        "address": 0x0A924,
         "data": [0x90, 0x64, 0x00, 0x64] 
     }, 
     { 
