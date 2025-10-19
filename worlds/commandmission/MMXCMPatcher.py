@@ -211,7 +211,19 @@ CODE_PATCHES = [
         # RAM: 800830c4 
         "address": 0x0800c4, 
         "data": [0x38, 0x04, 0x05, 0x4F] 
-    } 
+    },
+    {
+        # NOP the Writing item to inventory BASE GAME code.
+        # RAM: 800d7360
+        "address": 0x0D4360,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
+    {
+        # NOP the Writing QUANTITY to inventory BASE GAME code.
+        # RAM: 800d7364
+        "address": 0x0D4364,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    }
 ] 
 
 MMXCM_PLAYER_NAME_BYTE_LENGTH = 64
