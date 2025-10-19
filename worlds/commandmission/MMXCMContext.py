@@ -609,7 +609,7 @@ class MMXCMContext(CommonContext):
                 print(f"Found empty {inv_type} slot at address {hex(slot_address)}")
                 # Get the in-game Item ID and convert it to bytes
                 item_value: bytearray = bytearray(item_info.item_id.to_bytes(1, 'big'))
-                item_value += item_info.item_count.to_bytes(1, 'big')
+                item_value += int(1).to_bytes(1, 'big') # item_info.item_count
                 dolphin.write_bytes(slot_address + 1, bytes(item_value))
                 print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
