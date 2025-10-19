@@ -39,62 +39,62 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item",
     code=4,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=0)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=2)]
   ),
   "Central Tower Access Code": MMXCMItemData(
     type="Key Item",
     code=5,
     classification=IC.progression,
     # Note: There are 3 changes here for the cutscenes, and Aile's Room.
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=1)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=3)]
   ),
   "Tianna Camp Access Code": MMXCMItemData(
     type="Key Item",
     code=6,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=2)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=4)]
   ),
   "Gaudile Laboratory Access Code": MMXCMItemData(
     type="Key Item",
     code=7,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=3)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=5)]
   ),
   "Ulfat Factory Access Code": MMXCMItemData(
     type="Key Item",
     code=8,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=4)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=6)]
   ),
   "Gimialla Mine Access Code": MMXCMItemData(
     type="Key Item",
     code=9,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=5)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=7)]
   ),
   "Vanallia Desert Access Code": MMXCMItemData(
     type="Key Item",
     code=10,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=6)]
+    update_ram_addr=[MMXCMRamData(0x804A2198, bit_position=0)]
   ),
   "Melda Ore Plant Access Code": MMXCMItemData(
     type="Key Item",
     code=11,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2108, bit_position=7)]
+    update_ram_addr=[MMXCMRamData(0x804A2198, bit_position=1)]
   ),
   "Grave Ruins Base Access Code": MMXCMItemData(
     type="Key Item",
     code=12,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=0)]
+    update_ram_addr=[MMXCMRamData(0x804A2198, bit_position=2)]
   ),
   "Far East HQ Access Code": MMXCMItemData(
     type="Key Item",
     code=13,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=1)]
+    update_ram_addr=[MMXCMRamData(0x804A2198, bit_position=3)]
   )
 }
 
@@ -2455,61 +2455,61 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Key Item",
     code=316,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=2)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=0)]
   ),
   "Rebellion Medal 2": MMXCMItemData(
     type="Key Item",
     code=317,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=3)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=1)]
   ),
   "Rebellion Medal 3": MMXCMItemData(
     type="Key Item",
     code=318,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=4)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=2)]
   ),
   "Rebellion Medal 4": MMXCMItemData(
     type="Key Item",
     code=319,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=5)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=3)]
   ),
   "Rebellion Medal 5": MMXCMItemData(
     type="Key Item",
     code=320,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=6)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=4)]
   ),
   "Rebellion Medal 6": MMXCMItemData(
     type="Key Item",
     code=321,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2109, bit_position=7)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=5)]
   ),
   "Rebellion Medal 7": MMXCMItemData(
     type="Key Item",
     code=322,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=0)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=6)]
   ),
   "Rebellion Medal 8": MMXCMItemData(
     type="Key Item",
     code=323,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=1)]
+    update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=7)]
   ),
   "Rebellion Medal 9": MMXCMItemData(
     type="Key Item",
     code=324,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=2)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=0)]
   ),
   "Defeated Great Redips": MMXCMItemData(
     type="Key Item",
     code=325,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A210A, bit_position=3)]
+    update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=1)]
   )
 }
 
