@@ -1617,7 +1617,7 @@ VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="Quicksand North Side Ball & Chain Hammer 1",
     code=264,
     parent_region="Vanallia Desert",
-    ram_data=MMXCMRamData(0x804A2186, bit_position=2)
+    ram_data=MMXCMRamData(0x804A2184, bit_position=2)
   ),
   "Quicksand Central Passageway Tank Energy 100": MMXCMLocationData(
     name="Quicksand Central Passageway 1",
