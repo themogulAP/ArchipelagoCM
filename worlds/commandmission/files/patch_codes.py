@@ -12,7 +12,7 @@ def patch_lagrano_ruins():
     # Write the first PowerPC instruction. (0x80082fa4)
     dolphin.write_bytes(0x80082fa4, b'\x3c\x80\x00\x01')
     # Write the second PowerPC instruction. (0x80082fac)
-    dolphin.write_bytes(0x80082fac, b'\x38\x08\x03\x46')
+    dolphin.write_bytes(0x80082fac, b'\x38\x04\x03\x46')
 
 def patch_central_tower():
     """Patches RAM for Central Tower Access Code."""
