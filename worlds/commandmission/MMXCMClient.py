@@ -15,7 +15,7 @@ class MMXCMCommandProcessor(ClientCommandProcessor):
     def _cmd_mmxcm(self, *args):
         """
         These are the commands for our MMXCM Client.
-        Serving as a place holder until we need custom commands!
+        Serving as a placeholder until we need custom commands!
         """
         logger.info("Mega Man X: Command Mission Client.")
 
@@ -26,6 +26,9 @@ async def mmxcm_update_non_savable_ram():
 
     ALWAYS_SUBTANK_ADDRESS = 0x804A329F
     ALWAYS_SUBTANK_VALUE = bytes([100])
+
+    TANK_PARTS_PREVENT_ADDRESS = 0x804A329E
+    TANK_PARTS_PREVENT_VALUE = bytes([0])
 
     # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
     # WARNING: These are temporary and should be removed after the testing period.
@@ -52,6 +55,7 @@ async def mmxcm_update_non_savable_ram():
         while True:
             dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
             dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
+            dolphin.write_bytes(TANK_PARTS_PREVENT_ADDRESS, TANK_PARTS_PREVENT_VALUE)
 
             # --- TESTING WRITES (Full HP) ---
             # Set all Current/Max/Actual HP values to 255 for invincibility testing
