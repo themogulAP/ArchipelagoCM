@@ -230,6 +230,44 @@ class MMXCMContext(CommonContext):
                 return True
         return False
 
+    def has_checked_medal_2(self) -> bool:
+        "This is a helper function to check if we have Rebellion Medal 2 for the Air Bus Door"
+        medal_2_name = "Rebellion Medal 2"
+
+        try:
+            medal_location_id = REBELLION_MEDAL_LOCATIONS[medal_2_name].code
+        except KeyError as e:
+            self.logger.error(f"Rebellion Medal 2 location data missing: {e}")
+            return False
+
+        return medal_location_id in self.locations_checked
+
+    def unlock_air_bus_door(self):
+        "Permanently unlocks Air Bus Door after getting Rebellion Medal 2"
+
+        AIR_BUS_DOOR_ADDR = 0x804A20C3
+        AIR_BUS_BIT_POSITON = 5
+
+        LOCKED_BIT_MASK = (1 << AIR_BUS_BIT_POSITON)
+
+        has_medal_2 = self.has_checked_medal_2()
+
+        if has_medal_2:
+            try:
+                current_door_value = dolphin.read_byte(AIR_BUS_DOOR_ADDR)
+            except Exception:
+                return
+
+            if (current_door_value & LOCKED_BIT_MASK):
+
+                new_door_value = (current_door_value & ~LOCKED_BIT_MASK)
+
+                try:
+                    dolphin.write_byte(AIR_BUS_DOOR_ADDR, new_door_value)
+                    self.logger.info("Air Bus Door Unlocked by Rebellion Medal 2")
+                except Exception as e:
+                    self.logger.error(f"Error unlocking Air bus Door: {e}")
+
     def check_far_east_door(self):
         """Resets the Chapter 10 Door (0x804A2128) back to 0 if all medals and Access code are gained."""
         FAR_EAST_DOOR_ADDR = 0x804A2128
@@ -402,6 +440,7 @@ class MMXCMContext(CommonContext):
         if not self.finished_game:
 
             self.check_far_east_door()
+            self.unlock_air_bus_door()
             # Check for new items.
             # Add function for Far East HQ bit position door for chpt 10 upon receiving 9 Medals and FE HQ Code.
 
