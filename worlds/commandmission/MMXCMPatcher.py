@@ -45,16 +45,16 @@ CODE_PATCHES = [
         "data": [0x38, 0x03, 0x05, 0x4C] 
     }, 
     { 
-        # Set Flag Arakure, and Chpt 10 Cutscene, and Boss3 
+        # Set Flag Chpt 10 Cutscene
         # RAM: 8000d8f8 
         "address": 0x0A8F8, 
-        "data": [0x38, 0x60, 0x00, 0x03] 
+        "data": [0x38, 0x60, 0x00, 0x02]
     }, 
     { 
-        # Store flag Arakure, Chpt 10 Cutscene, and Boss3 
+        # Store Chpt 10 Cutscene
         # RAM: 8000d8fc 
         "address": 0x0A8FC, 
-        "data": [0x90, 0x64, 0x00, 0x45] 
+        "data": [0x98, 0x64, 0x00, 0x45]
     }, 
     { 
         # Sets register back to zero 
