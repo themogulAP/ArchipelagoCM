@@ -84,7 +84,7 @@ CODE_PATCHES = [
         # Sets the KEIBI Preons AND Batttle in Command Room to Off.
         # RAM: 8000d910
         "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x39]
+        "data": [0x38, 0x60, 0x00, 0x27]
     },
     {
         # STORES the KEIBI Preons AND Battle in Command Room to Off.
