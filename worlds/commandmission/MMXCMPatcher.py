@@ -80,29 +80,41 @@ CODE_PATCHES = [
         "address": 0x0A90C, 
         "data": [0x98, 0x64, 0x00, 0x5D] # 98 = Store BYTE in PPC.
     },
-    { 
-        # Sets the Arcade, Jango's, and Bed Door to Open
+    {
+        # Sets the Preon Battle 2E in Command Room to Finished -
         # RAM: 8000d910
         "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x19]
-    }, 
+        "data": [0x38, 0x60, 0x00, 0x04]
+    },
+    { 
+        # STORE the Preon Battle 2E in Command Room to Finished -
+        # RAM: 8000d914
+        "address": 0x0A914,
+        "data": [0x98, 0x64, 0x00, 0x62]
+    },
+    {
+        # Sets BYTE FOR Arcade, Jango's, and Bed Door
+        # RAM: 8000d919
+        "address": 0x0A918,
+        "data": [0x38, 0x64, 0x00, 0x19]
+    },
     { 
         # Stores BYTE FOR Arcade, Jango's, and Bed Door
-        # RAM: 8000d91c
-        "address": 0x0A914,
+        # RAM: 8000d91C
+        "address": 0x0A91C,
         "data": [0x98, 0x64, 0x00, 0x63]
     }, 
     { 
         # sets every other flag back to zero 
         # RAM: 8000d920
-        "address": 0x0A918,
+        "address": 0x0A920,
         "data": [0x38, 0x60, 0x00, 0x00] 
     }, 
     { 
         # Stores every other flag to zero 
-        # RAM: 8000d924
-        "address": 0x0A91c,
-        "data": [0x90, 0x64, 0x00, 0x64] 
+        # RAM: 8000d92C
+        "address": 0x0A924,
+        "data": [0x90, 0x64, 0x00, 0x74]
     }, 
     { 
         # Prevent beating the Game --- Change comparison 
