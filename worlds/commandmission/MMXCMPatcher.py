@@ -73,7 +73,7 @@ CODE_PATCHES = [
         # RAM: 8000d908 
         "address": 0x0A908, 
         "data": [0x38, 0x60, 0x00, 0xC0] 
-    }, 
+    },
     { 
         # Stores BYTE FOR cutscene for Intruders + Spider Fight
         # RAM: 8000d90c 
@@ -82,26 +82,26 @@ CODE_PATCHES = [
     },
     { 
         # Sets the Arcade, Jango's, and Bed Door to Open
-        # RAM: 8000d918
-        "address": 0x0A918,
+        # RAM: 8000d910
+        "address": 0x0A910,
         "data": [0x38, 0x60, 0x00, 0x19]
     }, 
     { 
         # Stores BYTE FOR Arcade, Jango's, and Bed Door
         # RAM: 8000d91c
-        "address": 0x0A91C,
+        "address": 0x0A914,
         "data": [0x98, 0x64, 0x00, 0x63]
     }, 
     { 
         # sets every other flag back to zero 
         # RAM: 8000d920
-        "address": 0x0A920,
+        "address": 0x0A918,
         "data": [0x38, 0x60, 0x00, 0x00] 
     }, 
     { 
         # Stores every other flag to zero 
         # RAM: 8000d924
-        "address": 0x0A924,
+        "address": 0x0A91c,
         "data": [0x90, 0x64, 0x00, 0x64] 
     }, 
     { 
