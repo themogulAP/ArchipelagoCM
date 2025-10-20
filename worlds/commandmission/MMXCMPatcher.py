@@ -80,18 +80,6 @@ CODE_PATCHES = [
         "address": 0x0A90C, 
         "data": [0x98, 0x64, 0x00, 0x5D] # 98 = Store BYTE in PPC.
     },
-    {
-        # Sets the KEIBI Preons AND Batttle in Command Room to Off.
-        # RAM: 8000d910
-        "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x27]
-    },
-    {
-        # STORES the KEIBI Preons AND Battle in Command Room to Off.
-        # RAM: 8000d914
-        "address": 0x0A914,
-        "data": [0x98, 0x64, 0x00, 0x5E]
-    },
     { 
         # Sets the Arcade, Jango's, and Bed Door to Open
         # RAM: 8000d918

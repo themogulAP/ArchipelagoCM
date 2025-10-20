@@ -33,6 +33,9 @@ async def mmxcm_update_non_savable_ram():
     ARAKURE_ADDRESS = 0x804A20A8
     ARAKURE_VALUE = bytes([33])
 
+    CLEAR_PREONS_ADDRESS = 0x804A20BE
+    CLEAR_PREONS_VALUE = 39
+
     # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
     # WARNING: These are temporary and should be removed after the testing period.
     FULL_HP_VALUE = bytes([255])
@@ -59,8 +62,8 @@ async def mmxcm_update_non_savable_ram():
             dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
             dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
             dolphin.write_bytes(TANK_PARTS_PREVENT_ADDRESS, TANK_PARTS_PREVENT_VALUE)
-            # We need this to be Nonsaveable RAM otherwise it hits Incentas In chpt 10.
             dolphin.write_bytes(ARAKURE_ADDRESS, ARAKURE_VALUE)
+            dolphin.write_bytes(CLEAR_PREONS_ADDRESS, CLEAR_PREONS_VALUE)
 
             # --- TESTING WRITES (Full HP) ---
             # Set all Current/Max/Actual HP values to 255 for invincibility testing
