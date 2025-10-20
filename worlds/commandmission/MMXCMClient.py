@@ -31,7 +31,7 @@ async def mmxcm_update_non_savable_ram():
     TANK_PARTS_PREVENT_VALUE = bytes([0])
 
     ARAKURE_ADDRESS = 0x804A20A8
-    ARAKURE_VALUE = 3
+    ARAKURE_VALUE = bytes([3])
 
     # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
     # WARNING: These are temporary and should be removed after the testing period.
