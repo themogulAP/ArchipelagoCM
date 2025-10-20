@@ -54,7 +54,7 @@ CODE_PATCHES = [
         # Store Chpt 10 Cutscene
         # RAM: 8000d8fc 
         "address": 0x0A8FC, 
-        "data": [0x98, 0x64, 0x00, 0x45]
+        "data": [0x98, 0x64, 0x00, 0x48]
     }, 
     { 
         # Sets register back to zero 
