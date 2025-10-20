@@ -233,7 +233,9 @@ class MMXCMContext(CommonContext):
     def check_far_east_door(self):
         """Resets the Chapter 10 Door (0x804A2128) back to 0 if all medals and Access code are gained."""
         FAR_EAST_DOOR_ADDR = 0x804A2128
-        UNLOCKED_VALUE = 0x00
+        DOOR_BIT_POSITION = 1
+
+        LOCKED_BIT_MASK = (1 << DOOR_BIT_POSITION)
 
         medal_count = self.get_checked_medal_count()
 
@@ -241,13 +243,14 @@ class MMXCMContext(CommonContext):
 
         if medal_count >=9 and has_far_east_access:
             try:
-                current_value = dolphin.read_byte(FAR_EAST_DOOR_ADDR)
+                current_door_value = dolphin.read_byte(FAR_EAST_DOOR_ADDR)
             except Exception:
                 return
 
-            if current_value != UNLOCKED_VALUE:
+            if (current_door_value & LOCKED_BIT_MASK):
+                new_door_value = (current_door_value & ~LOCKED_BIT_MASK)
                 try:
-                    dolphin.write_byte(FAR_EAST_DOOR_ADDR, UNLOCKED_VALUE)
+                    dolphin.write_byte(FAR_EAST_DOOR_ADDR, new_door_value)
                     logger.info("Far East HQ Door Unlocked: Good Luck!")
                 except Exception as e:
                     logger.error(f"Error unlocking Far East HQ Door: {e}")
