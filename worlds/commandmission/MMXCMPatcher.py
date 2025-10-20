@@ -213,6 +213,12 @@ CODE_PATCHES = [
         "data": [0x38, 0x04, 0x05, 0x4F] 
     },
     {
+        # Switches "Back to Hunter Base" teleport to Arcade from Save Spots.
+        # RAM: 8001cc08
+        "address": 0x019C08,
+        "data": [0x60, 0x84, 0x05, 0x4C]
+    },
+    {
         # NOP the Writing item to inventory BASE GAME code.
         # RAM: 800d7360
         "address": 0x0D4360,
@@ -224,7 +230,7 @@ CODE_PATCHES = [
         "address": 0x0D4364,
         "data": [0x60, 0x00, 0x00, 0x00]
     }
-] 
+]
 
 MMXCM_PLAYER_NAME_BYTE_LENGTH = 64
 
