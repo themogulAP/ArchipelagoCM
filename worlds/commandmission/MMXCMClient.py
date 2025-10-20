@@ -34,7 +34,7 @@ async def mmxcm_update_non_savable_ram():
     ARAKURE_VALUE = bytes([33])
 
     CLEAR_PREONS_ADDRESS = 0x804A20BE
-    CLEAR_PREONS_VALUE = 39
+    CLEAR_PREONS_VALUE = bytes([39])
 
     # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
     # WARNING: These are temporary and should be removed after the testing period.
