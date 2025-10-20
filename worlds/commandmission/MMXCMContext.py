@@ -486,6 +486,7 @@ class MMXCMContext(CommonContext):
                     try:
                         # Call the patching function and execute it from our new patch codes py
                         ACCESS_CODE_PATCHES[item_name]()
+                        logger.info(f"{item_name} acquired. Enabling Teleporter.")
                     except Exception as e:
                         logger.error(f" Error while writing RAM for {item_name}: {e}")
 
