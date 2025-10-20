@@ -90,7 +90,7 @@ CODE_PATCHES = [
         # Sets the Arcade, Jango's, Air Bus, and Bed Door to Open
         # RAM: 8000d918
         "address": 0x0A918,
-        "data": [0x38, 0x60, 0x00, 0x57]
+        "data": [0x38, 0x60, 0x00, 0x39]
     }, 
     { 
         # Stores BYTE FOR Arcade, Jango's, Air Bus, and Bed Door
