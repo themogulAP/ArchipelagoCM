@@ -57,13 +57,13 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x48]
     }, 
     { 
-        # Sets PREON BIT in Data Backup Room B to Despawn... prevents walking bug.
+        # Sets PREON BIT in Data Backup Room B AND A to Despawn... prevents walking bug.
         # RAM: 8000D900 
         "address": 0x0A900, 
-        "data": [0x38, 0x60, 0x00, 0x04]
+        "data": [0x38, 0x60, 0x00, 0x07]
     },
     {
-        # STORES PREON BIT in Data Backup Room B to Despawn... prevents walking bug.
+        # STORES PREON BIT in Data Backup Room B AND A to Despawn... prevents walking bug.
         # RAM: 8000D900
         "address": 0x0A904,
         "data": [0x98, 0x64, 0x00, 0x54]
