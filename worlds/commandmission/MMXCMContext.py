@@ -249,31 +249,22 @@ class MMXCMContext(CommonContext):
         AIR_BUS_BIT_POSITON = 5
 
         UNLOCKED_BIT_MASK = (1 << AIR_BUS_BIT_POSITON)
-
         has_medal_2 = self.has_checked_medal_2()
 
-        logger.info(f"Air Bus check: Medal 2 Status = {has_medal_2}")
-
         if has_medal_2:
-            logger.info("Rebellion Medal 2 Acquired")
             try:
                 current_door_value = dolphin.read_byte(AIR_BUS_DOOR_ADDR)
-                logger.info(f"Air Bus Door current RAM (0x{AIR_BUS_DOOR_ADDR}): 0x{current_door_value}")
             except Exception as e:
                 logger.error(f"Air Bus - failed to read RAM at 0x{AIR_BUS_DOOR_ADDR}: {e}")
                 return
 
             if not (current_door_value & UNLOCKED_BIT_MASK):
                 new_door_value = (current_door_value | UNLOCKED_BIT_MASK)
-                logger.info(f"Air Bus Door is locked. Calculating new value: 0x{new_door_value}")
 
                 try:
                     dolphin.write_byte(AIR_BUS_DOOR_ADDR, new_door_value)
-                    logger.info("Air Bus Door Unlocked by Rebellion Medal 2")
                 except Exception as e:
                     self.logger.error(f"Error unlocking Air bus Door: {e}")
-            else:
-                logger.info("Air Bus Door already Unlocked.")
 
     def check_far_east_door(self):
         """Resets the Chapter 10 Door (0x804A2128) back to 0 if all medals and Access code are gained."""
