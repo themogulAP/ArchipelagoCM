@@ -2,8 +2,6 @@
 import asyncio
 import copy
 import logging
-import struct
-from typing import Dict, Set, TYPE_CHECKING
 
 # AP related imports
 import NetUtils
@@ -655,3 +653,67 @@ class MMXCMContext(CommonContext):
                 print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
         logger.error(f"Error: No empty {inv_type} slots found for item {item_name}!")
+
+    async def mmxcm_update_non_savable_ram(self):
+        SOFTLOCK_PREVENT_VALUE = bytes([1])
+        SOFTLOCK_PREVENT_ADDRESS = 0x804A20B1
+
+        ALWAYS_SUBTANK_ADDRESS = 0x804A329F
+        ALWAYS_SUBTANK_VALUE = bytes([100])
+
+        TANK_PARTS_PREVENT_ADDRESS = 0x804A329E
+        TANK_PARTS_PREVENT_VALUE = bytes([0])
+
+        ARAKURE_ADDRESS = 0x804A20A8
+        ARAKURE_VALUE = bytes([33])
+
+        CLEAR_PREONS_ADDRESS = 0x804A20BE
+        CLEAR_PREONS_VALUE = bytes([39])
+
+        # --- Testing RAM Writes: Full HP (255) for all health-related fields ---
+        # WARNING: These are temporary and should be removed after the testing period.
+        FULL_HP_VALUE = bytes([255])
+
+        # SetsOfHPCurrent
+        TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A2CB6
+        # HPCurrent
+        TEST_HP_CURRENT_ADDRESS = 0x804A2CB7
+        # SetsOfHPMax
+        TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A2CBA
+        # HPMax
+        TEST_HP_MAX_ADDRESS = 0x804A2CBB
+        # SetsOfHPActual
+        TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A2CBE
+        # HPActual
+        TEST_HP_ACTUAL_ADDRESS = 0x804A2CBF
+        # ----------------------------------------------------------------------
+
+        try:
+            while not self.exit_event.is_set():
+                # If client is not connected to AP or not connected to Dolphin
+                if not (self.dolphin_status == CONNECTION_CONNECTED_STATUS and self.slot):
+                    await asyncio.sleep(1)
+
+
+                dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
+                dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
+                dolphin.write_bytes(TANK_PARTS_PREVENT_ADDRESS, TANK_PARTS_PREVENT_VALUE)
+                dolphin.write_bytes(ARAKURE_ADDRESS, ARAKURE_VALUE)
+                dolphin.write_bytes(CLEAR_PREONS_ADDRESS, CLEAR_PREONS_VALUE)
+
+                # --- TESTING WRITES (Full HP) ---
+                # Set all Current/Max/Actual HP values to 255 for invincibility testing
+                dolphin.write_bytes(TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                # --------------------------------
+
+                # Add the small delay to prevent the loop.
+                await asyncio.sleep(0.1)
+        except Exception as e:
+            logger.error(f"An error occurred: {e}")
+        finally:
+            logger.info("RAM write operation has stopped.")
