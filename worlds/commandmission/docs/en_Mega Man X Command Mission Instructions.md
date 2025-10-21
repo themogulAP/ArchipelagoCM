@@ -4,7 +4,7 @@
 ## Where is the settings page?
 
 The [player settings page for this game](../player-settings) contains all the options you need to configure and export a
-config file.
+config file.  (Will be added in a future release!)
 
 ## What does randomization do to this game?
 
