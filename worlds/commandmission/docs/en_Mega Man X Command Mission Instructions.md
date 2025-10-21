@@ -36,6 +36,10 @@ Lagrano Ruins, Tianna Camp, Gaudile Laboratory, Ulfat Factory, Gimialla Mine, Va
 Note: The Central Tower access code will work slightly differently: it will patch out the WALL blocking from the rest of the chapter. 
 - This is located in Air City gate... where the Green NPC And tape are located. (You can dash right through it when the access code is received!)
 
+Rebellion Medals:
+These are items acquired by defeating each chapter in the Archipelago seed. Once you have all 9 Rebellion Medals (i.e. you have cleared all 9 chapters),
+as well as acquired the Far East HQ Access Code, you can go fight the final boss... ~Redacted Name~
+
 ## Which items can be in another player's world?
 - Consumables
 - Weapons
@@ -68,3 +72,11 @@ For Any Current Issues: See the Discord Channel in Archipelago or the Known Issu
 - Lots of customizable options are planned for the future: such as Encounter Rate Percentage changes. 
 
 - TONS to be added later, such as Chapter 9's beams being a one-time trigger.
+
+###### How Do I Win?
+The entire goal of Mega Man X Command Mission is to clear 9 chapters (in random order), followed by entering Chapter 10 and fighting the final boss.
+Throughout the run, you will receive Access Codes (explained above), that will allow you to teleport to the representative stages. 
+After completing a chapter, you will receive a Rebellion Medal. 
+Bosses of the chapters can be eliminated in any order, as Rebellion Medals will not lock any checks, other than entrance into the final area. 
+
+Once you defeat ~Redacted~, congratulations... YOU WIN! 
