@@ -21,6 +21,7 @@ For Future Release:
 - All Characters and parameters.
 - All Sky Room Cosmetics (over 1000 more checks!)
 - Traps
+- FULL Deployment Center: Locations, Mechaniloids and their parameters, etc. 
 - and more!
 
 ## What items and locations get shuffled?
