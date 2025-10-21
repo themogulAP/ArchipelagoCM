@@ -12,12 +12,16 @@
 
 2. Acquire the most recent APWorld from the ------------------- and place the commandmission.apworld in the custom_worlds folder of your Archipelago install.
 
-3. Download and install the Dolphin Gamecube/Wii Emulator from the link above, making sure to install the most recent version.
+3. Acquire the lib-windows (if you are on Windows) OR lib-linux if you are on Linux.
+
+4. Place this lib folder into your Archipelago installation folder. Navigate to the /lib folder in this Archipelago installation, and "Export Here".
+
+5. Download and install the Dolphin Gamecube/Wii Emulator from the link above, making sure to install the most recent version.
 Run the emulator at least once to make sure it is working.
 
-4. Make sure Dolphin's MMU (Memory Management Unit) is disabled / un-checked. This is found under the Options Menu in Dolphin > Configuration > Advanced tab. 
+6. Make sure Dolphin's MMU (Memory Management Unit) is disabled / un-checked. This is found under the Options Menu in Dolphin > Configuration > Advanced tab. 
 
-5. Note for Mac users: Due to additional security hardening that Apple added to MacOS, the steps from [here](https://github.com/aldelaro5/dolphin-memory-engine?tab=readme-ov-file#macos-code-signing) relating to Code Signing must be performed. Not doing so will prevent your Archipelago Client from connecting to the game appropriately.
+7. Note for Mac users: Due to additional security hardening that Apple added to MacOS, the steps from [here](https://github.com/aldelaro5/dolphin-memory-engine?tab=readme-ov-file#macos-code-signing) relating to Code Signing must be performed. Not doing so will prevent your Archipelago Client from connecting to the game appropriately.
 
 ## Create a Config (.yaml) File
 
