@@ -77,6 +77,13 @@ For Any Current Issues: See the Discord Channel in Archipelago or the Known Issu
 
 - TONS to be added later, such as Chapter 9's beams being a one-time trigger.
 
+## What is my "go-mode?"
+You will fully need to have: 
+- All 10 Access Codes (since you need to beat the bosses each chapter),
+- All 9 Rebellion Medals (acquired as stated above: Beating the chapter bosses),
+- Electric Components (This grants access to Chapter 6 boss, and the lowest level of Gimialla Mine)
+- Booster Parts (This will allow certain rocks to be broken via dash in Gimialla Mine)
+
 ## How Do I Win?
 The entire goal of Mega Man X Command Mission is to clear 9 chapters (in random order), followed by entering Chapter 10 and fighting the final boss.
 Throughout the run, you will receive Access Codes (explained above), that will allow you to teleport to the representative stages. 
