@@ -264,6 +264,10 @@ class MMXCMPatcher:
         # This will make sure the client and server versions match
         self._check_apworld_version(self.output_data)
 
+        # This will read the options based on the player's choices in YAML.
+        self.options = self.output_data.get("Options", {})
+        self.encounter_rate = self.options.get("encounter_rate", 1) # 1 is our default: Vanilla
+
         # This will read the entire iso, system files, etc after checking server version.
         self.gcm = GCM(self.clean_iso_path)
         self.gcm.read_entire_disc()
@@ -328,6 +332,25 @@ class MMXCMPatcher:
         """ 
         This function will take the base ROM, apply our changes and randomization data, and save the patched ROM. 
         """
+
+        if self.encounter_rate == 0:
+            print("Applying Encounter Rate OFF Patch...")
+
+            #First Address
+            set_address = 0x0208BC
+            set_value = bytes([0x38, 0x60, 0x00, 0x00])
+            self.dol.data.seek(set_address)
+            self.dol.data.write(set_value)
+            print(f"Wrote {len(set_value)} bytes at address {hex(set_address)}.")
+
+            #Second Address
+            reset_address = 0x0208C4
+            reset_value = bytes([0x38, 0x60, 0x00, 0x01])
+            self.dol.data.seek(reset_address)
+            self.dol.data.write(reset_value)
+            print(f"Wrote {len(reset_value)} bytes at address {hex(reset_address)}.")
+
+            print("Encounter Rate OFF Patch Complete.")
 
         print("Applying Internal Code Patches...") 
 
