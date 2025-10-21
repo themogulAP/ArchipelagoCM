@@ -63,7 +63,7 @@ to continue later.
    - You ***must*** use a brand new save file, not a New Game Plus file
 8. In the server page, there will be a port number. Copy this port number into the top of your MMXCMClient if it did not populate on its own. 
    - The field should read `archipelago.gg:<port number>`
-9. Once you have loaded into the game, click the `Connect` button at the top of the LMClient. You are now connected and ready to play!
+9. Once you have loaded into the game, click the `Connect` button at the top of the MMXCMClient. You are now connected and ready to play!
 10. NOTE: You MUST open the Client and connect to the AP Server FIRST, before opening Dolphin emulator and the patched rom!
 
 ## Joining a MultiWorld Game
