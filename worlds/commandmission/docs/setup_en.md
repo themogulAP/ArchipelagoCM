@@ -15,9 +15,7 @@
 3. Download and install the Dolphin Gamecube/Wii Emulator from the link above, making sure to install the most recent version.
 Run the emulator at least once to make sure it is working.
 
-4. Make sure Dolphin's MMU (Memory Management Unit) is disabled / un-checked. This is found under the Options Menu in Dolphin > Configuration > Advanced tab. See screenshot below for reference:
-
-![img.png](Dolphin_Disabled_MMU.png)
+4. Make sure Dolphin's MMU (Memory Management Unit) is disabled / un-checked. This is found under the Options Menu in Dolphin > Configuration > Advanced tab. 
 
 5. Note for Mac users: Due to additional security hardening that Apple added to MacOS, the steps from [here](https://github.com/aldelaro5/dolphin-memory-engine?tab=readme-ov-file#macos-code-signing) relating to Code Signing must be performed. Not doing so will prevent your Archipelago Client from connecting to the game appropriately.
 
