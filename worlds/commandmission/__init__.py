@@ -196,7 +196,11 @@ class MMXCMWorld(World):
             "Slot": self.player,
             "Name": self.player_name,
             "Locations": {},
-            "APWorldVersion": CLIENT_VERSION
+            "APWorldVersion": CLIENT_VERSION,
+            "Options": {
+                "rebellion_medal_count": self.options.rebellion_medal_count.value,
+                "encounter_rate": self.options.encounter_rate.value
+            }
         }
 
         # Creates the zip that will hold all necessary output files.
