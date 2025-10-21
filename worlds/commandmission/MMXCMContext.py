@@ -74,6 +74,7 @@ class MMXCMContext(CommonContext):
     dolphin_status = None
     medal_monitor_task: asyncio.Task = None # This manages the medal monitoring task async.
     revert_monitor_task: asyncio.Task = None # Task for Reverting the Big 4 (monitoring)
+    nonsavable_ram_task: asyncio.Task = None # Task for consistently forcing our nonsavable RAM.
 
     logger = logging.getLogger(CLIENT_NAME)
 
@@ -121,6 +122,9 @@ class MMXCMContext(CommonContext):
 
         if self.revert_monitor_task and not self.revert_monitor_task.done():
             self.revert_monitor_task.cancel()
+
+        if self.nonsavable_ram_task and not self.nonsavable_ram_task.done():
+            self.nonsavable_ram_task.cancel()
 
         dolphin.un_hook()
         self.checked_locations = set()
@@ -600,6 +604,13 @@ class MMXCMContext(CommonContext):
                         raise Exception(
                             "Incorrect Randomized MMX Command Mission ISO file selected. The seed does not match." +
                             "Please verify that you are using the right ISO/seed/apmmxcm file.")
+
+                    # This ensures the continuous RAM monitoring starts only after successful connection.
+                    if not self.nonsavable_ram_task or self.nonsavable_ram_task.done():
+                        self.nonsavable_ram_task = asyncio.create_task(
+                            self.mmxcm_update_non_savable_ram(),
+                            name="Non-Savable RAM Task"
+                        )
 
                 await self.check_game_finished()
                 await self.game_watcher()
