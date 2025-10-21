@@ -1,6 +1,10 @@
 
 # Mega Man X Command Mission
 
+## WARNING:
+You must open and connect the Mega Man X Command Mission client (MMXCM Client) to your Archipelago Server first. 
+Do this before opening Dolphin and the patched ISO each time you wish to play. This will prevent numerous bugs from taking place.
+
 ## Where is the settings page?
 
 The [player settings page for this game](../player-settings) contains all the options you need to configure and export a
@@ -60,7 +64,6 @@ Items received in MMX Command Mission will automatically write the item into the
 - Boot straight into the Arcade in Post Game (Chapter 10) State.
 - All Chapters are randomized... meaning you can go in many different orders in a general playthrough.
 - Sub Tanks will be forced at 100% permanently. Feel free to spam them as much as you like!
-- 
 
 For Any Current Issues: See the Discord Channel in Archipelago or the Known Issues Page. 
 
