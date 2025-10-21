@@ -73,7 +73,7 @@ For Any Current Issues: See the Discord Channel in Archipelago or the Known Issu
 
 - TONS to be added later, such as Chapter 9's beams being a one-time trigger.
 
-###### How Do I Win?
+## How Do I Win?
 The entire goal of Mega Man X Command Mission is to clear 9 chapters (in random order), followed by entering Chapter 10 and fighting the final boss.
 Throughout the run, you will receive Access Codes (explained above), that will allow you to teleport to the representative stages. 
 After completing a chapter, you will receive a Rebellion Medal. 
