@@ -12,8 +12,11 @@ A YAML has been provided for Testing - feel free to change any settings you wish
 - Special Sealed Area (Tails clan) and Rafflesian ignored by default.
 - X has an ungodly amount of HP. He should not die.
 - Starting item: Ultimate Armor
-  (These are not permanent, they are solely to cover not having Level Scaling in immediately). 
+  (These are not permanent, they are solely to cover not having Level Scaling in immediately).
 
+- NOTE: Encounter Rate options: "Lower" and "Higher" are currently not functional... these require a bit more coding. To be implemented soon!
+- Off and Vanilla do work!
+ 
 The [player settings page for this game](../player-settings) contains all the options you need to configure and export a
 config file.  (Will be added in a future release!)
 
