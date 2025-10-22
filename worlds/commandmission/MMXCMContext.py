@@ -6,7 +6,6 @@ import logging
 # AP related imports
 import NetUtils
 from CommonClient import CommonContext, logger
-from worlds.tww.TWWClient import read_string
 
 # 3rd party related imports
 import dolphin_memory_engine as dolphin

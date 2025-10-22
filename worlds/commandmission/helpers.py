@@ -82,5 +82,16 @@ def write_bit_to_ram(address: int, bit_position: int, dolphin_instance):
     except Exception as e:
         print(f"Error writing to RAM at address {hex(address)}: {e}")
 
+def read_string(console_address: int, strlen: int) -> str: #CREDIT: The Wind Waker AP for this function.
+    import dolphin_memory_engine as dolphin
+    """
+    Read a string from Dolphin memory.
+
+    :param console_address: Address to start reading from.
+    :param strlen: Length of the string to read.
+    :return: The string.
+    """
+    return dolphin.read_bytes(console_address, strlen).split(b"\0", 1)[0].decode()
+
 async def wait_for_next_loop(time_to_wait: float):
     await asyncio.sleep(time_to_wait)
