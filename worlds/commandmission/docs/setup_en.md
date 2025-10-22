@@ -5,6 +5,8 @@
 - [Archipelago Multiworld Suite](https://github.com/ArchipelagoMW/Archipelago/releases). 
 - [Dolphin Gamecube/Wii Emulator](https://dolphin-emu.org/)
 - Your EU ISO file, probably named `Mega Man X - Command Mission (Europe).iso`. Support for the US version is planned in the distant future.
+- The GClib (extracted) folder from the lib-windows or lib-linux in the releases page.
+- The latest Commandmission AP world (from releases page). 
 
 ## Installation Procedures
 

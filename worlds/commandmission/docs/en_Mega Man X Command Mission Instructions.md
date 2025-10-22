@@ -7,6 +7,13 @@ Do this before opening Dolphin and the patched ISO each time you wish to play. T
 
 ## Where is the settings page?
 
+A YAML has been provided for Testing - feel free to change any settings you wish... Name, Excluded Locations, etc. 
+- The YAML is encounters OFF by default.
+- Special Sealed Area (Tails clan) and Rafflesian ignored by default.
+- X has an ungodly amount of HP. He should not die.
+- Starting item: Ultimate Armor
+  (These are not permanent, they are solely to cover not having Level Scaling in immediately). 
+
 The [player settings page for this game](../player-settings) contains all the options you need to configure and export a
 config file.  (Will be added in a future release!)
 
