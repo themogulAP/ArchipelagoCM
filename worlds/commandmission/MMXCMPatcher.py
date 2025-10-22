@@ -246,7 +246,7 @@ CODE_PATCHES = [
         # SETS the the preon and battle to off in Lagrano + the Door Open.
         # RAM: 8000d8f0
         "address": 0x0A8F0,
-        "data": [0x90, 0x60, 0x00, 0x33]
+        "data": [0x90, 0x64, 0x00, 0x33]
     },
     {
         # NOP the following so we can load into the Next set of code patches.
