@@ -374,7 +374,7 @@ class MMXCMContext(CommonContext):
                 "want_reply": False,
                 "operations": [{"operation": "replace", "value": current_stage_id}]
             }]), name="Update Mega Man X Command Mission Area ID")
-            self.last_room_id = current_stage_id
+            self.last_stage_id = current_stage_id
 
         # The game has an address that lets us know if we are in a playable state or not.
         int_play_state = dolphin.read_byte(self.Constants.SCREEN_SELECT_ADDRESS)
