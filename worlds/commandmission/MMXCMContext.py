@@ -5,6 +5,7 @@ import logging
 
 # AP related imports
 import NetUtils
+import Utils
 from CommonClient import CommonContext, logger
 
 # 3rd party related imports
@@ -78,6 +79,8 @@ class MMXCMContext(CommonContext):
     logger = logging.getLogger(CLIENT_NAME)
 
     Constants = Constants
+
+    last_stage_id = 0
 
     def __init__(self, server_address, password):
         """
@@ -360,6 +363,19 @@ class MMXCMContext(CommonContext):
             dolphin.write_bytes(dolphin.follow_pointers(addr, ram_offset), curr_value)
 
     def check_ingame(self):
+        # This will send a message to the AP server of which area we are in: used for PopTracker auto-tabbing.
+        STAGE_ID_ADDR = 0x804A208D
+        current_stage_id = dolphin.read_byte(STAGE_ID_ADDR)
+        if current_stage_id != self.last_stage_id:
+            Utils.async_start(self.send_msgs([{
+                "cmd": "Set",
+                "key": f"mmxcm_area_{self.team}_{self.slot}",
+                "default": 0,
+                "want_reply": False,
+                "operations": [{"operation": "replace", "value": current_stage_id}]
+            }]), name="Update Mega Man X Command Mission Area ID")
+            self.last_room_id = current_stage_id
+
         # The game has an address that lets us know if we are in a playable state or not.
         int_play_state = dolphin.read_byte(self.Constants.SCREEN_SELECT_ADDRESS)
         return int_play_state in (7, 4)
