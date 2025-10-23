@@ -595,13 +595,13 @@ TIANNA_CAMP_LOCATIONS: dict[str, MMXCMLocationData] = {
     name="West Prison 1",
     code=96,
     parent_region="Tianna Camp",
-    ram_data=MMXCMRamData(0x804A215A, bit_position=5)
+    ram_data=MMXCMRamData(0x804A215A, bit_position=6)
   ),
   "West Prison Jack of Hearts": MMXCMLocationData(
     name="West Prison 2",
     code=97,
     parent_region="Tianna Camp",
-    ram_data=MMXCMRamData(0x804A215A, bit_position=6)
+    ram_data=MMXCMRamData(0x804A215A, bit_position=5)
   ),
   "Maze Area 1 Behind Key Tank Parts": MMXCMLocationData(
     name="Maze Area 1 Behind Key 1",
