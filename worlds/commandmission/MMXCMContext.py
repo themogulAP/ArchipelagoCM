@@ -681,8 +681,6 @@ class MMXCMContext(CommonContext):
         logger.error(f"Error: No empty {inv_type} slots found for item {item_name}!")
 
     async def mmxcm_update_non_savable_ram(self):
-        # SOFTLOCK_PREVENT_VALUE = bytes([1])
-        # SOFTLOCK_PREVENT_ADDRESS = 0x804A20B1
 
         ARAKURE_ADDRESS = 0x804A20A8
         ARAKURE_VALUE = bytes([33])
@@ -714,8 +712,6 @@ class MMXCMContext(CommonContext):
                 if not (self.dolphin_status == CONNECTION_CONNECTED_STATUS and self.slot):
                     await asyncio.sleep(1)
 
-
-                # dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
                 dolphin.write_bytes(ARAKURE_ADDRESS, ARAKURE_VALUE)
                 dolphin.write_bytes(CLEAR_PREONS_ADDRESS, CLEAR_PREONS_VALUE)
 
