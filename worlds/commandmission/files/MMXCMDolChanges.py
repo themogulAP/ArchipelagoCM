@@ -2,17 +2,19 @@
 # If adding more changes: fill in this dictionary with the address and new bytes.
 CODE_PATCHES = [
     {
-        # Prevent Party Members From Leaving ------------- Party Member Slot Strings
+        # -----------------------Prevent Party Members From Leaving ------------------------
+        # Party Member Slot Strings
         # Original RAM Address: 800d7E0C
         "address": 0x0D4E0C,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP Instruction
     },
     {
-        # Prevent Party Members From Leaving ----------- # Of Party Members
+        # Of Party Members
         # Original Ram: 800d7e2c
         "address": 0x0D4E2C,
         "data": [0x38, 0x06, 0x00, 0x00]  # Sets the character substraction to 0.
     },
+        # -----------------------------GAME BOOT SEQUENCE FLAGS----------------------
     {
         # Loading into Arcade: Scenario Flag
         # RAM Address: 800Dbab4
@@ -43,6 +45,7 @@ CODE_PATCHES = [
         "address": 0x0A8FC,
         "data": [0x98, 0x64, 0x00, 0x48]
     },
+        # ------------------------- CHAPTER 2 SPECIFIC CHANGES -----------------------------
     {
         # Sets PREON BIT in Data Backup Room B AND A to Despawn... prevents walking bug.
         # RAM: 8000D900
@@ -103,6 +106,7 @@ CODE_PATCHES = [
         "address": 0x0A924,
         "data": [0x90, 0x64, 0x00, 0x74]
     },
+        # --------------------------- PREVENT BEATING THE GAME ----------------------
     {
         # Prevent beating the Game --- Change comparison
         # RAM Address: 8001047c
@@ -121,6 +125,7 @@ CODE_PATCHES = [
         "address": 0x0D4E8,
         "data": [0x60, 0x00, 0x00, 0x00]
     },
+        # --------------------- ALL TELEPORT PREVENTION UNTIL ACCESS CODES ----------------------------------------
     {
         # Change Lagrano Ruins to teleport back to Central Tower STAGE w/o Access Code
         # RAM Address Label: 80082fac
@@ -211,6 +216,7 @@ CODE_PATCHES = [
         "address": 0x019C08,
         "data": [0x60, 0x84, 0x05, 0x4C]
     },
+        # ------------------------------ITEM INVENTORY FIXES ----------------------------------------
     {
         # NOP the Writing item to inventory BASE GAME code.
         # RAM: 800d7360
@@ -223,6 +229,7 @@ CODE_PATCHES = [
         "address": 0x0D4364,
         "data": [0x60, 0x00, 0x00, 0x00]
     },
+        # -----------------------------FORCE METAL TURNED ON FIX -----------------------------------
     {
         # Ori the values we need for Setting the preon and battle to off in Lagrano + the Door Open.
         # RAM: 8000d8ec
@@ -241,48 +248,46 @@ CODE_PATCHES = [
         "address": 0x0A8F4,
         "data": [0x60, 0x00, 0x00, 0x00]
     },
-
-    # ----------------------- Sub Tank Control Patches ----------------------------
-
-    # Set Sub Tank fill amount to a constant 100 (0x64).
-    # Original RAM Address: 80110f70
+        # ----------------------- Sub Tank Control Patches ----------------------------
     {
+        # Set Sub Tank fill amount to a constant 100 (0x64).
+        # Original RAM Address: 80110f70
         "address": 0x10DF70,
         "data": [0x38, 0xe0, 0x00, 0x64]  # li r7, 100 (0x64)
     },
-    # Store the constant Sub Tank fill amount (r7) into the Sub Tank % slot.
-    # Original RAM Address: 80110f80
     {
+        # Store the constant Sub Tank fill amount (r7) into the Sub Tank % slot.
+        # Original RAM Address: 80110f80
         "address": 0x10DF80,
         "data": [0x98, 0xe9, 0x12, 0x3F]  # stb r7, 0x123F(r9)
     },
-    # Prevents adding Sub Tank % from a specific event/location (Original: sth r0, 0x123E(r4)).
-    # Original RAM Address: 800d6e6c
     {
+        # Prevents adding Sub Tank % from a specific event/location (Original: sth r0, 0x123E(r4)).
+        # Original RAM Address: 800d6e6c
         "address": 0x0D3E6C,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
-    # Change Sub Tank loss calculation to set r3 to 100 (instead of subtracting), preventing loss.
-    # Original RAM Address: 800abbc8
     {
+        # Change Sub Tank loss calculation to set r3 to 100 (instead of subtracting), preventing loss.
+        # Original RAM Address: 800abbc8
         "address": 0x0A8BC8,
         "data": [0x38, 0x60, 0x00, 0x64]  # li r3, 100 (0x64)
     },
-    # Prevents Sub Tank % gain from the Bed (Original: sth r0, 0x123E(r4)).
-    # Original RAM Address: 800d359c
     {
+        # Prevents Sub Tank % gain from the Bed (Original: sth r0, 0x123E(r4)).
+        # Original RAM Address: 800d359c
         "address": 0x0D059C,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
-    # Prevents Sub Tank % gain on a random one in Lagrano (Original: sth r5, 0x123E(r4)).
-    # Original RAM Address: 800d6e7c
     {
+        # Prevents Sub Tank % gain on a random one in Lagrano (Original: sth r5, 0x123E(r4)).
+        # Original RAM Address: 800d6e7c
         "address": 0x0D3E7C,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
-    # Change Sub Tank add limit from 'addi r0, r3, 100' to 'addi r0, r3, 0', preventing limit add on more tank parts.
-    # Original RAM Address: 800d6fac
     {
+        # Change Sub Tank add limit from 'addi r0, r3, 100' to 'addi r0, r3, 0', preventing limit add on more tank parts.
+        # Original RAM Address: 800d6fac
         "address": 0x0D3FAC,
         "data": [0x38, 0x03, 0x00, 0x00]  # addi r0, r3, 0
     },
