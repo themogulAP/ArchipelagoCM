@@ -106,6 +106,13 @@ CODE_PATCHES = [
         "address": 0x0A924,
         "data": [0x90, 0x64, 0x00, 0x74]
     },
+    {
+        # -----------------------------SOFT LOCK PREVENT IN CHAPTER 2-----------------------------
+        # Prevents the NPC from being removed after battle or entering the room.
+        # RAM Address: 80039cd4
+        "address": 0x036CD4,
+        "data": [0x38, 0x60, 0x00, 0x01]
+    },
         # --------------------------- PREVENT BEATING THE GAME ----------------------
     {
         # Prevent beating the Game --- Change comparison
