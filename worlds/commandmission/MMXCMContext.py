@@ -722,8 +722,8 @@ class MMXCMContext(CommonContext):
 
 
                 dolphin.write_bytes(SOFTLOCK_PREVENT_ADDRESS, SOFTLOCK_PREVENT_VALUE)
-                dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
-                dolphin.write_bytes(TANK_PARTS_PREVENT_ADDRESS, TANK_PARTS_PREVENT_VALUE)
+                # dolphin.write_bytes(ALWAYS_SUBTANK_ADDRESS, ALWAYS_SUBTANK_VALUE)
+                # dolphin.write_bytes(TANK_PARTS_PREVENT_ADDRESS, TANK_PARTS_PREVENT_VALUE)
                 dolphin.write_bytes(ARAKURE_ADDRESS, ARAKURE_VALUE)
                 dolphin.write_bytes(CLEAR_PREONS_ADDRESS, CLEAR_PREONS_VALUE)
 
