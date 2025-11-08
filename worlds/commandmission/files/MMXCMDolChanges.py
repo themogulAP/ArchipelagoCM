@@ -240,5 +240,50 @@ CODE_PATCHES = [
         # RAM: 8000d8f4
         "address": 0x0A8F4,
         "data": [0x60, 0x00, 0x00, 0x00]
-    }
+    },
+
+    # ----------------------- Sub Tank Control Patches ----------------------------
+
+    # Set Sub Tank fill amount to a constant 100 (0x64).
+    # Original RAM Address: 80110f70
+    {
+        "address": 0x10DF70,
+        "data": [0x38, 0xe0, 0x00, 0x64]  # li r7, 100 (0x64)
+    },
+    # Store the constant Sub Tank fill amount (r7) into the Sub Tank % slot.
+    # Original RAM Address: 80110f80
+    {
+        "address": 0x10DF80,
+        "data": [0x98, 0xe9, 0x12, 0x3F]  # stb r7, 0x123F(r9)
+    },
+    # Prevents adding Sub Tank % from a specific event/location (Original: sth r0, 0x123E(r4)).
+    # Original RAM Address: 800d6e6c
+    {
+        "address": 0x0D3E6C,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    # Change Sub Tank loss calculation to set r3 to 100 (instead of subtracting), preventing loss.
+    # Original RAM Address: 800abbc8
+    {
+        "address": 0x0A8BC8,
+        "data": [0x38, 0x60, 0x00, 0x64]  # li r3, 100 (0x64)
+    },
+    # Prevents Sub Tank % gain from the Bed (Original: sth r0, 0x123E(r4)).
+    # Original RAM Address: 800d359c
+    {
+        "address": 0x0D059C,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    # Prevents Sub Tank % gain on a random one in Lagrano (Original: sth r5, 0x123E(r4)).
+    # Original RAM Address: 800d6e7c
+    {
+        "address": 0x0D3E7C,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    # Change Sub Tank add limit from 'addi r0, r3, 100' to 'addi r0, r3, 0', preventing limit add on more tank parts.
+    # Original RAM Address: 800d6fac
+    {
+        "address": 0x0D3FAC,
+        "data": [0x38, 0x03, 0x00, 0x00]  # addi r0, r3, 0
+    },
 ]
