@@ -216,7 +216,7 @@ class MMXCMContext(CommonContext):
         # Find where the medals aee and how many we have.
         return len(self.locations_checked.intersection(medal_location_ids))
 
-    def has_received_access_code(self, item_name: str) -> bool:
+    def has_received_chapter10_code(self, item_name: str) -> bool:
         """Helper function to check if the randomized Chpt 10 Access code has been found."""
         target_medal_id = None
 
@@ -279,7 +279,7 @@ class MMXCMContext(CommonContext):
 
         medal_count = self.get_checked_medal_count()
 
-        has_far_east_access = self.has_received_access_code("Far East HQ Access Code")
+        has_far_east_access = self.has_received_chapter10_code("Far East HQ Access Code")
 
         if medal_count >=9 and has_far_east_access:
             try:
