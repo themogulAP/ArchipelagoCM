@@ -216,6 +216,30 @@ class MMXCMContext(CommonContext):
         # Find where the medals aee and how many we have.
         return len(self.locations_checked.intersection(medal_location_ids))
 
+    def has_received_patchable_access_code(self, item_name: str) -> bool:
+        """
+        Checks if a specific Access Code item, defined in ACCESS_CODE_PATCHES,
+        has been received from the server.
+        """
+        # 1. Ensure the item name corresponds to a known patchable code
+        if item_name not in ACCESS_CODE_PATCHES:
+            return False
+
+        # 2. Look up the item's Archipelago code (ID)
+        item_data = ALL_ITEMS_TABLE.get(item_name)
+        if not item_data:
+            self.logger.error(f"Missing item data for known Access Code: {item_name}")
+            return False
+
+        target_item_id = item_data.code
+
+        # 3. Check the client's record of received items
+        for item in self.items_received:
+            if item.item == target_item_id:
+                return True
+
+        return False
+
     def has_received_chapter10_code(self, item_name: str) -> bool:
         """Helper function to check if the randomized Chpt 10 Access code has been found."""
         target_medal_id = None
@@ -500,13 +524,7 @@ class MMXCMContext(CommonContext):
 
                 # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
                 elif item_name in ACCESS_CODE_PATCHES:
-                    try:
-                        # Call the patching function and execute it from our new patch codes py
-                        ACCESS_CODE_PATCHES[item_name]()
-                        logger.info(f"{item_name} acquired. Access has been granted.")
-                    except Exception as e:
-                        logger.error(f" Error while writing RAM for {item_name}: {e}")
-
+                    logger.info(f"{item_name} acquired. Access has been granted.")
                     self.update_received_idx(last_recv_idx)
                     continue
 
@@ -711,6 +729,7 @@ class MMXCMContext(CommonContext):
                 # If client is not connected to AP or not connected to Dolphin
                 if not (self.dolphin_status == CONNECTION_CONNECTED_STATUS and self.slot):
                     await asyncio.sleep(1)
+                    continue
 
                 dolphin.write_bytes(ARAKURE_ADDRESS, ARAKURE_VALUE)
                 dolphin.write_bytes(CLEAR_PREONS_ADDRESS, CLEAR_PREONS_VALUE)
@@ -725,8 +744,18 @@ class MMXCMContext(CommonContext):
                 dolphin.write_bytes(TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
                 # --------------------------------
 
+                # -------------This continuously re-applies access codes patch to defeat game saves/loads -------------
+                for code_name, patch_function in ACCESS_CODE_PATCHES.items():
+                    # Check if the client has received the item... via the new helper function
+                    if self.has_received_patchable_access_code(code_name):
+                        try:
+                            patch_function()
+                        except Exception as e:
+                            self.logger.warning(f"Failed to continuously enforce {code_name} patch: {e}")
+
                 # Add the small delay to prevent the loop.
                 await asyncio.sleep(0.1)
+
         except Exception as e:
             logger.error(f"An error occurred: {e}")
         finally:
