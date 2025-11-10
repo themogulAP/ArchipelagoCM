@@ -9,7 +9,7 @@ from .rules import set_rules, REBELLION_MEDALS_GROUP
 from .options import MMXCMOptions
 from .helpers import CLIENT_VERSION
 from .files.mmxcm_rom import MMXCMPlayerContainer
-from worlds.LauncherComponents import Component, SuffixIdentifier, Type, components, launch_subprocess, icon_paths
+from worlds.LauncherComponents import Component, SuffixIdentifier, Type, components, launch_subprocess
 
 import os
 
