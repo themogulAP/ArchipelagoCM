@@ -260,6 +260,7 @@ CINNAMON_VANILLA_PARAMS = [
     # EQUIPMENT/FM
     (0xB6, 150),  # Cinnamon's Weapon (804A3185)
     (0xB8, 36),  # Sub Weapon X (804A3187)
+    (0xB9, 255), # Sub Weapon Y OFF
     (0xBA, 255),  # Sub Weapon Y (804A3189)
     (0xBC, 3),  # Erosion Slots (804A318B)
     (0xBD, 255),  # Is Force Metal #1 On? (804A318C)
