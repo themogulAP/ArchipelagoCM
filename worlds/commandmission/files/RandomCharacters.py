@@ -55,7 +55,7 @@ ZERO_VANILLA_PARAMS = [
     (0xB8, 34),  # Sub Weapon X (804A2E37)
     (0xBA, 34),  # Sub Weapon Y (804A2E39)
     (0xBC, 3),  # Erosion Slots (804A2E3B)
-    (0xBD, 255),  # Is Force Metal #1 ON? (804A2E3C) - 255 likely means 'No/Empty' or 'Invalid ID'
+    (0xBD, 255),  # Is Force Metal #1 ON? (804A2E3C)
     (0xBE, 255),  # Force Metal #1 (804A2E3D)
     (0xBF, 255),  # Is Force Metal #2 ON? (804A2E3E)
     (0xC0, 255),  # Force Metal #2 (804A2E3F)
