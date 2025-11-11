@@ -52,24 +52,24 @@ ZERO_VANILLA_PARAMS = [
 
     # ------------------ EQUIPMENT/FM ------------------
     (0xBA, 51),  # Zero's Weapon (804A2E35)
-    (0xBC, 34),  # Sub Weapon X (804A2E37)
-    (0xBE, 34),  # Sub Weapon Y (804A2E39)
-    (0xC0, 3),  # Erosion Slots (804A2E3B)
-    (0xC1, 255),  # Is Force Metal #1 ON? (804A2E3C) - 255 likely means 'No/Empty' or 'Invalid ID'
-    (0xC2, 255),  # Force Metal #1 (804A2E3D)
-    (0xC3, 255),  # Is Force Metal #2 ON? (804A2E3E)
-    (0xC4, 255),  # Force Metal #2 (804A2E3F)
-    (0xC5, 255),  # Is Force Metal #3 On? (804A2E40)
-    (0xC6, 255),  # Force Metal #3 (804A2E41)
-    (0xC7, 255),  # Is Force Metal #4 On? (804A2E42)
-    (0xC8, 255),  # Force Metal #4 (804A2E43)
+    (0xBE, 34),  # Sub Weapon X (804A2E37)
+    (0xC0, 34),  # Sub Weapon Y (804A2E39)
+    (0xC2, 3),  # Erosion Slots (804A2E3B)
+    (0xC3, 255),  # Is Force Metal #1 ON? (804A2E3C)
+    (0xC4, 255),  # Force Metal #1 (804A2E3D)
+    (0xC5, 255),  # Is Force Metal #2 ON? (804A2E3E)
+    (0xC6, 255),  # Force Metal #2 (804A2E3F)
+    (0xC7, 255),  # Is Force Metal #3 On? (804A2E40)
+    (0xC8, 255),  # Force Metal #3 (804A2E41)
+    (0xC9, 255),  # Is Force Metal #4 On? (804A2E42)
+    (0xCA, 255),  # Force Metal #4 (804A2E43)
 
     # ------------------ Hyper Mode  ------------------
-    (0xCC, 13),  # Current Erosion (804A2E47)
-    (0xD2, 3),  # Current Hyper Mode (804A2E4D)
-    (0xD4, 3),  # Max Hyper Mode (804A2E4F)
+    (0xCE, 13),  # Current Erosion (804A2E47)
+    (0xD4, 3),  # Current Hyper Mode (804A2E4D)
+    (0xD6, 3),  # Max Hyper Mode (804A2E4F)
     # ------------------ Action Trigger -----------------
-    (0x4F8, 0)     # Zero's Action Trigger Upgrade (804A3277)
+    (0x4F8, 0)  # Zero's Action Trigger Upgrade (804A3277)
 ]
 
 # --- SPIDER'S VANILLA PARAMETER DATA (CORRECTED) ---
