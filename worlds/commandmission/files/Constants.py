@@ -42,3 +42,7 @@ STAGE_PATCH = b'\x3c\x00\x00\x02'  # lis r0, 0x0002
 # Unique 4th Patch Values
 ARCADE_PATCH = b'\x60\x00\x05\x4c'  # For Medals 1, 3-9 (ori r0, 0x054C)
 HELIPAD_PATCH = b'\x60\x00\x15\x53'  # For Medal 2 (ori r0, 0x1553)
+
+# ------------ Character ROSTER Addresses ------------------
+PARTY_COUNT_ADDR = 0x804A3294
+ROSTER_BASE_ADDR = 0x804A3295
