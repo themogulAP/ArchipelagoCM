@@ -19,6 +19,7 @@ from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
 from .files import Constants
+from .files.RandomCharacters import CHARACTER_DATA
 
 # The functionality to add items, weapons, sub weapons, force metals, to our dynamic inventory.
 # RAM addresses and the slot counts for each inventory type.
@@ -528,6 +529,12 @@ class MMXCMContext(CommonContext):
                     self.update_received_idx(last_recv_idx)
                     continue
 
+                elif item_type == "Character":
+                    roster_id = item_info.item_id
+                    await self.write_character_data(item_name, roster_id)
+                    self.update_received_idx(last_recv_idx)
+                    continue
+
                 elif item_type == "Mechaniloid Item" or item_type == "Trade Item" or item_type == "Major Item" or item_type == "Key Item":
                     for addr_to_update in item_info.update_ram_addr:
                         byte_size = 1 if addr_to_update.ram_byte_size is None else addr_to_update.ram_byte_size
@@ -697,6 +704,53 @@ class MMXCMContext(CommonContext):
                 print(f"Wrote item {item_name} to {inv_type} inventory.")
                 return  # Exit after writing the item to the inventory slot.
         logger.error(f"Error: No empty {inv_type} slots found for item {item_name}!")
+
+    async def write_character_data(self, character_name: str, roster_id: int):
+        """
+        Performs the 3 step function when receiving a new character:
+        1. Writes the entire character parameters block.
+        2. Increments the Party Member Count by 1.
+        3. Writes the Roster ID for the character into the next available slot.
+        """
+
+        # 1----- Write full character parameter block.
+        char_data = CHARACTER_DATA.get(character_name)
+
+        if not char_data:
+            self.logger.error(f"Cannont Find character data for '{character_name}'.")
+            return
+
+        base_addr = char_data["base_address"]
+        self.logger.info(f"Writing stat block for {character_name} to 0x{base_addr}")
+
+        for offset, value in char_data["params"]:
+            full_addr = base_addr + offset
+
+            try:
+                await self.write_bytes_and_validate(full_addr, None, value.to_bytes(1, 'big'))
+            except Exception as e:
+                self.logger.error(f"Failed to write stat byte for {character_name} at 0x{full_addr}: {e}")
+
+        # 2 and 3 --------- Update Party Count and Roster Slot
+        try:
+            # Read current Party count (N) from 0x804A3294
+            current_count_bytes = dolphin.read_bytes(self.Constants.PARTY_COUNT_ADDR, 1)
+            current_count = int.from_bytes(current_count_bytes, 'big')
+
+            # Calculate the target Roster Slot Address.
+            roster_slot_addr = self.Constants.ROSTER_BASE_ADDR + current_count
+            self.logger.info(f"Activating {character_name}. Party Count N= {current_count}. Writing ID {roster_id} to Roster Slot 0x{roster_slot_addr}")
+
+            # Write the character's Roster ID to the correct next slot.
+            await self.write_bytes_and_validate(roster_slot_addr, None, roster_id.to_bytes(1, 'big'))
+
+            # Increment the new count N+1 back to 0x804A3294
+            new_count = current_count + 1
+            await self.write_bytes_and_validate(self.Constants.PARTY_COUNT_ADDR, None, new_count.to_bytes(1, 'big'))
+
+            self.logger.info(f"Party Count successfully updated to {new_count}.")
+        except Exception as e:
+            self.logger.error(f"Failed to update party count for {character_name}: {e}")
 
     async def mmxcm_update_non_savable_ram(self):
 
