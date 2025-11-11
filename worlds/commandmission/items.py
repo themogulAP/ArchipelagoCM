@@ -2513,6 +2513,51 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
+CHARACTER_TABLE: dict[str, MMXCMItemData] = {
+  "Zero": MMXCMItemData(
+    type="Character",
+    code=326,
+    classification=IC.progression,
+    item_id=1,  # Zero's In-Game Roster ID
+    update_ram_addr=None
+  ),
+  "Spider": MMXCMItemData(
+    type="Character",
+    code=327,
+    classification=IC.progression,
+    item_id=2,  # Spider's In-Game Roster ID
+    update_ram_addr=None
+  ),
+  "Massimo": MMXCMItemData(
+    type="Character",
+    code=328,
+    classification=IC.progression,
+    item_id=3,  # Massimo's In-Game Roster ID
+    update_ram_addr=None
+  ),
+  "Marino": MMXCMItemData(
+    type="Character",
+    code=329,
+    classification=IC.progression,
+    item_id=4,  # Marino's In-Game Roster ID
+    update_ram_addr=None
+  ),
+  "Cinnamon": MMXCMItemData(
+    type="Character",
+    code=330,
+    classification=IC.progression,
+    item_id=5,  # Cinnamon's In-Game Roster ID
+    update_ram_addr=None
+  ),
+  "Axl": MMXCMItemData(
+    type="Character",
+    code=331,
+    classification=IC.progression,
+    item_id=6,  # Axl's In-Game Roster ID
+    update_ram_addr=None
+  ),
+}
+
 #Add any other tables here, Filler, Trap, etc.
 COLLECTIBLE_TABLE: dict[str, MMXCMItemData] = {}
 
@@ -2528,6 +2573,7 @@ ALL_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   **MECHANILOID_ITEMS_TABLE,
   **TRADE_ITEMS_TABLE,
   **EVENT_ITEM_TABLE,
+  **CHARACTER_TABLE,
   **COLLECTIBLE_TABLE
 
 }
