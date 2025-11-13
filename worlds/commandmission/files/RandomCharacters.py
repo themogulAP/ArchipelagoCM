@@ -3,6 +3,7 @@ For Example: Zero will be level 18 when you acquire him, like out of chapter 5."
 
 # Base RAM address for Zero's data block.
 # This address will be used as the anchor for all offsets below when injecting data.
+X_SLOT_BASE_ADDRESS = 0x804A2CAB
 ZERO_SLOT_BASE_ADDRESS = 0x804A2D7F
 SPIDER_SLOT_BASE_ADDRESS = 0x804A2E53
 MASSIMO_SLOT_BASE_ADDRESS = 0x804A2F27
@@ -15,6 +16,60 @@ AXL_SLOT_BASE_ADDRESS = 0x804A31A3
 # Format: (OFFSET_FROM_BASE_ADDRESS, VANILLA_DECIMAL_VALUE)
 # This list is used by AP and our Client to write the exact starting state
 # for Zero when he is acquired via an Archipelago check.
+
+X_VANILLA_PARAMS = [
+    # ------------------ Level/ID ------------------
+    (0x00, 1),    # X's Lvl String (804A2CAB)
+    (0x04, 0),    # Character Picture (ID) (804A2CAF)
+
+    # ------------------ EXP ------------------
+    (0x07, 0),    # # of 255's Total EXP (804A2CB2)
+    (0x08, 0),    # Total EXP # (804A2CB3)
+
+    # ------------------ HP ------------------
+    (0x0B, 2),    # # of 255's HP Current (804A2CB6)
+    (0x0C, 11),   # Current HP (804A2CB7)
+    (0x0F, 2),    # # of 255's Max HP (804A2CBA)
+    (0x10, 11),   # Max HP (804A2CBB)
+    (0x13, 2),    # # of 255's Actual HP (804A2CBE)
+    (0x14, 11),   # Actual HP (804A2CBF)
+
+    # ------------------ WE/Core Stats ------------------
+    (0x18, 25),   # Initial WE (804A2CC3)
+    (0x1C, 25),   # WE Per Turn (804A2CC7)
+    (0x20, 22),   # Power Stat (804A2CCB)
+    (0x24, 15),   # Armor Stat (804A2CCF)
+    (0x28, 14),   # Shield Stat (804A2CD3)
+    (0x2C, 32),   # Speed Stat (804A2CD7)
+    (0x34, 100),  # Accuracy? (804A2CDF)
+    (0x40, 2),    # Crit Chance (804A2CEB)
+
+    # ------------------ Resistances ------------------
+    (0x5C, 2),    # Combat Resistance (804A2D07)
+    (0x60, 2),    # Shot Resistance (804A2D0B)
+    (0x6C, 2),    # Fire Resistance (804A2D17)
+    (0x70, 2),    # Water Resistance (804A2D1B)
+    (0x74, 2),    # Thunder Resistance (804A2D1F)
+
+    # ------------------ EQUIPMENT/FM ------------------
+    (0xB6, 25),   # X's Weapon (804A2D61)
+    (0xB8, 1),    # Sub Weapon X (804A2D63)
+    (0xBA, 1),    # Sub Weapon Y (804A2D65)
+    (0xBC, 4),    # Erosion Slots (804A2D67)
+    (0xBD, 255),  # Is Force Metal #1 On? (804A2D68)
+    (0xBE, 255),  # Force Metal #1 (804A2D69)
+    (0xBF, 255),  # Is Force Metal #2 On? (804A2D6A)
+    (0xC0, 255),  # Force Metal #2 (804A2D6B)
+    (0xC1, 255),  # Is Force Metal #3 On? (804A2D6C)
+    (0xC2, 255),  # Force Metal #3 (804A2D6D)
+    (0xC3, 255),  # Is Force Metal #4 On? (804A2D6E)
+    (0xC4, 255),  # Force Metal #4 (804A2D6F)
+
+    # ------------------ Hyper Mode ------------------
+    (0xC8, 10),   # Current Erosion (804A2D73)
+    (0xCE, 6),    # Current Hyper Mode (804A2D79)
+    (0xD0, 6),    # Max Hyper Mode (804A2D7B)
+]
 
 ZERO_VANILLA_PARAMS = [
     # ------------------ Level/ID  ------------------
@@ -340,6 +395,9 @@ AXL_VANILLA_PARAMS = [
 ]
 
 CHARACTER_DATA = {
+    "X": { # <-- NEW: X entry
+        "params": X_VANILLA_PARAMS,
+        "base_address": X_SLOT_BASE_ADDRESS,
     "Zero": {
         "params": ZERO_VANILLA_PARAMS,
         "base_address": ZERO_SLOT_BASE_ADDRESS,
