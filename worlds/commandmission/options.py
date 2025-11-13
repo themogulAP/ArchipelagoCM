@@ -19,6 +19,17 @@ class EncounterRate(Choice):
     option_higher = 3
     default = 1
 
+class StartingCharacter(Choice):
+    display_name = "Starting Character"
+    internal_name = "starting_character"
+    option_X = 0
+    option_Zero = 1
+    option_Spider = 2
+    option_Massimo = 3
+    option_Marino = 4
+    option_Cinnamon = 5
+    option_Axl = 6
+
 # The dataclass then uses these classes directly as a container.
 @dataclass
 class MMXCMOptions(PerGameCommonOptions):
@@ -28,4 +39,5 @@ class MMXCMOptions(PerGameCommonOptions):
     """
     rebellion_medal_count: RebellionMedalCount
     encounter_rate: EncounterRate
+    starting_character: StartingCharacter
     

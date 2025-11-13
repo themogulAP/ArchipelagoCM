@@ -41,6 +41,7 @@ class MMXCMWorld(World):
     topology_present: ClassVar[bool] = False
     data_version: ClassVar[int] = 1
     settings: MMXCMSettings
+    starting_character_item_name: str | None = None  # Used to track which character item was precollected
 
     # This will tell AP what our group actually is for Rebellion Medals.
     item_name_groups: ClassVar[dict[str, frozenset[str]]] = {
@@ -58,6 +59,28 @@ class MMXCMWorld(World):
 
     # This places any logic we need to before the generation process.
     def generate_early(self):
+        character_map = {
+            0: "X",
+            1: "Zero",
+            2: "Spider",
+            3: "Massimo",
+            4: "Marino",
+            5: "Cinnamon",
+            6: "Axl",
+        }
+
+        chosen_id = self.options.starting_character.value
+
+        # Only proceed if a specific character is chosen (i.e., not 'Random' which is ID 7)
+        if chosen_id in character_map:
+            item_name = character_map[chosen_id]
+
+            # 1. Correctly add the item to the player's starting inventory
+            starting_item = self.create_item(item_name)
+            self.multiworld.precollected_items[self.player].append(starting_item)
+
+            # 2. Store the item name so we can remove it from the pool later in create_items
+            self.starting_character_item_name = item_name
         pass
 
     # This will build the entire map for our randomized AP!
@@ -146,6 +169,8 @@ class MMXCMWorld(World):
     # This will build the entire item pool for our randomized AP!
     def create_items(self):
         item_pool = []
+        item_to_exclude = self.starting_character_item_name
+
         for item_name, item_data in ALL_ITEMS_TABLE.items():
 
             # Exclude the Event item Great Redips and statically place it on the location.
@@ -155,15 +180,22 @@ class MMXCMWorld(World):
             if "Rebellion Medal" in item_name:
                 continue
 
+            count_to_add = item_data.item_count
+
+            if item_name == item_to_exclude:
+                count_to_add -= 1
+                if count_to_add < 0:
+                    count_to_add = 0
+
             # Create the minimum amount of items for the given item in the list
-            for _ in range(item_data.item_count):
+            for _ in range(count_to_add):
                 item_pool.append(self.create_item(item_name))
 
         self.multiworld.itempool.extend(item_pool)
 
         # This adds our filler items, and will calculate the number to add.
         locations_count = len(self.multiworld.get_unfilled_locations(self.player))
-        items_in_pool = len(item_pool) + 10 # 9 Rebellion medallions are added in locked locations + 1 goal item.
+        items_in_pool = len(item_pool)  # 9 Rebellion medallions are added in locked locations + 1 goal item and character.
         filler_needed = locations_count - items_in_pool
 
         for _ in range(filler_needed):
@@ -199,7 +231,8 @@ class MMXCMWorld(World):
             "APWorldVersion": CLIENT_VERSION,
             "Options": {
                 "rebellion_medal_count": self.options.rebellion_medal_count.value,
-                "encounter_rate": self.options.encounter_rate.value
+                "encounter_rate": self.options.encounter_rate.value,
+                "starting_character": self.options.starting_character.value
             }
         }
 
@@ -216,5 +249,6 @@ class MMXCMWorld(World):
             "rebellion_medal_count": self.options.rebellion_medal_count.value,
             "total_locations": len(LOCATION_TABLE),
             "encounter_rate": self.options.encounter_rate.value,
+            "starting_character": self.options.starting_character.value,
             "seed": self.multiworld.seed,
         }

@@ -298,4 +298,29 @@ CODE_PATCHES = [
         "address": 0x0D3FAC,
         "data": [0x38, 0x03, 0x00, 0x00]  # addi r0, r3, 0
     },
+# ----------------------- Character/Party Member Fixes + RANDOM CHARACTER STARTING------------------------
+    {
+        # Remove the +1 to character addition (Original RAM Address: 800d8254).
+        # Original instruction was 'addi r3, r4, 1'
+        "address": 0x0D5254,
+        "data": [0x38, 0x64, 0x00, 0x00]  # addi r3, r4, 0
+    },
+    # {
+    #     # Prevent storing any value for character add (Original RAM Address: 800d8264).
+    #     # Original instruction was 'stb r30, 0x1235(r3)'
+    #     "address": 0x0D5264,
+    #     "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    # },
+    {
+        # Prevent MOVING ANY Character slots during cutscene (Original RAM Address: 8010033c).
+        # Original instruction was 'stb r6, 0x1235(r5)'
+        "address": 0x0FD33C,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    {
+        # Prevent adding Any character to slot 1 in Party during cutscene. (Original RAM Address: 80100404).
+        # Original instruction was 'stb r0, 0x1235(r5)'
+        "address": 0x0FD404,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
 ]

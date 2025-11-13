@@ -2556,6 +2556,13 @@ CHARACTER_TABLE: dict[str, MMXCMItemData] = {
     item_id=6,  # Axl's In-Game Roster ID
     update_ram_addr=None
   ),
+  "X": MMXCMItemData(
+    type="Character",
+    code=332,
+    classification=IC.progression,
+    item_id=0,  # X's In-Game Roster ID
+    update_ram_addr=None
+  ),
 }
 
 #Add any other tables here, Filler, Trap, etc.
