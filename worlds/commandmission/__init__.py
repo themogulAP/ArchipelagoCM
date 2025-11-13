@@ -180,7 +180,7 @@ class MMXCMWorld(World):
             if "Rebellion Medal" in item_name:
                 continue
 
-            count_to_add = item_data.item_count
+            count_to_add = item_data.item_count # This is changed so we account for the Starting Character.
 
             if item_name == item_to_exclude:
                 count_to_add -= 1
