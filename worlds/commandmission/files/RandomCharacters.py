@@ -398,6 +398,7 @@ CHARACTER_DATA = {
     "X": { # <-- NEW: X entry
         "params": X_VANILLA_PARAMS,
         "base_address": X_SLOT_BASE_ADDRESS,
+    },
     "Zero": {
         "params": ZERO_VANILLA_PARAMS,
         "base_address": ZERO_SLOT_BASE_ADDRESS,
