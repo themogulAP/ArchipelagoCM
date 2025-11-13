@@ -305,12 +305,12 @@ CODE_PATCHES = [
         "address": 0x0D5254,
         "data": [0x38, 0x64, 0x00, 0x00]  # addi r3, r4, 0
     },
-    # {
-    #     # Prevent storing any value for character add (Original RAM Address: 800d8264).
-    #     # Original instruction was 'stb r30, 0x1235(r3)'
-    #     "address": 0x0D5264,
-    #     "data": [0x60, 0x00, 0x00, 0x00]  # NOP
-    # },
+    {
+        # Prevent Forcing character to Slot 1 (Original RAM Address: 801003c8).
+        # Original instruction was 'stb r0, 0 (r6)'
+        "address": 0x0FD3C8,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
     {
         # Prevent MOVING ANY Character slots during cutscene (Original RAM Address: 8010033c).
         # Original instruction was 'stb r6, 0x1235(r5)'
