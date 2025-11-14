@@ -19,28 +19,28 @@ AXL_SLOT_BASE_ADDRESS = 0x804A31A3
 
 X_VANILLA_PARAMS = [
     # ------------------ Level/ID ------------------
-    (0x00, 11),    # X's Lvl String (804A2CAB)
+    (0x00, 15),   # X's Lvl String (804A2CAB)
     (0x04, 0),    # Character Picture (ID) (804A2CAF)
 
     # ------------------ EXP ------------------
-    (0x07, 10),    # # of 255's Total EXP (804A2CB2)
-    (0x08, 80),    # Total EXP # (804A2CB3)
+    (0x07, 30),   # # of 255's Total EXP (804A2CB2)
+    (0x08, 140),  # Total EXP # (804A2CB3)
 
     # ------------------ HP ------------------
-    (0x0B, 4),    # # of 255's HP Current (804A2CB6)
-    (0x0C, 251),   # Current HP (804A2CB7)
-    (0x0F, 4),    # # of 255's Max HP (804A2CBA)
-    (0x10, 251),   # Max HP (804A2CBB)
-    (0x13, 4),    # # of 255's Actual HP (804A2CBE)
-    (0x14, 251),   # Actual HP (804A2CBF)
+    (0x0B, 6),    # # of 255's HP Current (804A2CB6)
+    (0x0C, 84),   # Current HP (804A2CB7)
+    (0x0F, 6),    # # of 255's Max HP (804A2CBA)
+    (0x10, 84),   # Max HP (804A2CBB)
+    (0x13, 6),    # # of 255's Actual HP (804A2CBE)
+    (0x14, 84),   # Actual HP (804A2CBF)
 
     # ------------------ WE/Core Stats ------------------
     (0x18, 25),   # Initial WE (804A2CC3)
     (0x1C, 25),   # WE Per Turn (804A2CC7)
-    (0x20, 55),   # Power Stat (804A2CCB)
-    (0x24, 34),   # Armor Stat (804A2CCF)
-    (0x28, 33),   # Shield Stat (804A2CD3)
-    (0x2C, 41),   # Speed Stat (804A2CD7)
+    (0x20, 73),   # Power Stat (804A2CCB)
+    (0x24, 45),   # Armor Stat (804A2CCF)
+    (0x28, 44),   # Shield Stat (804A2CD3)
+    (0x2C, 45),   # Speed Stat (804A2CD7)
     (0x34, 100),  # Accuracy? (804A2CDF)
     (0x40, 2),    # Crit Chance (804A2CEB)
 
@@ -66,7 +66,7 @@ X_VANILLA_PARAMS = [
     (0xC4, 255),  # Force Metal #4 (804A2D6F)
 
     # ------------------ Hyper Mode ------------------
-    (0xC8, 10),   # Current Erosion (804A2D73)
+    (0xC8, 17),   # Current Erosion (804A2D73)
     (0xCE, 6),    # Current Hyper Mode (804A2D79)
     (0xD0, 6),    # Max Hyper Mode (804A2D7B)
 ]
@@ -130,97 +130,99 @@ ZERO_VANILLA_PARAMS = [
 # --- SPIDER'S VANILLA PARAMETER DATA (CORRECTED) ---
 SPIDER_VANILLA_PARAMS = [
     # Level/ID
-    (0x00, 9),  # Current Level Slot 2 (804A2E53)
-    (0x04, 2),  # Character Picture (ID) (804A2E57)
+    (0x00, 16),  # Current Level Slot 2 (804A2E53)
+    (0x04, 2),   # Character Picture (ID) (804A2E57)
 
     # EXP
-    (0x07, 4),  # # of 255's Total EXP (804A2E5A)
-    (0x08, 76),  # Total Exp # (804A2E5B)
+    (0x07, 31),  # # of 255's Total EXP (804A2E5A)
+    (0x08, 244), # Total Exp # (804A2E5B)
 
-    # HP (Values corrected from -91 to 165)
-    (0x0B, 4),  # # of 255's HP (Current) (804A2E5E)
-    (0x0C, 165),  # Current HP (804A2E5F)
-    (0x0F, 4),  # # of 255's HP (Max) (804A2E62)
-    (0x10, 165),  # Max HP (804A2E63)
-    (0x13, 4),  # # of 255's ACTUAL HP (804A2E66)
-    (0x14, 165),  # ACTUAL HP Value (804A2E67)
+    # HP
+    (0x0B, 7),   # # of 255's HP (Current) (804A2E5E)
+    (0x0C, 16),  # Current HP (804A2E5F)
+    (0x0F, 7),   # # of 255's HP (Max) (804A2E62)
+    (0x10, 16),  # Max HP (804A2E63)
+    (0x13, 7),   # # of 255's ACTUAL HP (804A2E66)
+    (0x14, 16),  # ACTUAL HP Value (804A2E67)
 
     # WE/Core Stats
     (0x18, 40),  # Initial WE (804A2E6B)
     (0x1C, 25),  # WE Per Turn (804A2E6F)
-    (0x20, 40),  # Power Slot2 (804A2E73)
-    (0x24, 23),  # Armor Slot2 (804A2E77)
-    (0x28, 32),  # Shield Slot 2 (804A2E7B)
-    (0x2C, 39),  # Speed Slot 2 (804A2E7F)
-    (0x34, 100),  # Accuracy (804A2E87)
-    (0x40, 6),  # Crit Chance (804A2E93)
+    (0x20, 69),  # Power Slot2 (804A2E73)
+    (0x24, 40),  # Armor Slot2 (804A2E77)
+    (0x28, 49),  # Shield Slot 2 (804A2E7B)
+    (0x2C, 47),  # Speed Slot 2 (804A2E7F)
+    (0x34, 100), # Accuracy (804A2E87)
+    (0x40, 6),   # Crit Chance (804A2E93)
 
     # Resistances
-    (0x5C, 2),  # Combat Resistance (804A2EAF)
-    (0x60, 2),  # Shot Resistance (804A2EB3)
-    (0x6C, 2),  # Fire Resistance Level (804A2EBF)
-    (0x70, 2),  # Water Resistance Level (804A2EC3)
-    (0x74, 2),  # Thunder Resistance L... (804A2EC7)
+    (0x5C, 2),   # Combat Resistance (804A2EAF)
+    (0x60, 2),   # Shot Resistance (804A2EB3)
+    (0x6C, 2),   # Fire Resistance Level (804A2EBF)
+    (0x70, 2),   # Water Resistance Level (804A2EC3)
+    (0x74, 3),   # Thunder Resistance L... (804A2EC7)
 
     # EQUIPMENT/FM
     (0xB6, 77),  # Weapon Equipped Slo... (804A2F09)
-    (0xB8, 3),  # Sub Weapon X (804A2F0B)
+    (0xB8, 3),   # Sub Weapon X (804A2F0B)
     (0xBA, 29),  # Sub Weapon Y (804A2F0D)
-    (0xBC, 4),  # Erosion Slots (804A2F0F)
-    (0xBD, 0),  # Is Force Metal 1 ON? (804A2F10)
+    (0xBC, 4),   # Erosion Slots (804A2F0F)
+    (0xBD, 0),   # Is Force Metal 1 ON? (804A2F10)
     (0xBE, 72),  # Force Metal Slot 1 (804A2F11)
-    (0xBF, 255),  # Is Force Metal 2 ON? (804A2F12)
-    (0xC0, 255),  # Force Metal Slot 2 (804A2F13)
-    (0xC1, 255),  # Is Force Metal 3 ON? (804A2F14)
-    (0xC2, 255),  # Force Metal Slot 3 (804A2F15)
-    (0xC3, 255),  # Is Force Metal 4 ON? (804A2F16)
-    (0xC4, 255),  # Force Metal Slot 4 (804A2F17)
+    (0xBF, 255), # Is Force Metal 2 ON? (804A2F12)
+    (0xC0, 255), # Force Metal Slot 2 (804A2F13)
+    (0xC1, 255), # Is Force Metal 3 ON? (804A2F14)
+    (0xC2, 255), # Force Metal Slot 3 (804A2F15)
+    (0xC3, 255), # Is Force Metal 4 ON? (804A2F16)
+    (0xC4, 255), # Force Metal Slot 4 (804A2F17)
 
     # Hyper Mode
-    (0xC8, 9),  # Current Erosion (804A2F1B)
-    (0xCE, 2),  # Current Hyper Mode (804A2F21)
-    (0xD0, 2)  # Max Hyper Mode (804A2F23)
+    (0xC8, 9),   # Current Erosion (804A2F1B)
+    (0xCE, 2),   # Current Hyper Mode (804A2F21)
+    (0xD0, 2)    # Max Hyper Mode (804A2F23)
 ]
 
 # --- MASSIMO'S VANILLA PARAMETER DATA ---
 MASSIMO_VANILLA_PARAMS = [
     # Level/ID
-    (0x00, 11),  # Current Level
-    (0x04, 3),
+    (0x00, 15),  # Current Level
+    (0x04, 3),   # Character Picture (ID)
 
     # EXP
-    (0x07, 10),  # # of 255's EXP
-    (0x08, 80),  # EXP #
+    (0x07, 30),  # # of 255's EXP
+    (0x08, 140), # EXP #
 
     # HP
-    (0x0B, 6),   # # of 255's Current HP
-    (0x0C, 251), # Current HP
-    (0x0F, 6),   # # of 255's Max HP
-    (0x10, 251), # Max HP
-    (0x13, 6),   # # of 255's Actual HP
-    (0x14, 251), # Actual HP
+    (0x0B, 8),   # # of 255's Current HP
+    (0x0C, 189), # Current HP
+    (0x0F, 8),   # # of 255's Max HP
+    (0x10, 189), # Max HP
+    (0x13, 8),   # # of 255's Actual HP
+    (0x14, 189), # Actual HP
 
     # WE/Core Stats
-    (0x18, 20), (0x1C, 25),
-    (0x20, 59),  # Power Stat
-    (0x24, 36),  # Armor Stat
-    (0x28, 29),  # Shield Stat
-    (0x2C, 37),  # Speed Stat
-    (0x34, 100), (0x40, 1),
+    (0x18, 20),  # Initial WE
+    (0x1C, 25),  # WE Per Turn
+    (0x20, 76),  # Power Stat
+    (0x24, 46),  # Armor Stat
+    (0x28, 39),  # Shield Stat
+    (0x2C, 40),  # Speed Stat
+    (0x34, 100), # Accuracy?
+    (0x40, 1),   # Crit Chance
 
     # Resistances
-    (0x5C, 2),
-    (0x60, 2),
-    (0x6C, 1),
-    (0x70, 1),
-    (0x74, 1),
+    (0x5C, 1),   # Combat Resistance
+    (0x60, 2),   # Shot Resistance
+    (0x6C, 1),   # Fire Resistance
+    (0x70, 1),   # Water Resistance
+    (0x74, 1),   # Thunder Resistance
 
     # EQUIPMENT/FM
     (0xB6, 100),   # Weapon Equipped
-    (0xB7, 255),   # IS Sub Weapon 1 On?
-    (0xB8, 255),   # Sub Weapon 1
-    (0xB9, 255),   # IS Sub Weapon 2 On?
-    (0xBA, 255),   # Sub Weapon 2
+    (0xB7, 0),   # IS Sub Weapon 1 On?
+    (0xB8, 31),   # Sub Weapon 1
+    (0xB9, 0),   # IS Sub Weapon 2 On?
+    (0xBA, 31),   # Sub Weapon 2
     (0xBC, 2),     # Erosion Slots
     (0xBD, 255),   # Is Force Metal 1 ON?
     (0xBE, 255),   # Force Metal 1
@@ -228,13 +230,14 @@ MASSIMO_VANILLA_PARAMS = [
     (0xC0, 255),   # Force Metal 2
     (0xC1, 255),   # Is Force Metal 3 ON?
     (0xC2, 255),   # Force Metal 3
-    (0xC3, 255),   # Is Force Metal #4 On?
+    (0xC3, 255),   # Is Force Metal 4 ON?
     (0xC4, 255),   # Force Metal 4
 
     # Hyper Mode
     (0xC8, 13),    # Current Erosion
     (0xCE, 3),     # Current Hyper Mode
     (0xD0, 3),     # Max Hyper Mode
+
     # Action Trigger
     (0x354, 0)     # Massimo's Action Trigger
 ]
@@ -301,28 +304,28 @@ MARINO_VANILLA_PARAMS = [
 # --- CINNAMON'S VANILLA PARAMETER DATA ---
 CINNAMON_VANILLA_PARAMS = [
     # Level/ID
-    (0x00, 12),   # Cinnamon's Level (804A30CF)
+    (0x00, 16),   # Cinnamon's Level (804A30CF)
     (0x04, 5),    # Character Picture (ID) (804A30D3)
 
     # EXP
-    (0x07, 10),   # # of 255's EXP (804A30D6)
-    (0x08, 80),   # EXP # (804A30D7)
+    (0x07, 28),   # # of 255's EXP (804A30D6)
+    (0x08, 172),  # EXP # (804A30D7)
 
     # HP
-    (0x0B, 3),    # # of 255's Current HP (804A30DA)
-    (0x0C, 249),  # Current HP (804A30DB)
-    (0x0F, 3),    # # of 255's MAX HP (804A30DE)
-    (0x10, 249),  # Max HP (804A30DF)
-    (0x13, 3),    # # of 255's Actual HP (804A30E2)
-    (0x14, 249),  # Actual HP (804A30E3)
+    (0x0B, 5),    # # of 255's Current HP (804A30DA)
+    (0x0C, 4),    # Current HP (804A30DB)
+    (0x0F, 5),    # # of 255's MAX HP (804A30DE)
+    (0x10, 4),    # Max HP (804A30DF)
+    (0x13, 5),    # # of 255's Actual HP (804A30E2)
+    (0x14, 4),    # Actual HP (804A30E3)
 
     # WE/Core Stats
     (0x18, 10),   # Initial WE (804A30E7)
     (0x1C, 25),   # WE Per Turn (804A30EB)
-    (0x20, 45),   # Power Stat (804A30EF)
-    (0x24, 42),   # Armor Stat (804A30F3)
-    (0x28, 43),   # Shield Stat (804A30F7)
-    (0x2C, 36),   # Speed Stat (804A30FB)
+    (0x20, 56),   # Power Stat (804A30EF)
+    (0x24, 58),   # Armor Stat (804A30F3)
+    (0x28, 59),   # Shield Stat (804A30F7)
+    (0x2C, 39),   # Speed Stat (804A30FB)
     (0x34, 100),  # Accuracy (804A3103)
     (0x40, 0),    # Crit Chance? (804A310F)
 
