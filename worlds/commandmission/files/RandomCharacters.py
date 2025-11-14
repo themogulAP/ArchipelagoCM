@@ -185,16 +185,36 @@ SPIDER_VANILLA_PARAMS = [
 # --- MASSIMO'S VANILLA PARAMETER DATA ---
 MASSIMO_VANILLA_PARAMS = [
     # Level/ID
-    (0x00, 1), (0x04, 3),
+    (0x00, 11),  # Current Level
+    (0x04, 3),
+
     # EXP
-    (0x07, 0), (0x08, 0),
+    (0x07, 10),  # # of 255's EXP
+    (0x08, 80),  # EXP #
+
     # HP
-    (0x0B, 3), (0x0C, 69), (0x0F, 3), (0x10, 69), (0x13, 3), (0x14, 69),
+    (0x0B, 6),   # # of 255's Current HP
+    (0x0C, 251), # Current HP
+    (0x0F, 6),   # # of 255's Max HP
+    (0x10, 251), # Max HP
+    (0x13, 6),   # # of 255's Actual HP
+    (0x14, 251), # Actual HP
+
     # WE/Core Stats
-    (0x18, 20), (0x1C, 25), (0x20, 22), (0x24, 16), (0x28, 12), (0x2C, 28),
+    (0x18, 20), (0x1C, 25),
+    (0x20, 59),  # Power Stat
+    (0x24, 36),  # Armor Stat
+    (0x28, 29),  # Shield Stat
+    (0x2C, 37),  # Speed Stat
     (0x34, 100), (0x40, 1),
+
     # Resistances
-    (0x5C, 2), (0x60, 2), (0x6C, 1), (0x70, 1), (0x74, 1),
+    (0x5C, 2),
+    (0x60, 2),
+    (0x6C, 1),
+    (0x70, 1),
+    (0x74, 1),
+
     # EQUIPMENT/FM
     (0xB6, 100),   # Weapon Equipped
     (0xB7, 255),   # IS Sub Weapon 1 On?
@@ -208,8 +228,9 @@ MASSIMO_VANILLA_PARAMS = [
     (0xC0, 255),   # Force Metal 2
     (0xC1, 255),   # Is Force Metal 3 ON?
     (0xC2, 255),   # Force Metal 3
-    (0xC3, 255),   # Is Force Metal 4 ON?
+    (0xC3, 255),   # Is Force Metal #4 On?
     (0xC4, 255),   # Force Metal 4
+
     # Hyper Mode
     (0xC8, 13),    # Current Erosion
     (0xCE, 3),     # Current Hyper Mode
