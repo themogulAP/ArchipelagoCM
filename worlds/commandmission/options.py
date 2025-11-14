@@ -29,6 +29,7 @@ class StartingCharacter(Choice):
     option_Marino = 4
     option_Cinnamon = 5
     option_Axl = 6
+    default = 0
 
 # The dataclass then uses these classes directly as a container.
 @dataclass
