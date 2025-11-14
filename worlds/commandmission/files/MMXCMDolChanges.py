@@ -84,7 +84,7 @@ CODE_PATCHES = [
     },
     {
         # Sets BYTE FOR Arcade, Jango's, and Bed Door
-        # RAM: 8000d919
+        # RAM: 8000d918
         "address": 0x0A918,
         "data": [0x38, 0x60, 0x00, 0x19]
     },
