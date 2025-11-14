@@ -3,7 +3,7 @@ from typing import NamedTuple, Optional
 
 """ Collection of commonly used constants for MMX Command Mission. """
 
-CLIENT_VERSION = "V0.1.0"
+CLIENT_VERSION = "V0.1.4"
 CLIENT_NAME = "Mega Man X Command Mission Client"
 
 AP_LOGGER_NAME = "Client"
