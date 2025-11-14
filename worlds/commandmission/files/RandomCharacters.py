@@ -395,7 +395,7 @@ AXL_VANILLA_PARAMS = [
 ]
 
 CHARACTER_DATA = {
-    "X": { # <-- NEW: X entry
+    "X": {
         "params": X_VANILLA_PARAMS,
         "base_address": X_SLOT_BASE_ADDRESS,
     },
