@@ -301,44 +301,44 @@ MARINO_VANILLA_PARAMS = [
 # --- CINNAMON'S VANILLA PARAMETER DATA ---
 CINNAMON_VANILLA_PARAMS = [
     # Level/ID
-    (0x00, 1),  # Cinnamon's Level (804A30CF)
-    (0x04, 5),  # Character Picture (ID) (804A30D3)
+    (0x00, 12),   # Cinnamon's Level (804A30CF)
+    (0x04, 5),    # Character Picture (ID) (804A30D3)
 
     # EXP
-    (0x07, 0),  # # of 255's EXP (804A30D6)
-    (0x08, 0),  # EXP # (804A30D7)
+    (0x07, 10),   # # of 255's EXP (804A30D6)
+    (0x08, 80),   # EXP # (804A30D7)
 
     # HP
-    (0x0B, 1),  # # of 255's Current HP (804A30DA)
-    (0x0C, 110),  # Current HP (804A30DB)
-    (0x0F, 1),  # # of 255's MAX HP (804A30DE)
-    (0x10, 110),  # Max HP (804A30DF)
-    (0x13, 1),  # # of 255's Actual HP (804A30E2)
-    (0x14, 110),  # Actual HP (804A30E3)
+    (0x0B, 3),    # # of 255's Current HP (804A30DA)
+    (0x0C, 249),  # Current HP (804A30DB)
+    (0x0F, 3),    # # of 255's MAX HP (804A30DE)
+    (0x10, 249),  # Max HP (804A30DF)
+    (0x13, 3),    # # of 255's Actual HP (804A30E2)
+    (0x14, 249),  # Actual HP (804A30E3)
 
     # WE/Core Stats
-    (0x18, 10),  # Initial WE (804A30E7)
-    (0x1C, 25),  # WE Per Turn (804A30EB)
-    (0x20, 9),  # Power Stat (804A30EF)
-    (0x24, 17),  # Armor Stat (804A30F3)
-    (0x28, 18),  # Shield Stat (804A30F7)
-    (0x2C, 26),  # Speed Stat (804A30FB)
+    (0x18, 10),   # Initial WE (804A30E7)
+    (0x1C, 25),   # WE Per Turn (804A30EB)
+    (0x20, 45),   # Power Stat (804A30EF)
+    (0x24, 42),   # Armor Stat (804A30F3)
+    (0x28, 43),   # Shield Stat (804A30F7)
+    (0x2C, 36),   # Speed Stat (804A30FB)
     (0x34, 100),  # Accuracy (804A3103)
-    (0x40, 0),  # Crit Chance? (804A310F)
+    (0x40, 0),    # Crit Chance? (804A310F)
 
     # Resistances
-    (0x5C, 2),  # Combat Resistance (804A312B)
-    (0x60, 2),  # Shot Resistance (804A312F)
-    (0x6C, 4),  # Fire Resistance (804A313B)
-    (0x70, 4),  # Water Resistance (804A313F)
-    (0x74, 4),  # Thunder Resistance (804A3143)
+    (0x5C, 2),    # Combat Resistance (804A312B)
+    (0x60, 2),    # Shot Resistance (804A312F)
+    (0x6C, 4),    # Fire Resistance (804A313B)
+    (0x70, 4),    # Water Resistance (804A313F)
+    (0x74, 4),    # Thunder Resistance (804A3143)
 
     # EQUIPMENT/FM
     (0xB6, 150),  # Cinnamon's Weapon (804A3185)
-    (0xB8, 36),  # Sub Weapon X (804A3187)
-    (0xB9, 255), # Sub Weapon Y OFF
+    (0xB8, 36),   # Sub Weapon X (804A3187)
+    (0xB9, 255),  # Sub Weapon Y OFF
     (0xBA, 255),  # Sub Weapon Y (804A3189)
-    (0xBC, 3),  # Erosion Slots (804A318B)
+    (0xBC, 3),    # Erosion Slots (804A318B)
     (0xBD, 255),  # Is Force Metal #1 On? (804A318C)
     (0xBE, 255),  # Force Metal #1 (804A318D)
     (0xBF, 255),  # Is Force Metal #2 On? (804A318E)
@@ -349,12 +349,12 @@ CINNAMON_VANILLA_PARAMS = [
     (0xC4, 255),  # Force Metal #4 (804A3193)
 
     # Hyper Mode
-    (0xC8, 20),  # Current Erosion (804A3197)
-    (0xCE, 4),  # Current Hyper Mode (804A319D)
-    (0xD0, 4),  # Max Hyper Mode (804A319F)
+    (0xC8, 20),   # Current Erosion (804A3197)
+    (0xCE, 4),    # Current Hyper Mode (804A319D)
+    (0xD0, 4),    # Max Hyper Mode (804A319F)
 
     # ACTION TRIGGER
-    (0x1B0, 3)  # Cinnamon Action Trigger (804A327F)
+    (0x1B0, 3)    # Cinnamon Action Trigger (804A327F)
 ]
 
 # --- AXL'S VANILLA PARAMETER DATA ---
