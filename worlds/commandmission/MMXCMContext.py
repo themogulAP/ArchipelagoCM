@@ -765,17 +765,41 @@ class MMXCMContext(CommonContext):
         FULL_HP_VALUE = bytes([255])
 
         # SetsOfHPCurrent
-        TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A2CB6
+        X_TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A2CB6
         # HPCurrent
-        TEST_HP_CURRENT_ADDRESS = 0x804A2CB7
+        X_TEST_HP_CURRENT_ADDRESS = 0x804A2CB7
         # SetsOfHPMax
-        TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A2CBA
+        X_TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A2CBA
         # HPMax
-        TEST_HP_MAX_ADDRESS = 0x804A2CBB
+        X_TEST_HP_MAX_ADDRESS = 0x804A2CBB
         # SetsOfHPActual
-        TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A2CBE
+        X_TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A2CBE
         # HPActual
-        TEST_HP_ACTUAL_ADDRESS = 0x804A2CBF
+        X_TEST_HP_ACTUAL_ADDRESS = 0x804A2CBF
+
+        CINNAMON_TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A30DA
+        # HPCurrent
+        CINNAMON_TEST_HP_CURRENT_ADDRESS = 0x804A30DB
+        # SetsOfHPMax
+        CINNAMON_TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A30DE
+        # HPMax
+        CINNAMON_TEST_HP_MAX_ADDRESS = 0x804A30DF
+        # SetsOfHPActual
+        CINNAMON_TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A30E2
+        # HPActual
+        CINNAMON_TEST_HP_ACTUAL_ADDRESS = 0x804A30E3
+
+        MASSIMO_TEST_SETS_OF_HP_CURRENT_ADDRESS = 0x804A2F32
+        # HPCurrent
+        MASSIMO_TEST_HP_CURRENT_ADDRESS = 0x804A2F33
+        # SetsOfHPMax
+        MASSIMO_TEST_SETS_OF_HP_MAX_ADDRESS = 0x804A2F36
+        # HPMax
+        MASSIMO_TEST_HP_MAX_ADDRESS = 0x804A2F37
+        # SetsOfHPActual
+        MASSIMO_TEST_SETS_OF_HP_ACTUAL_ADDRESS = 0x804A2F3A
+        # HPActual
+        MASSIMO_TEST_HP_ACTUAL_ADDRESS = 0x804A2F3B
         # ----------------------------------------------------------------------
 
         try:
@@ -790,12 +814,26 @@ class MMXCMContext(CommonContext):
 
                 # --- TESTING WRITES (Full HP) ---
                 # Set all Current/Max/Actual HP values to 255 for invincibility testing
-                dolphin.write_bytes(TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
-                dolphin.write_bytes(TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
-                dolphin.write_bytes(TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
-                dolphin.write_bytes(TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
-                dolphin.write_bytes(TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
-                dolphin.write_bytes(TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(X_TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+
+                dolphin.write_bytes(CINNAMON_TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(CINNAMON_TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(CINNAMON_TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(CINNAMON_TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(CINNAMON_TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(CINNAMON_TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+
+                dolphin.write_bytes(MASSIMO_TEST_SETS_OF_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(MASSIMO_TEST_HP_CURRENT_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(MASSIMO_TEST_SETS_OF_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(MASSIMO_TEST_HP_MAX_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(MASSIMO_TEST_SETS_OF_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
+                dolphin.write_bytes(MASSIMO_TEST_HP_ACTUAL_ADDRESS, FULL_HP_VALUE)
                 # --------------------------------
 
                 # -------------This continuously re-applies access codes patch to defeat game saves/loads -------------
