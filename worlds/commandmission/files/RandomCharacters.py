@@ -19,28 +19,28 @@ AXL_SLOT_BASE_ADDRESS = 0x804A31A3
 
 X_VANILLA_PARAMS = [
     # ------------------ Level/ID ------------------
-    (0x00, 1),    # X's Lvl String (804A2CAB)
+    (0x00, 11),    # X's Lvl String (804A2CAB)
     (0x04, 0),    # Character Picture (ID) (804A2CAF)
 
     # ------------------ EXP ------------------
-    (0x07, 0),    # # of 255's Total EXP (804A2CB2)
-    (0x08, 0),    # Total EXP # (804A2CB3)
+    (0x07, 10),    # # of 255's Total EXP (804A2CB2)
+    (0x08, 80),    # Total EXP # (804A2CB3)
 
     # ------------------ HP ------------------
-    (0x0B, 2),    # # of 255's HP Current (804A2CB6)
-    (0x0C, 11),   # Current HP (804A2CB7)
-    (0x0F, 2),    # # of 255's Max HP (804A2CBA)
-    (0x10, 11),   # Max HP (804A2CBB)
-    (0x13, 2),    # # of 255's Actual HP (804A2CBE)
-    (0x14, 11),   # Actual HP (804A2CBF)
+    (0x0B, 4),    # # of 255's HP Current (804A2CB6)
+    (0x0C, 251),   # Current HP (804A2CB7)
+    (0x0F, 4),    # # of 255's Max HP (804A2CBA)
+    (0x10, 251),   # Max HP (804A2CBB)
+    (0x13, 4),    # # of 255's Actual HP (804A2CBE)
+    (0x14, 251),   # Actual HP (804A2CBF)
 
     # ------------------ WE/Core Stats ------------------
     (0x18, 25),   # Initial WE (804A2CC3)
     (0x1C, 25),   # WE Per Turn (804A2CC7)
-    (0x20, 22),   # Power Stat (804A2CCB)
-    (0x24, 15),   # Armor Stat (804A2CCF)
-    (0x28, 14),   # Shield Stat (804A2CD3)
-    (0x2C, 32),   # Speed Stat (804A2CD7)
+    (0x20, 55),   # Power Stat (804A2CCB)
+    (0x24, 34),   # Armor Stat (804A2CCF)
+    (0x28, 33),   # Shield Stat (804A2CD3)
+    (0x2C, 41),   # Speed Stat (804A2CD7)
     (0x34, 100),  # Accuracy? (804A2CDF)
     (0x40, 2),    # Crit Chance (804A2CEB)
 
