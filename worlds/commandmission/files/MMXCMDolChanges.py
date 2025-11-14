@@ -323,6 +323,7 @@ CODE_PATCHES = [
         "address": 0x0FD404,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
+    # -----------------------CHAPTER 6 ITEM BLOCKING FOR PROGRESSION -------------------
     {
         # Block Booster parts branch
         # RAM Address: 80076e48
