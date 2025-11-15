@@ -12,7 +12,7 @@
 
 1. Download and install the Archipelago Multiworld Suite from the link above, making sure to install the most recent version.
 
-2. Acquire the most recent APWorld from the ------------------- and place the commandmission.apworld in the custom_worlds folder of your Archipelago install.
+2. Acquire the most recent APWorld from the [Releases Page](https://github.com/themogulAP/ArchipelagoCM/releases) and place the commandmission.apworld in the custom_worlds folder of your Archipelago install.
 
 3. Acquire the lib-windows (if you are on Windows) OR lib-linux if you are on Linux.
 
