@@ -26,9 +26,11 @@ When it comes to Mega Man X Command Mission, randomization changes the locations
 Currently implemented:
 All Mystery Data (ground pickups via dashing through them)
 Mechaniloids (Ex: Deerball, Wolfoid, etc.) 
+- All Characters... with option in YAML to decide which to start with!
 
 For Future Release:
-- All Characters and parameters.
+- Add Random Character Start option to YAML. 
+- Character Parameters (Resistances, Power, Armor, etc) Randomization. 
 - All Sky Room Cosmetics (over 1000 more checks!)
 - Traps
 - FULL Deployment Center: Locations, Mechaniloids and their parameters, etc. 
@@ -40,6 +42,7 @@ For Future Release:
 - All Weapons: X Buster, Joker, Z Saber, etc.
 - All Sub-Weapons: Stamina Missile, Vitality Missile, etc.
 - All Force Metal: LE+1000, Decoy, X Heart, etc.
+- All Characters: X, Zero, Spider, Massimo, Marino, Cinnamon, Axl
 Way more to be introduced in future patches!
 
 -------NEW ITEMS: Access Codes and Rebellion Medals-----
@@ -61,6 +64,7 @@ as well as acquired the Far East HQ Access Code, you can go fight the final boss
 - Sub Weapons
 - Access Codes
 - Force Metal
+- Characters
 
 ## What does another world's item look like in MMX Command Mission?
 
