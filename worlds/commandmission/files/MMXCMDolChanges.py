@@ -107,18 +107,6 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x63]
     },
     {
-        # sets every other flag back to zero
-        # RAM: 8000d928
-        "address": 0x0A928,
-        "data": [0x38, 0x60, 0x00, 0x00]
-    },
-    {
-        # Stores every other flag to zero
-        # RAM: 8000d92C
-        "address": 0x0A92C,
-        "data": [0x90, 0x64, 0x00, 0x74]
-    },
-    {
         # -----------------------------SOFT LOCK PREVENT IN CHAPTER 2-----------------------------
         # Prevents the NPC from being removed after battle or entering the room.
         # RAM Address: 80039cd4
@@ -359,5 +347,24 @@ CODE_PATCHES = [
         # RAM Address: 80076b34
         "address": 0x073B34,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    # -----------------------QoL Updates -------------------
+    {
+        # Set the Value to Turn off the Green Blockers on Items in Chapter 7.
+        # RAM Address: 8000d928
+        "address": 0x0a928,
+        "data": [0x38, 0x60, 0x00, 0xFF]  # Value is 255
+    },
+    {
+        # STORE The Value for turning off green blockers.
+        # RAM Address: 8000d92C
+        "address": 0x0a92C,
+        "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
+    },
+    {
+        # Set all future flags back to 0.
+        # RAM Address: 8000d92C
+        "address": 0x0a930,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
 ]
