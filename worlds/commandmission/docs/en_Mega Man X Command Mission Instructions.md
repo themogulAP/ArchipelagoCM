@@ -45,6 +45,9 @@ For Future Release:
 - All Characters: X, Zero, Spider, Massimo, Marino, Cinnamon, Axl
 Way more to be introduced in future patches!
 
+NOTE: Characters will be given at approximately level 15 for balancing purposes. This may change for future release.
+This will be changed when Level and Power Scaling is ready!
+
 -------NEW ITEMS: Access Codes and Rebellion Medals-----
 Access Codes allow the Central Tower Arcade room teleporter to be used! 
 Once you receive these Access Codes, you will gain access to the representative stages! 
