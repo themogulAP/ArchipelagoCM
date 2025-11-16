@@ -367,4 +367,29 @@ CODE_PATCHES = [
         "address": 0x0a930,
         "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
+    # -----------------------Prevent Mech Items from going to Inventory-------------------
+    {
+        # Ulfat Factory Smelting Furnace 3 Mini Battery
+        # RAM Address: 800d7174
+        "address": 0x0D4174,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
+    {
+        # Chapter 7 Mini Battery, Cyber Liquid + Chapter 6 Mini Motor, Chapter 8 Heavy Motor
+        # RAM Address: 800d7198
+        "address": 0x0D4198,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
+    {
+        # Chapter 8 Mini Battery
+        # RAM Address: 800d7188
+        "address": 0x0D4188,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
+    {
+        # Chapter 7 Ball & Chain Hammer
+        # RAM Address: 80088e44
+        "address": 0x085e44,
+        "data": [0x60, 0x00, 0x00, 0x00]
+    },
 ]
