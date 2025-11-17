@@ -397,5 +397,49 @@ CODE_PATCHES = [
         #RAM Address: 800102DC
         "address": 0x0D2DC,
         "data": [0x2c, 0x00, 0x00, 0x1f] # This sets the compare to 31... which cannot be achieved.
-    }
+    },
+    # -------------------------------CHAPTER 9 DOORS AND LASERS QoL---------------------------------------
+    {
+        # SET Value for S0901 Door, 902 Doors, 903 Door
+        # Ram Address: 8000d930
+        "address": 0x0a930,
+        "data": [0x38, 0x00, 0x00, 0xF0] # Sets 240 as value.
+    },
+    {
+        # STORE Value for S0901 Door, 902 Doors, 903 Door
+        # Ram Address: 8000d934
+        "address": 0x0a934,
+        "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
+    },
+    #-------LASERS---------
+    {
+        # Turn off Branch to lock the doors after the fight.
+        # Ram Address: 800197ec
+        "address": 0x0167ec,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+    {
+        # Turn off Branch to remove the fight flag after the fight.
+        # Ram Address: 80019770
+        "address": 0x016770,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+    {
+        # Turn off Branch to keep ALL the lasers Yellow... no more red!
+        # Ram Address: 8001977C
+        "address": 0x01677C,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+    {
+        # Turn off Branch to keep the fight completely turned off.
+        # Ram Address: 80018ea0
+        "address": 0x015ea0,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+    {
+        # Turn off Branch for the rest of the lasers. *Reused code, so it is for rooms 2-4*
+        # Ram Address: 800197f8
+        "address": 0x0167f8,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
 ]
