@@ -361,12 +361,6 @@ CODE_PATCHES = [
         "address": 0x0a92C,
         "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
     },
-    {
-        # Set all future flags back to 0.
-        # RAM Address: 8000d92C
-        "address": 0x0a930,
-        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
-    },
     # -----------------------Prevent Mech Items from going to Inventory-------------------
     {
         # Ulfat Factory Smelting Furnace 3 Mini Battery
@@ -441,5 +435,11 @@ CODE_PATCHES = [
         # Ram Address: 800197f8
         "address": 0x0167f8,
         "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+    {
+        # Set all future flags back to 0.
+        # RAM Address: 8000d92C
+        "address": 0x0a938,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
 ]
