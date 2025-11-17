@@ -2394,7 +2394,7 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
     type="Mechaniloid Item",
     code=307,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=2)]
+    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=2)]
   ),
   "Cyber Liquid": MMXCMItemData(
     type="Mechaniloid Item",
