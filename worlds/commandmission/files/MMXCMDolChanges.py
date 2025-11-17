@@ -392,4 +392,10 @@ CODE_PATCHES = [
         "address": 0x085e44,
         "data": [0x60, 0x00, 0x00, 0x00]
     },
+    #-----------------Prevent Central Key from Vanilla location and "CLEAR" Flag--------------------
+    {
+        #RAM Address: 800102DC
+        "address": 0x0D2DC,
+        "data": [0x2c, 0x00, 0x00, 0x1f] # This sets the compare to 31... which cannot be achieved.
+    }
 ]
