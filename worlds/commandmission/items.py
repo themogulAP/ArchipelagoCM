@@ -2394,25 +2394,25 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
     type="Mechaniloid Item",
     code=307,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=2)]
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=2)]
   ),
   "Cyber Liquid": MMXCMItemData(
     type="Mechaniloid Item",
     code=308,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=3)]
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=3)]
   ),
   "Bone Key": MMXCMItemData(
     type="Mechaniloid Item",
     code=309,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=4)]
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=4)]
   ),
   "Heavy Motor": MMXCMItemData(
     type="Mechaniloid Item",
     code=310,
     classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=5)]
+    update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=5)]
   )
 }
 
