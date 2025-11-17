@@ -405,6 +405,12 @@ CODE_PATCHES = [
         "address": 0x0a934,
         "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
     },
+    {
+        # Set all future flags back to 0.
+        # RAM Address: 8000d92C
+        "address": 0x0a938,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
+    },
     #-------LASERS---------
     {
         # Turn off Branch to lock the doors after the fight.
@@ -435,11 +441,5 @@ CODE_PATCHES = [
         # Ram Address: 800197f8
         "address": 0x0167f8,
         "data": [0x60, 0x00, 0x00, 0x00] # NOP
-    },
-    {
-        # Set all future flags back to 0.
-        # RAM Address: 8000d92C
-        "address": 0x0a938,
-        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
 ]
