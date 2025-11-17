@@ -130,7 +130,8 @@ PROGRESSION_ITEM_TABLE: dict[str, MMXCMItemData] = {
     type="Major Item",
     code=19,
     classification=IC.progression,
-    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=6)]
+    update_ram_addr=[MMXCMRamData(0x804A2187, bit_position=6),
+                     MMXCMRamData(0x804A21BF, bit_position=0)]
   ),
 }
 
