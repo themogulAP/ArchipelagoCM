@@ -397,7 +397,7 @@ CODE_PATCHES = [
         # SET Value for S0901 Door, 902 Doors, 903 Door
         # Ram Address: 8000d930
         "address": 0x0a930,
-        "data": [0x38, 0x00, 0x00, 0xF0] # Sets 240 as value.
+        "data": [0x38, 0x60, 0x00, 0xF0] # Sets 240 as value.
     },
     {
         # STORE Value for S0901 Door, 902 Doors, 903 Door
