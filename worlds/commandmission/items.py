@@ -972,7 +972,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       type="Weapon",
       code=119,
       classification=IC.useful,
-      item_id=81,
+      item_id=80,
       update_ram_addr=None
     ),
     MMXCMItemData(
