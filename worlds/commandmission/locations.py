@@ -2429,6 +2429,45 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
     ),
 }
 
+# TREASURE_TOKEN_LOCATIONS: dict[str, MMXCMLocationData] = {
+#     "Area 1F East Treasure Token": MMXCMLocationData(
+#         name="Area 1F East Token 1",
+#         code=396,
+#         parent_region="Lagrano Ruins",
+#         ram_data=MMXCMRamData(0x804A2153, bit_position=1)
+#     ),
+#     "Area 2F East Treasure Token": MMXCMLocationData(
+#         name="Area 2F East Token 1",
+#         code=397,
+#         parent_region="Lagrano Ruins",
+#         ram_data=MMXCMRamData(0x804A2153, bit_position=4)
+#     ),
+#     "3F High Performance Reploid Development Treasure Token": MMXCMLocationData(
+#         name="3F Token 1",
+#         code=398,
+#         parent_region="Lagrano Ruins",
+#         ram_data=MMXCMRamData(0x804A2152, bit_position=1)
+#     ),
+#     "East Block Stairs 4F to 5F Treasure Token": MMXCMLocationData(
+#         name="East Block Stairs 4F to 5F Token 1",
+#         code=399,
+#         parent_region="Lagrano Ruins",
+#         ram_data=MMXCMRamData(0x804A2151, bit_position=4)
+#     ),
+#     "5F Test Hall 2 Treasure Token": MMXCMLocationData(
+#         name="5F Test Hall 2 Token 1",
+#         code=400,
+#         parent_region="Lagrano Ruins",
+#         ram_data=MMXCMRamData(0x804A2150, bit_position=2)
+#     ),
+#     "Base Gateway - Air Bus Terminal Treasure Token 1": MMXCMLocationData(
+#         name="Base Gateway Air Bus Token 1",
+#         code=401,
+#         parent_region="Central Tower Hub",
+#         ram_data=MMXCMRamData(0x804A2155, bit_position=5)
+#     ),
+# }
+
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
 SKY_ROOM_LOCATIONS: dict[str, MMXCMLocationData] = {}
 
@@ -2446,6 +2485,7 @@ LOCATION_TABLE: dict[str, MMXCMLocationData] = {
   **FAR_EAST_HQ_LOCATIONS,
   **MECHANILOIDS_LOCATIONS,
   **REBELLION_MEDAL_LOCATIONS,
+  # **TREASURE_TOKEN_LOCATIONS,
   **BOSS_DROPS_LOCATIONS,
   **SKY_ROOM_LOCATIONS,
 }
