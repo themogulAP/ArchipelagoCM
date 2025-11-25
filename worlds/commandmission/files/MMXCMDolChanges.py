@@ -59,10 +59,10 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x54]
     },
     {
-        # Sets cutscenes Intruders and Spider Fight
+        # Sets cutscenes Intruders and Spider Fight ------------------FREE SPACE FOR LATER
         # RAM: 8000d908
         "address": 0x0A908,
-        "data": [0x38, 0x60, 0x00, 0xC0]
+        "data": [0x38, 0x60, 0x00, 0x00]
     },
     {
         # Stores BYTE FOR cutscene for Intruders + Spider Fight
@@ -71,10 +71,10 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x5D] # 98 = Store BYTE in PPC.
     },
     {
-        # Sets the Preon Battle 2C in Chief R hostage Room to Finished -
+        # Sets the Preon Battle 2C in Chief R hostage Room to Finished --------------FREE SPACE FOR LATER
         # RAM: 8000d910
         "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x24]
+        "data": [0x38, 0x60, 0x00, 0x00]
     },
     {
         # STORES the Preon Battle 2C in Chief R hostage Room to Finished -

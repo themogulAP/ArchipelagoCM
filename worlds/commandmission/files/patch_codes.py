@@ -15,11 +15,25 @@ def patch_lagrano_ruins():
     dolphin.write_bytes(0x80082fac, b'\x38\x04\x03\x46')
 
 def patch_central_tower():
-    """Patches RAM for Central Tower Access Code."""
-    # Write a single byte with a value of 0 - removes cutscene blockers. (0x804A20BD)
-    dolphin.write_bytes(0x804A20BD, b'\x00')
-    # Write a single byte with a value of 1 - removes Aile Blocker. (0x804A20C1)
-    dolphin.write_bytes(0x804A20C1, b'\x01')
+    """Patches RAM for Central Tower Access Code.
+    We need to only target the BIT POSITION to open the blockers... or it is a problem for chapter 2."""
+
+    BLOCKER_ADDR = 0x804A20C1
+    BIT_POSITION = 0
+
+    try:
+        # 1. Read the bytes at the Blocker Address
+        current_value_bytes = dolphin.read_bytes(BLOCKER_ADDR, 1)
+        current_value = int.from_bytes(current_value_bytes, 'big')
+
+        # 2. Modify and set Bit position 0 with (bitwise OR)
+        new_value = current_value | (1 << BIT_POSITION)
+
+        # 3. Write modified byte back to RAM
+        dolphin.write_bytes(BLOCKER_ADDR, new_value.to_bytes(1, 'big'))
+
+    except Exception as e:
+        logger.error(f"Error applying read and write patch (0x{BLOCKER_ADDR}, Bit: 0): {e}")
 
 def patch_tianna_camp():
     """Patches RAM for Tianna Camp Access Code."""
