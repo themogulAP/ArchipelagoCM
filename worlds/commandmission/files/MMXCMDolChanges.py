@@ -194,6 +194,18 @@ CODE_PATCHES = [
         "data": [0x38, 0x04, 0x05, 0x4F]
     },
     {
+        # Changes Vanallia Desert to Central Tower stage
+        # RAM Address: 8008306c
+        "address": 0x08006C,
+        "data": [0x3c, 0x80, 0x00, 0x02]
+    },
+    {
+        # Changes Vanallia Desert Mine AREA to Shopping Arcade
+        # RAM Address: 80083074
+        "address": 0x080074,
+        "data": [0x38, 0x04, 0x05, 0x4F]
+    },
+    {
         # Changes Melda Ore Plant to Central Tower Stage
         # RAM: 80083094
         "address": 0x080094,
