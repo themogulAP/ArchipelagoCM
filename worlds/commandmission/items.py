@@ -1172,7 +1172,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       type="Weapon",
       code=141,
       classification=IC.useful,
-      item_id=132,
+      item_id=133,
       update_ram_addr=None
     ),
     MMXCMItemData(
@@ -1180,7 +1180,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       type="Weapon",
       code=142,
       classification=IC.useful,
-      item_id=136,
+      item_id=141,
       update_ram_addr=None
     ),
 ],
@@ -1222,12 +1222,30 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
       update_ram_addr=None
     )
   ],
+  "Beam Blade Progression": [
+    MMXCMItemData(
+      name="Beam Blade",
+      type="Weapon",
+      code=147,
+      classification=IC.useful,
+      item_id=132,
+      update_ram_addr=None
+    ),
+    MMXCMItemData(
+      name="Beam Blade S",
+      type="Weapon",
+      code=148,
+      classification=IC.useful,
+      item_id=136,
+      update_ram_addr=None
+    )
+  ],
 
   "Fire Star Progression": [
     MMXCMItemData(
       name="Fire Star",
       type="Weapon",
-      code=147,
+      code=149,
       classification=IC.useful,
       item_id=128,
       update_ram_addr=None
@@ -1235,7 +1253,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Fire Comet",
       type="Weapon",
-      code=148,
+      code=150,
       classification=IC.useful,
       item_id=138,
       update_ram_addr=None
@@ -1243,7 +1261,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Fire Stella",
       type="Weapon",
-      code=149,
+      code=151,
       classification=IC.useful,
       item_id=142,
       update_ram_addr=None
@@ -1254,7 +1272,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Ice Star",
       type="Weapon",
-      code=150,
+      code=152,
       classification=IC.useful,
       item_id=129,
       update_ram_addr=None
@@ -1262,7 +1280,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Ice Comet",
       type="Weapon",
-      code=151,
+      code=153,
       classification=IC.useful,
       item_id=139,
       update_ram_addr=None
@@ -1270,7 +1288,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Ice Stella",
       type="Weapon",
-      code=152,
+      code=154,
       classification=IC.useful,
       item_id=143,
       update_ram_addr=None
@@ -1281,7 +1299,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Thunder Star",
       type="Weapon",
-      code=153,
+      code=155,
       classification=IC.useful,
       item_id=130,
       update_ram_addr=None
@@ -1289,7 +1307,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Thunder Comet",
       type="Weapon",
-      code=154,
+      code=156,
       classification=IC.useful,
       item_id=140,
       update_ram_addr=None
@@ -1297,7 +1315,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Thunder Stella",
       type="Weapon",
-      code=155,
+      code=157,
       classification=IC.useful,
       item_id=144,
       update_ram_addr=None
@@ -1308,7 +1326,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Angel's Hand",
       type="Weapon",
-      code=156,
+      code=158,
       classification=IC.useful,
       item_id=150,
       update_ram_addr=None
@@ -1316,7 +1334,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Archangel",
       type="Weapon",
-      code=157,
+      code=159,
       classification=IC.useful,
       item_id=154,
       update_ram_addr=None
@@ -1324,7 +1342,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Divine Hand",
       type="Weapon",
-      code=158,
+      code=160,
       classification=IC.useful,
       item_id=156,
       update_ram_addr=None
@@ -1335,7 +1353,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Metal Boxer",
       type="Weapon",
-      code=159,
+      code=161,
       classification=IC.useful,
       item_id=157,
       update_ram_addr=None
@@ -1343,7 +1361,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Full Metal Boxer",
       type="Weapon",
-      code=160,
+      code=162,
       classification=IC.useful,
       item_id=158,
       update_ram_addr=None
@@ -1355,7 +1373,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Axl Bullets 1",
       type="Weapon",
-      code=161,
+      code=163,
       classification=IC.useful,
       item_id=175,
       update_ram_addr=None
@@ -1363,7 +1381,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Axl Bullets 2",
       type="Weapon",
-      code=162,
+      code=164,
       classification=IC.useful,
       item_id=180,
       update_ram_addr=None
@@ -1371,7 +1389,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Axl Bullets 3",
       type="Weapon",
-      code=163,
+      code=165,
       classification=IC.useful,
       item_id=184,
       update_ram_addr=None
@@ -1382,7 +1400,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Revolver Barrels",
       type="Weapon",
-      code=164,
+      code=166,
       classification=IC.useful,
       item_id=176,
       update_ram_addr=None
@@ -1390,7 +1408,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Machine Bullets",
       type="Weapon",
-      code=165,
+      code=167,
       classification=IC.useful,
       item_id=178,
       update_ram_addr=None
@@ -1398,7 +1416,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Machine Bullets 2",
       type="Weapon",
-      code=166,
+      code=168,
       classification=IC.useful,
       item_id=182,
       update_ram_addr=None
@@ -1406,7 +1424,7 @@ PROGRESSIVE_WEAPONS_TABLE: dict[str, list[MMXCMItemData]] = {
     MMXCMItemData(
       name="Auto Bullet",
       type="Weapon",
-      code=167,
+      code=169,
       classification=IC.useful,
       item_id=187,
       update_ram_addr=None
@@ -1418,301 +1436,301 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
   #All Sub-Weapons in the Game, Excluding Hyper Mode ones.
   "Micro Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=168,
+    code=170,
     classification=IC.useful,
     item_id=1,
     update_ram_addr=None
   ),
   "Tomahawk": MMXCMItemData(
     type="Sub-Weapon",
-    code=169,
+    code=171,
     classification=IC.useful,
     item_id=2,
     update_ram_addr=None
   ),
   "Twin Missiles": MMXCMItemData(
     type="Sub-Weapon",
-    code=170,
+    code=172,
     classification=IC.useful,
     item_id=3,
     update_ram_addr=None
   ),
   "Twin Tomahawks": MMXCMItemData(
     type="Sub-Weapon",
-    code=171,
+    code=173,
     classification=IC.useful,
     item_id=4,
     update_ram_addr=None
   ),
   "Force Missiles": MMXCMItemData(
     type="Sub-Weapon",
-    code=172,
+    code=174,
     classification=IC.useful,
     item_id=5,
     update_ram_addr=None
   ),
   "Force Tomahawks": MMXCMItemData(
     type="Sub-Weapon",
-    code=173,
+    code=175,
     classification=IC.useful,
     item_id=6,
     update_ram_addr=None
   ),
   "Hunter Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=174,
+    code=176,
     classification=IC.useful,
     item_id=7,
     update_ram_addr=None
   ),
   "Photon Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=175,
+    code=177,
     classification=IC.useful,
     item_id=8,
     update_ram_addr=None
   ),
   "Justice Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=176,
+    code=178,
     classification=IC.useful,
     item_id=9,
     update_ram_addr=None
   ),
   "Fire Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=177,
+    code=179,
     classification=IC.useful,
     item_id=10,
     update_ram_addr=None
   ),
   "Twin Fire": MMXCMItemData(
     type="Sub-Weapon",
-    code=178,
+    code=180,
     classification=IC.useful,
     item_id=11,
     update_ram_addr=None
   ),
   "Ice Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=179,
+    code=181,
     classification=IC.useful,
     item_id=12,
     update_ram_addr=None
   ),
   "Twin Ice": MMXCMItemData(
     type="Sub-Weapon",
-    code=180,
+    code=182,
     classification=IC.useful,
     item_id=13,
     update_ram_addr=None
   ),
   "Thunder Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=181,
+    code=183,
     classification=IC.useful,
     item_id=14,
     update_ram_addr=None
   ),
   "Twin Thunder": MMXCMItemData(
     type="Sub-Weapon",
-    code=182,
+    code=184,
     classification=IC.useful,
     item_id=15,
     update_ram_addr=None
   ),
   "Tractor Net": MMXCMItemData(
     type="Sub-Weapon",
-    code=183,
+    code=185,
     classification=IC.useful,
     item_id=16,
     update_ram_addr=None
   ),
   "Smoke Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=184,
+    code=186,
     classification=IC.useful,
     item_id=17,
     update_ram_addr=None
   ),
   "Virus Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=185,
+    code=187,
     classification=IC.useful,
     item_id=18,
     update_ram_addr=None
   ),
   "Cracker": MMXCMItemData(
     type="Sub-Weapon",
-    code=186,
+    code=188,
     classification=IC.useful,
     item_id=19,
     update_ram_addr=None
   ),
   "Cryogenic": MMXCMItemData(
     type="Sub-Weapon",
-    code=187,
+    code=189,
     classification=IC.useful,
     item_id=20,
     update_ram_addr=None
   ),
   "Get Zenny +": MMXCMItemData(
     type="Sub-Weapon",
-    code=188,
+    code=190,
     classification=IC.useful,
     item_id=21,
     update_ram_addr=None
   ),
   "Get EXP +": MMXCMItemData(
     type="Sub-Weapon",
-    code=189,
+    code=191,
     classification=IC.useful,
     item_id=22,
     update_ram_addr=None
   ),
   "Get FME +": MMXCMItemData(
     type="Sub-Weapon",
-    code=190,
+    code=192,
     classification=IC.useful,
     item_id=23,
     update_ram_addr=None
   ),
   "Rust Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=191,
+    code=193,
     classification=IC.useful,
     item_id=24,
     update_ram_addr=None
   ),
   "Drill Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=192,
+    code=194,
     classification=IC.useful,
     item_id=25,
     update_ram_addr=None
   ),
   "Melt Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=193,
+    code=195,
     classification=IC.useful,
     item_id=26,
     update_ram_addr=None
   ),
   "Slime Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=194,
+    code=196,
     classification=IC.useful,
     item_id=27,
     update_ram_addr=None
   ),
   "Oil Can": MMXCMItemData(
     type="Sub-Weapon",
-    code=195,
+    code=197,
     classification=IC.useful,
     item_id=28,
     update_ram_addr=None
   ),
   "Item Capture": MMXCMItemData(
     type="Sub-Weapon",
-    code=196,
+    code=198,
     classification=IC.useful,
     item_id=29,
     update_ram_addr=None
   ),
   "Energy Capture": MMXCMItemData(
     type="Sub-Weapon",
-    code=197,
+    code=199,
     classification=IC.useful,
     item_id=30,
     update_ram_addr=None
   ),
   "Power Capture": MMXCMItemData(
     type="Sub-Weapon",
-    code=198,
+    code=200,
     classification=IC.useful,
     item_id=31,
     update_ram_addr=None
   ),
   "Hawkeye": MMXCMItemData(
     type="Sub-Weapon",
-    code=199,
+    code=201,
     classification=IC.useful,
     item_id=32,
     update_ram_addr=None
   ),
   "Turbo Clock": MMXCMItemData(
     type="Sub-Weapon",
-    code=200,
+    code=202,
     classification=IC.useful,
     item_id=33,
     update_ram_addr=None
   ),
   "Heat Haze": MMXCMItemData(
     type="Sub-Weapon",
-    code=201,
+    code=203,
     classification=IC.useful,
     item_id=34,
     update_ram_addr=None
   ),
   "Generator": MMXCMItemData(
     type="Sub-Weapon",
-    code=202,
+    code=204,
     classification=IC.useful,
     item_id=35,
     update_ram_addr=None
   ),
   "Energy Field": MMXCMItemData(
     type="Sub-Weapon",
-    code=203,
+    code=205,
     classification=IC.useful,
     item_id=36,
     update_ram_addr=None
   ),
   "Bait": MMXCMItemData(
     type="Sub-Weapon",
-    code=204,
+    code=206,
     classification=IC.useful,
     item_id=37,
     update_ram_addr=None
   ),
   "Stamina Missile": MMXCMItemData(
     type="Sub-Weapon",
-    code=205,
+    code=207,
     classification=IC.useful,
     item_id=38,
     update_ram_addr=None
   ),
   "Vitality Missiles": MMXCMItemData(
     type="Sub-Weapon",
-    code=206,
+    code=208,
     classification=IC.useful,
     item_id=39,
     update_ram_addr=None
   ),
   "Combat Absorber": MMXCMItemData(
     type="Sub-Weapon",
-    code=207,
+    code=209,
     classification=IC.useful,
     item_id=40,
     update_ram_addr=None
   ),
   "Shot Absorber": MMXCMItemData(
     type="Sub-Weapon",
-    code=208,
+    code=210,
     classification=IC.useful,
     item_id=41,
     update_ram_addr=None
   ),
   "Super Absorber": MMXCMItemData(
     type="Sub-Weapon",
-    code=209,
+    code=211,
     classification=IC.useful,
     item_id=42,
     update_ram_addr=None
   ),
   "Vengeful Counter": MMXCMItemData(
     type="Sub-Weapon",
-    code=210,
+    code=212,
     classification=IC.useful,
     item_id=43,
     update_ram_addr=None
@@ -1722,644 +1740,644 @@ SUB_WEAPONS_TABLE: dict[str, MMXCMItemData] = {
 FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
   "Massimo Plus": MMXCMItemData(
     type="Force Metal",
-    code=211,
+    code=213,
     classification=IC.useful,
     item_id=34,
     update_ram_addr=None
   ),
   "Assassin Mind": MMXCMItemData(
     type="Force Metal",
-    code=212,
+    code=214,
     classification=IC.useful,
     item_id=35,
     update_ram_addr=None
   ),
   "Eagle Eye": MMXCMItemData(
     type="Force Metal",
-    code=213,
+    code=215,
     classification=IC.useful,
     item_id=36,
     update_ram_addr=None
   ),
   "Fat Slicer": MMXCMItemData(
     type="Force Metal",
-    code=214,
+    code=216,
     classification=IC.useful,
     item_id=37,
     update_ram_addr=None
   ),
   "Light As A Feather": MMXCMItemData(
     type="Force Metal",
-    code=215,
+    code=217,
     classification=IC.useful,
     item_id=38,
     update_ram_addr=None
   ),
   "SFM Fragment A": MMXCMItemData(
     type="Force Metal",
-    code=216,
+    code=218,
     classification=IC.useful,
     item_id=39,
     update_ram_addr=None
   ),
   "SFM Fragment B": MMXCMItemData(
     type="Force Metal",
-    code=217,
+    code=219,
     classification=IC.useful,
     item_id=40,
     update_ram_addr=None
   ),
   "Auto Sub Tank": MMXCMItemData(
     type="Force Metal",
-    code=218,
+    code=220,
     classification=IC.useful,
     item_id=69,
     update_ram_addr=None
   ),
   "Auto Recover": MMXCMItemData(
     type="Force Metal",
-    code=219,
+    code=221,
     classification=IC.useful,
     item_id=70,
     update_ram_addr=None
   ),
   "Auto Barrier": MMXCMItemData(
     type="Force Metal",
-    code=220,
+    code=222,
     classification=IC.useful,
     item_id=71,
     update_ram_addr=None
   ),
   "Bluff": MMXCMItemData(
     type="Force Metal",
-    code=221,
+    code=223,
     classification=IC.useful,
     item_id=72,
     update_ram_addr=None
   ),
   "ZERO Shift": MMXCMItemData(
     type="Force Metal",
-    code=222,
+    code=224,
     classification=IC.useful,
     item_id=73,
     update_ram_addr=None
   ),
   "X Heart": MMXCMItemData(
     type="Force Metal",
-    code=223,
+    code=225,
     classification=IC.useful,
     item_id=74,
     update_ram_addr=None
   ),
   "Decoy": MMXCMItemData(
     type="Force Metal",
-    code=224,
+    code=226,
     classification=IC.useful,
     item_id=75,
     update_ram_addr=None
   ),
   "Parry Impact": MMXCMItemData(
     type="Force Metal",
-    code=225,
+    code=227,
     classification=IC.useful,
     item_id=76,
     update_ram_addr=None
   ),
   "End To All": MMXCMItemData(
     type="Force Metal",
-    code=226,
+    code=228,
     classification=IC.useful,
     item_id=77,
     update_ram_addr=None
   ),
   "FS Canceller": MMXCMItemData(
     type="Force Metal",
-    code=227,
+    code=229,
     classification=IC.useful,
     item_id=78,
     update_ram_addr=None
   ),
   "Analyzer": MMXCMItemData(
     type="Force Metal",
-    code=228,
+    code=230,
     classification=IC.useful,
     item_id=79,
     update_ram_addr=None
   ),
   "Learning Aid": MMXCMItemData(
     type="Force Metal",
-    code=229,
+    code=231,
     classification=IC.useful,
     item_id=80,
     update_ram_addr=None
   ),
   "Caution": MMXCMItemData(
     type="Force Metal",
-    code=230,
+    code=232,
     classification=IC.useful,
     item_id=81,
     update_ram_addr=None
   ),
   "Attractor": MMXCMItemData(
     type="Force Metal",
-    code=231,
+    code=233,
     classification=IC.useful,
     item_id=82,
     update_ram_addr=None
   ),
   "Initiative": MMXCMItemData(
     type="Force Metal",
-    code=232,
+    code=234,
     classification=IC.useful,
     item_id=83,
     update_ram_addr=None
   ),
   "Self-repair": MMXCMItemData(
     type="Force Metal",
-    code=233,
+    code=235,
     classification=IC.useful,
     item_id=87,
     update_ram_addr=None
   ),
   "Exodus": MMXCMItemData(
     type="Force Metal",
-    code=234,
+    code=236,
     classification=IC.useful,
     item_id=88,
     update_ram_addr=None
   ),
   "Cutting Edge": MMXCMItemData(
     type="Force Metal",
-    code=235,
+    code=237,
     classification=IC.useful,
     item_id=89,
     update_ram_addr=None
   ),
   "Lucky Girl": MMXCMItemData(
     type="Force Metal",
-    code=236,
+    code=238,
     classification=IC.useful,
     item_id=90,
     update_ram_addr=None
   ),
   "Good Luck": MMXCMItemData(
     type="Force Metal",
-    code=237,
+    code=239,
     classification=IC.useful,
     item_id=91,
     update_ram_addr=None
   ),
   "Monopoly": MMXCMItemData(
     type="Force Metal",
-    code=238,
+    code=240,
     classification=IC.useful,
     item_id=92,
     update_ram_addr=None
   ),
   "LE +100": MMXCMItemData(
     type="Force Metal",
-    code=239,
+    code=241,
     classification=IC.useful,
     item_id=1,
     update_ram_addr=None
   ),
   "LE +300": MMXCMItemData(
     type="Force Metal",
-    code=240,
+    code=242,
     classification=IC.useful,
     item_id=2,
     update_ram_addr=None
   ),
   "LE +500": MMXCMItemData(
     type="Force Metal",
-    code=241,
+    code=243,
     classification=IC.useful,
     item_id=3,
     update_ram_addr=None
   ),
   "LE +1000": MMXCMItemData(
     type="Force Metal",
-    code=242,
+    code=244,
     classification=IC.useful,
     item_id=4,
     update_ram_addr=None
   ),
   "WE +5": MMXCMItemData(
     type="Force Metal",
-    code=243,
+    code=245,
     classification=IC.useful,
     item_id=5,
     update_ram_addr=None
   ),
   "WE +10": MMXCMItemData(
     type="Force Metal",
-    code=244,
+    code=246,
     classification=IC.useful,
     item_id=6,
     update_ram_addr=None
   ),
   "Gain WE +5": MMXCMItemData(
     type="Force Metal",
-    code=245,
+    code=247,
     classification=IC.useful,
     item_id=7,
     update_ram_addr=None
   ),
   "Gain WE +10": MMXCMItemData(
     type="Force Metal",
-    code=246,
+    code=248,
     classification=IC.useful,
     item_id=8,
     update_ram_addr=None
   ),
   "Gain WE +25": MMXCMItemData(
     type="Force Metal",
-    code=247,
+    code=249,
     classification=IC.useful,
     item_id=9,
     update_ram_addr=None
   ),
   "Power +1": MMXCMItemData(
     type="Force Metal",
-    code=248,
+    code=250,
     classification=IC.useful,
     item_id=10,
     update_ram_addr=None
   ),
   "Power +3": MMXCMItemData(
     type="Force Metal",
-    code=249,
+    code=251,
     classification=IC.useful,
     item_id=11,
     update_ram_addr=None
   ),
   "Power +5": MMXCMItemData(
     type="Force Metal",
-    code=250,
+    code=252,
     classification=IC.useful,
     item_id=12,
     update_ram_addr=None
   ),
   "Power +10": MMXCMItemData(
     type="Force Metal",
-    code=251,
+    code=253,
     classification=IC.useful,
     item_id=13,
     update_ram_addr=None
   ),
   "Armor +1": MMXCMItemData(
     type="Force Metal",
-    code=252,
+    code=254,
     classification=IC.useful,
     item_id=14,
     update_ram_addr=None
   ),
   "Armor +3": MMXCMItemData(
     type="Force Metal",
-    code=253,
+    code=255,
     classification=IC.useful,
     item_id=15,
     update_ram_addr=None
   ),
   "Armor +5": MMXCMItemData(
     type="Force Metal",
-    code=254,
+    code=256,
     classification=IC.useful,
     item_id=16,
     update_ram_addr=None
   ),
   "Armor +10": MMXCMItemData(
     type="Force Metal",
-    code=255,
+    code=257,
     classification=IC.useful,
     item_id=17,
     update_ram_addr=None
   ),
   "Shield +1": MMXCMItemData(
     type="Force Metal",
-    code=256,
+    code=258,
     classification=IC.useful,
     item_id=18,
     update_ram_addr=None
   ),
   "Shield +3": MMXCMItemData(
     type="Force Metal",
-    code=257,
+    code=259,
     classification=IC.useful,
     item_id=19,
     update_ram_addr=None
   ),
   "Shield +5": MMXCMItemData(
     type="Force Metal",
-    code=258,
+    code=260,
     classification=IC.useful,
     item_id=20,
     update_ram_addr=None
   ),
   "Shield +10": MMXCMItemData(
     type="Force Metal",
-    code=259,
+    code=261,
     classification=IC.useful,
     item_id=21,
     update_ram_addr=None
   ),
   "Speed +1": MMXCMItemData(
     type="Force Metal",
-    code=260,
+    code=262,
     classification=IC.useful,
     item_id=22,
     update_ram_addr=None
   ),
   "Speed +3": MMXCMItemData(
     type="Force Metal",
-    code=261,
+    code=263,
     classification=IC.useful,
     item_id=23,
     update_ram_addr=None
   ),
   "Speed +5": MMXCMItemData(
     type="Force Metal",
-    code=262,
+    code=264,
     classification=IC.useful,
     item_id=24,
     update_ram_addr=None
   ),
   "Speed +10": MMXCMItemData(
     type="Force Metal",
-    code=263,
+    code=265,
     classification=IC.useful,
     item_id=25,
     update_ram_addr=None
   ),
   "Protect +1": MMXCMItemData(
     type="Force Metal",
-    code=264,
+    code=266,
     classification=IC.useful,
     item_id=26,
     update_ram_addr=None
   ),
   "Protect +3": MMXCMItemData(
     type="Force Metal",
-    code=265,
+    code=267,
     classification=IC.useful,
     item_id=27,
     update_ram_addr=None
   ),
   "Protect +5": MMXCMItemData(
     type="Force Metal",
-    code=266,
+    code=268,
     classification=IC.useful,
     item_id=28,
     update_ram_addr=None
   ),
   "Protect +10": MMXCMItemData(
     type="Force Metal",
-    code=267,
+    code=269,
     classification=IC.useful,
     item_id=29,
     update_ram_addr=None
   ),
   "Full Specs +1": MMXCMItemData(
     type="Force Metal",
-    code=268,
+    code=270,
     classification=IC.useful,
     item_id=30,
     update_ram_addr=None
   ),
   "Full Specs +3": MMXCMItemData(
     type="Force Metal",
-    code=269,
+    code=271,
     classification=IC.useful,
     item_id=31,
     update_ram_addr=None
   ),
   "Full Specs +5": MMXCMItemData(
     type="Force Metal",
-    code=270,
+    code=272,
     classification=IC.useful,
     item_id=32,
     update_ram_addr=None
   ),
   "Full Specs +10": MMXCMItemData(
     type="Force Metal",
-    code=271,
+    code=273,
     classification=IC.useful,
     item_id=33,
     update_ram_addr=None
   ),
   "Fire Guard": MMXCMItemData(
     type="Force Metal",
-    code=272,
+    code=274,
     classification=IC.useful,
     item_id=41,
     update_ram_addr=None
   ),
   "Fire Resist": MMXCMItemData(
     type="Force Metal",
-    code=273,
+    code=275,
     classification=IC.useful,
     item_id=42,
     update_ram_addr=None
   ),
   "Reverse Fire": MMXCMItemData(
     type="Force Metal",
-    code=274,
+    code=276,
     classification=IC.useful,
     item_id=43,
     update_ram_addr=None
   ),
   "Water Guard": MMXCMItemData(
     type="Force Metal",
-    code=275,
+    code=277,
     classification=IC.useful,
     item_id=44,
     update_ram_addr=None
   ),
   "Water Resist": MMXCMItemData(
     type="Force Metal",
-    code=276,
+    code=278,
     classification=IC.useful,
     item_id=45,
     update_ram_addr=None
   ),
   "Reverse Water": MMXCMItemData(
     type="Force Metal",
-    code=277,
+    code=279,
     classification=IC.useful,
     item_id=46,
     update_ram_addr=None
   ),
   "Thunder Guard": MMXCMItemData(
     type="Force Metal",
-    code=278,
+    code=280,
     classification=IC.useful,
     item_id=47,
     update_ram_addr=None
   ),
   "Thunder Resist": MMXCMItemData(
     type="Force Metal",
-    code=279,
+    code=281,
     classification=IC.useful,
     item_id=48,
     update_ram_addr=None
   ),
   "Reverse Thunder": MMXCMItemData(
     type="Force Metal",
-    code=280,
+    code=282,
     classification=IC.useful,
     item_id=49,
     update_ram_addr=None
   ),
   "Virus Protection": MMXCMItemData(
     type="Force Metal",
-    code=281,
+    code=283,
     classification=IC.useful,
     item_id=50,
     update_ram_addr=None
   ),
   "Virus Block": MMXCMItemData(
     type="Force Metal",
-    code=282,
+    code=284,
     classification=IC.useful,
     item_id=51,
     update_ram_addr=None
   ),
   "Bind Protection": MMXCMItemData(
     type="Force Metal",
-    code=283,
+    code=285,
     classification=IC.useful,
     item_id=52,
     update_ram_addr=None
   ),
   "Bind Block": MMXCMItemData(
     type="Force Metal",
-    code=284,
+    code=286,
     classification=IC.useful,
     item_id=53,
     update_ram_addr=None
   ),
   "Freeze Protection": MMXCMItemData(
     type="Force Metal",
-    code=285,
+    code=287,
     classification=IC.useful,
     item_id=54,
     update_ram_addr=None
   ),
   "Freeze Block": MMXCMItemData(
     type="Force Metal",
-    code=286,
+    code=288,
     classification=IC.useful,
     item_id=55,
     update_ram_addr=None
   ),
   "Berserk Protection": MMXCMItemData(
     type="Force Metal",
-    code=287,
+    code=289,
     classification=IC.useful,
     item_id=56,
     update_ram_addr=None
   ),
   "Berserk Block": MMXCMItemData(
     type="Force Metal",
-    code=288,
+    code=290,
     classification=IC.useful,
     item_id=57,
     update_ram_addr=None
   ),
   "Blind Protection": MMXCMItemData(
     type="Force Metal",
-    code=289,
+    code=291,
     classification=IC.useful,
     item_id=58,
     update_ram_addr=None
   ),
   "Blind Block": MMXCMItemData(
     type="Force Metal",
-    code=290,
+    code=292,
     classification=IC.useful,
     item_id=59,
     update_ram_addr=None
   ),
   "DOA Protection": MMXCMItemData(
     type="Force Metal",
-    code=291,
+    code=293,
     classification=IC.useful,
     item_id=60,
     update_ram_addr=None
   ),
   "DOA Block": MMXCMItemData(
     type="Force Metal",
-    code=292,
+    code=294,
     classification=IC.useful,
     item_id=61,
     update_ram_addr=None
   ),
   "Firewall": MMXCMItemData(
     type="Force Metal",
-    code=293,
+    code=295,
     classification=IC.useful,
     item_id=62,
     update_ram_addr=None
   ),
   "Block All": MMXCMItemData(
     type="Force Metal",
-    code=294,
+    code=296,
     classification=IC.useful,
     item_id=63,
     update_ram_addr=None
   ),
   "Resist": MMXCMItemData(
     type="Force Metal",
-    code=295,
+    code=297,
     classification=IC.useful,
     item_id=64,
     update_ram_addr=None
   ),
   "Super Resist": MMXCMItemData(
     type="Force Metal",
-    code=296,
+    code=298,
     classification=IC.useful,
     item_id=65,
     update_ram_addr=None
   ),
   "Infinite Resist": MMXCMItemData(
     type="Force Metal",
-    code=297,
+    code=299,
     classification=IC.useful,
     item_id=66,
     update_ram_addr=None
   ),
   "Minus Metal 10": MMXCMItemData(
     type="Force Metal",
-    code=298,
+    code=300,
     classification=IC.useful,
     item_id=67,
     update_ram_addr=None
   ),
   "Minus Metal 20": MMXCMItemData(
     type="Force Metal",
-    code=299,
+    code=301,
     classification=IC.useful,
     item_id=68,
     update_ram_addr=None
   ),
   "Neutralizer -10": MMXCMItemData(
     type="Force Metal",
-    code=300,
+    code=302,
     classification=IC.useful,
     item_id=84,
     update_ram_addr=None
   ),
   "Neutralizer -20": MMXCMItemData(
     type="Force Metal",
-    code=301,
+    code=303,
     classification=IC.useful,
     item_id=85,
     update_ram_addr=None
   ),
   "Neutralizer -30": MMXCMItemData(
     type="Force Metal",
-    code=302,
+    code=304,
     classification=IC.useful,
     item_id=86,
     update_ram_addr=None
@@ -2369,49 +2387,49 @@ FORCE_METAL_TABLE: dict[str, MMXCMItemData] = {
 MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   "Mini Battery A": MMXCMItemData(
     type="Mechaniloid Item",
-    code=303,
+    code=305,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=0)]
   ),
   "Mini Battery B": MMXCMItemData(
     type="Mechaniloid Item",
-    code=304,
+    code=306,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=6)]
   ),
   "Mini Battery C": MMXCMItemData(
     type="Mechaniloid Item",
-    code=305,
+    code=307,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2186, bit_position=7)]
   ),
   "Mini Motor": MMXCMItemData(
     type="Mechaniloid Item",
-    code=306,
+    code=308,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=1)]
   ),
   "Ball & Chain Hammer": MMXCMItemData(
     type="Mechaniloid Item",
-    code=307,
+    code=309,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=2)]
   ),
   "Cyber Liquid": MMXCMItemData(
     type="Mechaniloid Item",
-    code=308,
+    code=310,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=3)]
   ),
   "Bone Key": MMXCMItemData(
     type="Mechaniloid Item",
-    code=309,
+    code=311,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=4)]
   ),
   "Heavy Motor": MMXCMItemData(
     type="Mechaniloid Item",
-    code=310,
+    code=312,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2184, bit_position=5)]
   )
@@ -2420,31 +2438,31 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
 TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   "Red Pickaxe": MMXCMItemData(
     type="Trade Item",
-    code=311,
+    code=313,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=1)]
   ),
   "Yellow Pickaxe": MMXCMItemData(
     type="Trade Item",
-    code=312,
+    code=314,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=2)]
   ),
   "Blue Pickaxe": MMXCMItemData(
     type="Trade Item",
-    code=313,
+    code=315,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=3)]
   ),
   "Green Pickaxe": MMXCMItemData(
     type="Trade Item",
-    code=314,
+    code=316,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=4)]
   ),
   "White Pickaxe": MMXCMItemData(
     type="Trade Item",
-    code=315,
+    code=317,
     classification=IC.useful,
     update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=5)]
   )
@@ -2454,61 +2472,61 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
 #This is adding our Rebellion Medal items to the AP , but NOT Randomly.
   "Rebellion Medal 1": MMXCMItemData(
     type="Key Item",
-    code=316,
+    code=318,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=0)]
   ),
   "Rebellion Medal 2": MMXCMItemData(
     type="Key Item",
-    code=317,
+    code=319,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=1)]
   ),
   "Rebellion Medal 3": MMXCMItemData(
     type="Key Item",
-    code=318,
+    code=320,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=2)]
   ),
   "Rebellion Medal 4": MMXCMItemData(
     type="Key Item",
-    code=319,
+    code=321,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=3)]
   ),
   "Rebellion Medal 5": MMXCMItemData(
     type="Key Item",
-    code=320,
+    code=322,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=4)]
   ),
   "Rebellion Medal 6": MMXCMItemData(
     type="Key Item",
-    code=321,
+    code=323,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=5)]
   ),
   "Rebellion Medal 7": MMXCMItemData(
     type="Key Item",
-    code=322,
+    code=324,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=6)]
   ),
   "Rebellion Medal 8": MMXCMItemData(
     type="Key Item",
-    code=323,
+    code=325,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=7)]
   ),
   "Rebellion Medal 9": MMXCMItemData(
     type="Key Item",
-    code=324,
+    code=326,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=0)]
   ),
   "Defeated Great Redips": MMXCMItemData(
     type="Key Item",
-    code=325,
+    code=327,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=1)]
   )
@@ -2517,49 +2535,49 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
 CHARACTER_TABLE: dict[str, MMXCMItemData] = {
   "Zero": MMXCMItemData(
     type="Character",
-    code=326,
+    code=328,
     classification=IC.progression,
     item_id=1,  # Zero's In-Game Roster ID
     update_ram_addr=None
   ),
   "Spider": MMXCMItemData(
     type="Character",
-    code=327,
+    code=329,
     classification=IC.progression,
     item_id=2,  # Spider's In-Game Roster ID
     update_ram_addr=None
   ),
   "Massimo": MMXCMItemData(
     type="Character",
-    code=328,
+    code=330,
     classification=IC.progression,
     item_id=3,  # Massimo's In-Game Roster ID
     update_ram_addr=None
   ),
   "Marino": MMXCMItemData(
     type="Character",
-    code=329,
+    code=331,
     classification=IC.progression,
     item_id=4,  # Marino's In-Game Roster ID
     update_ram_addr=None
   ),
   "Cinnamon": MMXCMItemData(
     type="Character",
-    code=330,
+    code=332,
     classification=IC.progression,
     item_id=5,  # Cinnamon's In-Game Roster ID
     update_ram_addr=None
   ),
   "Axl": MMXCMItemData(
     type="Character",
-    code=331,
+    code=333,
     classification=IC.progression,
     item_id=6,  # Axl's In-Game Roster ID
     update_ram_addr=None
   ),
   "X": MMXCMItemData(
     type="Character",
-    code=332,
+    code=334,
     classification=IC.progression,
     item_id=0,  # X's In-Game Roster ID
     update_ram_addr=None

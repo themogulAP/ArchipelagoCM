@@ -423,7 +423,36 @@ CODE_PATCHES = [
         "address": 0x0a938,
         "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
-    #-------LASERS---------
+
+    # Note here that there is a big chunk of usable changes we can make... 8000d93c - 8000d958 are unused.
+
+    # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
+    {
+        # Set S0506 STOPPER to on.
+        # RAM Address: 8000d95c
+        "address": 0x0a95C,
+        "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8
+    },
+    {
+        # STORE S0506 STOPPER to on.
+        # RAM Address: 8000d960
+        "address": 0x0a960,
+        "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3 0x00AA (r4)
+    },
+    {
+        # Set all other flags back to 0.
+        # RAM Address: 8000d964
+        "address": 0x0a964,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
+    },
+    {
+        # NOP the Removal of the Flag during Chapter 5.
+        # RAM Address: 801CCED0
+        "address": 0x1C9ED0,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP (Branch Removal)
+    },
+
+    #------------------------------LASERS--------------------------------
     {
         # Turn off Branch to lock the doors after the fight.
         # Ram Address: 800197ec
