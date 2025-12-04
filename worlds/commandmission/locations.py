@@ -2497,11 +2497,23 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2156, bit_position=5)
 #     ),
-#     "Base Gateway - Medical Station Treasure Token 1": MMXCMLocationData(
-#         name="Base Gateway Air Bus Token 1",
+#     "Data Backup Room, Hall B Treasure Token 1": MMXCMLocationData(
+#         name="Data Backup Room Hall B Token 1",
 #         code=407,
 #         parent_region="Central Tower Full",
+#         ram_data=MMXCMRamData(0x804A2155, bit_position=0)
+#     ),
+#     "Base Gateway - Medical Station Treasure Token 1": MMXCMLocationData(
+#         name="Base Gateway Air Bus Token 1",
+#         code=408,
+#         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2155, bit_position=4)
+#     ),
+#     "Security Reploid Area Treasure Token 1": MMXCMLocationData(
+#         name="Security Reploid Area Token 1",
+#         code=409,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A2154, bit_position=7)
 #     ),
 # }
 
