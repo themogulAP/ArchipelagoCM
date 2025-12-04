@@ -310,6 +310,13 @@ CODE_PATCHES = [
         "address": 0x0D3FAC,
         "data": [0x38, 0x03, 0x00, 0x00]  # addi r0, r3, 0
     },
+    {
+        # Turn off Sub Tank %'s lowering in battle.
+        # RAM Address: 8011a280
+        "address": 0x117280,
+        "data": [0x60, 0x00, 0x00, 0x00] # NOP
+    },
+
 # ----------------------- Character/Party Member Fixes + RANDOM CHARACTER STARTING------------------------
     {
         # Remove the +1 to character addition (Original RAM Address: 800d8254).
