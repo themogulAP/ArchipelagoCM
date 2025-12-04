@@ -59,51 +59,27 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x54]
     },
     {
-        # Sets cutscenes Intruders and Spider Fight ------------------FREE SPACE FOR LATER
+        # Sets Preon Battle 2 E and The Visual Blockers in S0203
         # RAM: 8000d908
         "address": 0x0A908,
-        "data": [0x38, 0x60, 0x00, 0x00]
+        "data": [0x38, 0x60, 0x00, 0xF4]
     },
     {
-        # Stores BYTE FOR cutscene for Intruders + Spider Fight
+        # Stores BYTE FOR Preon Battle 2E and Visual Blockers in S0203
         # RAM: 8000d90c
         "address": 0x0A90C,
-        "data": [0x98, 0x64, 0x00, 0x5D] # 98 = Store BYTE in PPC.
+        "data": [0x98, 0x64, 0x00, 0x62] # 98 = Store BYTE in PPC.
     },
     {
-        # Sets the Preon Battle 2C in Chief R hostage Room to Finished --------------FREE SPACE FOR LATER
+        # Sets the Doors for Jango, Bedroom and Central Command Door
         # RAM: 8000d910
         "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x00]
-    },
-    {
-        # STORES the Preon Battle 2C in Chief R hostage Room to Finished -
-        # RAM: 8000d914
-        "address": 0x0A914,
-        "data": [0x98, 0x64, 0x00, 0x61]
-    },
-    {
-        # Sets the Preon Battle 2E in Command Room to Finished -
-        # RAM: 8000d918
-        "address": 0x0A918,
-        "data": [0x38, 0x60, 0x00, 0x04]
-    },
-    {
-        # STORE the Preon Battle 2E in Command Room to Finished -
-        # RAM: 8000d91C
-        "address": 0x0A91C,
-        "data": [0x98, 0x64, 0x00, 0x62]
-    },
-    {
-        # Sets BYTE FOR Arcade, Jango's, and Bed Door
-        # RAM: 8000d920
-        "address": 0x0A920,
         "data": [0x38, 0x60, 0x00, 0x19]
     },
     {
-        # Stores BYTE FOR Arcade, Jango's, and Bed Door
-        # RAM: 8000d924
-        "address": 0x0A924,
+        # STORES the Doors for Jango, Bedroom, and CC Door -
+        # RAM: 8000d914
+        "address": 0x0A914,
         "data": [0x98, 0x64, 0x00, 0x63]
     },
     {
@@ -370,14 +346,14 @@ CODE_PATCHES = [
     # -----------------------QoL Updates -------------------
     {
         # Set the Value to Turn off the Green Blockers on Items in Chapter 7.
-        # RAM Address: 8000d928
-        "address": 0x0a928,
+        # RAM Address: 8000d918
+        "address": 0x0a918,
         "data": [0x38, 0x60, 0x00, 0xFF]  # Value is 255
     },
     {
         # STORE The Value for turning off green blockers.
-        # RAM Address: 8000d92C
-        "address": 0x0a92C,
+        # RAM Address: 8000d91C
+        "address": 0x0a91C,
         "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
     },
     # -----------------------Prevent Mech Items from going to Inventory-------------------
@@ -414,42 +390,34 @@ CODE_PATCHES = [
     # -------------------------------CHAPTER 9 DOORS AND LASERS QoL---------------------------------------
     {
         # SET Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d930
-        "address": 0x0a930,
+        # Ram Address: 8000d920
+        "address": 0x0a920,
         "data": [0x38, 0x60, 0x00, 0xF0] # Sets 240 as value.
     },
     {
         # STORE Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d934
-        "address": 0x0a934,
+        # Ram Address: 8000d924
+        "address": 0x0a924,
         "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
     },
-    {
-        # Set all future flags back to 0.
-        # RAM Address: 8000d92C
-        "address": 0x0a938,
-        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
-    },
-
-    # Note here that there is a big chunk of usable changes we can make... 8000d93c - 8000d958 are unused.
 
     # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
     {
         # Set S0506 STOPPER to on.
-        # RAM Address: 8000d95c
-        "address": 0x0a95C,
+        # RAM Address: 8000d928
+        "address": 0x0a928,
         "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8
     },
     {
         # STORE S0506 STOPPER to on.
-        # RAM Address: 8000d960
-        "address": 0x0a960,
+        # RAM Address: 8000d92C
+        "address": 0x0a92C,
         "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3 0x00AA (r4)
     },
     {
         # Set all other flags back to 0.
-        # RAM Address: 8000d964
-        "address": 0x0a964,
+        # RAM Address: 8000d930
+        "address": 0x0a930,
         "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
     {
