@@ -424,7 +424,7 @@ CODE_PATCHES = [
         # Set the overwrite Chapter 5 flag to a different Offset.
         # RAM Address: 8000d960
         "address": 0x0a960,
-        "data": [0x90, 0x60, 0x00, 0xAC] # AC skips the offset for AA we fixed earlier.
+        "data": [0x90, 0x64, 0x00, 0xAC] # AC skips the offset for AA we fixed earlier.
     },
     {
         # NOP the Removal of the Flag during Chapter 5.
