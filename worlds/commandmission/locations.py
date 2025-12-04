@@ -2453,6 +2453,7 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 #         code=399,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2151, bit_position=4)
+#         # This is the Token that requires Lagrano Key.
 #     ),
 #     "5F Test Hall 2 Treasure Token": MMXCMLocationData(
 #         name="5F Test Hall 2 Token 1",
@@ -2465,6 +2466,42 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 #         code=401,
 #         parent_region="Central Tower Hub",
 #         ram_data=MMXCMRamData(0x804A2155, bit_position=5)
+#     ),
+#     "Shaft 999F Treasure Token 1": MMXCMLocationData(
+#         name="Shaft 999F Token 1",
+#         code=402,
+#         parent_region="Central Tower Hub",
+#         ram_data=MMXCMRamData(0x804A2150, bit_position=3)
+#     ),
+#     "Air City Gate Treasure Token 1": MMXCMLocationData(
+#         name="Air City Gate Token 1",
+#         code=403,
+#         parent_region="Central Tower Hub",
+#         ram_data=MMXCMRamData(0x804A2150, bit_position=7)
+#     ),
+#     "Tower Base Access Tunnel Treasure Token 1": MMXCMLocationData(
+#         name="Tower Base Access Tunnel Token 1",
+#         code=404,
+#         parent_region="Central Tower Full",
+#         ram_data=MMXCMRamData(0x804A2154, bit_position=0)
+#     ),
+#     "Equipment Maintenance B Treasure Token 1": MMXCMLocationData(
+#         name="Equipment Maintenance B Token 1",
+#         code=405,
+#         parent_region="Central Tower Full",
+#         ram_data=MMXCMRamData(0x804A2157, bit_position=7)
+#     ),
+#     "Data Backup Room, Hall A Treasure Token 1": MMXCMLocationData(
+#         name="Data Backup Room Hall A Token 1",
+#         code=406,
+#         parent_region="Central Tower Full",
+#         ram_data=MMXCMRamData(0x804A2156, bit_position=5)
+#     ),
+#     "Base Gateway - Medical Station Treasure Token 1": MMXCMLocationData(
+#         name="Base Gateway Air Bus Token 1",
+#         code=407,
+#         parent_region="Central Tower Full",
+#         ram_data=MMXCMRamData(0x804A2155, bit_position=4)
 #     ),
 # }
 
