@@ -2515,6 +2515,42 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A2154, bit_position=7)
 #     ),
+#     "West Prison Treasure Token 1": MMXCMLocationData(
+#         name="West Prison Token 1",
+#         code=410,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A215A, bit_position=4)
+#     ),
+#     "Maze Area 1 Key Door Treasure Token 1": MMXCMLocationData(
+#         name="Maze Area 1 Token 1",
+#         code=411,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A215A, bit_position=7)
+#     ),
+#     "Maze Area 1 East Room Treasure Token 1": MMXCMLocationData(
+#         name="Maze Area 1 Token 2",
+#         code=412,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A2159, bit_position=0)
+#     ),
+#     "Maze Area 2 Treasure Token 1": MMXCMLocationData(
+#         name="Maze Area 2 Token 1",
+#         code=413,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A2158, bit_position=1)
+#     ),
+#     "Security Panel Area Treasure Token 1": MMXCMLocationData(
+#         name="Security Panel Area Token 1",
+#         code=414,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A215F, bit_position=0)
+#     ),
+#     "Aqua Coliseum Treasure Token 1": MMXCMLocationData(
+#         name="Aqua Coliseum Token 1",
+#         code=415,
+#         parent_region="Tianna Camp",
+#         ram_data=MMXCMRamData(0x804A215D, bit_position=0)
+#     ),
 # }
 
 BOSS_DROPS_LOCATIONS: dict[str, MMXCMLocationData] = {}
