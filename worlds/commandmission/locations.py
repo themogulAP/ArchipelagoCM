@@ -2552,10 +2552,16 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 #         ram_data=MMXCMRamData(0x804A215D, bit_position=0)
 #     ),
 #     "Teleport Arrivals Area Sealed Door Treasure Token 1": MMXCMLocationData(
-#         name="Teleport Arrivals Token 1",
+#         name="Teleport Arrivals Area Token 1",
 #         code=416,
 #         parent_region="Gaudile Laboratory",
 #         ram_data=MMXCMRamData(0x804A215D, bit_position=4)
+#     ),
+#     "Teleport Arrivals Area Elevator Treasure Token 2": MMXCMLocationData(
+#         name="Teleport Arrivals Area Token 2",
+#         code=417,
+#         parent_region="Gaudile Laboratory",
+#         ram_data=MMXCMRamData(0x804A215D, bit_position=3)
 #     ),
 # }
 
