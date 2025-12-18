@@ -208,7 +208,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=1,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Anti-Lock": MMXCMItemData(
     type="Consumable",
@@ -216,7 +216,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=2,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Warm-up": MMXCMItemData(
     type="Consumable",
@@ -224,7 +224,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=3,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Cooler": MMXCMItemData(
     type="Consumable",
@@ -232,7 +232,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=4,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Clear Vision": MMXCMItemData(
     type="Consumable",
@@ -240,7 +240,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=5,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Cure One": MMXCMItemData(
     type="Consumable",
@@ -248,7 +248,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=6,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Cure All": MMXCMItemData(
     type="Consumable",
@@ -256,7 +256,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=7,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Reboot": MMXCMItemData(
     type="Consumable",
@@ -264,7 +264,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=8,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Backup": MMXCMItemData(
     type="Consumable",
@@ -272,7 +272,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=9,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Boost Power": MMXCMItemData(
     type="Consumable",
@@ -280,7 +280,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=10,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Boost Armor": MMXCMItemData(
     type="Consumable",
@@ -288,7 +288,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=11,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Boost Shield": MMXCMItemData(
     type="Consumable",
@@ -296,7 +296,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=12,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Boost Speed": MMXCMItemData(
     type="Consumable",
@@ -304,7 +304,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=13,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Unlock Limiter": MMXCMItemData(
     type="Consumable",
@@ -312,7 +312,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=14,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Mega Fire": MMXCMItemData(
     type="Consumable",
@@ -320,7 +320,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=20,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Ultra Fire": MMXCMItemData(
     type="Consumable",
@@ -328,7 +328,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=21,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Mega Blizzard": MMXCMItemData(
     type="Consumable",
@@ -336,7 +336,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=22,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Ultra Blizzard": MMXCMItemData(
     type="Consumable",
@@ -344,7 +344,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=23,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Mega Thunder": MMXCMItemData(
     type="Consumable",
@@ -352,7 +352,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=24,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Ultra Thunder": MMXCMItemData(
     type="Consumable",
@@ -360,7 +360,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=25,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Liquid Suffocation": MMXCMItemData(
     type="Consumable",
@@ -368,7 +368,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=26,
     update_ram_addr=None,
-    item_count = 2
+    item_count = 1
   ),
   "Chaff": MMXCMItemData(
     type="Consumable",
@@ -376,7 +376,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=27,
     update_ram_addr=None,
-    item_count = 3
+    item_count = 1
   ),
   "Gain Hyper": MMXCMItemData(
     type="Consumable",
@@ -384,7 +384,7 @@ FILLER_TABLE: dict[str, MMXCMItemData] = {
     classification=IC.filler,
     item_id=31,
     update_ram_addr=None,
-    item_count = 3
+    item_count = 1
   ),
 }
 
