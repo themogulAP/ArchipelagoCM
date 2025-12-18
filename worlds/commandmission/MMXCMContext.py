@@ -14,7 +14,7 @@ import dolphin_memory_engine as dolphin
 from .files.Constants import WAIT_TIMER_SHORT_TIMEOUT
 # Project relative imports.
 from .locations import LOCATION_TABLE, REBELLION_MEDAL_LOCATIONS
-from .items import ALL_ITEMS_TABLE, MMXCMItemData, PROGRESSION_ITEM_TABLE
+from .items import ALL_ITEMS_TABLE, MMXCMItemData, PROGRESSION_ITEM_TABLE, EVENT_ITEM_TABLE
 from .MMXCMClient import MMXCMCommandProcessor
 from .helpers import *
 from .files.patch_codes import ACCESS_CODE_PATCHES
@@ -207,15 +207,18 @@ class MMXCMContext(CommonContext):
     # --------------- CHECK FOR FAR EAST HQ ACCESS CODE AND 9 MEDALS TO UNLOCK CHPT 10 DOOR --------------------
     def get_checked_medal_count(self) -> int:
         """Helper function to count how many Rebellion Medals have been reported by AP."""
-        medal_location_names = [f"Rebellion Medal {i}" for i in range(1, 10)]
+        medal_names = [f"Rebellion Medal {i}" for i in range(1, 10)]
+        count = 0
 
-        try:
-            medal_location_ids = {REBELLION_MEDAL_LOCATIONS[name].code for name in medal_location_names}
-        except KeyError as e:
-            logger.error(f"Rebellion Medal locations missing expected name: {e}")
-            return 0
-        # Find where the medals aee and how many we have.
-        return len(self.locations_checked.intersection(medal_location_ids))
+        # Look up the Item codes now, instead of locations.
+        medal_ids = {EVENT_ITEM_TABLE[name].code for name in medal_names if name in EVENT_ITEM_TABLE}
+
+        # Count how many IDs the server says we have
+        for received_item in self.items_received:
+            if received_item.item in medal_ids:
+                count += 1
+
+        return count
 
     def has_received_patchable_access_code(self, item_name: str) -> bool:
         """
@@ -243,33 +246,34 @@ class MMXCMContext(CommonContext):
 
     def has_received_chapter10_code(self, item_name: str) -> bool:
         """Helper function to check if the randomized Chpt 10 Access code has been found."""
-        target_medal_id = None
+        item_data = PROGRESSION_ITEM_TABLE.get(item_name)
 
-        for name, data in PROGRESSION_ITEM_TABLE.items():
-            if name == item_name:
-                target_medal_id = data.code
-                break
-
-        if target_medal_id is None:
-            logger.error(f"Attempted to check for unknown of missing event data: {item_name}.")
+        if not item_data:
+            self.logger.error(f"Attemped to check for unknown or missing item data: {item_name}")
             return False
 
+        target_id = item_data.code
+
+        # Check the persistent received items list for the ID
         for item in self.items_received:
-            if item.item == target_medal_id:
+            if item.item == target_id:
                 return True
+
         return False
 
     def has_checked_medal_2(self) -> bool:
         "This is a helper function to check if we have Rebellion Medal 2 for the Air Bus Door"
         medal_2_name = "Rebellion Medal 2"
 
-        try:
-            medal_location_id = REBELLION_MEDAL_LOCATIONS[medal_2_name].code
-        except KeyError as e:
-            self.logger.error(f"Rebellion Medal 2 location data missing: {e}")
+        if medal_2_name not in EVENT_ITEM_TABLE:
             return False
 
-        return medal_location_id in self.locations_checked
+        target_id = EVENT_ITEM_TABLE[medal_2_name].code
+
+        for received_item in self.items_received:
+            if received_item.item == target_id:
+                return True
+        return False
 
     def unlock_air_bus_door(self):
         "Permanently unlocks Air Bus Door after getting Rebellion Medal 2"
