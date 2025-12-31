@@ -144,14 +144,6 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
             rules[location_name] = lambda state: state.has("Booster Parts", player)
         elif location_name == "L2 Northeast Division Build LE":
             rules[location_name] = lambda state: state.has("Mega Mantor", player)
-        elif location_name == "L3 Main Tunnel Blue Miner Trade Complete":
-            rules[location_name] = lambda state: state.has("Blue Pickaxe", player)
-        elif location_name == "L3 Northwest Division Red Miner Trade Complete":
-            rules[location_name] = lambda state: state.has("Red Pickaxe", player)
-        elif location_name == "L3 Northwest Division Yellow Miner Trade Complete":
-            rules[location_name] = lambda state: state.has("Yellow Pickaxe", player)
-        elif location_name == "L3 Northeast Division Green Miner Trade Complete":
-            rules[location_name] = lambda state: state.has("Green Pickaxe", player)
         elif location_name in ["L3 Southwest Division Figure Token 1", "L3 Southwest Division Figure Token 2"]:
             rules[location_name] = lambda state: state.has("Gimialla Key", player)
         elif location_name == "L3 Southwest Division Tank Parts":
