@@ -2435,98 +2435,65 @@ MECHANILOID_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   )
 }
 
-TRADE_ITEMS_TABLE: dict[str, MMXCMItemData] = {
-  "Red Pickaxe": MMXCMItemData(
-    type="Trade Item",
-    code=313,
-    classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=1)]
-  ),
-  "Yellow Pickaxe": MMXCMItemData(
-    type="Trade Item",
-    code=314,
-    classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=2)]
-  ),
-  "Blue Pickaxe": MMXCMItemData(
-    type="Trade Item",
-    code=315,
-    classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=3)]
-  ),
-  "Green Pickaxe": MMXCMItemData(
-    type="Trade Item",
-    code=316,
-    classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=4)]
-  ),
-  "White Pickaxe": MMXCMItemData(
-    type="Trade Item",
-    code=317,
-    classification=IC.useful,
-    update_ram_addr=[MMXCMRamData(0x804A2185, bit_position=5)]
-  )
-}
-
 EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
 #This is adding our Rebellion Medal items to the AP , but NOT Randomly.
   "Rebellion Medal 1": MMXCMItemData(
     type="Key Item",
-    code=318,
+    code=313,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=0)]
   ),
   "Rebellion Medal 2": MMXCMItemData(
     type="Key Item",
-    code=319,
+    code=314,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=1)]
   ),
   "Rebellion Medal 3": MMXCMItemData(
     type="Key Item",
-    code=320,
+    code=315,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=2)]
   ),
   "Rebellion Medal 4": MMXCMItemData(
     type="Key Item",
-    code=321,
+    code=316,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=3)]
   ),
   "Rebellion Medal 5": MMXCMItemData(
     type="Key Item",
-    code=322,
+    code=317,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=4)]
   ),
   "Rebellion Medal 6": MMXCMItemData(
     type="Key Item",
-    code=323,
+    code=318,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=5)]
   ),
   "Rebellion Medal 7": MMXCMItemData(
     type="Key Item",
-    code=324,
+    code=319,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=6)]
   ),
   "Rebellion Medal 8": MMXCMItemData(
     type="Key Item",
-    code=325,
+    code=320,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2196, bit_position=7)]
   ),
   "Rebellion Medal 9": MMXCMItemData(
     type="Key Item",
-    code=326,
+    code=321,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=0)]
   ),
   "Defeated Great Redips": MMXCMItemData(
     type="Key Item",
-    code=327,
+    code=322,
     classification=IC.progression,
     update_ram_addr=[MMXCMRamData(0x804A2197, bit_position=1)]
   )
@@ -2535,49 +2502,49 @@ EVENT_ITEM_TABLE: dict[str, MMXCMItemData] = {
 CHARACTER_TABLE: dict[str, MMXCMItemData] = {
   "Zero": MMXCMItemData(
     type="Character",
-    code=328,
+    code=323,
     classification=IC.progression,
     item_id=1,  # Zero's In-Game Roster ID
     update_ram_addr=None
   ),
   "Spider": MMXCMItemData(
     type="Character",
-    code=329,
+    code=324,
     classification=IC.progression,
     item_id=2,  # Spider's In-Game Roster ID
     update_ram_addr=None
   ),
   "Massimo": MMXCMItemData(
     type="Character",
-    code=330,
+    code=325,
     classification=IC.progression,
     item_id=3,  # Massimo's In-Game Roster ID
     update_ram_addr=None
   ),
   "Marino": MMXCMItemData(
     type="Character",
-    code=331,
+    code=326,
     classification=IC.progression,
     item_id=4,  # Marino's In-Game Roster ID
     update_ram_addr=None
   ),
   "Cinnamon": MMXCMItemData(
     type="Character",
-    code=332,
+    code=327,
     classification=IC.progression,
     item_id=5,  # Cinnamon's In-Game Roster ID
     update_ram_addr=None
   ),
   "Axl": MMXCMItemData(
     type="Character",
-    code=333,
+    code=328,
     classification=IC.progression,
     item_id=6,  # Axl's In-Game Roster ID
     update_ram_addr=None
   ),
   "X": MMXCMItemData(
     type="Character",
-    code=334,
+    code=329,
     classification=IC.progression,
     item_id=0,  # X's In-Game Roster ID
     update_ram_addr=None
@@ -2597,7 +2564,6 @@ ALL_ITEMS_TABLE: dict[str, MMXCMItemData] = {
   **SUB_WEAPONS_TABLE,
   **FORCE_METAL_TABLE,
   **MECHANILOID_ITEMS_TABLE,
-  **TRADE_ITEMS_TABLE,
   **EVENT_ITEM_TABLE,
   **CHARACTER_TABLE,
   **COLLECTIBLE_TABLE
