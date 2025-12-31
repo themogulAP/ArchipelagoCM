@@ -92,7 +92,8 @@ For Any Current Issues: See the Discord Channel in Archipelago or the Known Issu
 - Characters will NEVER leave the group. Example: in vanilla, Zero leaves 3 times. In a patched rom, he NEVER will leave! Same with Spider and Massimo.
 - Lots of customizable options are planned for the future: such as Encounter Rate Percentage changes. 
 
-- TONS to be added later, such as Chapter 9's beams being a one-time trigger.
+- Chapter 9's beams are now ONLY a one-time trigger. In vanilla, these were heinous, and constantly reset making for a huge time waste. In the AP, you only have to worry about each laser once!
+- TONS to be added later!
 
 ## What is my "go-mode?"
 You will fully need to have: 
