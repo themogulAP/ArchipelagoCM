@@ -27,6 +27,23 @@ Run the emulator at least once to make sure it is working.
 
 8. Note for Mac users: Due to additional security hardening that Apple added to MacOS, the steps from [here](https://github.com/aldelaro5/dolphin-memory-engine?tab=readme-ov-file#macos-code-signing) relating to Code Signing must be performed. Not doing so will prevent your Archipelago Client from connecting to the game appropriately.
 
+## Main Troubleshooting:
+1. If the dialog window is not prompting for a .iso file after pressing "Open Patch":
+-- Double check your host.yaml settings in your archipelago installation. 
+
+Your host.yaml should say something like this for 
+commandmission_options:
+  # Locate the user's MMXCM PAL ISO file.
+  iso_file: "C:/Users/.../PAL ISO/Mega Man X - Command Mission (Europe) (En,Fr,De).iso"
+
+NOTE: These need to be the / (backslash), not the forward slash! You may have to manually put in your ROM path if the window does not populate. 
+Further questions on this, please respond in the Archipelago channel with your attached logs (also in the Archipelago installation). 
+
+2. Any other issues, please refer to your Archipelago attached logs. These will be absolutely imperative to fixing any problems that may arise.
+A common example is when your log says "NoneType"....
+
+If it says this "NoneType" error... please double check your rom that is a .iso ONLY! You cannot convert into .iso from other file formats. 
+
 ## Create a Config (.yaml) File
 
 ### What is a config file and why do I need one?
