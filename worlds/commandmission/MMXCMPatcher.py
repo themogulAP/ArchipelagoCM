@@ -118,7 +118,7 @@ class MMXCMPatcher:
             print(f"Wrote {len(set_value)} bytes at address {hex(set_address)}.")
 
             # NOP The 1st Addition Command (For Dash 1)
-            set_address = 0x07450
+            set_address = 0x07500
             set_value = bytes([0x60, 0x00, 0x00, 0x00])
             self.dol.data.seek(set_address)
             self.dol.data.write(set_value)
