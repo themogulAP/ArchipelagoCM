@@ -33,7 +33,7 @@ Run the emulator at least once to make sure it is working.
 
 Your host.yaml should say something like this for 
 commandmission_options:
-  # Locate the user's MMXCM PAL ISO file.
+   Locate the user's MMXCM PAL ISO file.
   iso_file: "C:/Users/.../PAL ISO/Mega Man X - Command Mission (Europe) (En,Fr,De).iso"
 
 NOTE: These need to be the / (backslash), not the forward slash! You may have to manually put in your ROM path if the window does not populate. 
