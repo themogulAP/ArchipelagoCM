@@ -31,7 +31,8 @@ Run the emulator at least once to make sure it is working.
 1. If the dialog window is not prompting for a .iso file after pressing "Open Patch":
 -- Double check your host.yaml settings in your archipelago installation. 
 
-Your host.yaml should say something like this for 
+Your host.yaml should say something like this
+
 commandmission_options:
    Locate the user's MMXCM PAL ISO file.
   iso_file: "C:/Users/.../PAL ISO/Mega Man X - Command Mission (Europe) (En,Fr,De).iso"
