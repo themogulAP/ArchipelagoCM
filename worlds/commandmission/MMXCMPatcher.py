@@ -110,16 +110,23 @@ class MMXCMPatcher:
         if self.encounter_rate == 0:
             print("Applying Encounter Rate OFF Patch...")
 
-            #First Address
-            set_address = 0x0208BC
-            set_value = bytes([0x38, 0x60, 0x00, 0x00])
+            #First Address - Dash + NOP to remove adding the encounter rate. (fadds f1,f2,f3 -> fsubs f1,f2,f2)
+            set_address = 0x074FC
+            set_value = bytes([0x22, 0x18, 0x10, 0x28])
             self.dol.data.seek(set_address)
             self.dol.data.write(set_value)
             print(f"Wrote {len(set_value)} bytes at address {hex(set_address)}.")
 
-            #Second Address
-            reset_address = 0x0208C4
-            reset_value = bytes([0x38, 0x60, 0x00, 0x01])
+            #Second Address - Walk + NOP to Remove adding the encounter rate. (fadds f1,f1,f2 -> fsubs f1,f2,f2)
+            reset_address = 0x0718C
+            reset_value = bytes([0x22, 0x18, 0x10, 0x28])
+            self.dol.data.seek(reset_address)
+            self.dol.data.write(reset_value)
+            print(f"Wrote {len(reset_value)} bytes at address {hex(reset_address)}.")
+
+            # Third Address - Walk 2: + NOP to Remove adding the encounter rate. (fadds f1,f1,f2 -> fsubs f1,f2,f2)
+            reset_address = 0x07118
+            reset_value = bytes([0x22, 0x18, 0x10, 0x28])
             self.dol.data.seek(reset_address)
             self.dol.data.write(reset_value)
             print(f"Wrote {len(reset_value)} bytes at address {hex(reset_address)}.")
