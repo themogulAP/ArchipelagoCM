@@ -1369,129 +1369,105 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216E, bit_position=5)
   ),
-  "L3 Main Tunnel Blue Miner Trade Complete": MMXCMLocationData(
-    name="Level 3 Main Tunnel Blue Miner 1",
-    code=224,
-    parent_region="Gimialla Mine",
-    ram_data=MMXCMRamData(0x804A2113, bit_position=4)
-  ),
   "L3 Northwest Division Ace of Hearts": MMXCMLocationData(
     name="L3 Northwest Division 1",
-    code=225,
+    code=224,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=0)
   ),
   "L3 Northwest Division Figure Token": MMXCMLocationData(
     name="L3 Northwest Division 2",
-    code=226,
+    code=225,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=1)
   ),
   "L3 Northwest Division 1300z": MMXCMLocationData(
     name="L3 Northwest Division 3",
-    code=227,
+    code=226,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=2)
   ),
-  "L3 Northwest Division Red Miner Trade Complete": MMXCMLocationData(
-    name="L3 Northwest Division Red Miner 1",
-    code=228,
-    parent_region="Gimialla Mine",
-    ram_data=MMXCMRamData(0x804A210D, bit_position=5)
-  ),
-  "L3 Northwest Division Yellow Miner Trade Complete": MMXCMLocationData(
-    name="L3 Northwest Division Yellow Miner 1",
-    code=229,
-    parent_region="Gimialla Mine",
-    ram_data=MMXCMRamData(0x804A210C, bit_position=2)
-  ),
   "L3 Northeast Division Force Missiles": MMXCMLocationData(
     name="L3 Northeast Division 1",
-    code=230,
+    code=227,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=3)
   ),
-  "L3 Northeast Division Green Miner Trade Complete": MMXCMLocationData(
-    name="L3 Northeast Division Green Miner 1",
-    code=231,
-    parent_region="Gimialla Mine",
-    ram_data=MMXCMRamData(0x804A210C, bit_position=7) 
-  ),
   "L3 Southwest Division Tank Parts": MMXCMLocationData(
     name="L3 Southwest Division 1",
-    code=232,
+    code=228,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=5) 
   ),
   "L3 Southwest Division Figure Token 1": MMXCMLocationData(
     name="L3 Southwest Division 2",
-    code=233,
+    code=229,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=6)
   ),
   "L3 Southwest Division Figure Token 2": MMXCMLocationData(
     name="L3 Southwest Division 3",
-    code=234,
+    code=230,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216D, bit_position=7)
   ),
   "Level 4 Main Tunnel Tank Energy 100": MMXCMLocationData(
     name="Level 4 Main Tunnel 1",
-    code=235,
+    code=231,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=0)
   ),
   "Level 4 Main Tunnel Gain Hyper": MMXCMLocationData(
     name="Level 4 Main Tunnel 2",
-    code=236,
+    code=232,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=1)
   ),
   "Level 4 Main Tunnel Build Power": MMXCMLocationData(
     name="Level 4 Main Tunnel 3",
-    code=237,
+    code=233,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=2)
   ),
   "Level 4 Main Tunnel Build Armor": MMXCMLocationData(
     name="Level 4 Main Tunnel 4",
-    code=238,
+    code=234,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=3)
   ),
   "Level 4 Main Tunnel Build Shield": MMXCMLocationData(
     name="Level 4 Main Tunnel 5",
-    code=239,
+    code=235,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=4)
   ),
   "Level 4 Main Tunnel Build Speed": MMXCMLocationData(
     name="Level 4 Main Tunnel 6",
-    code=240,
+    code=236,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=5)
   ),
   "Level 4 Main Tunnel Build WE": MMXCMLocationData(
     name="Level 4 Main Tunnel 7",
-    code=241,
+    code=237,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=6)
   ),
   "Level 4 Durability Lab Fire Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 1",
-    code=242,
+    code=238,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A216C, bit_position=7)
   ),
   "Level 4 Durability Lab Water Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 2",
-    code=243,
+    code=239,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A2173, bit_position=0)
   ),
   "Level 4 Durability Lab Thunder Guard": MMXCMLocationData(
     name="Level 4 Durability Lab 3",
-    code=244,
+    code=240,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A2173, bit_position=1)
   ),     
@@ -1500,229 +1476,229 @@ GIMIALLA_MINE_LOCATIONS: dict[str, MMXCMLocationData] = {
 VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Quicksand Figure Token 55%": MMXCMLocationData(
     name="Quicksand Item 1-1",
-    code=245,
+    code=241,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2148, bit_position=0)
   ),
   "Quicksand Figure Token Teleporter": MMXCMLocationData(
     name="Quicksand Item 1-2",
-    code=246,
+    code=242,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2148, bit_position=1)
   ),
   "Quicksand Figure Token 15%": MMXCMLocationData(
     name="Quicksand Item 1-3",
-    code=247,
+    code=243,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2148, bit_position=2)
   ),
   "Quicksand Mini Battery": MMXCMLocationData(
     name="Quicksand Item 1-4",
-    code=248,
+    code=244,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2149, bit_position=5)
   ),
   "Quicksand Tank Parts": MMXCMLocationData(
     name="Quicksand Item 1-5",
-    code=249,
+    code=245,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2149, bit_position=6)
   ),
   "Quicksand Doubletooth": MMXCMLocationData(
     name="Quicksand Item 1-6",
-    code=250,
+    code=246,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2149, bit_position=7)
   ),
   "Quicksand South Side Tank Energy 50": MMXCMLocationData(
     name="Quicksand South Side 1",
-    code=251,
+    code=247,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2172, bit_position=4)
   ),
   "Quicksand South Side Vaccine Program": MMXCMLocationData(
     name="Quicksand South Side 2",
-    code=252,
+    code=248,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2172, bit_position=5)
   ),
   "Quicksand South Side Cooler": MMXCMLocationData(
     name="Quicksand South Side 3",
-    code=253,
+    code=249,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2172, bit_position=6)
   ),
   "Quicksand South Side Build Power": MMXCMLocationData(
     name="Quicksand South Side 4",
-    code=254,
+    code=250,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2172, bit_position=7)
   ),
   "Quicksand South Side Build Armor": MMXCMLocationData(
     name="Quicksand South Side 5",
-    code=255,
+    code=251,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2171, bit_position=0)
   ),
   "Quicksand South Side Build Shield": MMXCMLocationData(
     name="Quicksand South Side 6",
-    code=256,
+    code=252,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2171, bit_position=1)
   ),
   "Quicksand South Side Build Speed": MMXCMLocationData(
     name="Quicksand South Side 7",
-    code=257,
+    code=253,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2171, bit_position=2)
   ),
   "Quicksand North Side Cure All": MMXCMLocationData(
     name="Quicksand North Side 1",
-    code=258,
+    code=254,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2171, bit_position=6)
   ),
   "Quicksand North Side 1800z": MMXCMLocationData(
     name="Quicksand North Side 2",
-    code=259,
+    code=255,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2171, bit_position=7)
   ),
   "Quicksand North Side 2000z": MMXCMLocationData(
     name="Quicksand North Side 3",
-    code=260,
+    code=256,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=0)
   ),
   "Quicksand North Side 400FME 1": MMXCMLocationData(
     name="Quicksand North Side 4",
-    code=261,
+    code=257,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=1)
   ),
   "Quicksand North Side 400FME 2": MMXCMLocationData(
     name="Quicksand North Side 5",
-    code=262,
+    code=258,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=2)
   ),
   "Quicksand North Side Build Hyper": MMXCMLocationData(
     name="Quicksand North Side 6",
-    code=263,
+    code=259,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=3)
   ),
   "Quicksand North Side Ball & Chain Hammer": MMXCMLocationData(
     name="Quicksand North Side Ball & Chain Hammer 1",
-    code=264,
+    code=260,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2186, bit_position=2)
   ),
   "Quicksand Central Passageway Tank Energy 100": MMXCMLocationData(
     name="Quicksand Central Passageway 1",
-    code=265,
+    code=261,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=6)
   ),
   "Quicksand Central Passageway Gain Hyper": MMXCMLocationData(
     name="Quicksand Central Passageway 2",
-    code=266,
+    code=262,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2170, bit_position=7)
   ),
   "Signal Jammer Laser Energy Control Room SW Tank Energy 50": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room SW 1",
-    code=267,
+    code=263,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=5)
   ),
   "Signal Jammer Laser Energy Control Room NW Figure Token 1": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room NW 1",
-    code=268,
+    code=264,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=1)
   ),
   "Signal Jammer Laser Energy Control Room NW Figure Token 2": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room NW 2",
-    code=269,
+    code=265,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=2)
   ),
   "Signal Jammer Laser Energy Control Room NE Figure Token 1": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room NE 1",
-    code=270,
+    code=266,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=3)
   ),
   "Signal Jammer Laser Energy Control Room NE Figure Token 2": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room NE 2",
-    code=271,
+    code=267,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=4)
   ),
   "Signal Jammer Laser Energy Control Room SE Cyber Liquid": MMXCMLocationData(
     name="Signal Jammer Laser Energy Control Room SE 1",
-    code=272,
+    code=268,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2177, bit_position=0)
   ),
   "Signal Jammer Laser Energy Generator Figure Token 1": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 1",
-    code=273,
+    code=269,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2175, bit_position=0)
   ),
   "Signal Jammer Laser Energy Generator Fire Resist": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 2",
-    code=274,
+    code=270,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2175, bit_position=1)
   ),
   "Signal Jammer Laser Energy Generator Thunder Stella": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 3",
-    code=275,
+    code=271,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=0)
   ),
   "Signal Jammer Laser Energy Generator Build LE": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 4",
-    code=276,
+    code=272,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=1)
   ),
   "Signal Jammer Laser Energy Generator Build WE": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 5",
-    code=277,
+    code=273,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=2)
   ),
   "Signal Jammer Laser Energy Generator Combat Absorber": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 6",
-    code=278,
+    code=274,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=3)
   ),
   "Signal Jammer Laser Energy Generator Shot Absorber": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 7",
-    code=279,
+    code=275,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=4)
   ),
   "Signal Jammer Laser Energy Generator Figure Token 2": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 8",
-    code=280,
+    code=276,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=5)
   ),
   "Signal Jammer Laser Energy Generator Figure Token 3": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 9",
-    code=281,
+    code=277,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=6)
   ),
   "Signal Jammer Laser Energy Generator Figure Token 4": MMXCMLocationData(
     name="Signal Jammer Laser Energy Generator 10",
-    code=282,
+    code=278,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A2176, bit_position=7)
   ),        
@@ -1731,199 +1707,199 @@ VANALLIA_DESERT_LOCATIONS: dict[str, MMXCMLocationData] = {
 MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Ore Plant External Tank Heavy Motor": MMXCMLocationData(
     name="Ore Plant External Tank 1",
-    code=283,
+    code=279,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=2)
   ),
   "Ore Plant External Tank Tank Parts": MMXCMLocationData(
     name="Ore Plant External Tank 2",
-    code=284,
+    code=280,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=3)
   ),
   "Ore Plant External Tank Figure Token 1": MMXCMLocationData(
     name="Ore Plant External Tank 3",
-    code=285,
+    code=281,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=4)
   ),
   "Ore Plant External Tank Figure Token 2": MMXCMLocationData(
     name="Ore Plant External Tank 4",
-    code=286,
+    code=282,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=5)
   ),
   "B1 Entrance Hall Ultra Thunder": MMXCMLocationData(
     name="B1 Entrance Hall 1",
-    code=287,
+    code=283,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=1)
   ),
   "B1 Entrance Hall Figure Token 1": MMXCMLocationData(
     name="B1 Entrance Hall 2",
-    code=288,
+    code=284,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=0)
   ),
   "B1 Entrance Hall Figure Token 2": MMXCMLocationData(
     name="B1 Entrance Hall 3",
-    code=289,
+    code=285,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=6)
   ),
   "B1 Entrance Hall Figure Token 3": MMXCMLocationData(
     name="B1 Entrance Hall 4",
-    code=290,
+    code=286,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2175, bit_position=7)
   ),
   "Area E-B02 Figure Token 1": MMXCMLocationData(
     name="Area E-B02-1",
-    code=291,
+    code=287,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=1)
   ),
   "Area E-B02 Build LE": MMXCMLocationData(
     name="Area E-B02-2",
-    code=292,
+    code=288,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=2)
   ),
   "Area E-B02 Build WE": MMXCMLocationData(
     name="Area E-B02-3",
-    code=293,
+    code=289,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=3)
   ),
   "Area E-B03 Mini Battery": MMXCMLocationData(
     name="Area E-B03-1",
-    code=294,
+    code=290,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=1)
   ),
   "Area E-B03 800 FME": MMXCMLocationData(
     name="Area E-B03-2",
-    code=295,
+    code=291,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=2)
   ),
   "Area E-B03 Build Shield": MMXCMLocationData(
     name="Area E-B03-3",
-    code=296,
+    code=292,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=3)
   ),
   "Area E-B04 Figure Token 1": MMXCMLocationData(
     name="Area E-B04-1",
-    code=297,
+    code=293,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=0)
   ),
   "Area E-B04 Tank Energy 50": MMXCMLocationData(
     name="Area E-B04-2",
-    code=298,
+    code=294,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=1)
   ),
   "Missile Silo Base Lower Section Figure Token 1": MMXCMLocationData(
     name="Missile Silo Base Lower Section 1",
-    code=299,
+    code=295,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=3)
   ),
   "Missile Silo Base Lower Section 3000z": MMXCMLocationData(
     name="Missile Silo Base Lower Section 2",
-    code=300,
+    code=296,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=4)
   ),
   "Missile Silo Base Lower Section 1000 FME": MMXCMLocationData(
     name="Missile Silo Base Lower Section 3",
-    code=301,
+    code=297,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=5)
   ),
   "Missile Silo Base Lower Section Gain Hyper": MMXCMLocationData(
     name="Missile Silo Base Lower Section 4",
-    code=302,
+    code=298,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=6)
   ),
   "B5 - East-West Block Access Tunnel Build Speed": MMXCMLocationData(
     name="B5 - East-West Block Access Tunnel 1",
-    code=303,
+    code=299,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=2)
   ),
   "Area W-B04 Figure Token 1": MMXCMLocationData(
     name="Area W-B04 1",
-    code=304,
+    code=300,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=5)
   ),
   "Area W-B04 Tank Energy 50": MMXCMLocationData(
     name="Area W-B04 2",
-    code=305,
+    code=301,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=6)
   ),
   "Area W-B04 Build Power": MMXCMLocationData(
     name="Area W-B03 3",
-    code=306,
+    code=302,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217A, bit_position=7)
   ),
   "Area W-B03 Cryogenic": MMXCMLocationData(
     name="Area W-B03 1",
-    code=307,
+    code=303,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=5)
   ),
   "Area W-B03 2000z": MMXCMLocationData(
     name="Area W-B03 2",
-    code=308,
+    code=304,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=6)
   ),
   "Area W-B03 Build Armor": MMXCMLocationData(
     name="Area W-B03 3",
-    code=309,
+    code=305,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A217B, bit_position=7)
   ),
   "Area W-B02 Figure Token 1": MMXCMLocationData(
     name="Area W-B02 1",
-    code=310,
+    code=306,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=5)
   ),
   "Area W-B02 Tank Energy 100": MMXCMLocationData(
     name="Area W-B02 2",
-    code=311,
+    code=307,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=6)
   ),
   "Area W-B02 Gain Hyper": MMXCMLocationData(
     name="Area W-B02 3",
-    code=312,
+    code=308,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=7)
   ),
   "Missile Warhead Adjustment Room Gatling Buster II": MMXCMLocationData(
     name="Missile Warhead Adjustment Room 1",
-    code=313,
+    code=309,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2179, bit_position=7)
   ),
   "Area W-B01 Generator": MMXCMLocationData(
     name="Area W-B01-1",
-    code=314,
+    code=310,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2174, bit_position=3)
   ),
   "Missile Maintenance Room Absolute Zero": MMXCMLocationData(
     name="Missile Maintenance Room 1",
-    code=315,
+    code=311,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A2178, bit_position=0)
   ),
@@ -1932,211 +1908,211 @@ MELDA_ORE_PLANT_LOCATIONS: dict[str, MMXCMLocationData] = {
 GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Level E Security Zone Figure Token 1": MMXCMLocationData(
     name="Level E Security Zone 1",
-    code=316,
+    code=312,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2178, bit_position=2)
   ),
   "Level E Security Zone 5000z": MMXCMLocationData(
     name="Level E Security Zone 2",
-    code=317,
+    code=313,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2178, bit_position=3)
   ),
   "Level D Security Zone Beam Miracle S": MMXCMLocationData(
     name="Level D Security Zone 1",
-    code=318,
+    code=314,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2178, bit_position=5)
   ),
   "Level C Security Zone Tank Energy 100": MMXCMLocationData(
     name="Level C Security Zone 1",
-    code=319,
+    code=315,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2178, bit_position=7)
   ),
   "Level C Security Zone Figure Token 1": MMXCMLocationData(
     name="Level C Security Zone 2",
-    code=320,
+    code=316,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217F, bit_position=0)
   ),
   "Level C Security Zone Unlock Limiter": MMXCMLocationData(
     name="Level C Security Zone 3",
-    code=321,
+    code=317,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217F, bit_position=1)
   ),
   "Level C Security Zone Gain Hyper": MMXCMLocationData(
     name="Level C Security Zone 4",
-    code=322,
+    code=318,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217F, bit_position=2)
   ),
   "Level C Security Zone 3000 FME": MMXCMLocationData(
     name="Level C Security Zone 5",
-    code=323,
+    code=319,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217F, bit_position=3)
   ),
   "Level B Security Zone Cure All": MMXCMLocationData(
     name="Level B Security Zone 1",
-    code=324,
+    code=320,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217F, bit_position=7)
   ),
   "Level B Security Zone Backup": MMXCMLocationData(
     name="Level B Security Zone 2",
-    code=325,
+    code=321,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=0)
   ),
   "Battle Field Build Power": MMXCMLocationData(
     name="Battle Field 1",
-    code=326,
+    code=322,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2183, bit_position=0)
   ),
   "Battle Field Build Armor": MMXCMLocationData(
     name="Battle Field 2",
-    code=327,
+    code=323,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2183, bit_position=1)
   ),
   "Battle Field Build Shield": MMXCMLocationData(
     name="Battle Field 3",
-    code=328,
+    code=324,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2183, bit_position=2)
   ),
   "Battle Field Build Speed": MMXCMLocationData(
     name="Battle Field 4",
-    code=329,
+    code=325,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A2183, bit_position=3)
   ),
   "Battle Field Build Hyper": MMXCMLocationData(
     name="Battle Field 5",
-    code=330,
+    code=326,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=5)
   ),
   "Battle Field Build LE": MMXCMLocationData(
     name="Battle Field 6",
-    code=331,
+    code=327,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=6)
   ),
   "Battle Field Build WE": MMXCMLocationData(
     name="Battle Field 7",
-    code=332,
+    code=328,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=7)
   ),
   "Revolver Shaft Area Tank Energy 25": MMXCMLocationData(
     name="Revolver Shaft Area 1",
-    code=333,
+    code=329,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=2)
   ),
   "Revolver Shaft Area Tank Energy 50": MMXCMLocationData(
     name="Revolver Shaft Area 2",
-    code=334,
+    code=330,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=3)
   ),
   "Revolver Room #4 Z Saber+++": MMXCMLocationData(
     name="Revolver Room #4 1",
-    code=335,
+    code=331,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=5)
   ),
   "Revolver Room #6 Vitality Missiles": MMXCMLocationData(
     name="Revolver Room #6 1",
-    code=336,
+    code=332,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=6)
   ),
   "Revolver Room #7 Tank Parts": MMXCMLocationData(
     name="Revolver Room #7 1",
-    code=337,
+    code=333,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=7)
   ),
   "Revolver Shaft Area Right Side Tank Energy 50": MMXCMLocationData(
     name="Revolver Shaft Area Right Side 1",
-    code=338,
+    code=334,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217E, bit_position=4)
   ),
   "Level S Top Security Zone Figure Token 1": MMXCMLocationData(
     name="Level S Top Security Zone 1",
-    code=339,
+    code=335,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=1)
   ),
   "Level S Top Security Zone Figure Token 2": MMXCMLocationData(
     name="Level S Top Security Zone 2",
-    code=340,
+    code=336,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=2)
   ),
   "Level S Top Security Zone Figure Token 3": MMXCMLocationData(
     name="Level S Top Security Zone 3",
-    code=341,
+    code=337,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=3)
   ),
   "Level S Top Security Zone Figure Token 4": MMXCMLocationData(
     name="Level S Top Security Zone 4",
-    code=342,
+    code=338,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=4)
   ),
   "Level S Top Security Zone Figure Token 5": MMXCMLocationData(
     name="Level S Top Security Zone 5",
-    code=343,
+    code=339,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=0)
   ),
   "Level S Top Security Zone Super Absorber": MMXCMLocationData(
     name="Level S Top Security Zone 6",
-    code=344,
+    code=340,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=1)
   ),
   "Level S Top Security Zone Figure Token 6": MMXCMLocationData(
     name="Level S Top Security Zone 7",
-    code=345,
+    code=341,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=5)
   ),
   "Level S Top Security Zone Figure Token 7": MMXCMLocationData(
     name="Level S Top Security Zone 8",
-    code=346,
+    code=342,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=6)
   ),
   "Level S Top Security Zone Figure Token 8": MMXCMLocationData(
     name="Level S Top Security Zone 9",
-    code=347,
+    code=343,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217D, bit_position=7)
   ),
   "Final Gate Tank Energy 100 1": MMXCMLocationData(
     name="Final Gate 1",
-    code=348,
+    code=344,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=2)
   ),
   "Final Gate Tank Energy 100 2": MMXCMLocationData(
     name="Final Gate 2",
-    code=349,
+    code=345,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=3)
   ),
   "Final Gate Gain Hyper": MMXCMLocationData(
     name="Final Gate 3",
-    code=350,
+    code=346,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A217C, bit_position=4)
   ),
@@ -2145,91 +2121,91 @@ GRAVE_RUINS_BASE_LOCATIONS: dict[str, MMXCMLocationData] = {
 FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Teleport Terminal Tank Parts": MMXCMLocationData(
     name="Teleport Terminal 1",
-    code=351,
+    code=347,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2181, bit_position=0)
   ),
   "Teleport Terminal Build Hyper": MMXCMLocationData(
     name="Teleport Terminal 2",
-    code=352,
+    code=348,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2181, bit_position=1)
   ),
   "Teleport Terminal Figure Token 1": MMXCMLocationData(
     name="Teleport Terminal 3",
-    code=353,
+    code=349,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=6)
   ),
   "Teleport Terminal Figure Token 2": MMXCMLocationData(
     name="Teleport Terminal 4",
-    code=354,
+    code=350,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=7)
   ),
   "Final Gate Chapter 10 Figure Token 1": MMXCMLocationData(
     name="Final Gate Chapter 10-1",
-    code=355,
+    code=351,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2183, bit_position=4)
   ),
   "Final Gate Chapter 10 Figure Token 2": MMXCMLocationData(
     name="Final Gate Chapter 10-2",
-    code=356,
+    code=352,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2183, bit_position=5)
   ),
   "Final Gate Chapter 10 5000 FME": MMXCMLocationData(
     name="Final Gate Chapter 10-3",
-    code=357,
+    code=353,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2183, bit_position=6)
   ),
   "Final Gate Chapter 10 10000z": MMXCMLocationData(
     name="Final Gate Chapter 10-4",
-    code=358,
+    code=354,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2183, bit_position=7)
   ),
   "Final Gate Chapter 10 Cure All": MMXCMLocationData(
     name="Final Gate Chapter 10-5",
-    code=359,
+    code=355,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=0)
   ),
   "Final Gate Chapter 10 Backup": MMXCMLocationData(
     name="Final Gate Chapter 10-6",
-    code=360,
+    code=356,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=1)
   ),
   "Final Gate Chapter 10 Gain Hyper": MMXCMLocationData(
     name="Final Gate Chapter 10-7",
-    code=361,
+    code=357,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=2)
   ),
   "Final Gate Chapter 10 Tank Energy 100": MMXCMLocationData(
     name="Final Gate Chapter 10-8",
-    code=362,
+    code=358,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=3)
   ),
   "Super-Strato Terminal Figure Token 1": MMXCMLocationData(
     name="Super Strato Terminal 1",
-    code=363,
+    code=359,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2181, bit_position=2)
   ),
   "Blue Earth Tunnel Gain Hyper": MMXCMLocationData(
     name="Blue Earth Tunnel 1",
-    code=364,
+    code=360,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=4)
   ),
   "Blue Earth Tunnel Tank Energy Infinite": MMXCMLocationData(
     name="Blue Earth Tunnel 2",
-    code=365,
+    code=361,
     parent_region="Far East HQ",
     ram_data=MMXCMRamData(0x804A2182, bit_position=5)
   ),
@@ -2246,127 +2222,127 @@ FAR_EAST_HQ_LOCATIONS: dict[str, MMXCMLocationData] = {
 MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Deerball": MMXCMLocationData(
     name="Deerball",
-    code=366,
+    code=362,
     parent_region="Lagrano Ruins",
     ram_data=MMXCMRamData(0x804A212D, bit_position=5)
   ),                                                                                  
   "Radar Killer": MMXCMLocationData(
     name="Radar Killer",
-    code=367,
+    code=363,
     parent_region="Tianna Camp",
     ram_data=MMXCMRamData(0x804A212E, bit_position=3)
   ),
   "Blowfish": MMXCMLocationData(
     name="Blowfish",
-    code=368,
+    code=364,
     parent_region="Tianna Camp",
     ram_data=MMXCMRamData(0x804A212C, bit_position=1)
   ),
   "Big Monkey": MMXCMLocationData(
     name="Big Monkey",
-    code=369,
+    code=365,
     parent_region="Gaudile Laboratory",
     ram_data=MMXCMRamData(0x804A212E, bit_position=0)
   ),
   "Preon": MMXCMLocationData(
     name="Preon",
-    code=370,
+    code=366,
     parent_region="Gaudile Laboratory",
     ram_data=MMXCMRamData(0x804A212D, bit_position=0)
   ),
   "Dober Man": MMXCMLocationData(
     name="Dober Man",
-    code=371,
+    code=367,
     parent_region="Gaudile Laboratory",
     ram_data=MMXCMRamData(0x804A212D, bit_position=1)
   ),
   "Mettaur": MMXCMLocationData(
     name="Mettaur",
-    code=372,
+    code=368,
     parent_region="Gaudile Laboratory",
     ram_data=MMXCMRamData(0x804A212C, bit_position=2)
   ),
   "Einhammer": MMXCMLocationData(
     name="Einhammer",
-    code=373,
+    code=369,
     parent_region="Ulfat Factory",
     ram_data=MMXCMRamData(0x804A212E, bit_position=1)
   ),
   "Killer Mantis": MMXCMLocationData(
     name="Killer Mantis",
-    code=374,
+    code=370,
     parent_region="Ulfat Factory",
     ram_data=MMXCMRamData(0x804A212E, bit_position=2)
   ),
   "Rush Loader": MMXCMLocationData(
     name="Rush Loader",
-    code=375,
+    code=371,
     parent_region="Ulfat Factory",
     ram_data=MMXCMRamData(0x804A212D, bit_position=2)
   ),
   "Mega Mantor": MMXCMLocationData(
     name="Mega Mantor",
-    code=376,
+    code=372,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A212E, bit_position=4)
   ),
   "Degraver": MMXCMLocationData(
     name="Degraver",
-    code=377,
+    code=373,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A212D, bit_position=3)
   ),
   "Bat Bone": MMXCMLocationData(
     name="Bat Bone",
-    code=378,
+    code=374,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A212C, bit_position=0)
   ),
   "Gold Blader": MMXCMLocationData(
     name="Gold Blader",
-    code=379,
+    code=375,
     parent_region="Gimialla Mine",
     ram_data=MMXCMRamData(0x804A212C, bit_position=5)
   ),
   "Liquid Glob": MMXCMLocationData(
     name="Liquid Glob",
-    code=380,
+    code=376,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A212E, bit_position=5)
   ),
   "Mega Tortoise": MMXCMLocationData(
     name="Mega Tortoise",
-    code=381,
+    code=377,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A212D, bit_position=4)
   ),
   "Pararoid": MMXCMLocationData(
     name="Pararoid",
-    code=382,
+    code=378,
     parent_region="Vanallia Desert",
     ram_data=MMXCMRamData(0x804A212C, bit_position=3)
   ),
   "Meltdown": MMXCMLocationData(
     name="Meltdown", 
-    code=383,
+    code=379,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A212E, bit_position=6)
   ),
   "Rabbid": MMXCMLocationData(
     name="Rabbid",
-    code=384,
+    code=380,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A212C, bit_position=4)
   ),
   "Wolfoid": MMXCMLocationData(
     name="Wolfoid",
-    code=385,
+    code=381,
     parent_region="Melda Ore Plant",
     ram_data=MMXCMRamData(0x804A212D, bit_position=6)
   ),
   "Bladey": MMXCMLocationData(
     name="Bladey",
-    code=386,
+    code=382,
     parent_region="Grave Ruins Base",
     ram_data=MMXCMRamData(0x804A212C, bit_position=6)
   ),
@@ -2375,55 +2351,55 @@ MECHANILOIDS_LOCATIONS: dict[str, MMXCMLocationData] = {
 REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
   "Rebellion Medal 1": MMXCMLocationData(
         name="Rebellion Medal 1",
-        code=387,
+        code=383,
         parent_region="Lagrano Ruins",
         ram_data=MMXCMRamData(0x804A2196, bit_position=0)
     ),
     "Rebellion Medal 2": MMXCMLocationData(
         name="Rebellion Medal 2",
-        code=388,
+        code=384,
         parent_region="Central Tower Full",
         ram_data=MMXCMRamData(0x804A2196, bit_position=1)
     ),
     "Rebellion Medal 3": MMXCMLocationData(
         name="Rebellion Medal 3",
-        code=389,
+        code=385,
         parent_region="Tianna Camp",
         ram_data=MMXCMRamData(0x804A2196, bit_position=2)
     ),
     "Rebellion Medal 4": MMXCMLocationData(
         name="Rebellion Medal 4",
-        code=390,
+        code=386,
         parent_region="Gaudile Laboratory",
         ram_data=MMXCMRamData(0x804A2196, bit_position=3)
     ),
     "Rebellion Medal 5": MMXCMLocationData(
         name="Rebellion Medal 5",
-        code=391,
+        code=387,
         parent_region="Ulfat Factory",
         ram_data=MMXCMRamData(0x804A2196, bit_position=4)
     ),
     "Rebellion Medal 6": MMXCMLocationData(
         name="Rebellion Medal 6",
-        code=392,
+        code=388,
         parent_region="Gimialla Mine",
         ram_data=MMXCMRamData(0x804A2196, bit_position=5)
     ),
     "Rebellion Medal 7": MMXCMLocationData(
         name="Rebellion Medal 7",
-        code=393,
+        code=389,
         parent_region="Vanallia Desert",
         ram_data=MMXCMRamData(0x804A2196, bit_position=6)
     ),
     "Rebellion Medal 8": MMXCMLocationData(
         name="Rebellion Medal 8",
-        code=394,
+        code=390,
         parent_region="Melda Ore Plant",
         ram_data=MMXCMRamData(0x804A2196, bit_position=7)
     ),
     "Rebellion Medal 9": MMXCMLocationData(
         name="Rebellion Medal 9",
-        code=395,
+        code=391,
         parent_region="Grave Ruins Base",
         ram_data=MMXCMRamData(0x804A2197, bit_position=0)
     ),
@@ -2432,134 +2408,134 @@ REBELLION_MEDAL_LOCATIONS: dict[str, MMXCMLocationData] = {
 # TREASURE_TOKEN_LOCATIONS: dict[str, MMXCMLocationData] = {
 #     "Area 1F East Treasure Token": MMXCMLocationData(
 #         name="Area 1F East Token 1",
-#         code=396,
+#         code=392,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2153, bit_position=1)
 #     ),
 #     "Area 2F East Treasure Token": MMXCMLocationData(
 #         name="Area 2F East Token 1",
-#         code=397,
+#         code=393,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2153, bit_position=4)
 #     ),
 #     "3F High Performance Reploid Development Treasure Token": MMXCMLocationData(
 #         name="3F Token 1",
-#         code=398,
+#         code=394,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2152, bit_position=1)
 #     ),
 #     "East Block Stairs 4F to 5F Treasure Token": MMXCMLocationData(
 #         name="East Block Stairs 4F to 5F Token 1",
-#         code=399,
+#         code=395,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2151, bit_position=4)
 #         # This is the Token that requires Lagrano Key.
 #     ),
 #     "5F Test Hall 2 Treasure Token": MMXCMLocationData(
 #         name="5F Test Hall 2 Token 1",
-#         code=400,
+#         code=396,
 #         parent_region="Lagrano Ruins",
 #         ram_data=MMXCMRamData(0x804A2150, bit_position=2)
 #     ),
 #     "Base Gateway - Air Bus Terminal Treasure Token 1": MMXCMLocationData(
 #         name="Base Gateway Air Bus Token 1",
-#         code=401,
+#         code=397,
 #         parent_region="Central Tower Hub",
 #         ram_data=MMXCMRamData(0x804A2155, bit_position=5)
 #     ),
 #     "Shaft 999F Treasure Token 1": MMXCMLocationData(
 #         name="Shaft 999F Token 1",
-#         code=402,
+#         code=398,
 #         parent_region="Central Tower Hub",
 #         ram_data=MMXCMRamData(0x804A2150, bit_position=3)
 #     ),
 #     "Air City Gate Treasure Token 1": MMXCMLocationData(
 #         name="Air City Gate Token 1",
-#         code=403,
+#         code=399,
 #         parent_region="Central Tower Hub",
 #         ram_data=MMXCMRamData(0x804A2150, bit_position=7)
 #     ),
 #     "Tower Base Access Tunnel Treasure Token 1": MMXCMLocationData(
 #         name="Tower Base Access Tunnel Token 1",
-#         code=404,
+#         code=400,
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2154, bit_position=0)
 #     ),
 #     "Equipment Maintenance B Treasure Token 1": MMXCMLocationData(
 #         name="Equipment Maintenance B Token 1",
-#         code=405,
+#         code=401,
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2157, bit_position=7)
 #     ),
 #     "Data Backup Room, Hall A Treasure Token 1": MMXCMLocationData(
 #         name="Data Backup Room Hall A Token 1",
-#         code=406,
+#         code=402,
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2156, bit_position=5)
 #     ),
 #     "Data Backup Room, Hall B Treasure Token 1": MMXCMLocationData(
 #         name="Data Backup Room Hall B Token 1",
-#         code=407,
+#         code=403,
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2155, bit_position=0)
 #     ),
 #     "Base Gateway - Medical Station Treasure Token 1": MMXCMLocationData(
 #         name="Base Gateway Air Bus Token 1",
-#         code=408,
+#         code=404,
 #         parent_region="Central Tower Full",
 #         ram_data=MMXCMRamData(0x804A2155, bit_position=4)
 #     ),
 #     "Security Reploid Area Treasure Token 1": MMXCMLocationData(
 #         name="Security Reploid Area Token 1",
-#         code=409,
+#         code=405,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A2154, bit_position=7)
 #     ),
 #     "West Prison Treasure Token 1": MMXCMLocationData(
 #         name="West Prison Token 1",
-#         code=410,
+#         code=406,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A215A, bit_position=4)
 #     ),
 #     "Maze Area 1 Key Door Treasure Token 1": MMXCMLocationData(
 #         name="Maze Area 1 Token 1",
-#         code=411,
+#         code=407,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A215A, bit_position=7)
 #     ),
 #     "Maze Area 1 East Room Treasure Token 1": MMXCMLocationData(
 #         name="Maze Area 1 Token 2",
-#         code=412,
+#         code=408,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A2159, bit_position=0)
 #     ),
 #     "Maze Area 2 Treasure Token 1": MMXCMLocationData(
 #         name="Maze Area 2 Token 1",
-#         code=413,
+#         code=409,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A2158, bit_position=1)
 #     ),
 #     "Security Panel Area Treasure Token 1": MMXCMLocationData(
 #         name="Security Panel Area Token 1",
-#         code=414,
+#         code=410,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A215F, bit_position=0)
 #     ),
 #     "Aqua Coliseum Treasure Token 1": MMXCMLocationData(
 #         name="Aqua Coliseum Token 1",
-#         code=415,
+#         code=411,
 #         parent_region="Tianna Camp",
 #         ram_data=MMXCMRamData(0x804A215D, bit_position=0)
 #     ),
 #     "Teleport Arrivals Area Sealed Door Treasure Token 1": MMXCMLocationData(
 #         name="Teleport Arrivals Area Token 1",
-#         code=416,
+#         code=412,
 #         parent_region="Gaudile Laboratory",
 #         ram_data=MMXCMRamData(0x804A215D, bit_position=4)
 #     ),
 #     "Teleport Arrivals Area Elevator Treasure Token 2": MMXCMLocationData(
 #         name="Teleport Arrivals Area Token 2",
-#         code=417,
+#         code=413,
 #         parent_region="Gaudile Laboratory",
 #         ram_data=MMXCMRamData(0x804A215D, bit_position=3)
 #     ),
