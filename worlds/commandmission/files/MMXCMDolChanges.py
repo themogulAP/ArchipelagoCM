@@ -326,21 +326,9 @@ CODE_PATCHES = [
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
     {
-        # Block First Pickaxe from Mining Reploid (Red)
-        # RAM Address: 8007787c
-        "address": 0x07487C,
-        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
-    },
-    {
         # Block Electric Components from Red Miner
         # RAM Address: 80077e7c
         "address": 0x074E7C,
-        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
-    },
-    {
-        # Block Every other pickaxe trade
-        # RAM Address: 80076b34
-        "address": 0x073B34,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
     },
     # -----------------------QoL Updates -------------------
