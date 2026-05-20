@@ -14,7 +14,7 @@ CODE_PATCHES = [
         "address": 0x0D4E2C,
         "data": [0x38, 0x06, 0x00, 0x00]  # Sets the character substraction to 0.
     },
-        # -----------------------------GAME BOOT SEQUENCE FLAGS----------------------
+        # -----------------------------GAME BOOT SEQUENCE FLAGS---------------------- IMPORTANT ---------
     {
         # Loading into Arcade: Scenario Flag
         # RAM Address: 800Dbab4
@@ -95,6 +95,40 @@ CODE_PATCHES = [
         # RAM Address: 8000d91C
         "address": 0x0a91C,
         "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
+    },
+
+# -------------------------------CHAPTER 9 DOORS AND LASERS QoL---------------------------------------
+    {
+        # SET Value for S0901 Door, 902 Doors, 903 Door
+        # Ram Address: 8000d920
+        "address": 0x0a920,
+        "data": [0x38, 0x60, 0x00, 0xF0] # Sets 240 as value.
+    },
+    {
+        # STORE Value for S0901 Door, 902 Doors, 903 Door
+        # Ram Address: 8000d924
+        "address": 0x0a924,
+        "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
+    },
+
+    # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
+    {
+        # Set S0506 STOPPER to on.
+        # RAM Address: 8000d928
+        "address": 0x0a928,
+        "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8
+    },
+    {
+        # STORE S0506 STOPPER to on.
+        # RAM Address: 8000d92C
+        "address": 0x0a92C,
+        "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3 0x00AA (r4)
+    },
+    {
+        # Set all other flags back to 0.
+        # RAM Address: 8000d930
+        "address": 0x0a930,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
 
     {
@@ -376,39 +410,6 @@ CODE_PATCHES = [
         #RAM Address: 800102DC
         "address": 0x0D2DC,
         "data": [0x2c, 0x00, 0x00, 0x1f] # This sets the compare to 31... which cannot be achieved.
-    },
-    # -------------------------------CHAPTER 9 DOORS AND LASERS QoL---------------------------------------
-    {
-        # SET Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d920
-        "address": 0x0a920,
-        "data": [0x38, 0x60, 0x00, 0xF0] # Sets 240 as value.
-    },
-    {
-        # STORE Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d924
-        "address": 0x0a924,
-        "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
-    },
-
-    # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
-    {
-        # Set S0506 STOPPER to on.
-        # RAM Address: 8000d928
-        "address": 0x0a928,
-        "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8
-    },
-    {
-        # STORE S0506 STOPPER to on.
-        # RAM Address: 8000d92C
-        "address": 0x0a92C,
-        "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3 0x00AA (r4)
-    },
-    {
-        # Set all other flags back to 0.
-        # RAM Address: 8000d930
-        "address": 0x0a930,
-        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
     },
     {
         # Set the overwrite Chapter 5 flag to a different Offset.
