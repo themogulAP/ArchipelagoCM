@@ -88,6 +88,12 @@ def get_rules_dict(world: "MMXCMWorld") -> dict[str, Any]:
         elif location_data.parent_region == "Central Tower Full":
                rules[location_name] = lambda state: state.has("Central Tower Access Code", player)
 
+        elif location_data.parent_region == "Central Tower Tails":
+                rules[location_name] = lambda state: (
+                        state.has("Central Tower Access Code", player) and
+                        state.has("Central Key", player)
+                )
+
         elif location_data.parent_region == "Tianna Camp":
                rules[location_name] = lambda state: state.has("Tianna Camp Access Code", player)
 

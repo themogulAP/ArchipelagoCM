@@ -104,6 +104,7 @@ class MMXCMWorld(World):
 
         # Create our Central Tower main hub and full verision (when code is received)!
         central_tower_hub_region = Region("Central Tower Hub", self.player, self.multiworld)
+        central_tower_tails_region = Region("Central Tower Tails", self.player, self.multiworld)
         central_tower_full_region = Region("Central Tower Full", self.player, self.multiworld)
         central_tower_boss_arena_region = Region("Central Tower Boss Arena", self.player, self.multiworld)
         far_east_hq_region = Region("Far East HQ", self.player, self.multiworld)
@@ -121,6 +122,12 @@ class MMXCMWorld(World):
         central_tower_full_region.connect(
             central_tower_boss_arena_region
         )
+
+        central_tower_full_region.connect(
+            central_tower_tails_region,
+            rule=lambda state: state.has("Central Key", self.player)
+        )
+
         central_tower_boss_arena_region.connect(
             far_east_hq_region,
             rule=lambda state: state.has_group("Rebellion Medals", self.player, 9) and

@@ -309,211 +309,211 @@ CENTRAL_TOWER_LOCATIONS: dict[str, MMXCMLocationData] = {
     "Special Sealed Area 1st Room Enter The Intruder": MMXCMLocationData(
         name="Special Sealed Area 1-4 1",
         code=49,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A2148, bit_position=4)
     ),
     "Special Sealed Area 1st Room The Throne": MMXCMLocationData(
         name="Special Sealed Area 1-4 2",
         code=50,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A2148, bit_position=5)
     ),
     "Special Sealed Area 1st Room Capital": MMXCMLocationData(
         name="Special Sealed Area 1-4 3",
         code=51,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A2148, bit_position=6)
     ),
     "Special Sealed Area 1st Room Battle Epsilon": MMXCMLocationData(
         name="Special Sealed Area 1-4 4",
         code=52,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A2148, bit_position=7)
     ),
     "Special Sealed Area 1st Room Epsilon 1": MMXCMLocationData(
         name="Special Sealed Area 1-4 5",
         code=53,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=0)
     ),
     "Special Sealed Area 1st Room Ruins Passageway": MMXCMLocationData(
         name="Special Sealed Area 1-4 6",
         code=54,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=1)
     ),
     "Special Sealed Area 1st Room The End": MMXCMLocationData(
         name="Special Sealed Area 1-4 7",
         code=55,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=2)
     ),
     "Special Sealed Area 1st Room Epsilon 2": MMXCMLocationData(
         name="Special Sealed Area 1-4 8",
         code=56,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=3)
     ),
     "Special Sealed Area 1st Room Display Device": MMXCMLocationData(
         name="Special Sealed Area 1-4 9",
         code=57,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=4)
     ),
     "Special Sealed Area 1st Room Grave Ruins": MMXCMLocationData(
         name="Special Sealed Area 1-4 10",
         code=58,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=5)
     ),
     "Special Sealed Area 2nd Room Flying Mechs": MMXCMLocationData(
         name="Special Sealed Area Second Room 1",
         code=59,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=6)
     ),
     "Special Sealed Area 2nd Room Redips Soldier": MMXCMLocationData(
         name="Special Sealed Area Second Room 2",
         code=60,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214F, bit_position=7)
     ),
     "Special Sealed Area 2nd Room Aerial Assault": MMXCMLocationData(
         name="Special Sealed Area Second Room 3",
         code=61,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=0)
     ),
     "Special Sealed Area 2nd Room Dragoon": MMXCMLocationData(
         name="Special Sealed Area Second Room 4",
         code=62,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=1)
     ),
     "Special Sealed Area 2nd Room The Chair": MMXCMLocationData(
         name="Special Sealed Area Second Room 5",
         code=63,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=2)
     ),
     "Special Sealed Area 2nd Room Transform Ability": MMXCMLocationData(
         name="Special Sealed Area Second Room 6",
         code=64,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=3)
     ),
     "Special Sealed Area 2nd Room Transforming Mech": MMXCMLocationData(
         name="Special Sealed Area Second Room 7",
         code=65,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=4)
     ),
     "Special Sealed Area 2nd Room Coliseum": MMXCMLocationData(
         name="Special Sealed Area Second Room 8",
         code=66,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=5)
     ),
     "Special Sealed Area 2nd Room Battle Redips": MMXCMLocationData(
         name="Special Sealed Area Second Room 9",
         code=67,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=6)
     ),
     "Special Sealed Area 2nd Room Judgment": MMXCMLocationData(
         name="Special Sealed Area Second Room 10",
         code=68,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214E, bit_position=7)
     ),
     "Special Sealed Area 3rd Room Redips 1": MMXCMLocationData(
         name="Special Sealed Area Third Room 1",
         code=69,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=0)
     ),
     "Special Sealed Area 3rd Room Space": MMXCMLocationData(
         name="Special Sealed Area Third Room 2",
         code=70,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=1)
     ),
     "Special Sealed Area 3rd Room Epsilon": MMXCMLocationData(
         name="Special Sealed Area Third Room 3",
         code=71,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=2)
     ),
     "Special Sealed Area 3rd Room Redips 2": MMXCMLocationData(
         name="Special Sealed Area Third Room 4",
         code=72,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=3)
     ),
     "Special Sealed Area 3rd Room Redips 3": MMXCMLocationData(
         name="Special Sealed Area Third Room 5",
         code=73,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=4)
     ),
     "Special Sealed Area 3rd Room Tails": MMXCMLocationData(
         name="Special Sealed Area Third Room 6",
         code=74,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=5)
     ),
     "Special Sealed Area 3rd Room Parts": MMXCMLocationData(
         name="Special Sealed Area Third Room 7",
         code=75,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=6)
     ),
     "Special Sealed Area 3rd Room Scores Settled": MMXCMLocationData(
         name="Special Sealed Area Third Room 8",
         code=76,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214D, bit_position=7)
     ),
     "Special Sealed Area By Ninetales Great Redips": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 1",
         code=77,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=0)
     ),
     "Special Sealed Area By Ninetales Tails Front": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 2",
         code=78,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=1)
     ),
     "Special Sealed Area By Ninetales Tails Back": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 3",
         code=79,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=2)
     ),
     "Special Sealed Area By Ninetales X's Weapons": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 4",
         code=80,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=3)
     ),
     "Special Sealed Area By Ninetales Zero's Weapons": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 5",
         code=81,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=4)
     ),
     "Special Sealed Area By Ninetales Cinnamon's Weapons": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 6",
         code=82,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=5)
     ),
     "Special Sealed Area By Ninetales Massimo's Weapons": MMXCMLocationData(
         name="Special Sealed Area By Ninetales 7",
         code=83,
-        parent_region="Central Tower Full",
+        parent_region="Central Tower Tails",
         ram_data=MMXCMRamData(0x804A214C, bit_position=6)
     ),
 }
