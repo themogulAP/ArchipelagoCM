@@ -142,7 +142,7 @@ CODE_PATCHES = [
         # STORES BIG FREE CHUNK Flags back to Zero!
         # RAM Address: 8000d93c
         "address": 0x0a93c,
-        "data": [0x90, 0x60, 0x00, 0x84]  # stw r3, 0x0084 (r4) -------- STORE WORD
+        "data": [0x90, 0x64, 0x00, 0x84]  # stw r3, 0x0084 (r4) -------- STORE WORD
     },
 # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
     {
@@ -167,7 +167,7 @@ CODE_PATCHES = [
         # Sets Rest of Flags to Zero!
         # RAM Address: 8000d968
         "address": 0x0a968,
-        "data": [0x90, 0x60, 0x00, 0xB0]  # stw r3, 0x00B0(r4)
+        "data": [0x90, 0x64, 0x00, 0xB0]  # stw r3, 0x00B0(r4)
     },
 
     {
