@@ -110,6 +110,8 @@ class MMXCMWorld(World):
         far_east_hq_region = Region("Far East HQ", self.player, self.multiworld)
         self.multiworld.regions.append(central_tower_hub_region)
         self.multiworld.regions.append(central_tower_full_region)
+        self.multiworld.regions.append(central_tower_tails_region)
+        self.multiworld.regions.append(central_tower_boss_arena_region)
 
         menu_region.connect(central_tower_hub_region)
 
