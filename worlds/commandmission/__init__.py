@@ -88,7 +88,7 @@ class MMXCMWorld(World):
         # This will serve as a Master Dictionary for our loops, describing the codes needed for the same area.
         region_data = {
             "Lagrano Ruins": "Lagrano Ruins Access Code",
-            "Central Tower Boss Arena": "Central Tower Access Code",
+            # "Central Tower Boss Arena": "Central Tower Access Code", # This is handled by manual logic with the regions
             "Tianna Camp": "Tianna Camp Access Code",
             "Gaudile Laboratory": "Gaudile Laboratory Access Code",
             "Ulfat Factory": "Ulfat Factory Access Code",
