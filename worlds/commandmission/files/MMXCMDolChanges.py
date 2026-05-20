@@ -82,6 +82,21 @@ CODE_PATCHES = [
         "address": 0x0A914,
         "data": [0x98, 0x64, 0x00, 0x63]
     },
+
+# -----------------------QoL Updates -------------------
+    {
+        # Set the Value to Turn off the Green Blockers on Items in Chapter 7.
+        # RAM Address: 8000d918
+        "address": 0x0a918,
+        "data": [0x38, 0x60, 0x00, 0xFF]  # Value is 255
+    },
+    {
+        # STORE The Value for turning off green blockers.
+        # RAM Address: 8000d91C
+        "address": 0x0a91C,
+        "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
+    },
+
     {
         # -----------------------------SOFT LOCK PREVENT IN CHAPTER 2-----------------------------
         # Prevents the NPC from being removed after battle or entering the room.
@@ -330,19 +345,6 @@ CODE_PATCHES = [
         # RAM Address: 80077e7c
         "address": 0x074E7C,
         "data": [0x60, 0x00, 0x00, 0x00]  # NOP
-    },
-    # -----------------------QoL Updates -------------------
-    {
-        # Set the Value to Turn off the Green Blockers on Items in Chapter 7.
-        # RAM Address: 8000d918
-        "address": 0x0a918,
-        "data": [0x38, 0x60, 0x00, 0xFF]  # Value is 255
-    },
-    {
-        # STORE The Value for turning off green blockers.
-        # RAM Address: 8000d91C
-        "address": 0x0a91C,
-        "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
     },
     # -----------------------Prevent Mech Items from going to Inventory-------------------
     {
