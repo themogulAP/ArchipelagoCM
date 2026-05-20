@@ -59,76 +59,115 @@ CODE_PATCHES = [
         "data": [0x98, 0x64, 0x00, 0x54]
     },
     {
-        # Sets Preon Battle 2 E and The Visual Blockers in S0203
+        # Sets Door to Open before Ninetails Door
         # RAM: 8000d908
         "address": 0x0A908,
+        "data": [0x38, 0x60, 0x00, 0x20]
+    },
+    {
+        # STORES Door to Open before Ninetails Door
+        # RAM: 8000d90c
+        "address": 0x0A90C,
+        "data": [0x98, 0x64, 0x00, 0x5C] # 98 = Store BYTE in PPC.
+    },
+    {
+        # Sets BYTE FOR Preon Battle 2E and Visual Blockers in S0203
+        # RAM: 8000d910
+        "address": 0x0A910,
         "data": [0x38, 0x60, 0x00, 0xF4]
     },
     {
         # Stores BYTE FOR Preon Battle 2E and Visual Blockers in S0203
-        # RAM: 8000d90c
-        "address": 0x0A90C,
-        "data": [0x98, 0x64, 0x00, 0x62] # 98 = Store BYTE in PPC.
+        # RAM: 8000d914
+        "address": 0x0A914,
+        "data": [0x98, 0x64, 0x00, 0x62]
     },
     {
-        # Sets the Doors for Jango, Bedroom and Central Command Door
-        # RAM: 8000d910
-        "address": 0x0A910,
-        "data": [0x38, 0x60, 0x00, 0x19]
+        # Sets the Doors for Jango, Bedroom, CC Door
+        # RAM Address: 8000d918
+        "address": 0x0a918,
+        "data": [0x38, 0x60, 0x00, 0x19]  # Value is 25
     },
     {
         # STORES the Doors for Jango, Bedroom, and CC Door -
-        # RAM: 8000d914
-        "address": 0x0A914,
-        "data": [0x98, 0x64, 0x00, 0x63]
-    },
-
-# -----------------------QoL Updates -------------------
-    {
-        # Set the Value to Turn off the Green Blockers on Items in Chapter 7.
-        # RAM Address: 8000d918
-        "address": 0x0a918,
-        "data": [0x38, 0x60, 0x00, 0xFF]  # Value is 255
-    },
-    {
-        # STORE The Value for turning off green blockers.
         # RAM Address: 8000d91C
         "address": 0x0a91C,
-        "data": [0x98, 0x64, 0x00, 0x38]  # stb r3, 0x0038 (r4)
+        "data": [0x98, 0x64, 0x00, 0x63]  # stb r3, 0x0063 (r4)
     },
-
+# -----------------------QoL Updates -------------------
+    {
+        # Sets the Value to turn off green blockers in Chapter 7
+        # Ram Address: 8000d920
+        "address": 0x0a920,
+        "data": [0x38, 0x60, 0x00, 0xFF] # Sets 255 as value.
+    },
+    {
+        # STORES the Value to Turn off the Green Blockers on Items in Chapter 7.
+        # Ram Address: 8000d924
+        "address": 0x0a924,
+        "data": [0x98, 0x64, 0x00, 0x38] # Stores bit at 0x0038.
+    },
 # -------------------------------CHAPTER 9 DOORS AND LASERS QoL---------------------------------------
     {
         # SET Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d920
-        "address": 0x0a920,
-        "data": [0x38, 0x60, 0x00, 0xF0] # Sets 240 as value.
+        # RAM Address: 8000d928
+        "address": 0x0a928,
+        "data": [0x38, 0x60, 0x00, 0xF0]  # li r3, 240
     },
     {
         # STORE Value for S0901 Door, 902 Doors, 903 Door
-        # Ram Address: 8000d924
-        "address": 0x0a924,
-        "data": [0x98, 0x64, 0x00, 0x47] # Stores bit at 0x0047.
-    },
-
-    # ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
-    {
-        # Set S0506 STOPPER to on.
-        # RAM Address: 8000d928
-        "address": 0x0a928,
-        "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8
-    },
-    {
-        # STORE S0506 STOPPER to on.
         # RAM Address: 8000d92C
         "address": 0x0a92C,
-        "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3 0x00AA (r4)
+        "data": [0x98, 0x64, 0x00, 0x47]  # stb r3 0x0047 (r4)
     },
     {
-        # Set all other flags back to 0.
+        # NOP - Can be used later for other flags!
         # RAM Address: 8000d930
         "address": 0x0a930,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    {
+        # NOP - Can be used later for other flags!
+        # RAM Address: 8000d934
+        "address": 0x0a934,
+        "data": [0x60, 0x00, 0x00, 0x00]  # NOP
+    },
+    {
+        # Set BIG FREE CHUNK Flags back to Zero!
+        # RAM Address: 8000d938
+        "address": 0x0a938,
         "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0
+    },
+    {
+        # STORES BIG FREE CHUNK Flags back to Zero!
+        # RAM Address: 8000d93c
+        "address": 0x0a93c,
+        "data": [0x90, 0x60, 0x00, 0x84]  # stw r3, 0x0084 (r4) -------- STORE WORD
+    },
+# ------------------------------CHAPTER 5 SOFT LOCK FIX (ELEVATOR) ------------------------------------
+    {
+        # Sets Elevator Chapter 5 Blocker Flag!
+        # RAM Address: 8000d95c
+        "address": 0x0a95c,
+        "data": [0x38, 0x60, 0x00, 0x08]  # li r3, 8 (r4)
+    },
+    {
+        # STORES Elevator Chapter 5 Blocker Flag!
+        # RAM Address: 8000d960
+        "address": 0x0a960,
+        "data": [0x98, 0x64, 0x00, 0xAA]  # stb r3, 0x00AA (r4)
+    },
+    {
+        # Sets Rest of Flags to Zero!
+        # RAM Address: 8000d964
+        "address": 0x0a964,
+        "data": [0x38, 0x60, 0x00, 0x00]  # li r3, 0 (r4)
+    },
+    {
+        # Sets Rest of Flags to Zero!
+        # RAM Address: 8000d968
+        "address": 0x0a968,
+        "data": [0x90, 0x60, 0x00, 0xB0]  # stw r3, 0x00B0(r4)
     },
 
     {
