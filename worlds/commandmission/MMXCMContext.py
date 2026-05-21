@@ -530,6 +530,11 @@ class MMXCMContext(CommonContext):
                 # Dynamic LOGIC for all Access Codes to change the RAM addresses once received.
                 elif item_name in ACCESS_CODE_PATCHES:
                     logger.info(f"{item_name} acquired. Access has been granted.")
+
+                    # Special Instruction for Central Tower Access Code for Clarity.
+                    if item_name == "Central Tower Access Code":
+                        logger.info("You may now proceed in Central Tower behind the tape wall.")
+
                     self.update_received_idx(last_recv_idx)
                     continue
 
